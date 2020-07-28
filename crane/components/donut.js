@@ -17,6 +17,7 @@ module.exports = {
     {
       component: 'v-chart',
       props: {
+        class: "pie-chart",
         $options: {
           backgroundColor: 'transparent',
           $legend: {

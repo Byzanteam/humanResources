@@ -1,0 +1,14 @@
+.map-chart.echarts {
+  width: 1100px;
+  height: 900px;
+}
+
+.pie-chart.echarts {
+  width: 460px;
+  height: 218px;
+}
+
+.bar-chart.echarts {
+  width: 400px;
+  height: 270px;
+}

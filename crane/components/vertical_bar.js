@@ -22,6 +22,7 @@ module.exports = {
       id: 'demand-vertical-bar-content',
       component: 'v-chart',
       props: {
+        class: 'bar-chart',
         $options: {
           $grid: {
             top: '12%',

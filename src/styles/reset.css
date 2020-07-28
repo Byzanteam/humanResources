@@ -118,7 +118,8 @@ input::placeholder {
 @import './supply.css';
 @import './key_talent.css';
 @import './talents_indicator_summary.css';
-@import "talent_competitiveness.css";
+@import "./talent_competitiveness.css";
+@import './resources.css';
 
 .table {
   max-height: none !important;

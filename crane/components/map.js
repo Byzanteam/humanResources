@@ -24,6 +24,7 @@ module.exports = {
       component: 'v-chart',
       props: {
         'v-if': 'results',
+        class: "map-chart",
         $options: {
           backgroundColor: 'transparent',
           $tooltip: {
