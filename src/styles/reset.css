@@ -141,8 +141,8 @@ input::placeholder {
   max-width: 192px;
   position: relative;
   opacity: 0;
-  top: 25px;
-  right: 0;
+  top: 15px;
+  right: 10px;
   transition: all .25s linear;
   border-radius: 4px;
   padding: 6px;
@@ -155,9 +155,18 @@ input::placeholder {
   cursor: pointer;
 }
 
+.line-break-talent-demand::after {
+  width: 560px;
+  max-width: none;
+}
+
+.line-break-degree::after {
+  width: 500px;
+  max-width: none;
+  right: 210px;
+}
+
 [data-content]:hover:after {
-  top: 15px;
-  right: 10px;
   opacity: 1;
   transition: opacity .5s linear;
 }

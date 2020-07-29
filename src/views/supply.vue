@@ -36,7 +36,7 @@
     <div ref="talent-index-icon" :style="{color: '#6ad6ff', fontSize: '14px', fontWeight: '400', textAlign: 'left', position: 'absolute', top: '305px', left: '40px'}">
       >>
     </div>
-    <div ref="talent-demand" data-content="岗位排名：根据「区域」「时间」进行筛选统计查阅对应的企业人才需求岗位排名\n岗位薪资排名：根据「区域」「时间」进行筛选统计查阅岗位的薪资排名情况" :style="{color: '#fff', fontSize: '18px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', cursor: 'pointer', position: 'absolute', top: '302px', left: '74px'}">
+    <div ref="talent-demand" class="line-break-talent-demand" data-content="岗位排名：根据「区域」「时间」进行筛选统计查阅对应的企业人才需求岗位排名岗位薪资排名：根据「区域」「时间」进行筛选统计查阅岗位的薪资排名情况" :style="{color: '#fff', fontSize: '18px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', cursor: 'pointer', position: 'absolute', top: '302px', left: '74px'}">
       需求岗位排名
     </div>
     <brick-tabs :tabNavs="craneStates.tabNavs" :activeTab="craneStates.tabCurrent" :style="{position: 'absolute', top: '352px', left: '110px'}" v-model="craneStates.tabCurrent" />
@@ -99,7 +99,7 @@
     <div ref="degree-analysis-icon" :style="{color: '#6ad6ff', fontSize: '14px', fontWeight: '400', textAlign: 'left', position: 'absolute', top: '717px', left: '1504px'}">
       >>
     </div>
-    <div ref="degree-analysis-title" data-content="人才学历： 根据「区域」「时间」进行筛选统计对应的人才学历分布情况\n人才职称：根据「区域」「时间」进行筛选统计对应的人才职称分布情况" :style="{color: '#fff', fontSize: '18px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', cursor: 'pointer', position: 'absolute', top: '714px', left: '1536px'}">
+    <div ref="degree-analysis-title" class="line-break-degree" data-content="人才学历： 根据「区域」「时间」进行筛选统计对应的人才学历分布情况人才职称：根据「区域」「时间」进行筛选统计对应的人才职称分布情况" :style="{color: '#fff', fontSize: '18px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', cursor: 'pointer', position: 'absolute', top: '714px', left: '1536px'}">
       学历职称分析
     </div>
     <brick-tabs :tabNavs="craneStates.chartTabNavs" :activeTab="craneStates.chartTabCurrent" :style="{position: 'absolute', top: '764px', left: '1586px'}" v-model="craneStates.chartTabCurrent" />

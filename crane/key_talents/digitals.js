@@ -179,7 +179,6 @@ module.exports = [
     component: 'div',
     position: [1536, 46],
     props: {
-      'data-content': '根据「区域」「时间」「行业类型」进行筛选统计对应行业的历年紧缺人才数量情况',
       $style: {
         color: '#fff',
         fontSize: '18px',

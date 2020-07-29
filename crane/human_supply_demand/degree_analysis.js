@@ -18,7 +18,8 @@ module.exports = [
     component: 'div',
     position: [1536, 714],
     props: {
-      'data-content': '人才学历： 根据「区域」「时间」进行筛选统计对应的人才学历分布情况\\n人才职称：根据「区域」「时间」进行筛选统计对应的人才职称分布情况',
+      class: 'line-break-degree',
+      'data-content': '人才学历： 根据「区域」「时间」进行筛选统计对应的人才学历分布情况人才职称：根据「区域」「时间」进行筛选统计对应的人才职称分布情况',
       $style: {
         color: '#fff',
         fontSize: '18px',
