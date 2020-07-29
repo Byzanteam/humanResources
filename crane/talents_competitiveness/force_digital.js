@@ -18,6 +18,7 @@ module.exports = {
       component: '@byzanteam/vis-components/digital-roll',
       props: {
         'v-if': 'results',
+        'data-content': '根据选择的对应十大指标体系结合「区域」统计分析该区域的综合竞争力指数',
         titlePosition: 'left',
         $content: {
           title: '竞争力指数',

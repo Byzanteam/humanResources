@@ -233,6 +233,7 @@ module.exports = {
       component: 'div',
       position: [74, 46],
       props: {
+        'data-content': '根据选择的对应十大指标体系结合「区域」检索对应区域对应的指标排名情况',
         $style: {
           color: '#fff',
           fontSize: '18px',
@@ -262,6 +263,7 @@ module.exports = {
       component: 'div',
       position: [1536, 216],
       props: {
+        'data-content': '区域为省级可横向对比市级的指标指数对比，区域为市级可横向对应区级的指标指数对比',
         $style: {
           color: '#fff',
           fontSize: '18px',
