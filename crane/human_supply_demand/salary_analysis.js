@@ -20,6 +20,7 @@ module.exports = [
     component: 'div',
     position: [74, 714],
     props: {
+      'data-content': '默认为所有岗位的平均薪资，可根据「岗位名」进行筛选统计查阅对应行位当年平均薪资与历年的平均薪资',
       $style: {
         color: '#fff',
         fontSize: '18px',
