@@ -260,16 +260,31 @@ export default resources
   }
 }
 
+[data-content]:after {
+  display: inline-flex;
+  width: auto;
+  max-width: 192px;
+  position: relative;
+  opacity: 0;
+  top: 25px;
+  right: 0;
+  transition: all .25s linear;
+  border-radius: 4px;
+  padding: 6px;
+  background-color: #566374f0;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 400;
+  content: attr(data-content);
+}
+
 [data-content]:hover {
   &:after {
-    border-radius: 4px;
-    /*line-height: 18px;*/
-    padding: 6px;
-    background-color: #566374f0;
-    color: #ffffff;
-    font-size: 14px;
-    font-weight: 400;
-    content: attr(data-content);
+    top: 15px;
+    right: 10px;
+    opacity: 1;
+    transition: all .25s linear;
+    transition-duration: .25s;
   }
 }
 </style>
