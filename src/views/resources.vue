@@ -20,19 +20,19 @@
     <div @click="()=>[openNavigator()]" :style="{cursor: 'pointer', width: '454px', color: '#fff', fontSize: '42px', fontWeight: 600, textAlign: 'center', lineHeight: 1, position: 'absolute', top: '38px', left: '733px'}">
       全省人才资源态势总览
     </div>
-    <div ref="talent-index" :style="{color: '#fff', fontSize: '18px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', position: 'absolute', top: '262px', left: '73px'}">
+    <div ref="talent-index" data-content="根据「区域」选择分析该地图人才指数分析数据，用于人才指数对比" :style="{color: '#fff', fontSize: '18px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', position: 'absolute', top: '262px', left: '73px'}">
       人才指数综合分析
     </div>
-    <div ref="talent-education" :style="{color: '#fff', fontSize: '18px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', position: 'absolute', top: '704px', left: '73px'}">
+    <div ref="talent-education" data-content="根据「区域」选择统计该区域人才学历分布情况" :style="{color: '#fff', fontSize: '18px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', position: 'absolute', top: '704px', left: '73px'}">
       人才学历层次
     </div>
-    <div ref="talent-industry" :style="{color: '#fff', fontSize: '18px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', position: 'absolute', top: '46px', left: '1530px'}">
+    <div ref="talent-industry" data-content="以「区域」作为筛选条件，统计分析历史简历数据判断岗位平均的流动时间并进行排名" :style="{color: '#fff', fontSize: '18px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', position: 'absolute', top: '46px', left: '1530px'}">
       人才流动岗位排名
     </div>
-    <div ref="industry-talent" :style="{color: '#fff', fontSize: '18px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', position: 'absolute', top: '388px', left: '1530px'}">
+    <div ref="industry-talent" data-content="以「区域」作为筛选条件，统计该区域人才所在行业分布" :style="{color: '#fff', fontSize: '18px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', position: 'absolute', top: '388px', left: '1530px'}">
       行业人才占比
     </div>
-    <div ref="talent-demand" :style="{color: '#fff', fontSize: '18px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', position: 'absolute', top: '704px', left: '1530px'}">
+    <div ref="talent-demand" data-content="以「区域」作为筛选条件，统计各个行业发布的招聘人才数量" :style="{color: '#fff', fontSize: '18px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', position: 'absolute', top: '704px', left: '1530px'}">
       各行业人才需求
     </div>
     <div ref="talent-index-icon" :style="{color: '#6ad6ff', fontSize: '14px', fontWeight: '400', textAlign: 'left', position: 'absolute', top: '265px', left: '38px'}">
@@ -64,8 +64,8 @@
     <div ref="number-bg" :style="{height: '80px', width: '180px', backgroundColor: '#6ad6ff1a', borderRadius: '5px', position: 'absolute', top: '432px', left: '240px'}" />
     <div ref="quality-bg" :style="{height: '80px', width: '180px', backgroundColor: '#6ad6ff1a', borderRadius: '5px', position: 'absolute', top: '540px', left: '40px'}" />
     <div ref="synthesis-bg" :style="{height: '80px', width: '180px', backgroundColor: '#6ad6ff1a', borderRadius: '5px', position: 'absolute', top: '540px', left: '240px'}" />
-    <div ref="production-bg" :style="{height: '50px', width: '400px', backgroundColor: '#6ad6ff1a', borderRadius: '5px', position: 'absolute', top: '50px', left: '30px'}" />
-    <div ref="production-bg" :style="{height: '50px', width: '400px', backgroundColor: '#6ad6ff1a', borderRadius: '5px', position: 'absolute', top: '130px', left: '30px'}" />
+    <div ref="production-bg" data-content="根据「区域」选择统计该区域 2019 年地区生产总值" :style="{height: '50px', width: '400px', backgroundColor: '#6ad6ff1a', borderRadius: '5px', position: 'absolute', top: '50px', left: '30px'}" />
+    <div ref="production-bg" data-content="根据「区域」选择统计该地区人才库中学历为「硕士」「博士」的人才数量" :style="{height: '50px', width: '400px', backgroundColor: '#6ad6ff1a', borderRadius: '5px', position: 'absolute', top: '130px', left: '30px'}" />
     <div ref="departments-loader" :style="{position: 'absolute', top: '125px', left: '929px'}">
       <brick-radio-button-select ref="departments-select" :options="selectOptions" v-model="craneStates.department" placeholder="全省" />
     </div>

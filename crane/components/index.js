@@ -86,6 +86,7 @@ module.exports = {
       component: 'div',
       position: [73, 262],
       props: {
+        'data-content': '根据「区域」选择分析该地图人才指数分析数据，用于人才指数对比',
         $style: {
           color: '#fff',
           fontSize: '18px',
@@ -101,6 +102,7 @@ module.exports = {
       component: 'div',
       position: [73, 704],
       props: {
+        'data-content': '根据「区域」选择统计该区域人才学历分布情况',
         $style: {
           color: '#fff',
           fontSize: '18px',
@@ -116,6 +118,7 @@ module.exports = {
       component: 'div',
       position: [1530, 46],
       props: {
+        'data-content': '以「区域」作为筛选条件，统计分析历史简历数据判断岗位平均的流动时间并进行排名',
         $style: {
           color: '#fff',
           fontSize: '18px',
@@ -131,6 +134,7 @@ module.exports = {
       component: 'div',
       position: [1530, 388],
       props: {
+        'data-content': '以「区域」作为筛选条件，统计该区域人才所在行业分布',
         $style: {
           color: '#fff',
           fontSize: '18px',
@@ -146,6 +150,7 @@ module.exports = {
       component: 'div',
       position: [1530, 704],
       props: {
+        'data-content': '以「区域」作为筛选条件，统计各个行业发布的招聘人才数量',
         $style: {
           color: '#fff',
           fontSize: '18px',
@@ -429,6 +434,7 @@ module.exports = {
       component: 'div',
       position: [30, 50],
       props: {
+        'data-content': '根据「区域」选择统计该区域 2019 年地区生产总值',
         $style: {
           height: '50px',
           width: '400px',
@@ -442,6 +448,7 @@ module.exports = {
       component: 'div',
       position: [30, 130],
       props: {
+        'data-content': '根据「区域」选择统计该地区人才库中学历为「硕士」「博士」的人才数量',
         $style: {
           height: '50px',
           width: '400px',
