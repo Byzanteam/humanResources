@@ -14,16 +14,16 @@
     <div ref="activity-number" :style="{color: '#fff', fontSize: '18px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', position: 'absolute', top: '155px', left: '74px'}">
       引才活动数量统计
     </div>
-    <div ref="high-level-talent" data-content="默认显示当年高层次人才引进人数，可根据「区域」「时间」查看对应区域与年份的引才人数与历年的引进数量" :style="{color: '#fff', fontSize: '18px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', position: 'absolute', top: '631px', left: '74px'}">
+    <div ref="high-level-talent" data-content="默认显示当年高层次人才引进人数，可根据「区域」「时间」查看对应区域与年份的引才人数与历年的引进数量" :style="{color: '#fff', fontSize: '18px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', cursor: 'pointer', position: 'absolute', top: '631px', left: '74px'}">
       高层次人才引进统计
     </div>
-    <div ref="introduce-place" data-content="根据「区域」「时间」筛选统计引才活动发布方分布" :style="{color: '#fff', fontSize: '18px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', position: 'absolute', top: '46px', left: '1536px'}">
+    <div ref="introduce-place" data-content="根据「区域」「时间」筛选统计引才活动发布方分布" :style="{color: '#fff', fontSize: '18px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', cursor: 'pointer', position: 'absolute', top: '46px', left: '1536px'}">
       引进渠道分析
     </div>
-    <div ref="talent-rank" data-content="根据活动要求需要的人类类型进行统计分析" :style="{color: '#fff', fontSize: '18px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', position: 'absolute', top: '366px', left: '1536px'}">
+    <div ref="talent-rank" data-content="根据活动要求需要的人类类型进行统计分析" :style="{color: '#fff', fontSize: '18px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', cursor: 'pointer', position: 'absolute', top: '366px', left: '1536px'}">
       引进人才职称分布
     </div>
-    <div ref="talent-education" data-content="根据「区域」「时间」筛选对应区域的引进人才的学历分布情况" :style="{color: '#fff', fontSize: '18px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', position: 'absolute', top: '691px', left: '1536px'}">
+    <div ref="talent-education" data-content="根据「区域」「时间」筛选对应区域的引进人才的学历分布情况" :style="{color: '#fff', fontSize: '18px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', cursor: 'pointer', position: 'absolute', top: '691px', left: '1536px'}">
       引进人才学历分布
     </div>
     <div ref="activity-number-icon" :style="{color: '#6ad6ff', fontSize: '14px', fontWeight: '400', textAlign: 'left', position: 'absolute', top: '157px', left: '40px'}">

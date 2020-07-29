@@ -25,6 +25,7 @@ module.exports = [
         fontWeight: '600',
         textAlign: 'left',
         letterSpacing: '1px',
+        cursor: 'pointer',
       },
     },
     content: '重点行业需求排名',

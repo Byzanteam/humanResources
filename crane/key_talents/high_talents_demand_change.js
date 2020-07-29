@@ -23,6 +23,7 @@ module.exports = [
         fontWeight: '600',
         textAlign: 'left',
         letterSpacing: '1px',
+        cursor: 'pointer',
       },
     },
     content: '高层次人才供需变化',

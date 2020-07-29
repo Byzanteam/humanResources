@@ -186,6 +186,7 @@ module.exports = [
         fontWeight: '600',
         textAlign: 'left',
         letterSpacing: '1px',
+        cursor: 'pointer',
       },
     },
     content: '区域紧缺人才地图',

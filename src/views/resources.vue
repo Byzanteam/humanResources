@@ -20,19 +20,19 @@
     <div @click="()=>[openNavigator()]" :style="{cursor: 'pointer', width: '454px', color: '#fff', fontSize: '42px', fontWeight: 600, textAlign: 'center', lineHeight: 1, position: 'absolute', top: '38px', left: '733px'}">
       全省人才资源态势总览
     </div>
-    <div ref="talent-index" data-content="根据「区域」选择分析该地图人才指数分析数据，用于人才指数对比" :style="{color: '#fff', fontSize: '18px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', position: 'absolute', top: '262px', left: '73px'}">
+    <div ref="talent-index" data-content="根据「区域」选择分析该地图人才指数分析数据，用于人才指数对比" :style="{color: '#fff', fontSize: '18px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', cursor: 'pointer', position: 'absolute', top: '262px', left: '73px'}">
       人才指数综合分析
     </div>
-    <div ref="talent-education" data-content="根据「区域」选择统计该区域人才学历分布情况" :style="{color: '#fff', fontSize: '18px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', position: 'absolute', top: '704px', left: '73px'}">
+    <div ref="talent-education" data-content="根据「区域」选择统计该区域人才学历分布情况" :style="{color: '#fff', fontSize: '18px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', cursor: 'pointer', position: 'absolute', top: '704px', left: '73px'}">
       人才学历层次
     </div>
-    <div ref="talent-industry" data-content="以「区域」作为筛选条件，统计分析历史简历数据判断岗位平均的流动时间并进行排名" :style="{color: '#fff', fontSize: '18px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', position: 'absolute', top: '46px', left: '1530px'}">
+    <div ref="talent-industry" data-content="以「区域」作为筛选条件，统计分析历史简历数据判断岗位平均的流动时间并进行排名" :style="{color: '#fff', fontSize: '18px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', cursor: 'pointer', position: 'absolute', top: '46px', left: '1530px'}">
       人才流动岗位排名
     </div>
-    <div ref="industry-talent" data-content="以「区域」作为筛选条件，统计该区域人才所在行业分布" :style="{color: '#fff', fontSize: '18px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', position: 'absolute', top: '388px', left: '1530px'}">
+    <div ref="industry-talent" data-content="以「区域」作为筛选条件，统计该区域人才所在行业分布" :style="{color: '#fff', fontSize: '18px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', cursor: 'pointer', position: 'absolute', top: '388px', left: '1530px'}">
       行业人才占比
     </div>
-    <div ref="talent-demand" data-content="以「区域」作为筛选条件，统计各个行业发布的招聘人才数量" :style="{color: '#fff', fontSize: '18px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', position: 'absolute', top: '704px', left: '1530px'}">
+    <div ref="talent-demand" data-content="以「区域」作为筛选条件，统计各个行业发布的招聘人才数量" :style="{color: '#fff', fontSize: '18px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', cursor: 'pointer', position: 'absolute', top: '704px', left: '1530px'}">
       各行业人才需求
     </div>
     <div ref="talent-index-icon" :style="{color: '#6ad6ff', fontSize: '14px', fontWeight: '400', textAlign: 'left', position: 'absolute', top: '265px', left: '38px'}">
@@ -257,34 +257,6 @@ export default resources
     border-radius: 50%;
     background-color: #6ad6ff;
     color: #ffffff;
-  }
-}
-
-[data-content]:after {
-  display: inline-flex;
-  width: auto;
-  max-width: 192px;
-  position: relative;
-  opacity: 0;
-  top: 25px;
-  right: 0;
-  transition: all .25s linear;
-  border-radius: 4px;
-  padding: 6px;
-  background-color: #566374f0;
-  color: #ffffff;
-  font-size: 14px;
-  font-weight: 400;
-  content: attr(data-content);
-}
-
-[data-content]:hover {
-  &:after {
-    top: 15px;
-    right: 10px;
-    opacity: 1;
-    transition: all .25s linear;
-    transition-duration: .25s;
   }
 }
 </style>

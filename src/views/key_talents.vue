@@ -27,7 +27,7 @@
     <div :style="{color: '#6ad6ff', fontSize: '14px', fontWeight: '400', textAlign: 'left', position: 'absolute', top: '49px', left: '1504px'}">
       >>
     </div>
-    <div data-content="根据「区域」「时间」「行业类型」进行筛选统计对应行业的历年紧缺人才数量情况" :style="{color: '#fff', fontSize: '18px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', position: 'absolute', top: '46px', left: '1536px'}">
+    <div data-content="根据「区域」「时间」「行业类型」进行筛选统计对应行业的历年紧缺人才数量情况" :style="{color: '#fff', fontSize: '18px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', cursor: 'pointer', position: 'absolute', top: '46px', left: '1536px'}">
       区域紧缺人才地图
     </div>
     <div :style="{width: '400px', height: '50px', backgroundColor: 'rgba(106, 214, 255, .1)', borderRadius: '5px', position: 'absolute', top: '128px', left: '1490px'}" />
@@ -78,7 +78,7 @@
     <div :style="{color: '#6ad6ff', fontSize: '14px', fontWeight: '400', textAlign: 'left', position: 'absolute', top: '497px', left: '40px'}">
       >>
     </div>
-    <div data-content="根据「区域」「供需需求关键字」选择统计该地区人才库中学历为「硕士」「博士」的人才数量" :style="{color: '#fff', fontSize: '18px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', position: 'absolute', top: '494px', left: '74px'}">
+    <div data-content="根据「区域」「供需需求关键字」选择统计该地区人才库中学历为「硕士」「博士」的人才数量" :style="{color: '#fff', fontSize: '18px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', cursor: 'pointer', position: 'absolute', top: '494px', left: '74px'}">
       高层次人才供需变化
     </div>
     <data-loader ref="high-talents-demand-change-line-chart" v-slot="{ results: results }" :url="`/v1/components/09b74ddd-39de-493f-84ab-9d87fcf23fee/data?area=${craneStates.department ? craneStates.department.label : ''}`" method="get" :data="[[0, '暂无数据']]" :style="{width: '400px', height: '200px', position: 'absolute', top: '550px', left: '30px'}">
@@ -87,7 +87,7 @@
     <div ref="degree-analysis-icon" :style="{color: '#6ad6ff', fontSize: '14px', fontWeight: '400', textAlign: 'left', position: 'absolute', top: '806px', left: '40px'}">
       >>
     </div>
-    <div ref="degree-analysis-title" data-content="统计人才库中职称类型分布情况" :style="{color: '#fff', fontSize: '18px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', position: 'absolute', top: '803px', left: '74px'}">
+    <div ref="degree-analysis-title" data-content="统计人才库中职称类型分布情况" :style="{color: '#fff', fontSize: '18px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', cursor: 'pointer', position: 'absolute', top: '803px', left: '74px'}">
       高层次人才专业分布
     </div>
     <data-loader v-slot="{ results: results }" :url="`/v1/components/28b74ddd-39de-493f-84ab-9d87fcf23fee/data?industry=${craneStates.currentShortageType|| ''}`" method="get" :data="[[0, '暂无数据']]" :style="{width: '600px', height: '218px', overflow: 'scroll', position: 'absolute', top: '841px', left: '-110px'}">
@@ -96,7 +96,7 @@
     <div ref="degree-analysis-icon" :style="{color: '#6ad6ff', fontSize: '14px', fontWeight: '400', textAlign: 'left', position: 'absolute', top: '805px', left: '1504px'}">
       >>
     </div>
-    <div ref="degree-analysis-title" data-content="根据「区域」「时间」「行业类型」统计紧缺人才企业的行业分布情况" :style="{color: '#fff', fontSize: '18px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', position: 'absolute', top: '803px', left: '1536px'}">
+    <div ref="degree-analysis-title" data-content="根据「区域」「时间」「行业类型」统计紧缺人才企业的行业分布情况" :style="{color: '#fff', fontSize: '18px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', cursor: 'pointer', position: 'absolute', top: '803px', left: '1536px'}">
       紧缺人才专业分布
     </div>
     <data-loader v-slot="{ results: results }" :url="`/v1/components/33b74ddd-39de-493f-84ab-9d87fcf23fee/data?industry=${craneStates.currentShortageType|| ''}&year=${craneStates.year ? craneStates.year.getFullYear() : new Date(Date.now()).getFullYear()}`" method="get" :data="[[0, '暂无数据']]" :style="{width: '600px', height: '218px', overflow: 'scroll', position: 'absolute', top: '841px', left: '1350px'}">
