@@ -18,6 +18,7 @@ module.exports = [
     component: 'div',
     position: [74, 803],
     props: {
+      'data-content': '统计人才库中职称类型分布情况',
       $style: {
         color: '#fff',
         fontSize: '18px',

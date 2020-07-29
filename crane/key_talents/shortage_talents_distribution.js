@@ -18,6 +18,7 @@ module.exports = [
     component: 'div',
     position: [1536, 803],
     props: {
+      'data-content': '根据「区域」「时间」「行业类型」统计紧缺人才企业的行业分布情况',
       $style: {
         color: '#fff',
         fontSize: '18px',

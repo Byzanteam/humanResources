@@ -81,6 +81,7 @@ module.exports = [
         id: 'talent-age-index-content',
         component: '@byzanteam/vis-components/digital-roll',
         props: {
+          'data-content': '统计人才库中学历为「硕士」「博士」的人才数量',
           titlePosition: 'left',
           $content: {
             title: '人才数量统计',
@@ -142,6 +143,7 @@ module.exports = [
         id: 'talent-age-index-content',
         component: '@byzanteam/vis-components/digital-roll',
         props: {
+          'data-content': '统计历年举行的人才引进活动次数',
           titlePosition: 'left',
           $content: {
             title: '人才引进统计',
@@ -177,6 +179,7 @@ module.exports = [
     component: 'div',
     position: [1536, 46],
     props: {
+      'data-content': '根据「区域」「时间」「行业类型」进行筛选统计对应行业的历年紧缺人才数量情况',
       $style: {
         color: '#fff',
         fontSize: '18px',
@@ -230,6 +233,7 @@ module.exports = [
         id: 'talent-age-index-content',
         component: '@byzanteam/vis-components/digital-roll',
         props: {
+          'data-content': '默认统计所有行业供大于求判定为紧缺人才，可根据「区域」「时间」「行业类型」进行筛选统计对应行业的紧缺人才数量情况',
           titlePosition: 'left',
           $content: {
             title: '紧缺人才数量',

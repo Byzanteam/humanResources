@@ -16,6 +16,7 @@ module.exports = [
     component: 'div',
     position: [74, 494],
     props: {
+      'data-content': '根据「区域」「供需需求关键字」选择统计该地区人才库中学历为「硕士」「博士」的人才数量',
       $style: {
         color: '#fff',
         fontSize: '18px',
