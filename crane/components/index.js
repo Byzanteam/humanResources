@@ -434,7 +434,6 @@ module.exports = {
       component: 'div',
       position: [30, 50],
       props: {
-        'data-content': '根据「区域」选择统计该区域 2019 年地区生产总值',
         $style: {
           height: '50px',
           width: '400px',
@@ -448,7 +447,6 @@ module.exports = {
       component: 'div',
       position: [30, 130],
       props: {
-        'data-content': '根据「区域」选择统计该地区人才库中学历为「硕士」「博士」的人才数量',
         $style: {
           height: '50px',
           width: '400px',

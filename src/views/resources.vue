@@ -64,8 +64,8 @@
     <div ref="number-bg" :style="{height: '80px', width: '180px', backgroundColor: '#6ad6ff1a', borderRadius: '5px', position: 'absolute', top: '432px', left: '240px'}" />
     <div ref="quality-bg" :style="{height: '80px', width: '180px', backgroundColor: '#6ad6ff1a', borderRadius: '5px', position: 'absolute', top: '540px', left: '40px'}" />
     <div ref="synthesis-bg" :style="{height: '80px', width: '180px', backgroundColor: '#6ad6ff1a', borderRadius: '5px', position: 'absolute', top: '540px', left: '240px'}" />
-    <div ref="production-bg" data-content="根据「区域」选择统计该区域 2019 年地区生产总值" :style="{height: '50px', width: '400px', backgroundColor: '#6ad6ff1a', borderRadius: '5px', position: 'absolute', top: '50px', left: '30px'}" />
-    <div ref="production-bg" data-content="根据「区域」选择统计该地区人才库中学历为「硕士」「博士」的人才数量" :style="{height: '50px', width: '400px', backgroundColor: '#6ad6ff1a', borderRadius: '5px', position: 'absolute', top: '130px', left: '30px'}" />
+    <div ref="production-bg" :style="{height: '50px', width: '400px', backgroundColor: '#6ad6ff1a', borderRadius: '5px', position: 'absolute', top: '50px', left: '30px'}" />
+    <div ref="production-bg" :style="{height: '50px', width: '400px', backgroundColor: '#6ad6ff1a', borderRadius: '5px', position: 'absolute', top: '130px', left: '30px'}" />
     <div ref="departments-loader" :style="{position: 'absolute', top: '125px', left: '929px'}">
       <brick-radio-button-select ref="departments-select" :options="selectOptions" v-model="craneStates.department" placeholder="全省" />
     </div>
@@ -73,10 +73,10 @@
       <v-chart class="pie-chart" :options="{backgroundColor: 'transparent', legend: {formatter: legendText, type: 'scroll', icon: 'circle', itemWidth: 10, itemHeight: 10, left: 270, top: 'middle', itemGap: 9, orient: 'vertical', textStyle: {color: '#4b9bbe', fontSize: 12, lineHeight: 15}, inactiveColor: '#1C4159'}, color: ['#6ad6ff', '#4b9bbe', '#367290', '#275570', '#1c4159', '#153349'], series: [{type: 'pie', minAngle: 5, left: -140, radius: ['35%', '62%'], label: {show: false}, labelLine: {show: false}, data: results.map(item => ({value: item[0], name: item[1]})).sort(compare())}], tooltip: {trigger: 'item', formatter: pieTooltipFormatterFunc, backgroundColor: '#566374f0'}}" />
     </data-loader>
     <data-loader ref="part-production-value" v-slot="{ results: results }" :url="`/v1/components/12b74ddd-39de-493f-84ab-9d87fcf23fee/data?city=${craneStates.department ? craneStates.department.label : ''}`" method="get" :data="[[0]]" :style="{position: 'absolute', top: '56px', left: '130px'}">
-      <digital-roll ref="deal-number-total" v-if="results" titlePosition="left" :content="{title: '地区生产总值', prefix: '￥', suffix: '亿元', digital: results[0][0] || 0}" :options="{separator: ','}" :titleStyle="{color: '#367391', fontSize: '16px', fontWeight: '400'}" :prefixStyle="{color: '#367391', fontSize: '16px', fontWeight: '400'}" :suffixStyle="{color: '#367391', fontSize: '16px', fontWeight: '400'}" :digitalStyle="{fontSize: '32px', color: '#6ad6ff', fontWeight: '400', fontFamily: 'Oswald-Regular', format: '11', letterSpacing: '2.4px'}" />
+      <digital-roll ref="deal-number-total" v-if="results" data-content="根据「区域」选择统计该区域 2019 年地区生产总值" titlePosition="left" :content="{title: '地区生产总值', prefix: '￥', suffix: '亿元', digital: results[0][0] || 0}" :options="{separator: ','}" :titleStyle="{color: '#367391', fontSize: '16px', fontWeight: '400'}" :prefixStyle="{color: '#367391', fontSize: '16px', fontWeight: '400'}" :suffixStyle="{color: '#367391', fontSize: '16px', fontWeight: '400'}" :digitalStyle="{fontSize: '32px', color: '#6ad6ff', fontWeight: '400', fontFamily: 'Oswald-Regular', format: '11', letterSpacing: '2.4px'}" />
     </data-loader>
     <data-loader ref="talent-number" v-slot="{ results: results }" :url="`/v1/components/13b74ddd-39de-493f-84ab-9d87fcf23fee/data?area=${craneStates.department ? craneStates.department.label : ''}`" method="get" :data="[[0]]" :style="{position: 'absolute', top: '136px', left: '130px'}">
-      <digital-roll ref="talent-number-content" v-if="results" titlePosition="left" :content="{title: '中高端人才数量', digital: results[0][0] || 0, suffix: '人'}" :options="{separator: ','}" :titleStyle="{color: '#367391', fontSize: '16px', fontWeight: '400'}" :prefixStyle="{color: '#367391', fontSize: '16px', fontWeight: '400'}" :suffixStyle="{color: '#367391', fontSize: '16px', fontWeight: '400'}" :digitalStyle="{fontSize: '32px', color: '#6ad6ff', fontWeight: '400', fontFamily: 'Oswald-Regular', format: '11', letterSpacing: '2.4px'}" />
+      <digital-roll ref="talent-number-content" v-if="results" data-content="根据「区域」选择统计该地区人才库中学历为「硕士」「博士」的人才数量" titlePosition="left" :content="{title: '中高端人才数量', digital: results[0][0] || 0, suffix: '人'}" :options="{separator: ','}" :titleStyle="{color: '#367391', fontSize: '16px', fontWeight: '400'}" :prefixStyle="{color: '#367391', fontSize: '16px', fontWeight: '400'}" :suffixStyle="{color: '#367391', fontSize: '16px', fontWeight: '400'}" :digitalStyle="{fontSize: '32px', color: '#6ad6ff', fontWeight: '400', fontFamily: 'Oswald-Regular', format: '11', letterSpacing: '2.4px'}" />
     </data-loader>
     <data-loader ref="talent-age-index" v-slot="{ results: results }" :url="`/v1/components/14b74ddd-39de-493f-84ab-9d87fcf23fee/data?city=${craneStates.department ? craneStates.department.label : ''}市&type='人才年龄指数'`" method="get" :data="[[0]]" :style="{position: 'absolute', top: '440px', left: '90px'}">
       <digital-roll ref="talent-age-index-content" v-if="results" titlePosition="bottom" :content="{title: '人才年龄指数', digital: results[0][0] || 0}" :options="{separator: ''}" :prefixStyle="{color: '#367391', fontSize: '16px', fontWeight: '400'}" :suffixStyle="{color: '#367391', fontSize: '16px', fontWeight: '400'}" :titleStyle="{color: '#367391', fontSize: '16px', fontWeight: '400'}" :digitalStyle="{fontSize: '32px', color: '#6ad6ff', fontWeight: '400', fontFamily: 'Oswald-Regular', format: '11', letterSpacing: '2.4px'}" />
@@ -257,6 +257,19 @@ export default resources
     border-radius: 50%;
     background-color: #6ad6ff;
     color: #ffffff;
+  }
+}
+
+[data-content]:hover {
+  &:after {
+    border-radius: 4px;
+    /*line-height: 18px;*/
+    padding: 6px;
+    background-color: #566374f0;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 400;
+    content: attr(data-content);
   }
 }
 </style>

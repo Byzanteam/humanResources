@@ -4,7 +4,6 @@ module.exports = [
     component: 'div',
     position: [40, 305],
     props: {
-      'data-content': '岗位排名：根据「区域」「时间」进行筛选统计查阅对应的企业人才需求岗位排名\\n岗位薪资排名：根据「区域」「时间」进行筛选统计查阅岗位的薪资排名情况',
       $style: {
         color: '#6ad6ff',
         fontSize: '14px',
@@ -19,6 +18,7 @@ module.exports = [
     component: 'div',
     position: [74, 302],
     props: {
+      'data-content': '岗位排名：根据「区域」「时间」进行筛选统计查阅对应的企业人才需求岗位排名\\n岗位薪资排名：根据「区域」「时间」进行筛选统计查阅岗位的薪资排名情况',
       $style: {
         color: '#fff',
         fontSize: '18px',
