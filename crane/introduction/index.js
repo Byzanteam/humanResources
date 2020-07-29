@@ -107,6 +107,7 @@ module.exports = {
       component: 'div',
       position: [74, 631],
       props: {
+        'data-content': '默认显示当年高层次人才引进人数，可根据「区域」「时间」查看对应区域与年份的引才人数与历年的引进数量',
         $style: {
           color: '#fff',
           fontSize: '18px',
@@ -122,6 +123,7 @@ module.exports = {
       component: 'div',
       position: [1536, 46],
       props: {
+        'data-content': '根据「区域」「时间」筛选统计引才活动发布方分布',
         $style: {
           color: '#fff',
           fontSize: '18px',
@@ -137,6 +139,7 @@ module.exports = {
       component: 'div',
       position: [1536, 366],
       props: {
+        'data-content': '根据活动要求需要的人类类型进行统计分析',
         $style: {
           color: '#fff',
           fontSize: '18px',
@@ -152,6 +155,7 @@ module.exports = {
       component: 'div',
       position: [1536, 691],
       props: {
+        'data-content': '根据「区域」「时间」筛选对应区域的引进人才的学历分布情况',
         $style: {
           color: '#fff',
           fontSize: '18px',
