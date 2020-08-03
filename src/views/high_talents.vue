@@ -4,7 +4,7 @@
     <img ref="background" src="/hxrc/images/Bg.png" :style="{position: 'absolute', top: '0px', left: '0px'}" />
     <img ref="title-bg" :style="{width: '701px', height: '123px', position: 'absolute', top: '0px', left: '607px'}" src="/hxrc/images/Title-Bg.png" />
     <div @click="()=>[openNavigator()]" :style="{cursor: 'pointer', width: '454px', color: '#fff', fontSize: '42px', fontWeight: 600, textAlign: 'center', lineHeight: 1, position: 'absolute', top: '38px', left: '733px'}">
-      高端人才统计
+      高端人才专题
     </div>
     <div ref="talent-analysis" :style="{color: '#fff', fontSize: '18px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', position: 'absolute', top: '230px', left: '77px'}">
       申报分析
@@ -16,16 +16,16 @@
       申报途径
     </div>
     <div ref="talent-type" :style="{color: '#fff', fontSize: '18px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', position: 'absolute', top: '230px', left: '957px'}">
-      人才认定分类
+      认定类型
     </div>
     <div ref="talent-past" :style="{color: '#fff', fontSize: '18px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', position: 'absolute', top: '590px', left: '517px'}">
-      人才原来状况
+      引进类型
     </div>
     <div ref="talent-now" :style="{color: '#fff', fontSize: '18px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', position: 'absolute', top: '590px', left: '837px'}">
-      人才现在情况
+      人才引进
     </div>
     <div ref="talent-abroad" :style="{color: '#fff', fontSize: '18px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', position: 'absolute', top: '590px', left: '1157px'}">
-      人才境内外分类
+      人才区域
     </div>
     <div ref="talent-analysis-icon" :style="{color: '#6ad6ff', fontSize: '14px', fontWeight: '400', textAlign: 'left', position: 'absolute', top: '232px', left: '40px'}">
       >>
@@ -117,6 +117,10 @@ export const high_talents = {
     Select,
     Option,
     Navigator
+  },
+
+  created() {
+    document.title = '高端人才统计'
   },
 
   data () {
