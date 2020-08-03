@@ -61,8 +61,12 @@ const LIST = [
         label: '重点人才专题'
       },
       {
-        path: 'talents-competitiveness',
+        path: '/talents-competitiveness',
         label: '省域人才综合竞争力'
+      },
+      {
+        path: '/highTalents',
+        label: '高端人才统计'
       }
     ]
   },

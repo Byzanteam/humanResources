@@ -259,4 +259,17 @@ export default resources
     color: #ffffff;
   }
 }
+
+[data-content]:hover {
+  &:after {
+    border-radius: 4px;
+    /*line-height: 18px;*/
+    padding: 6px;
+    background-color: #566374f0;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 400;
+    content: attr(data-content);
+  }
+}
 </style>

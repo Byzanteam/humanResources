@@ -3,6 +3,7 @@ const supplyDemand = require('./crane/human_supply_demand')
 const intro = require('./crane/introduction')
 const keyTalents = require('./crane/key_talents')
 const talentsCompetitiveness = require('./crane/talents_competitiveness')
+const highTalents = require('./crane/high_talents')
 
 module.exports = {
   // i18n 配置
@@ -52,5 +53,6 @@ module.exports = {
     keyTalents,
     talentsCompetitiveness,
     intro,
+    highTalents
   ],
 }
