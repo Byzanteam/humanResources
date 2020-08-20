@@ -64,6 +64,14 @@ module.exports = {
       value: []
     },
     {
+      id: 'tableData',
+      value: []
+    },
+    {
+      id: 'multipleSelectData',
+      value: []
+    },
+    {
       id: 'areaCoordMap',
       value: {
         '福州市': [119.306239,26.075302],

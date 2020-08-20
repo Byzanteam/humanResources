@@ -17,6 +17,7 @@ module.exports = {
     {
       component: 'iview/date-picker',
       props: {
+        format: 'yyyy年',
         'v-model': 'craneStates.year',
         $style: {
           width: '380px',
