@@ -120,7 +120,7 @@ export const high_talents = {
   },
 
   created() {
-    document.title = '高端人才统计'
+    document.title = '福建高层人才'
   },
 
   data () {

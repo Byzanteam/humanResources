@@ -15,7 +15,7 @@ module.exports = {
     name: 'high_talents',
     path: 'highTalents'
   },
-  title: '高端人才统计',
+  title: '福建高层人才',
   states: [
     {
       id: 'selectOptions',

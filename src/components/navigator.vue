@@ -66,7 +66,7 @@ const LIST = [
       },
       {
         path: '/highTalents',
-        label: '高端人才统计'
+        label: '福建高层人才'
       }
     ]
   },
