@@ -3,6 +3,7 @@ const table = require('./table')
 const talentsIndicatorsSummary = require('./talents_indicators_summary')
 const radar = require('./radar')
 const digital = require('./force_digital')
+const { page_title_content } = require('../share')
 
 module.exports = {
   route: {
@@ -60,6 +61,14 @@ module.exports = {
     },
     {
       id: 'mapData',
+      value: []
+    },
+    {
+      id: 'tableData',
+      value: []
+    },
+    {
+      id: 'multipleSelectData',
       value: []
     },
     {
@@ -184,18 +193,8 @@ module.exports = {
       },
     },
     {
-      id: 'page-title',
-      component: 'div',
+      ...page_title_content,
       content: '省域人才综合竞争力',
-      position: [770, 27],
-      props: {
-        $style: {
-          color: '#fff',
-          fontSize: '42px',
-          $fontWeight: '600',
-          textAlign: 'center',
-        }
-      }
     },
     ...map,
     {
@@ -230,7 +229,7 @@ module.exports = {
         $style: {
           height: '50px',
           width: '400px',
-          backgroundColor: '#6ad6ff05',
+          backgroundColor: '#6ad6ff1a',
           borderRadius: '5px',
         }
       }
@@ -242,12 +241,14 @@ module.exports = {
       component: 'div',
       position: [74, 46],
       props: {
+        'data-content': '根据选择的对应十大指标体系结合「区域」检索对应区域对应的指标排名情况',
         $style: {
           color: '#fff',
           fontSize: '18px',
           fontWeight: '600',
           textAlign: 'left',
           letterSpacing: '1px',
+          cursor: 'pointer',
         },
       },
       content: '省域人才指标汇总',
@@ -271,12 +272,14 @@ module.exports = {
       component: 'div',
       position: [1536, 216],
       props: {
+        'data-content': '区域为省级可横向对比市级的指标指数对比，区域为市级可横向对应区级的指标指数对比',
         $style: {
           color: '#fff',
           fontSize: '18px',
           fontWeight: '600',
           textAlign: 'left',
           letterSpacing: '1px',
+          cursor: 'pointer',
         },
       },
       content: '10大指标汇总',

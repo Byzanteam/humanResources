@@ -17,6 +17,7 @@ module.exports = {
       id: 'activity-number-digital-content',
       component: '@byzanteam/vis-components/digital-roll',
       props: {
+        'data-content': '默认显示当年引才活动次数，可根据「区域」「时间」查看对应区域与年份的引才活动次数与历年的引才活动次数',
         titlePosition: 'left',
         $content: {
           title: '引才活动统计',

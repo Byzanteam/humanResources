@@ -11,6 +11,8 @@ const talentRank = require('./talent_rank_index_digital')
 const talentSynthesis = require('./talent_synthesis_index_digital')
 const rank = require('./rank')
 const verticalBar = require('./vertical_bar')
+const { page_title_content } = require('../share')
+
 
 module.exports = {
   route: {
@@ -76,31 +78,22 @@ module.exports = {
       },
     },
     {
-      id: 'page-title',
-      component: 'div',
+      ...page_title_content,
       content: '全省人才资源态势总览',
-      position: [750, 27],
-      props: {
-        $style: {
-          color: '#fff',
-          fontSize: '42px',
-          $fontWeight: '500',
-          textAlign: 'center',
-          letterSpacing: '1.2px',
-        }
-      }
     },
     {
       id: 'talent-index',
       component: 'div',
       position: [73, 262],
       props: {
+        'data-content': '根据「区域」选择分析该地图人才指数分析数据，用于人才指数对比',
         $style: {
           color: '#fff',
           fontSize: '18px',
           fontWeight: '600',
           textAlign: 'left',
           letterSpacing: '1px',
+          cursor: 'pointer',
         },
       },
       content: '人才指数综合分析',
@@ -110,12 +103,14 @@ module.exports = {
       component: 'div',
       position: [73, 704],
       props: {
+        'data-content': '根据「区域」选择统计该区域人才学历分布情况',
         $style: {
           color: '#fff',
           fontSize: '18px',
           fontWeight: '600',
           textAlign: 'left',
           letterSpacing: '1px',
+          cursor: 'pointer',
         },
       },
       content: '人才学历层次',
@@ -125,12 +120,14 @@ module.exports = {
       component: 'div',
       position: [1530, 46],
       props: {
+        'data-content': '以「区域」作为筛选条件，统计分析历史简历数据判断岗位平均的流动时间并进行排名',
         $style: {
           color: '#fff',
           fontSize: '18px',
           fontWeight: '600',
           textAlign: 'left',
           letterSpacing: '1px',
+          cursor: 'pointer',
         },
       },
       content: '人才流动岗位排名',
@@ -140,12 +137,14 @@ module.exports = {
       component: 'div',
       position: [1530, 388],
       props: {
+        'data-content': '以「区域」作为筛选条件，统计该区域人才所在行业分布',
         $style: {
           color: '#fff',
           fontSize: '18px',
           fontWeight: '600',
           textAlign: 'left',
           letterSpacing: '1px',
+          cursor: 'pointer',
         },
       },
       content: '行业人才占比',
@@ -155,12 +154,14 @@ module.exports = {
       component: 'div',
       position: [1530, 704],
       props: {
+        'data-content': '以「区域」作为筛选条件，统计各个行业发布的招聘人才数量',
         $style: {
           color: '#fff',
           fontSize: '18px',
           fontWeight: '600',
           textAlign: 'left',
           letterSpacing: '1px',
+          cursor: 'pointer',
         },
       },
       content: '各行业人才需求',
@@ -363,7 +364,7 @@ module.exports = {
         $style: {
           height: '80px',
           width: '180px',
-          backgroundColor: '#6ad6ff05',
+          backgroundColor: '#6ad6ff1a',
           borderRadius: '5px',
         }
       }
@@ -376,7 +377,7 @@ module.exports = {
         $style: {
           height: '80px',
           width: '180px',
-          backgroundColor: '#6ad6ff05',
+          backgroundColor: '#6ad6ff1a',
           borderRadius: '5px',
         }
       }
@@ -389,7 +390,7 @@ module.exports = {
         $style: {
           height: '80px',
           width: '180px',
-          backgroundColor: '#6ad6ff05',
+          backgroundColor: '#6ad6ff1a',
           borderRadius: '5px',
         }
       }
@@ -402,7 +403,7 @@ module.exports = {
         $style: {
           height: '80px',
           width: '180px',
-          backgroundColor: '#6ad6ff05',
+          backgroundColor: '#6ad6ff1a',
           borderRadius: '5px',
         }
       }
@@ -415,7 +416,7 @@ module.exports = {
         $style: {
           height: '80px',
           width: '180px',
-          backgroundColor: '#6ad6ff05',
+          backgroundColor: '#6ad6ff1a',
           borderRadius: '5px',
         }
       }
@@ -428,7 +429,7 @@ module.exports = {
         $style: {
           height: '80px',
           width: '180px',
-          backgroundColor: '#6ad6ff05',
+          backgroundColor: '#6ad6ff1a',
           borderRadius: '5px',
         }
       }
@@ -441,7 +442,7 @@ module.exports = {
         $style: {
           height: '50px',
           width: '400px',
-          backgroundColor: '#6ad6ff05',
+          backgroundColor: '#6ad6ff1a',
           borderRadius: '5px',
         }
       }
@@ -454,7 +455,7 @@ module.exports = {
         $style: {
           height: '50px',
           width: '400px',
-          backgroundColor: '#6ad6ff05',
+          backgroundColor: '#6ad6ff1a',
           borderRadius: '5px',
         }
       }

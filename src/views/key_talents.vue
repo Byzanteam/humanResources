@@ -1,8 +1,9 @@
 <template>
   <div class="key_talents">
+    <navigator ref="navigator"/>
     <img ref="background" src="/hxrc/images/Bg.png" :style="{position: 'absolute', top: '0px', left: '0px'}" />
     <img ref="title-bg" :style="{width: '701px', height: '123px', position: 'absolute', top: '0px', left: '607px'}" src="/hxrc/images/Title-Bg.png" />
-    <div ref="page-title" :style="{color: '#fff', fontSize: '42px', fontWeight: 600, textAlign: 'center', position: 'absolute', top: '27px', left: '833px'}">
+    <div @click="()=>[openNavigator()]" :style="{cursor: 'pointer', width: '454px', color: '#fff', fontSize: '42px', fontWeight: 600, textAlign: 'center', lineHeight: 1, position: 'absolute', top: '38px', left: '733px'}">
       重点人才专题
     </div>
     <img ref="box-bg" :style="{width: '440px', height: '1059px', position: 'absolute', top: '10px', left: '10px'}" src="/hxrc/images/Box-Bg.png" />
@@ -13,26 +14,26 @@
     <div :style="{color: '#fff', fontSize: '18px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', position: 'absolute', top: '46px', left: '74px'}">
       高层次人才供需地图
     </div>
-    <div :style="{width: '400px', height: '50px', backgroundColor: 'rgba(106, 214, 255, .02)', borderRadius: '5px', position: 'absolute', top: '88px', left: '30px'}" />
+    <div :style="{width: '400px', height: '50px', backgroundColor: 'rgba(106, 214, 255, .1)', borderRadius: '5px', position: 'absolute', top: '88px', left: '30px'}" />
     <div ref="value-circle" :style="{height: '10px', width: '10px', borderRadius: '10px', borderWidth: '1px', borderColor: '#6ad6ff', borderStyle: 'solid', position: 'absolute', top: '117px', left: '119px'}" />
     <data-loader v-slot="{ results: results }" :url="`/v1/components/24b74ddd-39de-493f-84ab-9d87fcf23fee/data?type=${digitalKeyword || ''}`" method="get" :data="[[0]]" :style="{position: 'absolute', top: '94px', left: '145px'}">
-      <digital-roll ref="talent-age-index-content" titlePosition="left" :content="{title: '人才数量统计', digital: results ? results[0][0] : 0, suffix: '人'}" :options="{separator: ''}" :style="{width: '196px', height: '39px'}" :prefixStyle="{color: '#367391', fontSize: '16px', fontWeight: '400'}" :suffixStyle="{color: '#367391', fontSize: '16px', fontWeight: '400'}" :titleStyle="{color: '#367391', fontSize: '16px', fontWeight: '400'}" :digitalStyle="{fontSize: '32px', color: '#6ad6ff', fontWeight: '400', fontFamily: 'Oswald-Regular', format: '11', letterSpacing: '2.4px'}" letterSpacing="0.8px" />
+      <digital-roll ref="talent-age-index-content" data-content="统计人才库中学历为「硕士」「博士」的人才数量" titlePosition="left" :content="{title: '人才数量统计', digital: results ? results[0][0] : 0, suffix: '人'}" :options="{separator: ''}" :style="{width: '196px', height: '39px'}" :prefixStyle="{color: '#367391', fontSize: '16px', fontWeight: '400'}" :suffixStyle="{color: '#367391', fontSize: '16px', fontWeight: '400'}" :titleStyle="{color: '#367391', fontSize: '16px', fontWeight: '400'}" :digitalStyle="{fontSize: '32px', color: '#6ad6ff', fontWeight: '400', fontFamily: 'Oswald-Regular', format: '11', letterSpacing: '2.4px'}" letterSpacing="0.8px" />
     </data-loader>
-    <div :style="{width: '400px', height: '50px', backgroundColor: 'rgba(106, 214, 255, .02)', borderRadius: '5px', position: 'absolute', top: '154px', left: '30px'}" />
+    <div :style="{width: '400px', height: '50px', backgroundColor: 'rgba(106, 214, 255, .1)', borderRadius: '5px', position: 'absolute', top: '154px', left: '30px'}" />
     <div ref="value-circle" :style="{height: '10px', width: '10px', borderRadius: '10px', borderWidth: '1px', borderColor: '#6ad6ff', borderStyle: 'solid', position: 'absolute', top: '183px', left: '119px'}" />
     <data-loader v-slot="{ results: results }" :url="`/v1/components/45b74ddd-39de-493f-84ab-9d87fcf23fee/data?job=${craneStates.currentShortageType|| ''}&year=${this.craneStates.year ? this.craneStates.year.getFullYear() : new Date(Date.now()).getFullYear()}`" method="get" :data="[[0]]" :style="{position: 'absolute', top: '160px', left: '145px'}">
-      <digital-roll ref="talent-age-index-content" titlePosition="left" :content="{title: '人才引进统计', digital: results ? results[0][0] : 0, suffix: '次'}" :options="{separator: ''}" :style="{width: '278px', height: '39px'}" :prefixStyle="{color: '#367391', fontSize: '16px', fontWeight: '400'}" :suffixStyle="{color: '#367391', fontSize: '16px', fontWeight: '400'}" :titleStyle="{color: '#367391', fontSize: '16px', fontWeight: '400'}" :digitalStyle="{fontSize: '32px', color: '#6ad6ff', fontWeight: '400', fontFamily: 'Oswald-Regular', format: '11', letterSpacing: '2.4px'}" letterSpacing="0.8px" />
+      <digital-roll ref="talent-age-index-content" data-content="统计历年举行的人才引进活动次数" titlePosition="left" :content="{title: '人才引进统计', digital: results ? results[0][0] : 0, suffix: '次'}" :options="{separator: ''}" :style="{width: '278px', height: '39px'}" :prefixStyle="{color: '#367391', fontSize: '16px', fontWeight: '400'}" :suffixStyle="{color: '#367391', fontSize: '16px', fontWeight: '400'}" :titleStyle="{color: '#367391', fontSize: '16px', fontWeight: '400'}" :digitalStyle="{fontSize: '32px', color: '#6ad6ff', fontWeight: '400', fontFamily: 'Oswald-Regular', format: '11', letterSpacing: '2.4px'}" letterSpacing="0.8px" />
     </data-loader>
     <div :style="{color: '#6ad6ff', fontSize: '14px', fontWeight: '400', textAlign: 'left', position: 'absolute', top: '49px', left: '1504px'}">
       >>
     </div>
-    <div :style="{color: '#fff', fontSize: '18px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', position: 'absolute', top: '46px', left: '1536px'}">
+    <div :style="{color: '#fff', fontSize: '18px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', cursor: 'pointer', position: 'absolute', top: '46px', left: '1536px'}">
       区域紧缺人才地图
     </div>
-    <div :style="{width: '400px', height: '50px', backgroundColor: 'rgba(106, 214, 255, .02)', borderRadius: '5px', position: 'absolute', top: '128px', left: '1490px'}" />
+    <div :style="{width: '400px', height: '50px', backgroundColor: 'rgba(106, 214, 255, .1)', borderRadius: '5px', position: 'absolute', top: '128px', left: '1490px'}" />
     <div ref="value-circle" :style="{height: '10px', width: '10px', borderRadius: '10px', borderWidth: '1px', borderColor: '#6ad6ff', borderStyle: 'solid', position: 'absolute', top: '157px', left: '1588px'}" />
     <data-loader v-slot="{ results: results }" :url="`/v1/components/29b74ddd-39de-493f-84ab-9d87fcf23fee/data?job=${craneStates.currentShortageType|| ''}&year=${craneStates.year ? craneStates.year.getFullYear() : new Date(Date.now()).getFullYear()}`" method="get" :data="[[0]]" :style="{position: 'absolute', top: '134px', left: '1614px'}">
-      <digital-roll ref="talent-age-index-content" titlePosition="left" :content="{title: '紧缺人才数量', digital: results ? results[0][0] : 0, suffix: '人'}" :options="{separator: ''}" :style="{width: '278px', height: '39px'}" :prefixStyle="{color: '#367391', fontSize: '16px', fontWeight: '400'}" :suffixStyle="{color: '#367391', fontSize: '16px', fontWeight: '400'}" :titleStyle="{color: '#367391', fontSize: '16px', fontWeight: '400'}" :digitalStyle="{fontSize: '32px', color: '#6ad6ff', fontWeight: '400', fontFamily: 'Oswald-Regular', format: '11', letterSpacing: '2.4px'}" letterSpacing="0.8px" />
+      <digital-roll ref="talent-age-index-content" data-content="默认统计所有行业供大于求判定为紧缺人才，可根据「区域」「时间」「行业类型」进行筛选统计对应行业的紧缺人才数量情况" titlePosition="left" :content="{title: '紧缺人才数量', digital: results ? results[0][0] : 0, suffix: '人'}" :options="{separator: ''}" :style="{width: '278px', height: '39px'}" :prefixStyle="{color: '#367391', fontSize: '16px', fontWeight: '400'}" :suffixStyle="{color: '#367391', fontSize: '16px', fontWeight: '400'}" :titleStyle="{color: '#367391', fontSize: '16px', fontWeight: '400'}" :digitalStyle="{fontSize: '32px', color: '#6ad6ff', fontWeight: '400', fontFamily: 'Oswald-Regular', format: '11', letterSpacing: '2.4px'}" letterSpacing="0.8px" />
     </data-loader>
     <div :style="{width: '400px', height: '220px', backgroundColor: 'rgba(0, 0, 0, .03)', borderRadius: '4px', border: '1px dotted rgba(106, 214, 255, .3)', position: 'absolute', top: '244px', left: '30px'}" />
     <brick-tabs :tabNavs="craneStates.mapTabNavs" :activeTab="craneStates.mapTabCurrent" :style="{position: 'absolute', top: '256px', left: '126px'}" v-model="craneStates.mapTabCurrent" />
@@ -42,7 +43,7 @@
           {{item.name}}
         </Option>
       </Select>
-      <input placeholder="关键词" class="map-tabs-input" v-model="craneStates.supplyInputWord" :style="{width: '180px', height: '48px', paddingLeft: '8px', backgroundColor: 'rgba(106, 214, 255, .02)', border: '1px solid rgba(106, 214, 255, .12)', borderRadius: '4px', color: '#ffffff', fontSize: '16px', fontWeight: '500', outline: 'none', position: 'absolute', top: '324px', left: '237px'}" />
+      <input placeholder="关键词" class="map-tabs-input" v-model="craneStates.supplyInputWord" :style="{width: '180px', height: '48px', paddingLeft: '8px', backgroundColor: 'rgba(106, 214, 255, .1)', border: '1px solid rgba(106, 214, 255, .12)', borderRadius: '4px', color: '#ffffff', fontSize: '16px', fontWeight: '500', outline: 'none', position: 'absolute', top: '324px', left: '237px'}" />
       <brick-button @click="()=>[setState('mapType', 'supply')]" type="gradient" color="primary" :style="{width: '148px', height: '25px', position: 'absolute', top: '400px', left: '156px'}">
         查看人才供应地图
       </brick-button>
@@ -53,7 +54,7 @@
           {{item.name}}
         </Option>
       </Select>
-      <input placeholder="关键词" class="map-tabs-input" v-model="craneStates.demandInputWord" :style="{width: '180px', height: '48px', paddingLeft: '8px', backgroundColor: 'rgba(106, 214, 255, .02)', border: '1px solid rgba(106, 214, 255, .12)', borderRadius: '4px', color: '#ffffff', fontSize: '16px', fontWeight: '500', outline: 'none', position: 'absolute', top: '324px', left: '237px'}" />
+      <input placeholder="关键词" class="map-tabs-input" v-model="craneStates.demandInputWord" :style="{width: '180px', height: '48px', paddingLeft: '8px', backgroundColor: 'rgba(106, 214, 255, .1)', border: '1px solid rgba(106, 214, 255, .12)', borderRadius: '4px', color: '#ffffff', fontSize: '16px', fontWeight: '500', outline: 'none', position: 'absolute', top: '324px', left: '237px'}" />
       <brick-button @click="()=>[setState('mapType', 'demand')]" type="gradient" color="primary" :style="{width: '148px', height: '25px', position: 'absolute', top: '400px', left: '156px'}">
         查看人才需求地图
       </brick-button>
@@ -61,7 +62,7 @@
     <div :style="{width: '400px', height: '180px', backgroundColor: 'rgba(0, 0, 0, .03)', borderRadius: '4px', border: '1px dotted rgba(106, 214, 255, .3)', position: 'absolute', top: '225px', left: '1490px'}" />
     <div>
       <data-loader ref="job_select" @requestDone="(exports)=>[setState('dateRange', exports.results.map((item) => (Number(item[0]))))]" url="/v1/components/02b74ddd-39de-493f-84ab-9d87fcf23fee/data" method="get" :data="[['']]" :style="{position: 'absolute', top: '270px', left: '1503px'}">
-        <date-picker class="map-tab-datepicker" :options="{disabledDate: (time) => {return !craneStates.dateRange.includes(time.getFullYear())}}" :style="{width: '180px'}" v-model="craneStates.year" type="year" placeholder="选择时间" />
+        <date-picker class="map-tab-datepicker" :options="{disabledDate: (time) => {return !craneStates.dateRange.includes(time.getFullYear())}}" :style="{width: '180px'}" format="yyyy年"  v-model="craneStates.year" type="year" placeholder="选择时间" />
       </data-loader>
       <data-loader ref="industry_select" v-slot="{ results: results }" url="/v1/components/30b74ddd-39de-493f-84ab-9d87fcf23fee/data?offset=10" method="get" :data="[['']]" :style="{position: 'absolute', top: '270px', left: '1697px'}">
         <Select placeholder="所有行业" clearable class="map-select" :style="{width: '180px'}" v-model="craneStates.currentShortageType">
@@ -77,7 +78,7 @@
     <div :style="{color: '#6ad6ff', fontSize: '14px', fontWeight: '400', textAlign: 'left', position: 'absolute', top: '497px', left: '40px'}">
       >>
     </div>
-    <div :style="{color: '#fff', fontSize: '18px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', position: 'absolute', top: '494px', left: '74px'}">
+    <div data-content="根据「区域」「供需需求关键字」选择统计该地区人才库中学历为「硕士」「博士」的人才数量" :style="{color: '#fff', fontSize: '18px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', cursor: 'pointer', position: 'absolute', top: '494px', left: '74px'}">
       高层次人才供需变化
     </div>
     <data-loader ref="high-talents-demand-change-line-chart" v-slot="{ results: results }" :url="`/v1/components/09b74ddd-39de-493f-84ab-9d87fcf23fee/data?area=${craneStates.department ? craneStates.department.label : ''}`" method="get" :data="[[0, '暂无数据']]" :style="{width: '400px', height: '200px', position: 'absolute', top: '550px', left: '30px'}">
@@ -86,7 +87,7 @@
     <div ref="degree-analysis-icon" :style="{color: '#6ad6ff', fontSize: '14px', fontWeight: '400', textAlign: 'left', position: 'absolute', top: '806px', left: '40px'}">
       >>
     </div>
-    <div ref="degree-analysis-title" :style="{color: '#fff', fontSize: '18px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', position: 'absolute', top: '803px', left: '74px'}">
+    <div ref="degree-analysis-title" data-content="统计人才库中职称类型分布情况" :style="{color: '#fff', fontSize: '18px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', cursor: 'pointer', position: 'absolute', top: '803px', left: '74px'}">
       高层次人才专业分布
     </div>
     <data-loader v-slot="{ results: results }" :url="`/v1/components/28b74ddd-39de-493f-84ab-9d87fcf23fee/data?industry=${craneStates.currentShortageType|| ''}`" method="get" :data="[[0, '暂无数据']]" :style="{width: '600px', height: '218px', overflow: 'scroll', position: 'absolute', top: '841px', left: '-110px'}">
@@ -95,16 +96,16 @@
     <div ref="degree-analysis-icon" :style="{color: '#6ad6ff', fontSize: '14px', fontWeight: '400', textAlign: 'left', position: 'absolute', top: '805px', left: '1504px'}">
       >>
     </div>
-    <div ref="degree-analysis-title" :style="{color: '#fff', fontSize: '18px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', position: 'absolute', top: '803px', left: '1536px'}">
+    <div ref="degree-analysis-title" data-content="根据「区域」「时间」「行业类型」统计紧缺人才企业的行业分布情况" :style="{color: '#fff', fontSize: '18px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', cursor: 'pointer', position: 'absolute', top: '803px', left: '1536px'}">
       紧缺人才专业分布
     </div>
     <data-loader v-slot="{ results: results }" :url="`/v1/components/33b74ddd-39de-493f-84ab-9d87fcf23fee/data?industry=${craneStates.currentShortageType|| ''}&year=${craneStates.year ? craneStates.year.getFullYear() : new Date(Date.now()).getFullYear()}`" method="get" :data="[[0, '暂无数据']]" :style="{width: '600px', height: '218px', overflow: 'scroll', position: 'absolute', top: '841px', left: '1350px'}">
-      <v-chart :options="{backgroundColor: 'transparent', tooltip: {trigger: 'item', formatter: pieTooltipFormatterFunc, backgroundColor: '#566374f0'}, legend: {type: 'scroll', icon: 'circle', itemWidth: 10, itemHeight: 10, left: 350, top: 'middle', itemGap: 9, orient: 'vertical', textStyle: {color: '#4b9bbe', fontSize: 12}, inactiveColor: '#1C4159'}, color: ['#6ad6ff', '#4b9bbe', '#367290', '#275570', '#1c4159', '#153349'], series: [{type: 'pie', minAngle: 5, left: -120, radius: ['35%', '62%'], label: {show: false}, labelLine: {show: false}, data: results ? results.map(item => ({value: item [0], name: item[1]})).sort(compare()) : [{value: 0, name: '暂无数据'}]}]}" />
+      <v-chart :options="{backgroundColor: 'transparent', tooltip: {trigger: 'item', formatter: pieTooltipFormatterFunc, backgroundColor: '#566374f0'}, legend: {type: 'scroll', formatter: legendText, icon: 'circle', itemWidth: 10, itemHeight: 10, left: 350, top: 'middle', itemGap: 9, orient: 'vertical', textStyle: {color: '#4b9bbe', fontSize: 12, lineHeight: 15}, inactiveColor: '#1C4159'}, color: ['#6ad6ff', '#4b9bbe', '#367290', '#275570', '#1c4159', '#153349'], series: [{type: 'pie', minAngle: 5, left: -120, radius: ['35%', '62%'], label: {show: false}, labelLine: {show: false}, data: results ? results.map(item => ({value: item [0], name: item[1]})).sort(compare()) : [{value: 0, name: '暂无数据'}]}]}" />
     </data-loader>
     <div :style="{color: '#6ad6ff', fontSize: '14px', fontWeight: '400', textAlign: 'left', position: 'absolute', top: '459px', left: '1504px'}">
       >>
     </div>
-    <div :style="{color: '#fff', fontSize: '18px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', position: 'absolute', top: '456px', left: '1536px'}">
+    <div data-content="根据「区域」「时间」「行业类型」进行筛选统计对应行业的历年紧缺人才数量情况" :style="{color: '#fff', fontSize: '18px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', position: 'absolute', top: '456px', left: '1536px'}">
       区域紧缺人才趋势
     </div>
     <data-loader ref="high-talents-demand-change-line-chart" v-slot="{ results: results }" :url="`/v1/components/32b74ddd-39de-493f-84ab-9d87fcf23fee/data?industry=${craneStates.currentShortageType|| ''}`" method="get" :data="[['暂无数据', 0]]" :style="{width: '400px', height: '214px', position: 'absolute', top: '518px', left: '1490px'}">
@@ -172,6 +173,7 @@ import {
 import {
   Input,
 } from 'element-ui'
+import Navigator from '../components/navigator'
 
 const MAP_TAB_NAVS = [{uuid: 1, label: '人才供应'}, {uuid: 2, label: '人才需求'}]
 
@@ -189,6 +191,7 @@ export const key_talents = {
     DatePicker,
     Input,
     'v-chart': Echarts,
+    Navigator
   },
 
   data () {
@@ -204,7 +207,7 @@ export const key_talents = {
         mapTabCurrent: MAP_TAB_NAVS[0],
         mapTabNavs: MAP_TAB_NAVS,
         time: '',
-        year: '',
+        year: new Date('2020'),
         dateRange: [],
         currentShortageType: '',
         selectOptions: [{label: '福州', uuid: 'fuzhou'}, {label: '宁德', uuid: 'ningde'}, {label: '龙岩', uuid: 'longyan'}, {label: '莆田', uuid: 'putian'}, {label: '南平', uuid: 'nanping'}, {label: '三明', uuid: 'sanming'}, {label: '厦门', uuid: 'xiamen'}, {label: '漳州', uuid: 'zhangzhou'}, {label: '泉州', uuid: 'quanzhou'}],
@@ -270,6 +273,24 @@ export const key_talents = {
         let v2 = value2.value;
         return v2 - v1
       }
+    },
+    legendText(name) {
+      return this.makeMultiLine(name, 9)
+    },
+    makeMultiLine (str, charQty){
+      const strs = str.split('')
+      const len = strs.length
+      if (len < charQty + 1) {
+        return str
+      }
+      let result = ''
+      strs.forEach((_, index) => {
+        result += _
+        if ((index + 1) % charQty === 0 && index < len - 1) {
+          result += '\n'
+        }
+      })
+      return result
     }
   }
 }

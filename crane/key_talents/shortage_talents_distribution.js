@@ -18,12 +18,14 @@ module.exports = [
     component: 'div',
     position: [1536, 803],
     props: {
+      'data-content': '根据「区域」「时间」「行业类型」统计紧缺人才企业的行业分布情况',
       $style: {
         color: '#fff',
         fontSize: '18px',
         fontWeight: '600',
         textAlign: 'left',
         letterSpacing: '1px',
+        cursor: 'pointer',
       },
     },
     content: '紧缺人才专业分布',
@@ -57,6 +59,7 @@ module.exports = [
             },
             $legend: {
               type: 'scroll',
+              $formatter: "legendText",
               icon: 'circle',
               $itemWidth: 10,
               $itemHeight: 10,
@@ -66,7 +69,8 @@ module.exports = [
               orient: 'vertical',
               $textStyle: {
                 color: '#4b9bbe',
-                $fontSize: 12
+                $fontSize: 12,
+                $lineHeight: 15
               },
               inactiveColor: '#1C4159',
             },

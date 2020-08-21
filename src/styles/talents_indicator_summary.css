@@ -4,7 +4,7 @@
 }
 
 .ivu-radio-group-button .ivu-radio-wrapper.ivu-radio-group-item {
-  background-color: rgba(106, 214, 255, .01);
+  background-color: rgba(106, 214, 255, .1);
   border-color: rgba(106, 214, 255, .12);
   border-left: 1px solid rgba(106, 214, 255, .12);
   color: rgba(106, 214, 255, .7);

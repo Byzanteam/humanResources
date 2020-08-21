@@ -56,6 +56,10 @@ export default {
       return a + b
     },
 
+    openNavigator() {
+      this.$refs.navigator.open()
+    },
+
     requestMapGeojson (Echarts) {
       this.axios.get('/v1/components/00b74ddd-39de-493f-84ab-9d87fcf23fee/data?name=福建')
       .then(({data: { data }}) => {

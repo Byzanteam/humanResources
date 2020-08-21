@@ -18,12 +18,14 @@ module.exports = [
     component: 'div',
     position: [1536, 46],
     props: {
+      'data-content': '根据「区域」「时间」进行筛选统计企业需求量显示 Top10 排名，以企业所属行业类型进行统计排名',
       $style: {
         color: '#fff',
         fontSize: '18px',
         fontWeight: '600',
         textAlign: 'left',
         letterSpacing: '1px',
+        cursor: 'pointer',
       },
     },
     content: '重点行业需求排名',

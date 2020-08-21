@@ -7,6 +7,7 @@ const industriesDemandRanking = require('./industries_demand_ranking')
 const talentsDemandChange = require('./talents_demand_change')
 const degreeAnalysis = require('./degree_analysis')
 const map = require('./map')
+const { page_title_content } = require('../share')
 
 module.exports = {
   route: {
@@ -78,19 +79,8 @@ module.exports = {
       },
     },
     {
-      id: 'page-title',
-      component: 'div',
+      ...page_title_content,
       content: '人才供需专题',
-      position: [607, 27],
-      props: {
-        $style: {
-          width: '701px',
-          color: '#fff',
-          fontSize: '42px',
-          $fontWeight: '600',
-          textAlign: 'center',
-        }
-      }
     },
     {
       id: 'box-bg',

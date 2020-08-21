@@ -7,6 +7,7 @@ const rank = require('./education_rank')
 const activityDigital = require('./activity_number_digital')
 const highLevelDigital = require('./high_level_talent_digital')
 const date = require('./date_picker')
+const { page_title_content } = require('../share')
 
 module.exports = {
   route: {
@@ -83,19 +84,8 @@ module.exports = {
       },
     },
     {
-      id: 'page-title',
-      component: 'div',
+      ...page_title_content,
       content: '人才引进专题',
-      position: [833, 27],
-      props: {
-        $style: {
-          color: '#fff',
-          fontSize: '42px',
-          $fontWeight: '500',
-          textAlign: 'center',
-          letterSpacing: '1.2px',
-        }
-      }
     },
     {
       id: 'activity-number',
@@ -117,12 +107,14 @@ module.exports = {
       component: 'div',
       position: [74, 631],
       props: {
+        'data-content': '默认显示当年高层次人才引进人数，可根据「区域」「时间」查看对应区域与年份的引才人数与历年的引进数量',
         $style: {
           color: '#fff',
           fontSize: '18px',
           fontWeight: '600',
           textAlign: 'left',
           letterSpacing: '1px',
+          cursor: 'pointer',
         },
       },
       content: '高层次人才引进统计',
@@ -132,12 +124,14 @@ module.exports = {
       component: 'div',
       position: [1536, 46],
       props: {
+        'data-content': '根据「区域」「时间」筛选统计引才活动发布方分布',
         $style: {
           color: '#fff',
           fontSize: '18px',
           fontWeight: '600',
           textAlign: 'left',
           letterSpacing: '1px',
+          cursor: 'pointer',
         },
       },
       content: '引进渠道分析',
@@ -147,12 +141,14 @@ module.exports = {
       component: 'div',
       position: [1536, 366],
       props: {
+        'data-content': '根据活动要求需要的人类类型进行统计分析',
         $style: {
           color: '#fff',
           fontSize: '18px',
           fontWeight: '600',
           textAlign: 'left',
           letterSpacing: '1px',
+          cursor: 'pointer',
         },
       },
       content: '引进人才职称分布',
@@ -162,12 +158,14 @@ module.exports = {
       component: 'div',
       position: [1536, 691],
       props: {
+        'data-content': '根据「区域」「时间」筛选对应区域的引进人才的学历分布情况',
         $style: {
           color: '#fff',
           fontSize: '18px',
           fontWeight: '600',
           textAlign: 'left',
           letterSpacing: '1px',
+          cursor: 'pointer',
         },
       },
       content: '引进人才学历分布',
@@ -281,7 +279,7 @@ module.exports = {
         $style: {
           height: '50px',
           width: '400px',
-          backgroundColor: '#6ad6ff05',
+          backgroundColor: '#6ad6ff1a',
           borderRadius: '5px',
         }
       }
@@ -294,7 +292,7 @@ module.exports = {
         $style: {
           height: '50px',
           width: '400px',
-          backgroundColor: '#6ad6ff05',
+          backgroundColor: '#6ad6ff1a',
           borderRadius: '5px',
         }
       }

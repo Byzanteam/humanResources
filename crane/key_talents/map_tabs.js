@@ -66,7 +66,7 @@ module.exports = [
             width: '180px',
             height: '48px',
             paddingLeft: '8px',
-            backgroundColor: 'rgba(106, 214, 255, .02)',
+            backgroundColor: 'rgba(106, 214, 255, .1)',
             border: '1px solid rgba(106, 214, 255, .12)',
             borderRadius: '4px',
             color: '#ffffff',
@@ -139,7 +139,7 @@ module.exports = [
             width: '180px',
             height: '48px',
             paddingLeft: '8px',
-            backgroundColor: 'rgba(106, 214, 255, .02)',
+            backgroundColor: 'rgba(106, 214, 255, .1)',
             border: '1px solid rgba(106, 214, 255, .12)',
             borderRadius: '4px',
             color: '#ffffff',
@@ -211,6 +211,7 @@ module.exports = [
               $style: {
                 width: '180px',
               },
+              format: 'yyyy年',
               'v-model': 'craneStates.year',
               type: 'year',
               placeholder: '选择时间'

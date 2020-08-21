@@ -20,12 +20,14 @@ module.exports = [
     component: 'div',
     position: [74, 714],
     props: {
+      'data-content': '默认为所有岗位的平均薪资，可根据「岗位名」进行筛选统计查阅对应行位当年平均薪资与历年的平均薪资',
       $style: {
         color: '#fff',
         fontSize: '18px',
         fontWeight: '600',
         textAlign: 'left',
         letterSpacing: '1px',
+        cursor: 'pointer',
       },
     },
     content: '人才薪酬分析',
@@ -38,7 +40,7 @@ module.exports = [
       $style: {
         width: '400px',
         height: '50px',
-        backgroundColor: 'rgba(106, 214, 255, .02)',
+        backgroundColor: 'rgba(106, 214, 255, .1)',
         borderRadius: '5px'
       }
     }

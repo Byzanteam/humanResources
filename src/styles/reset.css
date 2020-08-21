@@ -1,3 +1,6 @@
+body {
+  background-image: linear-gradient(270deg, #030D1C 0%, #081C35 28%, #0E2A4D 50%, #081A31 78%, #030D1C 100%);
+}
 .select-trigger {
   background-color: transparent !important;
 }
@@ -115,11 +118,55 @@ input::placeholder {
 @import './supply.css';
 @import './key_talent.css';
 @import './talents_indicator_summary.css';
-@import "talent_competitiveness.css";
+@import "./talent_competitiveness.css";
+@import './resources.css';
 
 .table {
   max-height: none !important;
 }
 .table.table--dark th{
   line-height: 40px;
+}
+.departments-select .ivu-select-dropdown {
+  top: 38px !important;
+}
+
+.map-select .ivu-select-dropdown {
+  top: 38px !important;
+}
+
+[data-content]:after {
+  display: inline-flex;
+  width: auto;
+  max-width: 192px;
+  position: relative;
+  opacity: 0;
+  top: 15px;
+  right: 10px;
+  transition: all .25s linear;
+  border-radius: 4px;
+  padding: 6px;
+  background-color: #566374f0;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 400;
+  content: attr(data-content);
+  z-index: 999;
+  cursor: pointer;
+}
+
+.line-break-talent-demand::after {
+  width: 560px;
+  max-width: none;
+}
+
+.line-break-degree::after {
+  width: 500px;
+  max-width: none;
+  right: 210px;
+}
+
+[data-content]:hover:after {
+  opacity: 1;
+  transition: opacity .5s linear;
 }

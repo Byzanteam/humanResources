@@ -42,7 +42,7 @@ module.exports = {
           fontWeight: 400,
         },
         $lineStyle: {
-          background: '#ffffff0D',
+          background: '#ffffff1a',
           $lineColor: "['#0885b5', '#6ad6ff']",
           height: '5px',
           borderRadius: '2.5px'

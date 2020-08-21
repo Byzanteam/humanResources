@@ -5,6 +5,7 @@ const highTalentsDistribution = require('./high_talents_distribution')
 const shortageTalentsDistribution = require('./shortage_talents_distribution')
 const areaShortageChange = require('./area_shortage_change')
 const map = require ('./map')
+const { page_title_content } = require('../share')
 
 module.exports = {
   route: {
@@ -97,18 +98,8 @@ module.exports = {
       },
     },
     {
-      id: 'page-title',
-      component: 'div',
+      ...page_title_content,
       content: '重点人才专题',
-      position: [833, 27],
-      props: {
-        $style: {
-          color: '#fff',
-          fontSize: '42px',
-          $fontWeight: '600',
-          textAlign: 'center',
-        }
-      }
     },
     {
       id: 'box-bg',

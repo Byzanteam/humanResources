@@ -18,12 +18,14 @@ module.exports = [
     component: 'div',
     position: [74, 803],
     props: {
+      'data-content': '统计人才库中职称类型分布情况',
       $style: {
         color: '#fff',
         fontSize: '18px',
         fontWeight: '600',
         textAlign: 'left',
         letterSpacing: '1px',
+        cursor: 'pointer',
       },
     },
     content: '高层次人才专业分布',

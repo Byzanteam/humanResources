@@ -45,7 +45,7 @@ module.exports = [
       $style: {
         width: '400px',
         height: '50px',
-        backgroundColor: 'rgba(106, 214, 255, .02)',
+        backgroundColor: 'rgba(106, 214, 255, .1)',
         borderRadius: '5px'
       }
     }
@@ -81,6 +81,7 @@ module.exports = [
         id: 'talent-age-index-content',
         component: '@byzanteam/vis-components/digital-roll',
         props: {
+          'data-content': '统计人才库中学历为「硕士」「博士」的人才数量',
           titlePosition: 'left',
           $content: {
             title: '人才数量统计',
@@ -106,7 +107,7 @@ module.exports = [
       $style: {
         width: '400px',
         height: '50px',
-        backgroundColor: 'rgba(106, 214, 255, .02)',
+        backgroundColor: 'rgba(106, 214, 255, .1)',
         borderRadius: '5px'
       }
     }
@@ -142,6 +143,7 @@ module.exports = [
         id: 'talent-age-index-content',
         component: '@byzanteam/vis-components/digital-roll',
         props: {
+          'data-content': '统计历年举行的人才引进活动次数',
           titlePosition: 'left',
           $content: {
             title: '人才引进统计',
@@ -183,6 +185,7 @@ module.exports = [
         fontWeight: '600',
         textAlign: 'left',
         letterSpacing: '1px',
+        cursor: 'pointer',
       },
     },
     content: '区域紧缺人才地图',
@@ -194,7 +197,7 @@ module.exports = [
       $style: {
         width: '400px',
         height: '50px',
-        backgroundColor: 'rgba(106, 214, 255, .02)',
+        backgroundColor: 'rgba(106, 214, 255, .1)',
         borderRadius: '5px'
       }
     }
@@ -230,6 +233,7 @@ module.exports = [
         id: 'talent-age-index-content',
         component: '@byzanteam/vis-components/digital-roll',
         props: {
+          'data-content': '默认统计所有行业供大于求判定为紧缺人才，可根据「区域」「时间」「行业类型」进行筛选统计对应行业的紧缺人才数量情况',
           titlePosition: 'left',
           $content: {
             title: '紧缺人才数量',

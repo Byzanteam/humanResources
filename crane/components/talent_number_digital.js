@@ -9,7 +9,7 @@ module.exports = {
   },
 
   props: {
-    $url: "`/v1/components/13b74ddd-39de-493f-84ab-9d87fcf23fee/data`",
+    $url: "`/v1/components/13b74ddd-39de-493f-84ab-9d87fcf23fee/data?area=${craneStates.department ? craneStates.department.label : ''}`",
     method: 'get',
     $data: "[[0]]",
   },
@@ -19,6 +19,7 @@ module.exports = {
       component: '@byzanteam/vis-components/digital-roll',
       props: {
         'v-if': 'results',
+        'data-content': '根据「区域」选择统计该地区人才库中学历为「硕士」「博士」的人才数量',
         titlePosition: 'left',
         $content: {
           title: '中高端人才数量',

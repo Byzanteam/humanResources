@@ -33,5 +33,10 @@ export default new Router({
       path: '/introduction',
       component: pages.introduction,
     },
+    {
+      name: 'high_talents',
+      path: '/highTalents',
+      component: pages.high_talents,
+    },
   ],
 })

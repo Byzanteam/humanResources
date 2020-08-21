@@ -18,12 +18,15 @@ module.exports = [
     component: 'div',
     position: [1536, 714],
     props: {
+      class: 'line-break-degree',
+      'data-content': '人才学历： 根据「区域」「时间」进行筛选统计对应的人才学历分布情况人才职称：根据「区域」「时间」进行筛选统计对应的人才职称分布情况',
       $style: {
         color: '#fff',
         fontSize: '18px',
         fontWeight: '600',
         textAlign: 'left',
         letterSpacing: '1px',
+        cursor: 'pointer',
       },
     },
     content: '学历职称分析',
