@@ -21,6 +21,7 @@ module.exports = {
           width: '380px',
           height: '50px'
         },
+        format: 'yyyy年',
         'v-model': 'craneStates.year',
         $options: {
           $disabledDate: "(time) => {return !craneStates.dateRange.includes(time.getFullYear())}"

@@ -98,7 +98,17 @@ export default {
 
       this.axios.get('/v1/components/00b74ddd-39de-493f-84ab-9d87fcf23fee/data?name=厦门')
       .then(({data: { data }}) => {
-        Echarts.registerMap('xiamen', data[0][0]);
+        const region = data[0][0]
+        region.features = region.features.map(item => {
+          if (item.properties.name === '翔安区') {
+            item.properties.cp = [118.240811, 24.637479]
+          }
+          if (item.properties.name === '思明区') {
+            item.properties.cp = [118.148828, 24.462059]
+          }
+          return item
+        })
+        Echarts.registerMap('xiamen', region);
       })
 
       this.axios.get('/v1/components/00b74ddd-39de-493f-84ab-9d87fcf23fee/data?name=漳州')

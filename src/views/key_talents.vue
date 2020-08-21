@@ -62,7 +62,7 @@
     <div :style="{width: '400px', height: '180px', backgroundColor: 'rgba(0, 0, 0, .03)', borderRadius: '4px', border: '1px dotted rgba(106, 214, 255, .3)', position: 'absolute', top: '225px', left: '1490px'}" />
     <div>
       <data-loader ref="job_select" @requestDone="(exports)=>[setState('dateRange', exports.results.map((item) => (Number(item[0]))))]" url="/v1/components/02b74ddd-39de-493f-84ab-9d87fcf23fee/data" method="get" :data="[['']]" :style="{position: 'absolute', top: '270px', left: '1503px'}">
-        <date-picker class="map-tab-datepicker" :options="{disabledDate: (time) => {return !craneStates.dateRange.includes(time.getFullYear())}}" :style="{width: '180px'}" v-model="craneStates.year" type="year" placeholder="选择时间" />
+        <date-picker class="map-tab-datepicker" :options="{disabledDate: (time) => {return !craneStates.dateRange.includes(time.getFullYear())}}" :style="{width: '180px'}" format="yyyy年"  v-model="craneStates.year" type="year" placeholder="选择时间" />
       </data-loader>
       <data-loader ref="industry_select" v-slot="{ results: results }" url="/v1/components/30b74ddd-39de-493f-84ab-9d87fcf23fee/data?offset=10" method="get" :data="[['']]" :style="{position: 'absolute', top: '270px', left: '1697px'}">
         <Select placeholder="所有行业" clearable class="map-select" :style="{width: '180px'}" v-model="craneStates.currentShortageType">
@@ -207,7 +207,7 @@ export const key_talents = {
         mapTabCurrent: MAP_TAB_NAVS[0],
         mapTabNavs: MAP_TAB_NAVS,
         time: '',
-        year: '',
+        year: new Date('2020'),
         dateRange: [],
         currentShortageType: '',
         selectOptions: [{label: '福州', uuid: 'fuzhou'}, {label: '宁德', uuid: 'ningde'}, {label: '龙岩', uuid: 'longyan'}, {label: '莆田', uuid: 'putian'}, {label: '南平', uuid: 'nanping'}, {label: '三明', uuid: 'sanming'}, {label: '厦门', uuid: 'xiamen'}, {label: '漳州', uuid: 'zhangzhou'}, {label: '泉州', uuid: 'quanzhou'}],

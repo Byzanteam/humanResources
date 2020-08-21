@@ -35,7 +35,7 @@ module.exports = {
               props: {
                 'v-model': 'craneStates.inputQuery',
                 type: 'text',
-                placeholder: '请选择',
+                placeholder: '全部',
                 class: 'ivu-select-input'
               }
             },

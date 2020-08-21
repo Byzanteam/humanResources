@@ -86,7 +86,7 @@
       <digital-roll ref="high-level-talent-digital-content" v-if="results" titlePosition="left" :content="{title: '高层次人才引进总数', suffix: '人', digital: results[0][0]}" :options="{separator: ','}" :titleStyle="{color: '#367391', fontSize: '16px', fontWeight: '400'}" :prefixStyle="{color: '#367391', fontSize: '16px', fontWeight: '400'}" :suffixStyle="{color: '#367391', fontSize: '16px', fontWeight: '400'}" :digitalStyle="{fontSize: '32px', color: '#6ad6ff', fontWeight: '400', fontFamily: 'Oswald-Regular', format: '11', letterSpacing: '2.4px'}" />
     </data-loader>
     <data-loader @requestDone="(param)=>[setState('dateRange', param.results ? param.results.map((item) => (Number(item[0]))) : [])]" url="/v1/components/42b74ddd-39de-493f-84ab-9d87fcf23fee/data" method="get" :data="[['']]">
-      <date-picker class="supply-datepicker" :style="{width: '380px', height: '50px', position: 'absolute', top: '50px', left: '40px'}" v-model="craneStates.year" :options="{disabledDate: (time) => {return !craneStates.dateRange.includes(time.getFullYear())}}" type="year" placeholder="选择时间" />
+      <date-picker class="supply-datepicker" :style="{width: '380px', height: '50px', position: 'absolute', top: '50px', left: '40px'}" format="yyyy年" v-model="craneStates.year" :options="{disabledDate: (time) => {return !craneStates.dateRange.includes(time.getFullYear())}}" type="year" placeholder="选择时间" />
     </data-loader>
   </div>
 </template>
@@ -133,7 +133,7 @@ export const introduction = {
     return {
       Echarts: Echarts,
       craneStates: {
-        year: '',
+        year: new Date('2020'),
         dateRange: [],
         selectedArea: {},
         selectOptions: [{label: '福州', uuid: 'fuzhou'}, {label: '宁德', uuid: 'ningde'}, {label: '龙岩', uuid: 'longyan'}, {label: '莆田', uuid: 'putian'}, {label: '南平', uuid: 'nanping'}, {label: '三明', uuid: 'sanming'}, {label: '厦门', uuid: 'xiamen'}, {label: '漳州', uuid: 'zhangzhou'}, {label: '泉州', uuid: 'quanzhou'}],

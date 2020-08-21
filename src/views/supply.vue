@@ -11,7 +11,7 @@
     <data-loader ref="job_select" v-slot="{ results: results }" :url="`/v1/components/01b74ddd-39de-493f-84ab-9d87fcf23fee/data?job=${craneStates.inputQuery}`" method="get" :data="[['']]" :style="{position: 'absolute', top: '50px', left: '40px'}">
       <Select class="departments-select" :clearable="true" :filterable="true" :style="{width: '380px'}" v-model="craneStates.currentJob">
         <template v-slot:input class="ivu-select-selection">
-          <input v-model="craneStates.inputQuery" type="text" placeholder="请选择" class="ivu-select-input" />
+          <input v-model="craneStates.inputQuery" type="text" placeholder="全部" class="ivu-select-input" />
           <i class="ivu-icon ivu-icon-ios-arrow-down ivu-select-arrow" />
         </template>
         <Option v-for="(item, key) in results.map((item, index) => ({index: item[0], name: item[0]}))" :key="key" :value="item.index" :label="item.name">
@@ -20,7 +20,7 @@
       </Select>
     </data-loader>
     <data-loader ref="job_select" @requestDone="(param)=>[setState('dateRange', param.results.map((item) => (Number(item[0]))))]" url="/v1/components/02b74ddd-39de-493f-84ab-9d87fcf23fee/data" method="get" :data="[['']]" :style="{position: 'absolute', top: '116px', left: '40px'}">
-      <date-picker v-model="craneStates.year" :style="{width: '380px', height: '50px'}" :options="{disabledDate: (time) => {return !craneStates.dateRange.includes(time.getFullYear())}}" type="year" class="supply-datepicker" placeholder="选择时间" />
+      <date-picker format="yyyy年" v-model="craneStates.year" :style="{width: '380px', height: '50px'}" :options="{disabledDate: (time) => {return !craneStates.dateRange.includes(time.getFullYear())}}" type="year" class="supply-datepicker" placeholder="选择时间" />
     </data-loader>
     <data-loader :style="{position: 'absolute', top: '125px', left: '876px'}">
       <brick-radio-button-select ref="departments-select" :options="selectOptions" v-model="craneStates.department" placeholder="全省" />
@@ -172,7 +172,7 @@ export const supply = {
       craneStates: {
         currentJob: '',
         inputQuery: '',
-        year: '',
+        year: new Date('2020'),
         department: null,
         dateRange: [],
         tabNavs: TAB_NAVS,

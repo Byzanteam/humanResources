@@ -211,6 +211,7 @@ module.exports = [
               $style: {
                 width: '180px',
               },
+              format: 'yyyy年',
               'v-model': 'craneStates.year',
               type: 'year',
               placeholder: '选择时间'
