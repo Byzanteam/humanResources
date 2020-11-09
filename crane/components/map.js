@@ -34,6 +34,7 @@ module.exports = {
           },
           $visualMap: {
             type: 'piecewise',
+            $inverse: true,
             $pieces: "[{gt: 1500, label: '1500人及以上'}, {gt: 1000, lte: 1500, label: '1000-1500人'}, {gt: 100, lte: 999, label: '100-999人'}, {gt: 10, lte: 99, label: '10-99人'}, {gt: 1, lt: 9, label: '1-9人'}]",
             orient: 'horizontal',
             bottom: '6%',
@@ -46,7 +47,7 @@ module.exports = {
             $itemGap: 10,
             $textGap: 8,
             $inRange: {
-              $color: "['rgba(106, 214, 255, .1)', 'rgba(106, 214, 255, .4)', 'rgba(106, 214, 255, .5)', 'rgba(106, 214, 255, .6)', 'rgba(106, 214, 255, .7)']"
+              $color: "['#0e3e7d', '#065ba1', '#e0ad3a', '#d98278', '#bb4e54']"
             }
           },
           $series: {
