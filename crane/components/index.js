@@ -3,12 +3,6 @@ const table = require('./table')
 const donut = require('./donut')
 const partProduction = require('./part_production_digital')
 const talentNumber = require('./talent_number_digital')
-const talentAge = require('./talent_age_index_digital')
-const talentEducation = require('./talent_edution_index_digital')
-const talentIndustry = require('./talent_industry_index_digital')
-const talentQuality = require('./talent_quality_index_digital')
-const talentRank = require('./talent_rank_index_digital')
-const talentSynthesis = require('./talent_synthesis_index_digital')
 const rank = require('./rank')
 const verticalBar = require('./vertical_bar')
 const { page_title_content } = require('../share')
@@ -84,26 +78,9 @@ module.exports = {
       content: '全省人才资源态势总览',
     },
     {
-      id: 'talent-index',
-      component: 'div',
-      position: [73, 262],
-      props: {
-        'data-content': '根据「区域」选择分析该地图人才指数分析数据，用于人才指数对比',
-        $style: {
-          color: '#fff',
-          fontSize: '18px',
-          fontWeight: '600',
-          textAlign: 'left',
-          letterSpacing: '1px',
-          cursor: 'pointer',
-        },
-      },
-      content: '人才指数综合分析',
-    },
-    {
       id: 'talent-education',
       component: 'div',
-      position: [73, 704],
+      position: [73, 360],
       props: {
         'data-content': '根据「区域」选择统计该区域人才学历分布情况',
         $style: {
@@ -169,23 +146,9 @@ module.exports = {
       content: '各行业人才需求',
     },
     {
-      id: 'talent-index-icon',
-      component: 'div',
-      position: [38, 265],
-      props: {
-        $style: {
-          color: '#6ad6ff',
-          fontSize: '14px',
-          fontWeight: 400,
-          textAlign: 'left',
-        },
-      },
-      content: '>>',
-    },
-    {
       id: 'talent-education-icon',
       component: 'div',
-      position: [38, 707],
+      position: [40, 362],
       props: {
         $style: {
           color: '#6ad6ff',
@@ -241,7 +204,7 @@ module.exports = {
     {
       id: 'value-circle',
       component: 'div',
-      position: [104, 79],
+      position: [104, 157],
       props: {
         $style: {
           height:'10px',
@@ -256,7 +219,7 @@ module.exports = {
     {
       id: 'number-circle',
       component: 'div',
-      position: [104, 159],
+      position: [104, 237],
       props: {
         $style: {
           height:'10px',
@@ -439,7 +402,7 @@ module.exports = {
     {
       id: 'production-bg',
       component: 'div',
-      position: [30, 50],
+      position: [40, 128],
       props: {
         $style: {
           height: '50px',
@@ -452,7 +415,7 @@ module.exports = {
     {
       id: 'production-bg',
       component: 'div',
-      position: [30, 130],
+      position: [40, 208],
       props: {
         $style: {
           height: '50px',
@@ -481,12 +444,6 @@ module.exports = {
     donut,
     partProduction,
     talentNumber,
-    talentAge,
-    talentEducation,
-    talentIndustry,
-    talentQuality,
-    talentRank,
-    talentSynthesis,
     rank,
     verticalBar,
   ]
