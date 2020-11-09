@@ -12,6 +12,7 @@ const talentSynthesis = require('./talent_synthesis_index_digital')
 const rank = require('./rank')
 const verticalBar = require('./vertical_bar')
 const { page_title_content } = require('../share')
+const datePicker = require('./date_picker')
 
 
 module.exports = {
@@ -63,6 +64,7 @@ module.exports = {
         src: '/hxrc/images/Box-Bg.png'
       },
     },
+    datePicker,
     map,
     table,
     {

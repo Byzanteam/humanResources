@@ -4,8 +4,9 @@
     <img ref="background" src="/hxrc/images/Bg.png" :style="{position: 'absolute', top: '0px', left: '0px'}" />
     <img ref="box-bg" :style="{width: '440px', height: '1059px', position: 'absolute', top: '10px', left: '10px'}" src="/hxrc/images/Box-Bg.png" />
     <img ref="right-box-bg" :style="{width: '440px', height: '1059px', position: 'absolute', top: '10px', left: '1471px'}" src="/hxrc/images/Box-Bg.png" />
-    <data-loader v-slot="{ results: results }" @requestDone="(param)=>[setState('mapData', param.results.map((item) => ({name: item[1], value: item[0]})))]" :url="`/v1/components/20b74ddd-39de-493f-84ab-9d87fcf23fee/data?area=${craneStates.department ? craneStates.department.label : '福建'}`" method="get" :data="[[0, '暂无数据']]" :style="{width: '1100px', height: '900px', position: 'absolute', top: '160px', left: '410px'}">
-      <v-chart  v-if="results" class="map-chart" :options="{backgroundColor: 'transparent', tooltip: {trigger: 'item', formatter: (params) => {return params.name + '<br />人才数量（人）：' + (isNaN(params.value) ? 0 : params.value)}, backgroundColor: '#566374f0'}, visualMap: {type: 'piecewise', inverse: true, pieces: [{gt: 1500, label: '1500人及以上'}, {gt: 1000, lte: 1500, label: '1000-1500人'}, {gt: 100, lte: 999, label: '100-999人'}, {gt: 10, lte: 99, label: '10-99人'}, {gt: 1, lt: 9, label: '1-9人'}], orient: 'horizontal', bottom: '6%', left: '26%', textStyle: {color: '#ffffff', fontSize: 14}, itemWidth: 18, itemGap: 10, textGap: 8, inRange: {color: ['#0e3e7d', '#065ba1', '#e0ad3a', '#d98278', '#bb4e54']}}, series: {type: 'map', mapType: craneStates.department ? craneStates.department.uuid : 'fujian', data: results.map(item => ({name: item[1], value: item[0]})), label: {show: true, fontSize: 14, color: 'white'}, itemStyle: {areaColor: 'rgba(106, 214, 255, .05)', borderColor: '#6ad6ff', borderType: 'solid', borderWidth: 0.5}, emphasis: {label: {color: 'white', fontWeight: 600}, itemStyle: {areaColor: '#6ad6ff'}}}}" />
+    <date-picker format="yyyy年" v-model="craneStates.year" :style="{width: '380px', height: '50px', position: 'absolute', top: '48px', left: '40px'}" :options="{disabledDate: (time) => {return !generateDateRange().includes(time.getFullYear())}}" type="year" class="supply-datepicker" placeholder="选择时间" />
+    <data-loader v-slot="{ results: results }" @requestDone="(param)=>[setState('mapData', param.results.map((item) => ({name: item[1], value: item[0]})))]" :url="`/v1/components/20b74ddd-39de-493f-84ab-9d87fcf23fee/data?area=${craneStates.department ? craneStates.department.label : ''}`" method="get" :data="[[0, '暂无数据']]" :style="{width: '1100px', height: '900px', position: 'absolute', top: '160px', left: '410px'}">
+      <v-chart v-if="results" class="map-chart" :options="{backgroundColor: 'transparent', tooltip: {trigger: 'item', formatter: (params) => {return params.name + '<br />人才数量（人）：' + (isNaN(params.value) ? 0 : params.value)}, backgroundColor: '#566374f0'}, visualMap: {type: 'piecewise', inverse: true, pieces: [{gt: 1500, label: '1500人及以上'}, {gt: 1000, lte: 1500, label: '1000-1500人'}, {gt: 100, lte: 999, label: '100-999人'}, {gt: 10, lte: 99, label: '10-99人'}, {gt: 1, lt: 9, label: '1-9人'}], orient: 'horizontal', bottom: '6%', left: '26%', textStyle: {color: '#ffffff', fontSize: 14}, itemWidth: 18, itemGap: 10, textGap: 8, inRange: {color: ['#0e3e7d', '#065ba1', '#e0ad3a', '#d98278', '#bb4e54']}}, series: {type: 'map', mapType: craneStates.department ? craneStates.department.uuid : 'fujian', data: results.map(item => ({name: item[1], value: item[0]})), label: {show: true, fontSize: 14, color: 'white'}, itemStyle: {areaColor: 'rgba(106, 214, 255, .05)', borderColor: '#6ad6ff', borderType: 'solid', borderWidth: 0.5}, emphasis: {label: {color: 'white', fontWeight: 600}, itemStyle: {areaColor: '#6ad6ff'}}}}" />
     </data-loader>
     <data-loader v-slot="{ results: results }" :url="`/v1/components/21b74ddd-39de-493f-84ab-9d87fcf23fee/data?area=${craneStates.department ? craneStates.department.label : ''}`" method="get" :data="[['暂无数据']]" :style="{width: '400px', height: '254px', overflow: 'scroll', position: 'absolute', top: '78px', left: '1490px'}">
       <vis-table :withHeader="false" theme="dark" stripe="" :headers="[{width: 120, key: 'index'}, {width: 280, key: 'name'}]" :data="results.map((item, index) => ({index: index + 1, name: item[0]}))">
@@ -126,8 +127,12 @@ import fujian from '../../public/hxrc/fujian.json'
 Echarts.registerMap('fujian', fujian);
 
 const SELECT_OPTIONS = [{label: '福州', uuid: 'fuzhou'}, {label: '宁德', uuid: 'ningde'}, {label: '龙岩', uuid: 'longyan'}, {label: '莆田', uuid: 'putian'}, {label: '南平', uuid: 'nanping'}, {label: '三明', uuid: 'sanming'}, {label: '厦门', uuid: 'xiamen'}, {label: '漳州', uuid: 'zhangzhou'}, {label: '泉州', uuid: 'quanzhou'}]
+const DATE_RANGE = [2006, new Date().getFullYear()]
 
 import BuiltInMixin from '../mixins/built_in'
+import {
+  DatePicker,
+} from 'iview'
 import {
   DataLoader,
   VisTable,
@@ -145,6 +150,7 @@ export const resources = {
   mixins: [BuiltInMixin],
 
   components: {
+    DatePicker,
     DataLoader,
     VisTable,
     'v-chart': Echarts,
@@ -212,6 +218,15 @@ export const resources = {
         }
       })
       return result
+    },
+    generateDateRange() {
+      var i = DATE_RANGE[1]
+      var range = []
+      while(i >= 2006) {
+        range.push(i)
+        i -= 1
+      }
+      return range
     }
   }
 }
