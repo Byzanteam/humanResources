@@ -47,7 +47,7 @@ module.exports = {
             $itemGap: 10,
             $textGap: 8,
             $inRange: {
-              $color: "['#0e3e7d', '#065ba1', '#e0ad3a', '#d98278', '#bb4e54']"
+              $color: "['#1c44a2', '#2174bb', '#e0ad3a', '#d98278', '#bb4e54']"
             }
           },
           $series: {
