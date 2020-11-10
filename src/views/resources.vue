@@ -27,8 +27,8 @@
     <div ref="talent-industry" data-content="以「区域」作为筛选条件，统计分析历史简历数据判断岗位平均的流动时间并进行排名" :style="{color: '#fff', fontSize: '18px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', cursor: 'pointer', position: 'absolute', top: '46px', left: '1530px'}">
       人才流动岗位排名
     </div>
-    <div ref="industry-talent" data-content="以「区域」作为筛选条件，统计该区域人才所在行业分布" :style="{color: '#fff', fontSize: '18px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', cursor: 'pointer', position: 'absolute', top: '388px', left: '1530px'}">
-      行业人才占比
+    <div ref="industry-talent" data-content="以「区域」作为筛选条件，统计该区域人才所在行业分布" :style="{color: '#fff', fontSize: '18px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', cursor: 'pointer', position: 'absolute', top: '740px', left: '73px'}">
+      人才专业占比
     </div>
     <div ref="talent-demand" data-content="以「区域」作为筛选条件，统计各个行业发布的招聘人才数量" :style="{color: '#fff', fontSize: '18px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', cursor: 'pointer', position: 'absolute', top: '704px', left: '1530px'}">
       各行业人才需求
@@ -39,7 +39,7 @@
     <div ref="talent-industry-icon" :style="{color: '#6ad6ff', fontSize: '14px', fontWeight: '400', textAlign: 'left', position: 'absolute', top: '49px', left: '1498px'}">
       >>
     </div>
-    <div ref="industry-talent-icon" :style="{color: '#6ad6ff', fontSize: '14px', fontWeight: '400', textAlign: 'left', position: 'absolute', top: '391px', left: '1498px'}">
+    <div ref="industry-talent-icon" :style="{color: '#6ad6ff', fontSize: '14px', fontWeight: '400', textAlign: 'left', position: 'absolute', top: '742px', left: '40px'}">
       >>
     </div>
     <div ref="talent-demand-icon" :style="{color: '#6ad6ff', fontSize: '14px', fontWeight: '400', textAlign: 'left', position: 'absolute', top: '707px', left: '1498px'}">
@@ -47,24 +47,12 @@
     </div>
     <div ref="value-circle" :style="{height: '10px', width: '10px', borderRadius: '10px', borderWidth: '1px', borderColor: '#6ad6ff', borderStyle: 'solid', position: 'absolute', top: '157px', left: '104px'}" />
     <div ref="number-circle" :style="{height: '10px', width: '10px', borderRadius: '10px', borderWidth: '1px', borderColor: '#6ad6ff', borderStyle: 'solid', position: 'absolute', top: '237px', left: '104px'}" />
-    <div ref="education-circle" :style="{height: '10px', width: '10px', borderRadius: '10px', borderWidth: '1px', borderColor: '#6ad6ff', borderStyle: 'solid', position: 'absolute', top: '364px', left: '64px'}" />
-    <div ref="rank-circle" :style="{height: '10px', width: '10px', borderRadius: '10px', borderWidth: '1px', borderColor: '#6ad6ff', borderStyle: 'solid', position: 'absolute', top: '364px', left: '264px'}" />
-    <div ref="age-circle" :style="{height: '10px', width: '10px', borderRadius: '10px', borderWidth: '1px', borderColor: '#6ad6ff', borderStyle: 'solid', position: 'absolute', top: '472px', left: '64px'}" />
-    <div ref="industry-circle" :style="{height: '10px', width: '10px', borderRadius: '10px', borderWidth: '1px', borderColor: '#6ad6ff', borderStyle: 'solid', position: 'absolute', top: '472px', left: '264px'}" />
-    <div ref="quality-circle" :style="{height: '10px', width: '10px', borderRadius: '10px', borderWidth: '1px', borderColor: '#6ad6ff', borderStyle: 'solid', position: 'absolute', top: '580px', left: '64px'}" />
-    <div ref="synthesis-circle" :style="{height: '10px', width: '10px', borderRadius: '10px', borderWidth: '1px', borderColor: '#6ad6ff', borderStyle: 'solid', position: 'absolute', top: '580px', left: '264px'}" />
-    <div ref="age-bg" :style="{height: '80px', width: '180px', backgroundColor: '#6ad6ff1a', borderRadius: '5px', position: 'absolute', top: '324px', left: '40px'}" />
-    <div ref="education-bg" :style="{height: '80px', width: '180px', backgroundColor: '#6ad6ff1a', borderRadius: '5px', position: 'absolute', top: '324px', left: '240px'}" />
-    <div ref="industry-bg" :style="{height: '80px', width: '180px', backgroundColor: '#6ad6ff1a', borderRadius: '5px', position: 'absolute', top: '432px', left: '40px'}" />
-    <div ref="number-bg" :style="{height: '80px', width: '180px', backgroundColor: '#6ad6ff1a', borderRadius: '5px', position: 'absolute', top: '432px', left: '240px'}" />
-    <div ref="quality-bg" :style="{height: '80px', width: '180px', backgroundColor: '#6ad6ff1a', borderRadius: '5px', position: 'absolute', top: '540px', left: '40px'}" />
-    <div ref="synthesis-bg" :style="{height: '80px', width: '180px', backgroundColor: '#6ad6ff1a', borderRadius: '5px', position: 'absolute', top: '540px', left: '240px'}" />
     <div ref="production-bg" :style="{height: '50px', width: '400px', backgroundColor: '#6ad6ff1a', borderRadius: '5px', position: 'absolute', top: '128px', left: '40px'}" />
     <div ref="production-bg" :style="{height: '50px', width: '400px', backgroundColor: '#6ad6ff1a', borderRadius: '5px', position: 'absolute', top: '208px', left: '40px'}" />
     <div ref="departments-loader" :style="{position: 'absolute', top: '125px', left: '929px'}">
       <brick-radio-button-select ref="departments-select" :options="selectOptions" v-model="craneStates.department" placeholder="全省" />
     </div>
-    <data-loader v-slot="{ results: results }" url="/v1/components/22b74ddd-39de-493f-84ab-9d87fcf23fee/data" method="get" :data="[[0, '暂无数据']]" :style="{width: '460px', height: '218px', position: 'absolute', top: '435px', left: '1455px'}">
+    <data-loader v-slot="{ results: results }" url="/v1/components/22b74ddd-39de-493f-84ab-9d87fcf23fee/data" method="get" :data="[[0, '暂无数据']]" :style="{width: '460px', height: '218px', position: 'absolute', top: '792px', left: '40px'}">
       <v-chart class="pie-chart" :options="{backgroundColor: 'transparent', legend: {formatter: legendText, type: 'scroll', icon: 'circle', itemWidth: 10, itemHeight: 10, left: 270, top: 'middle', itemGap: 9, orient: 'vertical', textStyle: {color: '#4b9bbe', fontSize: 12, lineHeight: 15}, inactiveColor: '#1C4159'}, color: ['#6ad6ff', '#4b9bbe', '#367290', '#275570', '#1c4159', '#153349'], series: [{type: 'pie', minAngle: 5, left: -140, radius: ['35%', '62%'], label: {show: false}, labelLine: {show: false}, data: results.map(item => ({value: item[0], name: item[1]})).sort(compare())}], tooltip: {trigger: 'item', formatter: pieTooltipFormatterFunc, backgroundColor: '#566374f0'}}" />
     </data-loader>
     <data-loader ref="part-production-value" v-slot="{ results: results }" :url="`/v1/components/12b74ddd-39de-493f-84ab-9d87fcf23fee/data?city=${craneStates.department ? craneStates.department.label : ''}`" method="get" :data="[[0]]" :style="{position: 'absolute', top: '134px', left: '130px'}">
@@ -119,7 +107,7 @@ import {
 import {
   Donut,
   VerticalBar,
-      <v-chart ref="demand-vertical-bar-content" class="bar-chart" :options="{grid: {top: '12%', right: '1%'}, xAxis: {axisLabel: {formatter: limitXaxisLabel, rotate: -315, fontSize: 12, fontWeight: 400, color: '#367391'}, axisLine: {show: false}, data: results.map(item => (item[1]))}, yAxis: {axisLine: {show: false}, axisLabel: {formatter: limitLabelLength, rotate: 0, fontSize: 12, fontWeight: 400, color: '#367391', align: 'right'}, splitLine: {show: false}, splitNumber: 5, name: '千人', nameTextStyle: {fontSize: 12, fontWeight: 400, color: '#367391', align: 'right', padding: [0, 8, 0, 0]}}, series: {type: 'bar', barWidth: 7, barCategoryGap: '10%', itemStyle: {normal: {barBorderRadius: 7, color: new Echarts.graphic.LinearGradient(0, 1, 0, 0, [
+} from '@byzanteam/graphite'
 import Navigator from '../components/navigator'
 
 export const resources = {

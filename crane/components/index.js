@@ -114,7 +114,7 @@ module.exports = {
     {
       id: 'industry-talent',
       component: 'div',
-      position: [1530, 388],
+      position: [73, 740],
       props: {
         'data-content': '以「区域」作为筛选条件，统计该区域人才所在行业分布',
         $style: {
@@ -126,7 +126,7 @@ module.exports = {
           cursor: 'pointer',
         },
       },
-      content: '行业人才占比',
+      content: '人才专业占比',
     },
     {
       id: 'talent-demand',
@@ -176,7 +176,7 @@ module.exports = {
     {
       id: 'industry-talent-icon',
       component: 'div',
-      position: [1498, 391],
+      position: [40, 742],
       props: {
         $style: {
           color: '#6ad6ff',
@@ -230,174 +230,6 @@ module.exports = {
           borderStyle: 'solid',
         }
       },
-    },
-    {
-      id: 'education-circle',
-      component: 'div',
-      position: [64, 364],
-      props: {
-        $style: {
-          height:'10px',
-          width: '10px',
-          borderRadius: '10px',
-          borderWidth: '1px',
-          borderColor: '#6ad6ff',
-          borderStyle: 'solid',
-        }
-      },
-    },
-    {
-      id: 'rank-circle',
-      component: 'div',
-      position: [264, 364],
-      props: {
-        $style: {
-          height:'10px',
-          width: '10px',
-          borderRadius: '10px',
-          borderWidth: '1px',
-          borderColor: '#6ad6ff',
-          borderStyle: 'solid',
-        }
-      },
-    },
-    {
-      id: 'age-circle',
-      component: 'div',
-      position: [64, 472],
-      props: {
-        $style: {
-          height:'10px',
-          width: '10px',
-          borderRadius: '10px',
-          borderWidth: '1px',
-          borderColor: '#6ad6ff',
-          borderStyle: 'solid',
-        }
-      },
-    },
-    {
-      id: 'industry-circle',
-      component: 'div',
-      position: [264, 472],
-      props: {
-        $style: {
-          height:'10px',
-          width: '10px',
-          borderRadius: '10px',
-          borderWidth: '1px',
-          borderColor: '#6ad6ff',
-          borderStyle: 'solid',
-        }
-      },
-    },
-    {
-      id: 'quality-circle',
-      component: 'div',
-      position: [64, 580],
-      props: {
-        $style: {
-          height:'10px',
-          width: '10px',
-          borderRadius: '10px',
-          borderWidth: '1px',
-          borderColor: '#6ad6ff',
-          borderStyle: 'solid',
-        }
-      },
-    },
-    {
-      id: 'synthesis-circle',
-      component: 'div',
-      position: [264, 580],
-      props: {
-        $style: {
-          height:'10px',
-          width: '10px',
-          borderRadius: '10px',
-          borderWidth: '1px',
-          borderColor: '#6ad6ff',
-          borderStyle: 'solid',
-        }
-      },
-    },
-    {
-      id: 'age-bg',
-      component: 'div',
-      position: [40, 324],
-      props: {
-        $style: {
-          height: '80px',
-          width: '180px',
-          backgroundColor: '#6ad6ff1a',
-          borderRadius: '5px',
-        }
-      }
-    },
-    {
-      id: 'education-bg',
-      component: 'div',
-      position: [240, 324],
-      props: {
-        $style: {
-          height: '80px',
-          width: '180px',
-          backgroundColor: '#6ad6ff1a',
-          borderRadius: '5px',
-        }
-      }
-    },
-    {
-      id: 'industry-bg',
-      component: 'div',
-      position: [40, 432],
-      props: {
-        $style: {
-          height: '80px',
-          width: '180px',
-          backgroundColor: '#6ad6ff1a',
-          borderRadius: '5px',
-        }
-      }
-    },
-    {
-      id: 'number-bg',
-      component: 'div',
-      position: [240, 432],
-      props: {
-        $style: {
-          height: '80px',
-          width: '180px',
-          backgroundColor: '#6ad6ff1a',
-          borderRadius: '5px',
-        }
-      }
-    },
-    {
-      id: 'quality-bg',
-      component: 'div',
-      position: [40, 540],
-      props: {
-        $style: {
-          height: '80px',
-          width: '180px',
-          backgroundColor: '#6ad6ff1a',
-          borderRadius: '5px',
-        }
-      }
-    },
-    {
-      id: 'synthesis-bg',
-      component: 'div',
-      position: [240, 540],
-      props: {
-        $style: {
-          height: '80px',
-          width: '180px',
-          backgroundColor: '#6ad6ff1a',
-          borderRadius: '5px',
-        }
-      }
     },
     {
       id: 'production-bg',
