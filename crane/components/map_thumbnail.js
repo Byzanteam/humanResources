@@ -84,7 +84,8 @@ module.exports = [
         content: '·',
         props: {
           $style: {
-            marginRight: '4px'
+            marginRight: '4px',
+            color: '#ffffff'
           }
         }
       },
@@ -114,7 +115,8 @@ module.exports = [
         content: '·',
         props: {
           $style: {
-            marginRight: '4px'
+            marginRight: '4px',
+            color: '#ffffff'
           }
         }
       },
@@ -144,7 +146,8 @@ module.exports = [
         content: '·',
         props: {
           $style: {
-            marginRight: '4px'
+            marginRight: '4px',
+            color: '#ffffff'
           }
         }
       },
@@ -174,7 +177,8 @@ module.exports = [
         content: '·',
         props: {
           $style: {
-            marginRight: '4px'
+            marginRight: '4px',
+            color: '#ffffff'
           }
         }
       },

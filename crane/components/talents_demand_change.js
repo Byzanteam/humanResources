@@ -28,7 +28,7 @@ module.exports = [
         cursor: 'pointer',
       },
     },
-    content: '人才供需变化',
+    content: '人才供需月度变化',
   },
   {
     id: 'talents-demand-change-count-line-chart',
