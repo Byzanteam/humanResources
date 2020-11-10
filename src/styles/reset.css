@@ -153,6 +153,7 @@ input::placeholder {
   content: attr(data-content);
   z-index: 999;
   cursor: pointer;
+  z-index: 0;
 }
 
 .line-break-talent-demand::after {

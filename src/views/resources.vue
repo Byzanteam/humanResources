@@ -74,19 +74,19 @@
       全国人才区域分布
     </div>
     <data-loader>
-      <v-chart ref="map-thumbnail-chart" :style="{width: '240px', height: '248px', position: 'absolute', top: '792px', left: '1500px'}" :options="{backgroundColor: 'transparent', series: {type: 'map', mapType: 'china', itemStyle: {areaColor: '#0e3e7d', borderColor: '#4589e1', borderType: 'dashed', borderWidth: 1}, emphasis: {label: {color: 'white', fontWeight: 600}, itemStyle: {areaColor: '#41bcff'}}}}" />
+      <v-chart ref="map-thumbnail-chart" :style="{width: '240px', height: '248px', position: 'absolute', top: '792px', left: '1500px'}" :options="craneStates.mapThumbnailOptions" />
     </data-loader>
     <span :style="{color: '#41bcff', fontSize: '14px', fontWeight: 400, lineHeight: '20px', position: 'absolute', top: '792px', left: '1776px'}">
       人才全国占比
     </span>
-    <span :style="{position: 'absolute', top: '824px', left: '1765px'}">
+    <div :style="{position: 'absolute', top: '824px', left: '1765px'}">
       <span :style="{marginRight: '4px'}">
         ·
       </span>
       <span :style="{color: '#ffffff', fontSize: '14px', fontWeight: 400, lineHeight: '20px'}">
         人才总数占比
       </span>
-    </span>
+    </div>
     <span :style="{color: '#41bcff', fontSize: '14px', fontWeight: 400, lineHeight: '20px', position: 'absolute', top: '848px', left: '1776px'}">
       12.4%
     </span>
@@ -182,7 +182,8 @@ export const resources = {
       selectOptions: SELECT_OPTIONS,
       craneStates: {
         department: null,
-        mapData: []
+        mapData: [],
+        mapThumbnailOptions: {backgroundColor: 'transparent', series: {type: 'map', mapType: 'china', itemStyle: {areaColor: '#0e3e7d', borderColor: '#4589e1', borderType: 'dashed', borderWidth: 1}, emphasis: {label: {color: 'white', fontWeight: 600}, itemStyle: {areaColor: '#41bcff'}}}}
       },
     }
   },

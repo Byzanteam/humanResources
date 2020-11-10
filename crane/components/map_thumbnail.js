@@ -62,28 +62,7 @@ module.exports = [
             width: '240px',
             height: '248px',
           },
-          $options: {
-            backgroundColor: 'transparent',
-            $series: {
-              type: 'map',
-              mapType: "china",
-              $itemStyle: {
-                areaColor: '#0e3e7d',
-                borderColor: '#4589e1',
-                borderType: 'dashed',
-                $borderWidth: 1
-              },
-              $emphasis: {
-                $label: {
-                  color: 'white',
-                  $fontWeight: 600,
-                },
-                $itemStyle: {
-                  areaColor: '#41bcff',
-                }
-              },
-            }
-          }
+          $options: "craneStates.mapThumbnailOptions"
         }
       }
     ]
