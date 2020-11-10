@@ -225,3 +225,5 @@ exports.rankingStyle = {
     marginTop: '3px'
   },
 }
+
+exports.pieColors = "['#00fff2', '#7b43ff', '#e0ad3a', '#189ef1', '#2174b8', '#f65446']"
