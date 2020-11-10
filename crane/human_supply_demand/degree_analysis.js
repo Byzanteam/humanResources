@@ -2,7 +2,7 @@ module.exports = [
   {
     id: 'degree-analysis-icon',
     component: 'div',
-    position: [1504, 717],
+    position: [1500, 722],
     props: {
       $style: {
         color: '#6ad6ff',
@@ -16,7 +16,7 @@ module.exports = [
   {
     id: 'degree-analysis-title',
     component: 'div',
-    position: [1536, 714],
+    position: [1532, 720],
     props: {
       class: 'line-break-degree',
       'data-content': '人才学历： 根据「区域」「时间」进行筛选统计对应的人才学历分布情况人才职称：根据「区域」「时间」进行筛选统计对应的人才职称分布情况',
@@ -44,7 +44,7 @@ module.exports = [
   },
   {
     component: '@byzanteam/vis-components/data-loader',
-    position: [1490, 822],
+    position: [1500, 822],
     exports: {
       results: 'results',
     },
@@ -54,7 +54,7 @@ module.exports = [
       method: 'get',
       $data: "[[0, '暂无数据']]",
       $style: {
-        width: '400px',
+        width: '380px',
         height: '218px',
         overflow: 'scroll'
       }
@@ -94,7 +94,7 @@ module.exports = [
   },
   {
     component: '@byzanteam/vis-components/data-loader',
-    position: [1490, 822],
+    position: [1500, 822],
     exports: {
       results: 'results',
     },

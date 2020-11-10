@@ -85,9 +85,20 @@ const chartTooltipOptions = {
 };
 exports.chartTooltipOptions = chartTooltipOptions;
 
+exports.page_title_bg = {
+  position: [610, 0],
+  props: {
+    $style: {
+      width: '700px',
+      height: '124px',
+    },
+    src: '/hxrc/images/Title-Bg.png'
+  },
+}
+
 exports.page_title_content = {
   component: 'div',
-  position: [733, 38],
+  position: [730, 36],
   events: {
     'click': {
       actions: ["openNavigator()"]
@@ -96,7 +107,7 @@ exports.page_title_content = {
   props: {
     $style: {
       cursor: 'pointer',
-      width: '454px',
+      width: '460px',
       color: '#fff',
       fontSize: '42px',
       $fontWeight: '600',

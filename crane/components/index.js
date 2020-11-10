@@ -4,7 +4,7 @@ const donut = require('./donut')
 const partProduction = require('./part_production_digital')
 const talentNumber = require('./talent_number_digital')
 const rank = require('./rank')
-const { page_title_content } = require('../share')
+const { page_title_content, page_title_bg } = require('../share')
 const datePicker = require('./date_picker')
 const talentsDemandChange = require('./talents_demand_change')
 const mapThumbnail = require('./map_thumbnail')
@@ -68,14 +68,7 @@ module.exports = {
     {
       id: 'title-bg',
       component: 'img',
-      position: [607, 0],
-      props: {
-        $style: {
-          width: '701px',
-          height: '123px',
-        },
-        src: '/hxrc/images/Title-Bg.png'
-      },
+      ...page_title_bg,
     },
     {
       ...page_title_content,
