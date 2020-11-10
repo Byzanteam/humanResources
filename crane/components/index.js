@@ -7,7 +7,7 @@ const rank = require('./rank')
 const verticalBar = require('./vertical_bar')
 const { page_title_content } = require('../share')
 const datePicker = require('./date_picker')
-
+const talentsDemandChange = require('./talents_demand_change')
 
 module.exports = {
   route: {
@@ -273,6 +273,7 @@ module.exports = {
         },
       ],
     },
+    ...talentsDemandChange,
     donut,
     partProduction,
     talentNumber,
