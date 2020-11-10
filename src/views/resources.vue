@@ -8,7 +8,7 @@
     <data-loader v-slot="{ results: results }" @requestDone="(param)=>[setState('mapData', param.results.map((item) => ({name: item[1], value: item[0]})))]" :url="`/v1/components/20b74ddd-39de-493f-84ab-9d87fcf23fee/data?area=${craneStates.department ? craneStates.department.label : ''}`" method="get" :data="[[0, '暂无数据']]" :style="{width: '1100px', height: '900px', position: 'absolute', top: '160px', left: '410px'}">
       <v-chart v-if="results" class="map-chart" :options="{backgroundColor: 'transparent', tooltip: {trigger: 'item', formatter: (params) => {return params.name + '<br />人才数量（人）：' + (isNaN(params.value) ? 0 : params.value)}, backgroundColor: '#566374f0'}, visualMap: {type: 'piecewise', inverse: true, pieces: [{gt: 1500, label: '1500人及以上'}, {gt: 1000, lte: 1500, label: '1000-1500人'}, {gt: 100, lte: 999, label: '100-999人'}, {gt: 10, lte: 99, label: '10-99人'}, {gt: 1, lt: 9, label: '1-9人'}], orient: 'horizontal', bottom: '6%', left: '26%', textStyle: {color: '#ffffff', fontSize: 14}, itemWidth: 18, itemGap: 10, textGap: 8, inRange: {color: ['#0e3e7d', '#065ba1', '#e0ad3a', '#d98278', '#bb4e54']}}, series: {type: 'map', mapType: craneStates.department ? craneStates.department.uuid : 'fujian', data: results.map(item => ({name: item[1], value: item[0]})), label: {show: true, fontSize: 14, color: 'white'}, itemStyle: {areaColor: 'rgba(106, 214, 255, .05)', borderColor: '#6ad6ff', borderType: 'solid', borderWidth: 0.5}, emphasis: {label: {color: 'white', fontWeight: 600}, itemStyle: {areaColor: '#6ad6ff'}}}}" />
     </data-loader>
-    <data-loader v-slot="{ results: results }" :url="`/v1/components/21b74ddd-39de-493f-84ab-9d87fcf23fee/data?area=${craneStates.department ? craneStates.department.label : ''}`" method="get" :data="[['暂无数据']]" :style="{width: '400px', height: '254px', overflow: 'scroll', position: 'absolute', top: '78px', left: '1490px'}">
+    <data-loader v-slot="{ results: results }" :url="`/v1/components/21b74ddd-39de-493f-84ab-9d87fcf23fee/data?area=${craneStates.department ? craneStates.department.label : ''}`" method="get" :data="[['暂无数据']]" :style="{width: '380px', height: '280px', overflow: 'scroll', position: 'absolute', top: '400px', left: '1500px'}">
       <vis-table :withHeader="false" theme="dark" stripe="" :headers="[{width: 120, key: 'index'}, {width: 280, key: 'name'}]" :data="results.map((item, index) => ({index: index + 1, name: item[0]}))">
         <template v-slot="{ cell: cell, columnKey: columnKey }">
           <span :class="columnKey === 'index' ? 'row-index-cell' : ''">
@@ -24,7 +24,7 @@
     <div ref="talent-education" data-content="根据「区域」选择统计该区域人才学历分布情况" :style="{color: '#fff', fontSize: '18px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', cursor: 'pointer', position: 'absolute', top: '360px', left: '73px'}">
       人才学历层次
     </div>
-    <div ref="talent-industry" data-content="以「区域」作为筛选条件，统计分析历史简历数据判断岗位平均的流动时间并进行排名" :style="{color: '#fff', fontSize: '18px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', cursor: 'pointer', position: 'absolute', top: '46px', left: '1530px'}">
+    <div ref="talent-industry" data-content="以「区域」作为筛选条件，统计分析历史简历数据判断岗位平均的流动时间并进行排名" :style="{color: '#fff', fontSize: '18px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', cursor: 'pointer', position: 'absolute', top: '360px', left: '1533px'}">
       人才流动岗位排名
     </div>
     <div ref="industry-talent" data-content="以「区域」作为筛选条件，统计该区域人才所在行业分布" :style="{color: '#fff', fontSize: '18px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', cursor: 'pointer', position: 'absolute', top: '740px', left: '73px'}">
@@ -36,10 +36,10 @@
     <div ref="talent-education-icon" :style="{color: '#6ad6ff', fontSize: '14px', fontWeight: '400', textAlign: 'left', position: 'absolute', top: '362px', left: '40px'}">
       >>
     </div>
-    <div ref="talent-industry-icon" :style="{color: '#6ad6ff', fontSize: '14px', fontWeight: '400', textAlign: 'left', position: 'absolute', top: '49px', left: '1498px'}">
+    <div ref="talent-industry-icon" :style="{color: '#6ad6ff', fontSize: '14px', fontWeight: '400', textAlign: 'left', position: 'absolute', top: '363px', left: '1500px'}">
       >>
     </div>
-    <div ref="industry-talent-icon" :style="{color: '#6ad6ff', fontSize: '14px', fontWeight: '400', textAlign: 'left', position: 'absolute', top: '742px', left: '40px'}">
+    <div ref="industry-talent-icon" :style="{color: '#6ad6ff', fontSize: '14px', fontWeight: '400', textAlign: 'left', position: 'absolute', top: '743px', left: '40px'}">
       >>
     </div>
     <div ref="talent-demand-icon" :style="{color: '#6ad6ff', fontSize: '14px', fontWeight: '400', textAlign: 'left', position: 'absolute', top: '707px', left: '1498px'}">

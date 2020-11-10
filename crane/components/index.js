@@ -97,7 +97,7 @@ module.exports = {
     {
       id: 'talent-industry',
       component: 'div',
-      position: [1530, 46],
+      position: [1533, 360],
       props: {
         'data-content': '以「区域」作为筛选条件，统计分析历史简历数据判断岗位平均的流动时间并进行排名',
         $style: {
@@ -162,7 +162,7 @@ module.exports = {
     {
       id: 'talent-industry-icon',
       component: 'div',
-      position: [1498, 49],
+      position: [1500, 363],
       props: {
         $style: {
           color: '#6ad6ff',
@@ -176,7 +176,7 @@ module.exports = {
     {
       id: 'industry-talent-icon',
       component: 'div',
-      position: [40, 742],
+      position: [40, 743],
       props: {
         $style: {
           color: '#6ad6ff',
@@ -238,7 +238,7 @@ module.exports = {
       props: {
         $style: {
           height: '50px',
-          width: '400px',
+          width: '380px',
           backgroundColor: '#6ad6ff1a',
           borderRadius: '5px',
         }
@@ -251,7 +251,7 @@ module.exports = {
       props: {
         $style: {
           height: '50px',
-          width: '400px',
+          width: '380px',
           backgroundColor: '#6ad6ff1a',
           borderRadius: '5px',
         }
