@@ -97,12 +97,26 @@ module.exports = [
     content: '人才全国占比'
   },
   {
-    component: 'span',
+    component: 'div',
     position: [1765, 824],
-    props: {
-      $style: subtitle_style
-    },
-    content: '人才总数占比'
+    children: [
+      {
+        component: 'span',
+        content: '·',
+        props: {
+          $style: {
+            marginRight: '4px'
+          }
+        }
+      },
+      {
+        component: 'span',
+        props: {
+          $style: subtitle_style
+        },
+        content: '人才总数占比'
+      }
+    ]
   },
   {
     component: 'span',
@@ -113,12 +127,26 @@ module.exports = [
     content: '12.4%'
   },
   {
-    component: 'span',
+    component: 'div',
     position: [1765, 876],
-    props: {
-      $style: subtitle_style
-    },
-    content: '第一产业人才'
+    children: [
+      {
+        component: 'span',
+        content: '·',
+        props: {
+          $style: {
+            marginRight: '4px'
+          }
+        }
+      },
+      {
+        component: 'span',
+        props: {
+          $style: subtitle_style
+        },
+        content: '第一产业人才'
+      }
+    ]
   },
   {
     component: 'span',
@@ -129,15 +157,29 @@ module.exports = [
     content: '12.4%'
   },
   {
-    component: 'span',
+    component: 'div',
     position: [1765, 928],
-    props: {
-      $style: subtitle_style
-    },
-    content: '第二产业人才'
+    children: [
+      {
+        component: 'span',
+        content: '·',
+        props: {
+          $style: {
+            marginRight: '4px'
+          }
+        }
+      },
+      {
+        component: 'span',
+        props: {
+          $style: subtitle_style
+        },
+        content: '第二产业人才'
+      }
+    ]
   },
   {
-    component: 'span',
+    component: 'div',
     position: [1776, 952],
     props: {
       $style: value_style
@@ -145,12 +187,26 @@ module.exports = [
     content: '12.4%'
   },
   {
-    component: 'span',
+    component: 'div',
     position: [1765, 980],
-    props: {
-      $style: subtitle_style
-    },
-    content: '第三产业人才'
+    children: [
+      {
+        component: 'span',
+        content: '·',
+        props: {
+          $style: {
+            marginRight: '4px'
+          }
+        }
+      },
+      {
+        component: 'span',
+        props: {
+          $style: subtitle_style
+        },
+        content: '第三产业人才'
+      }
+    ]
   },
   {
     component: 'span',

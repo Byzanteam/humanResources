@@ -79,27 +79,47 @@
     <span :style="{color: '#41bcff', fontSize: '14px', fontWeight: 400, lineHeight: '20px', position: 'absolute', top: '792px', left: '1776px'}">
       人才全国占比
     </span>
-    <span :style="{color: '#ffffff', fontSize: '14px', fontWeight: 400, lineHeight: '20px', position: 'absolute', top: '824px', left: '1765px'}">
-      人才总数占比
+    <span :style="{position: 'absolute', top: '824px', left: '1765px'}">
+      <span :style="{marginRight: '4px'}">
+        ·
+      </span>
+      <span :style="{color: '#ffffff', fontSize: '14px', fontWeight: 400, lineHeight: '20px'}">
+        人才总数占比
+      </span>
     </span>
     <span :style="{color: '#41bcff', fontSize: '14px', fontWeight: 400, lineHeight: '20px', position: 'absolute', top: '848px', left: '1776px'}">
       12.4%
     </span>
-    <span :style="{color: '#ffffff', fontSize: '14px', fontWeight: 400, lineHeight: '20px', position: 'absolute', top: '876px', left: '1765px'}">
-      第一产业人才
-    </span>
+    <div :style="{position: 'absolute', top: '876px', left: '1765px'}">
+      <span :style="{marginRight: '4px'}">
+        ·
+      </span>
+      <span :style="{color: '#ffffff', fontSize: '14px', fontWeight: 400, lineHeight: '20px'}">
+        第一产业人才
+      </span>
+    </div>
     <span :style="{color: '#41bcff', fontSize: '14px', fontWeight: 400, lineHeight: '20px', position: 'absolute', top: '900px', left: '1776px'}">
       12.4%
     </span>
-    <span :style="{color: '#ffffff', fontSize: '14px', fontWeight: 400, lineHeight: '20px', position: 'absolute', top: '928px', left: '1765px'}">
-      第二产业人才
-    </span>
-    <span :style="{color: '#41bcff', fontSize: '14px', fontWeight: 400, lineHeight: '20px', position: 'absolute', top: '952px', left: '1776px'}">
+    <div :style="{position: 'absolute', top: '928px', left: '1765px'}">
+      <span :style="{marginRight: '4px'}">
+        ·
+      </span>
+      <span :style="{color: '#ffffff', fontSize: '14px', fontWeight: 400, lineHeight: '20px'}">
+        第二产业人才
+      </span>
+    </div>
+    <div :style="{color: '#41bcff', fontSize: '14px', fontWeight: 400, lineHeight: '20px', position: 'absolute', top: '952px', left: '1776px'}">
       12.4%
-    </span>
-    <span :style="{color: '#ffffff', fontSize: '14px', fontWeight: 400, lineHeight: '20px', position: 'absolute', top: '980px', left: '1765px'}">
-      第三产业人才
-    </span>
+    </div>
+    <div :style="{position: 'absolute', top: '980px', left: '1765px'}">
+      <span :style="{marginRight: '4px'}">
+        ·
+      </span>
+      <span :style="{color: '#ffffff', fontSize: '14px', fontWeight: 400, lineHeight: '20px'}">
+        第三产业人才
+      </span>
+    </div>
     <span :style="{color: '#41bcff', fontSize: '14px', fontWeight: 400, lineHeight: '20px', position: 'absolute', top: '1004px', left: '1776px'}">
       12.4%
     </span>
