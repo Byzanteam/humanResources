@@ -1,25 +1,26 @@
 exports.normal_digital_style = {
   $titleStyle: {
-    color: '#367391',
+    color: '#ffffff',
     fontSize: '16px',
     fontWeight: 400,
   },
   $prefixStyle: {
-    color: '#367391',
+    color: '#00fff2',
     fontSize: '16px',
     fontWeight: 400,
   },
   $suffixStyle: {
-    color: '#367391',
+    color: '#00fff2',
     fontSize: '16px',
     fontWeight: 400,
   },
   $digitalStyle: {
     fontSize: '32px',
-    color: '#6ad6ff',
+    color: '#00fff2',
     fontWeight: 400,
     fontFamily: 'Oswald-Regular',
     format: '11',
+    lineHeight: '38px',
     letterSpacing: '2.4px',
   },
 };
