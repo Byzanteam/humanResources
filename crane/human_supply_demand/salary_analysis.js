@@ -4,7 +4,7 @@ module.exports = [
   {
     id: 'salary-icon',
     component: 'div',
-    position: [40, 717],
+    position: [40, 722],
     props: {
       $style: {
         color: '#6ad6ff',
@@ -18,7 +18,7 @@ module.exports = [
   {
     id: 'salary-title·',
     component: 'div',
-    position: [74, 714],
+    position: [74, 720],
     props: {
       'data-content': '默认为所有岗位的平均薪资，可根据「岗位名」进行筛选统计查阅对应行位当年平均薪资与历年的平均薪资',
       $style: {
@@ -35,7 +35,7 @@ module.exports = [
   {
     id: 'salary-count',
     component: '@byzanteam/vis-components/data-loader',
-    position: [30, 766],
+    position: [40, 764],
     props: {
       $style: {
         width: '400px',
@@ -48,7 +48,7 @@ module.exports = [
   {
     id: 'value-circle',
     component: 'div',
-    position: [116, 795],
+    position: [116, 793],
     props: {
       $style: {
         height:'10px',
@@ -63,7 +63,7 @@ module.exports = [
   {
     id: 'salary-count-digital',
     component: '@byzanteam/vis-components/data-loader',
-    position: [146, 772],
+    position: [146, 770],
     exports: {
       results: 'results',
     },
@@ -96,7 +96,7 @@ module.exports = [
   {
     id: 'salary-count-line-chart',
     component: '@byzanteam/vis-components/data-loader',
-    position: [30, 846],
+    position: [40, 838],
     exports: {
       results: 'results',
     },
@@ -105,7 +105,7 @@ module.exports = [
       method: 'get',
       $data: "[[0, '暂无数据']]",
       $style: {
-        width: '400px',
+        width: '380px',
         height: '200px'
       }
     },
