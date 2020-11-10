@@ -8,6 +8,7 @@ const verticalBar = require('./vertical_bar')
 const { page_title_content } = require('../share')
 const datePicker = require('./date_picker')
 const talentsDemandChange = require('./talents_demand_change')
+const mapThumbnail = require('./map_thumbnail')
 
 module.exports = {
   route: {
@@ -129,23 +130,6 @@ module.exports = {
       content: '人才专业占比',
     },
     {
-      id: 'talent-demand',
-      component: 'div',
-      position: [1530, 704],
-      props: {
-        'data-content': '以「区域」作为筛选条件，统计各个行业发布的招聘人才数量',
-        $style: {
-          color: '#fff',
-          fontSize: '18px',
-          fontWeight: '600',
-          textAlign: 'left',
-          letterSpacing: '1px',
-          cursor: 'pointer',
-        },
-      },
-      content: '各行业人才需求',
-    },
-    {
       id: 'talent-education-icon',
       component: 'div',
       position: [40, 362],
@@ -177,20 +161,6 @@ module.exports = {
       id: 'industry-talent-icon',
       component: 'div',
       position: [40, 743],
-      props: {
-        $style: {
-          color: '#6ad6ff',
-          fontSize: '14px',
-          fontWeight: 400,
-          textAlign: 'left',
-        },
-      },
-      content: '>>',
-    },
-    {
-      id: 'talent-demand-icon',
-      component: 'div',
-      position: [1498, 707],
       props: {
         $style: {
           color: '#6ad6ff',
@@ -279,5 +249,6 @@ module.exports = {
     talentNumber,
     rank,
     verticalBar,
+    ...mapThumbnail,
   ]
 }

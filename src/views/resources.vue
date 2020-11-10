@@ -30,9 +30,6 @@
     <div ref="industry-talent" data-content="以「区域」作为筛选条件，统计该区域人才所在行业分布" :style="{color: '#fff', fontSize: '18px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', cursor: 'pointer', position: 'absolute', top: '740px', left: '73px'}">
       人才专业占比
     </div>
-    <div ref="talent-demand" data-content="以「区域」作为筛选条件，统计各个行业发布的招聘人才数量" :style="{color: '#fff', fontSize: '18px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', cursor: 'pointer', position: 'absolute', top: '704px', left: '1530px'}">
-      各行业人才需求
-    </div>
     <div ref="talent-education-icon" :style="{color: '#6ad6ff', fontSize: '14px', fontWeight: '400', textAlign: 'left', position: 'absolute', top: '362px', left: '40px'}">
       >>
     </div>
@@ -40,9 +37,6 @@
       >>
     </div>
     <div ref="industry-talent-icon" :style="{color: '#6ad6ff', fontSize: '14px', fontWeight: '400', textAlign: 'left', position: 'absolute', top: '743px', left: '40px'}">
-      >>
-    </div>
-    <div ref="talent-demand-icon" :style="{color: '#6ad6ff', fontSize: '14px', fontWeight: '400', textAlign: 'left', position: 'absolute', top: '707px', left: '1498px'}">
       >>
     </div>
     <div ref="value-circle" :style="{height: '10px', width: '10px', borderRadius: '10px', borderWidth: '1px', borderColor: '#6ad6ff', borderStyle: 'solid', position: 'absolute', top: '157px', left: '104px'}" />
@@ -58,7 +52,7 @@
     <div ref="talents-demand-change-title·" data-content="根据「区域」「时间」进行筛选统计企业发布的招聘人才数量与人才投递简历情况对比折线图体现供需变化" :style="{color: '#fff', fontSize: '18px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', cursor: 'pointer', position: 'absolute', top: '48px', left: '1533px'}">
       人才供需变化
     </div>
-    <data-loader ref="talents-demand-change-count-line-chart" v-slot="{ results: results }" url="/v1/components/09b74ddd-39de-493f-84ab-9d87fcf23fee/data" method="get" :data="[[0, '暂无数据']]" :style="{width: '400px', height: '230px', position: 'absolute', top: '100px', left: '1500px'}">
+    <data-loader ref="talents-demand-change-count-line-chart" v-slot="{ results: results }" url="/v1/components/09b74ddd-39de-493f-84ab-9d87fcf23fee/data?" method="get" :data="[[0, '暂无数据']]" :style="{width: '400px', height: '230px', position: 'absolute', top: '100px', left: '1500px'}">
       <v-chart :options="{grid: {left: 52, right: -10, bottom: 30}, backgroundColor: 'transparent', color: ['#6ad6ff', '#367390'], tooltip: {trigger: 'axis', axisPointer: {lineStyle: {color: '#ffffff', type: 'dotted'}}, formatter: demandTooltipFormatterFunc, backgroundColor: '#566374f0'}, legend: {icon: 'circle', itemWidth: 8, itemHeight: 8, right: 0, itemGap: 14, textStyle: {color: '#4b9bbe', fontSize: '14'}, inactiveColor: '#1C4159'}, xAxis: {type: 'category', data: results ? results.map(item => (item[1])) : ['暂无数据'], axisLine: {show: false}, axisTick: {show: false}, axisLabel: {color: '#367391', fontSize: 12, fontWeight: 400}, splitLine: {show: false}}, yAxis: {type: 'value', name: '人', axisLine: {show: false}, axisTick: {show: false}, nameTextStyle: {color: '#367391', fontSize: 12, fontWeight: 400, align: 'center', padding: [0, 5, 0, 0]}, axisLabel: {color: '#367391', fontSize: 12, fontWeight: 400, align: 'center'}, splitLine: {show: false}}, series: [{type: 'line', name: '人才供应', data: results ? results.map(item => (item[2])) : [0], showSymbol: false, lineStyle: {width: 4}}, {type: 'line', name: '人才需求', data: results ? results.map(item => (item[0])) : [0], showSymbol: false, lineStyle: {width: 4}}]}" />
     </data-loader>
     <data-loader v-slot="{ results: results }" url="/v1/components/22b74ddd-39de-493f-84ab-9d87fcf23fee/data" method="get" :data="[[0, '暂无数据']]" :style="{width: '460px', height: '218px', position: 'absolute', top: '792px', left: '40px'}">
@@ -84,6 +78,42 @@
                         color: '#6ad6ff'
                       }], false),}}, data: results.map(item => (item[0]))}, tooltip: {trigger: 'axis', axisPointer: {type: 'shadow'}, formatter: demandTooltipFormatterFunc, backgroundColor: '#566374f0'}}" />
     </data-loader>
+    <div ref="talents-demand-change-icon" :style="{color: '#6ad6ff', fontSize: '14px', fontWeight: '400', textAlign: 'left', position: 'absolute', top: '742px', left: '1500px'}">
+      >>
+    </div>
+    <div ref="talents-demand-change-title·" :style="{color: '#fff', fontSize: '18px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', cursor: 'pointer', position: 'absolute', top: '740px', left: '1533px'}">
+      全国人才区域分布
+    </div>
+    <data-loader>
+      <v-chart ref="map-thumbnail-chart" :style="{width: '240px', height: '248px', position: 'absolute', top: '792px', left: '1500px'}" :options="{backgroundColor: 'transparent', series: {type: 'map', mapType: 'china', itemStyle: {areaColor: '#0e3e7d', borderColor: '#4589e1', borderType: 'dashed', borderWidth: 1}, emphasis: {label: {color: 'white', fontWeight: 600}, itemStyle: {areaColor: '#41bcff'}}}}" />
+    </data-loader>
+    <span :style="{color: '#41bcff', fontSize: '14px', fontWeight: 400, lineHeight: '20px', position: 'absolute', top: '792px', left: '1776px'}">
+      人才全国占比
+    </span>
+    <span :style="{color: '#ffffff', fontSize: '14px', fontWeight: 400, lineHeight: '20px', position: 'absolute', top: '824px', left: '1765px'}">
+      人才总数占比
+    </span>
+    <span :style="{color: '#41bcff', fontSize: '14px', fontWeight: 400, lineHeight: '20px', position: 'absolute', top: '848px', left: '1776px'}">
+      12.4%
+    </span>
+    <span :style="{color: '#ffffff', fontSize: '14px', fontWeight: 400, lineHeight: '20px', position: 'absolute', top: '876px', left: '1765px'}">
+      第一产业人才
+    </span>
+    <span :style="{color: '#41bcff', fontSize: '14px', fontWeight: 400, lineHeight: '20px', position: 'absolute', top: '900px', left: '1776px'}">
+      12.4%
+    </span>
+    <span :style="{color: '#ffffff', fontSize: '14px', fontWeight: 400, lineHeight: '20px', position: 'absolute', top: '928px', left: '1765px'}">
+      第二产业人才
+    </span>
+    <span :style="{color: '#41bcff', fontSize: '14px', fontWeight: 400, lineHeight: '20px', position: 'absolute', top: '952px', left: '1776px'}">
+      12.4%
+    </span>
+    <span :style="{color: '#ffffff', fontSize: '14px', fontWeight: 400, lineHeight: '20px', position: 'absolute', top: '980px', left: '1765px'}">
+      第三产业人才
+    </span>
+    <span :style="{color: '#41bcff', fontSize: '14px', fontWeight: 400, lineHeight: '20px', position: 'absolute', top: '1004px', left: '1776px'}">
+      12.4%
+    </span>
   </div>
 </template>
 
@@ -97,7 +127,9 @@ import 'echarts/lib/component/legend'
 import 'echarts/lib/component/visualMap'
 import 'echarts/lib/component/legendScroll'
 import fujian from '../../public/hxrc/fujian.json'
-Echarts.registerMap('fujian', fujian);
+import china from '../../public/hxrc/china.json'
+Echarts.registerMap('fujian', fujian)
+Echarts.registerMap('china', china)
 
 const SELECT_OPTIONS = [{label: '福州', uuid: 'fuzhou'}, {label: '宁德', uuid: 'ningde'}, {label: '龙岩', uuid: 'longyan'}, {label: '莆田', uuid: 'putian'}, {label: '南平', uuid: 'nanping'}, {label: '三明', uuid: 'sanming'}, {label: '厦门', uuid: 'xiamen'}, {label: '漳州', uuid: 'zhangzhou'}, {label: '泉州', uuid: 'quanzhou'}]
 const DATE_RANGE = [2006, new Date().getFullYear()]
