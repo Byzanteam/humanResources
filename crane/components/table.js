@@ -1,6 +1,6 @@
 module.exports = {
   component: '@byzanteam/vis-components/data-loader',
-  position: [1490, 78],
+  position: [1500, 400],
   exports: {
     results: 'results',
   },
@@ -9,8 +9,8 @@ module.exports = {
     method: 'get',
     $data: "[['暂无数据']]",
     $style: {
-      width: '400px',
-      height: '254px',
+      width: '380px',
+      height: '280px',
       overflow: 'scroll'
     }
   },
