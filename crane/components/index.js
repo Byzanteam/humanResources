@@ -226,7 +226,9 @@ module.exports = {
     {
       id: 'departments-loader',
       component: 'div',
-      position: [929, 125],
+      props: {
+        class: 'center-select',
+      },
       children: [
         {
           id: 'departments-select',
