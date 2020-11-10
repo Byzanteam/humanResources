@@ -1,4 +1,4 @@
-const {small_digital_style} = require('../share')
+const {small_digital_style, digital_circle_icon} = require('../share')
 
 module.exports = [
   {
@@ -16,18 +16,8 @@ module.exports = [
   },
   {
     id: 'value-circle',
-    component: 'div',
     position: [100, 223],
-    props: {
-      $style: {
-        height:'10px',
-        width: '10px',
-        borderRadius: '10px',
-        borderWidth: '1px',
-        borderColor: '#6ad6ff',
-        borderStyle: 'solid',
-      }
-    },
+    ...digital_circle_icon,
   },
   {
     id: 'supply-demand-count',

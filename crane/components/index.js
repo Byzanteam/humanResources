@@ -4,7 +4,11 @@ const donut = require('./donut')
 const partProduction = require('./part_production_digital')
 const talentNumber = require('./talent_number_digital')
 const rank = require('./rank')
-const { page_title_content, page_title_bg } = require('../share')
+const {
+  page_title_content,
+  page_title_bg,
+  digital_circle_icon
+} = require('../share')
 const datePicker = require('./date_picker')
 const talentsDemandChange = require('./talents_demand_change')
 const mapThumbnail = require('./map_thumbnail')
@@ -169,33 +173,13 @@ module.exports = {
     },
     {
       id: 'value-circle',
-      component: 'div',
       position: [104, 157],
-      props: {
-        $style: {
-          height:'10px',
-          width: '10px',
-          borderRadius: '10px',
-          borderWidth: '1px',
-          borderColor: '#6ad6ff',
-          borderStyle: 'solid',
-        }
-      },
+      ...digital_circle_icon,
     },
     {
       id: 'number-circle',
-      component: 'div',
       position: [104, 237],
-      props: {
-        $style: {
-          height:'10px',
-          width: '10px',
-          borderRadius: '10px',
-          borderWidth: '1px',
-          borderColor: '#6ad6ff',
-          borderStyle: 'solid',
-        }
-      },
+      ...digital_circle_icon,
     },
     {
       id: 'production-bg',

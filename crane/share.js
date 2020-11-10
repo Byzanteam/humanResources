@@ -27,23 +27,23 @@ exports.normal_digital_style = {
 
 exports.small_digital_style = {
   $prefixStyle: {
-    color: '#367391',
+    color: '#00fff2',
     fontSize: '16px',
     fontWeight: 400,
   },
   $suffixStyle: {
-    color: '#367391',
+    color: '#00fff2',
     fontSize: '16px',
     fontWeight: 400,
   },
   $titleStyle: {
-    color: '#367391',
+    color: '#ffffff',
     fontSize: '16px',
     fontWeight: 400,
   },
   $digitalStyle: {
     fontSize: '32px',
-    color: '#6ad6ff',
+    color: '#00fff2',
     fontWeight: 400,
     fontFamily: 'Oswald-Regular',
     format: '11',
@@ -198,7 +198,7 @@ exports.digital_circle_icon = {
       width: '10px',
       borderRadius: '10px',
       borderWidth: '1px',
-      borderColor: '#6ad6ff',
+      borderColor: '#00fff2',
       borderStyle: 'solid',
     }
   },
