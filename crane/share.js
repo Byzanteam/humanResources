@@ -202,3 +202,25 @@ exports.digital_circle_icon = {
     }
   },
 }
+
+exports.rankingStyle = {
+  $labelStyle: {
+    color: '#ffffff',
+    fontSize: '16px',
+    lineHeight: '24px',
+  },
+  $valueStyle: {
+    color: '#00fff2',
+    fontSize: '16px',
+    fontFamily: 'Oswald-Regular',
+    lineHeight: '1.5',
+    fontWeight: 400,
+  },
+  $lineStyle: {
+    background: '#ffffff1a',
+    $lineColor: "['#00fff2', '#7d40ff']",
+    height: '8px',
+    borderRadius: '2.5px',
+    marginTop: '3px'
+  },
+}

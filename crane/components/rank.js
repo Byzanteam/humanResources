@@ -1,4 +1,4 @@
-const { chartTooltipOptions } = require('../share');
+const { chartTooltipOptions, rankingStyle } = require('../share');
 
 module.exports = {
   id: 'ranking_rank',
@@ -10,7 +10,7 @@ module.exports = {
   props: {
     $url: "`/v1/components/19b74ddd-39de-493f-84ab-9d87fcf23fee/data?area=${craneStates.department ? craneStates.department.label : ''}`",
     method: 'get',
-    $data: "[[0, '暂无数据']]",
+    $data: "[[20, '暂无数据']]",
     $style: {
       width: '296px',
       height: '290px',
@@ -29,24 +29,7 @@ module.exports = {
           value: 'amount',
           tooltip: 'name'
         },
-        $labelStyle: {
-          color: '#4b9bbe',
-          fontSize: '16px',
-          lineHeight: '24px',
-        },
-        $valueStyle: {
-          color: '#6ad6ff',
-          fontSize: '16px',
-          fontFamily: 'Oswald-Regular',
-          lineHeight: '1.5',
-          fontWeight: 400,
-        },
-        $lineStyle: {
-          background: '#ffffff1a',
-          $lineColor: "['#0885b5', '#6ad6ff']",
-          height: '5px',
-          borderRadius: '2.5px'
-        },
+        ...rankingStyle,
         ...chartTooltipOptions
       },
     },
