@@ -4,10 +4,10 @@ module.exports = [
   {
     id: 'supply-demand-count',
     component: 'div',
-    position: [30, 196],
+    position: [40, 194],
     props: {
       $style: {
-        width: '400px',
+        width: '380px',
         height: '50px',
         backgroundColor: 'rgba(106, 214, 255, .1)',
         borderRadius: '5px'
@@ -17,7 +17,7 @@ module.exports = [
   {
     id: 'value-circle',
     component: 'div',
-    position: [100, 225],
+    position: [100, 223],
     props: {
       $style: {
         height:'10px',
@@ -32,7 +32,7 @@ module.exports = [
   {
     id: 'supply-demand-count',
     component: '@byzanteam/vis-components/data-loader',
-    position: [126, 202],
+    position: [126, 200],
     exports: {
       results: 'results',
     },

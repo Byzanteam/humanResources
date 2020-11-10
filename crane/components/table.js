@@ -21,8 +21,8 @@ module.exports = {
         $withHeader: false,
         theme: 'dark',
         stripe: '',
-        $headers: "[{width: 120, key: 'index'}, {width: 280, key: 'name'}]",
-        $data: "results.map((item, index) => ({index: index + 1, name: item[0]}))"
+        $headers: "[{width: 80, key: 'index'}, {width: 200, key: 'name'}, {width: 100, key: 'count'}]",
+        $data: "results ? results.map((item, index) => ({index: index + 1, name: item[0], count: item[1]})) : [{index: 0, name: '暂无数据', count: 0}]"
       },
       children: [
         {

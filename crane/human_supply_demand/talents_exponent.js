@@ -2,7 +2,7 @@ module.exports = [
   {
     id: 'talent-index-icon',
     component: 'div',
-    position: [40, 305],
+    position: [40, 288],
     props: {
       $style: {
         color: '#6ad6ff',
@@ -16,7 +16,7 @@ module.exports = [
   {
     id: 'talent-demand',
     component: 'div',
-    position: [74, 302],
+    position: [74, 286],
     props: {
       class: 'line-break-talent-demand',
       'data-content': '岗位排名：根据「区域」「时间」进行筛选统计查阅对应的企业人才需求岗位排名岗位薪资排名：根据「区域」「时间」进行筛选统计查阅岗位的薪资排名情况',
@@ -33,7 +33,7 @@ module.exports = [
   },
   {
     component: '@byzanteam/vis-components/brick-tabs',
-    position: [110, 352],
+    position: [110, 330],
     directive: {
       model: 'craneStates.tabCurrent',
     },
@@ -44,7 +44,7 @@ module.exports = [
   },
   {
     component: '@byzanteam/vis-components/data-loader',
-    position: [30, 414],
+    position: [40, 392],
     exports: {
       results: 'results',
     },
@@ -54,8 +54,8 @@ module.exports = [
       method: 'get',
       $data: "null",
       $style: {
-        width: '400px',
-        height: '230px',
+        width: '380px',
+        height: '280px',
         overflow: 'scroll'
       }
     },
@@ -66,8 +66,8 @@ module.exports = [
           $withHeader: false,
           theme: 'dark',
           stripe: '',
-          $headers: "[{width: 120, key: 'index'}, {width: 280, key: 'name'}]",
-          $data: "results ? results.map((item, index) => ({index: index + 1, name: item[0]})) : [{index: 0, name: '暂无数据'}]"
+          $headers: "[{width: 80, key: 'index'}, {width: 200, key: 'name'}, {width: 100, key: 'count'}]",
+          $data: "results ? results.map((item, index) => ({index: index + 1, name: item[0], count: item[1]})) : [{index: 0, name: '暂无数据', count: 0}]"
         },
         children: [
           {
@@ -92,7 +92,7 @@ module.exports = [
   },
   {
     component: '@byzanteam/vis-components/data-loader',
-    position: [30, 414],
+    position: [40, 392],
     exports: {
       results: 'results',
     },
@@ -102,8 +102,8 @@ module.exports = [
       method: 'get',
       $data: "null",
       $style: {
-        width: '400px',
-        height: '230px',
+        width: '380px',
+        height: '280px',
         overflow: 'scroll'
       }
     },
@@ -114,8 +114,8 @@ module.exports = [
           $withHeader: false,
           theme: 'dark',
           stripe: '',
-          $headers: "[{width: 80, key: 'index'}, {width: 160, key: 'name'}, {width: 160, key: 'salary'}]",
-          $data: "results ? results.map((item, index) => ({index: index + 1, salary: item[0], name: item[1]})) : [{index: 0, name: '暂无数据'}]"
+          $headers: "[{width: 80, key: 'index'}, {width: 200, key: 'name'}, {width: 100, key: 'salary'}]",
+          $data: "results ? results.map((item, index) => ({index: index + 1, salary: item[0], name: item[1]})) : [{index: 0, name: '暂无数据', salary: 0}]"
         },
         children: [
           {

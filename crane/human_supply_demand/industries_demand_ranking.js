@@ -2,7 +2,7 @@ module.exports = [
   {
     id: 'talent-index-icon',
     component: 'div',
-    position: [1504, 49],
+    position: [1500, 50],
     props: {
       $style: {
         color: '#6ad6ff',
@@ -16,7 +16,7 @@ module.exports = [
   {
     id: 'talent-demand',
     component: 'div',
-    position: [1536, 46],
+    position: [1533, 48],
     props: {
       'data-content': '根据「区域」「时间」进行筛选统计企业需求量显示 Top10 排名，以企业所属行业类型进行统计排名',
       $style: {
@@ -28,11 +28,11 @@ module.exports = [
         cursor: 'pointer',
       },
     },
-    content: '重点行业需求排名',
+    content: '6大重点行业的人才需求排名',
   },
   {
     component: '@byzanteam/vis-components/data-loader',
-    position: [1490, 84],
+    position: [1500, 100],
     exports: {
       results: 'results',
     },
@@ -41,7 +41,7 @@ module.exports = [
       method: 'get',
       $data: "null",
       $style: {
-        width: '400px',
+        width: '380px',
         height: '221px',
         overflow: 'scroll'
       }
@@ -53,8 +53,8 @@ module.exports = [
           $withHeader: false,
           theme: 'dark',
           stripe: '',
-          $headers: "[{width: 120, key: 'index'}, {width: 280, key: 'name'}]",
-          $data: "results ? results.map((item, index) => ({index: index + 1, name: item[0]})) : [{index: 0, name: '暂无数据'}]"
+          $headers: "[{width: 80, key: 'index'}, {width: 200, key: 'name'}, {width: 100, key: 'count'}]",
+          $data: "results ? results.map((item, index) => ({index: index + 1, name: item[0], count: item[1]})) : [{index: 0, name: '暂无数据', count: 0}]"
         },
         children: [
           {

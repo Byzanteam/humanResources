@@ -1,7 +1,7 @@
 module.exports = {
   id: 'job_select',
   component: '@byzanteam/vis-components/data-loader',
-  position: [40, 50],
+  position: [40, 48],
   exports: {
     results: 'results',
   },

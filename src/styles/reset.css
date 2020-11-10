@@ -151,7 +151,6 @@ input::placeholder {
   font-size: 14px;
   font-weight: 400;
   content: attr(data-content);
-  z-index: 999;
   cursor: pointer;
   z-index: 0;
 }
