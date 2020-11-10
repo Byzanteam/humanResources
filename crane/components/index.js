@@ -4,7 +4,6 @@ const donut = require('./donut')
 const partProduction = require('./part_production_digital')
 const talentNumber = require('./talent_number_digital')
 const rank = require('./rank')
-const verticalBar = require('./vertical_bar')
 const { page_title_content } = require('../share')
 const datePicker = require('./date_picker')
 const talentsDemandChange = require('./talents_demand_change')
@@ -248,7 +247,6 @@ module.exports = {
     partProduction,
     talentNumber,
     rank,
-    verticalBar,
     ...mapThumbnail,
   ]
 }
