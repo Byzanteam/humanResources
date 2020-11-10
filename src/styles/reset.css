@@ -41,16 +41,17 @@ body {
   min-width: auto !important;
   box-shadow: none!important;
   white-space: nowrap;
-  background-color: #082446 !important;
   margin-top: 8.8px !important;
   border: 1px solid #6ad6ff1f !important;
-  border-radius: 4px;
   width: auto !important;
 }
 
 .select-popover .popover__content .popover__body {
   padding-top: 6px;
   padding-bottom: 6px;
+  background-color: #093773;
+  border: 1px solid #4589e1;
+  border-radius: 4px;
 }
 
 .select-popover .popover__content .popover__body .popover__body__content {
@@ -58,31 +59,35 @@ body {
 }
 
 .select-popover .popover__content .popover__body .popover__body__content .select__selection .select__selection__options .list {
-  background-color:  #082446;
+  background-color:  transparent;
 }
 
 .select-popover .popover__content .popover__body .popover__body__content .select__selection .select__selection__options .list .list__item {
-  color: #4b9bbe;
-  background-color: #082446;
+  color: #ffffff;
+  background-color: transparent;
   padding-top: 8px;
   padding-bottom: 8px;
   font-size: 14px;
 }
 
 .select-popover .popover__content .popover__body .popover__body__content .select__selection .select__selection__options .list .list__item:hover {
-  color: #6ad6ff;
-  background-color: #4b9bbe14;
+  color: #ffffff;
+  background-color: #00fff21a;
+}
+
+.select-popover .popover__content .popover__body .popover__body__content .select__selection .select__selection__options .list .list__item.list__item--selected {
+  color: #00fff2;
 }
 
 .select-trigger-inputting .select-trigger-inputting__content div {
-  color: #6ad6ff !important;
+  color: #00fff2 !important;
   font-weight: 600 !important;
   padding-right: 12px;
   font-size: 18px;
 }
 
 .select-trigger-inputting .select-trigger-inputting__icon {
-  color: #6ad6ff !important;
+  color: #00fff2 !important;
 }
 
 .ranking .ranking__block {
@@ -123,6 +128,12 @@ input::placeholder {
 
 .table {
   max-height: none !important;
+}
+
+.table table {
+  border-collapse: separate !important;
+  -webkit-border-vertical-spacing: 4px;
+  -webkit-border-horizontal-spacing: 0;
 }
 
 .table.table--dark th {
