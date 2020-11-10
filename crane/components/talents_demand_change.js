@@ -57,7 +57,7 @@ module.exports = [
               $bottom: 30
             },
             backgroundColor: 'transparent',
-            $color: "['#6ad6ff', '#367390']",
+            $color: "['#00fff2', '#7b43ff']",
             $tooltip: {
               trigger: 'axis',
               $axisPointer: {
@@ -91,7 +91,7 @@ module.exports = [
                 $show: false,
               },
               $axisLabel: {
-                color: '#367391',
+                color: 'rgba(255, 255, 255, .8)',
                 $fontSize: 12,
                 $fontWeight: 400
               },
@@ -109,14 +109,14 @@ module.exports = [
                 $show: false,
               },
               $nameTextStyle: {
-                color: '#367391',
+                color: 'rgba(255, 255, 255, .8)',
                 $fontSize: 12,
                 $fontWeight: 400,
                 align: 'center',
                 $padding:"[0, 5, 0, 0]"
               },
               $axisLabel: {
-                color: '#367391',
+                color: 'rgba(255, 255, 255, .8)',
                 $fontSize: 12,
                 $fontWeight: 400,
                 align: 'center'

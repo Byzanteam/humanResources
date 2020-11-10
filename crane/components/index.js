@@ -26,7 +26,7 @@ module.exports = {
     },
     {
       id: 'mapThumbnailOptions',
-      value: {backgroundColor: 'transparent', series: {type: 'map', mapType: 'china', itemStyle: {areaColor: '#0e3e7d', borderColor: '#4589e1', borderType: 'dashed', borderWidth: 1}, emphasis: {label: {color: 'white', fontWeight: 600}, itemStyle: {areaColor: '#41bcff'}}}}
+      value: {backgroundColor: 'transparent', series: {type: 'map', mapType: 'china', itemStyle: {areaColor: '#0e3e7d', borderColor: '#68a4f0', borderWidth: 1}, emphasis: {label: {color: 'white', fontWeight: 600}, itemStyle: {areaColor: '#00fff2'}}}}
     }
   ],
   components: [

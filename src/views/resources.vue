@@ -53,7 +53,7 @@
       人才供需变化
     </div>
     <data-loader ref="talents-demand-change-count-line-chart" v-slot="{ results: results }" url="/v1/components/09b74ddd-39de-493f-84ab-9d87fcf23fee/data?" method="get" :data="[[0, '暂无数据']]" :style="{width: '400px', height: '230px', position: 'absolute', top: '100px', left: '1500px'}">
-      <v-chart :options="{grid: {left: 52, right: -10, bottom: 30}, backgroundColor: 'transparent', color: ['#6ad6ff', '#367390'], tooltip: {trigger: 'axis', axisPointer: {lineStyle: {color: '#ffffff', type: 'dotted'}}, formatter: demandTooltipFormatterFunc, backgroundColor: '#566374f0'}, legend: {icon: 'circle', itemWidth: 8, itemHeight: 8, right: 0, itemGap: 14, textStyle: {color: '#4b9bbe', fontSize: '14'}, inactiveColor: '#1C4159'}, xAxis: {type: 'category', data: results ? results.map(item => (item[1])) : ['暂无数据'], axisLine: {show: false}, axisTick: {show: false}, axisLabel: {color: '#367391', fontSize: 12, fontWeight: 400}, splitLine: {show: false}}, yAxis: {type: 'value', name: '人', axisLine: {show: false}, axisTick: {show: false}, nameTextStyle: {color: '#367391', fontSize: 12, fontWeight: 400, align: 'center', padding: [0, 5, 0, 0]}, axisLabel: {color: '#367391', fontSize: 12, fontWeight: 400, align: 'center'}, splitLine: {show: false}}, series: [{type: 'line', name: '人才供应', data: results ? results.map(item => (item[2])) : [0], showSymbol: false, lineStyle: {width: 4}}, {type: 'line', name: '人才需求', data: results ? results.map(item => (item[0])) : [0], showSymbol: false, lineStyle: {width: 4}}]}" />
+      <v-chart :options="{grid: {left: 52, right: -10, bottom: 30}, backgroundColor: 'transparent', color: ['#00fff2', '#7b43ff'], tooltip: {trigger: 'axis', axisPointer: {lineStyle: {color: '#ffffff', type: 'dotted'}}, formatter: demandTooltipFormatterFunc, backgroundColor: '#566374f0'}, legend: {icon: 'circle', itemWidth: 8, itemHeight: 8, right: 0, itemGap: 14, textStyle: {color: '#4b9bbe', fontSize: '14'}, inactiveColor: '#1C4159'}, xAxis: {type: 'category', data: results ? results.map(item => (item[1])) : ['暂无数据'], axisLine: {show: false}, axisTick: {show: false}, axisLabel: {color: 'rgba(255, 255, 255, .8)', fontSize: 12, fontWeight: 400}, splitLine: {show: false}}, yAxis: {type: 'value', name: '人', axisLine: {show: false}, axisTick: {show: false}, nameTextStyle: {color: 'rgba(255, 255, 255, .8)', fontSize: 12, fontWeight: 400, align: 'center', padding: [0, 5, 0, 0]}, axisLabel: {color: 'rgba(255, 255, 255, .8)', fontSize: 12, fontWeight: 400, align: 'center'}, splitLine: {show: false}}, series: [{type: 'line', name: '人才供应', data: results ? results.map(item => (item[2])) : [0], showSymbol: false, lineStyle: {width: 4}}, {type: 'line', name: '人才需求', data: results ? results.map(item => (item[0])) : [0], showSymbol: false, lineStyle: {width: 4}}]}" />
     </data-loader>
     <data-loader v-slot="{ results: results }" url="/v1/components/22b74ddd-39de-493f-84ab-9d87fcf23fee/data" method="get" :data="[[0, '暂无数据']]" :style="{width: '460px', height: '218px', position: 'absolute', top: '792px', left: '40px'}">
       <v-chart class="pie-chart" :options="{backgroundColor: 'transparent', legend: {formatter: legendText, type: 'scroll', icon: 'circle', itemWidth: 10, itemHeight: 10, left: 270, top: 'middle', itemGap: 9, orient: 'vertical', textStyle: {color: '#ffffff', fontSize: 14, lineHeight: 15}, inactiveColor: '#1C4159'}, color: ['#00fff2', '#7b43ff', '#e0ad3a', '#189ef1', '#2174b8', '#f65446'], series: [{type: 'pie', minAngle: 5, left: -140, radius: ['35%', '62%'], label: {show: false}, labelLine: {show: false}, data: results.map(item => ({value: item[0], name: item[1]})).sort(compare())}], tooltip: {trigger: 'item', formatter: pieTooltipFormatterFunc, backgroundColor: '#566374f0'}}" />
@@ -76,7 +76,7 @@
     <data-loader>
       <v-chart ref="map-thumbnail-chart" :style="{width: '240px', height: '248px', position: 'absolute', top: '792px', left: '1500px'}" :options="craneStates.mapThumbnailOptions" />
     </data-loader>
-    <span :style="{color: '#41bcff', fontSize: '14px', fontWeight: 400, lineHeight: '20px', position: 'absolute', top: '792px', left: '1776px'}">
+    <span :style="{color: '#00fff2', fontSize: '14px', fontWeight: 400, lineHeight: '20px', position: 'absolute', top: '792px', left: '1776px'}">
       人才全国占比
     </span>
     <div :style="{position: 'absolute', top: '824px', left: '1765px'}">
@@ -87,7 +87,7 @@
         人才总数占比
       </span>
     </div>
-    <span :style="{color: '#41bcff', fontSize: '14px', fontWeight: 400, lineHeight: '20px', position: 'absolute', top: '848px', left: '1776px'}">
+    <span :style="{color: '#00fff2', fontSize: '14px', fontWeight: 400, lineHeight: '20px', position: 'absolute', top: '848px', left: '1776px'}">
       12.4%
     </span>
     <div :style="{position: 'absolute', top: '876px', left: '1765px'}">
@@ -98,7 +98,7 @@
         第一产业人才
       </span>
     </div>
-    <span :style="{color: '#41bcff', fontSize: '14px', fontWeight: 400, lineHeight: '20px', position: 'absolute', top: '900px', left: '1776px'}">
+    <span :style="{color: '#00fff2', fontSize: '14px', fontWeight: 400, lineHeight: '20px', position: 'absolute', top: '900px', left: '1776px'}">
       12.4%
     </span>
     <div :style="{position: 'absolute', top: '928px', left: '1765px'}">
@@ -109,7 +109,7 @@
         第二产业人才
       </span>
     </div>
-    <div :style="{color: '#41bcff', fontSize: '14px', fontWeight: 400, lineHeight: '20px', position: 'absolute', top: '952px', left: '1776px'}">
+    <div :style="{color: '#00fff2', fontSize: '14px', fontWeight: 400, lineHeight: '20px', position: 'absolute', top: '952px', left: '1776px'}">
       12.4%
     </div>
     <div :style="{position: 'absolute', top: '980px', left: '1765px'}">
@@ -120,7 +120,7 @@
         第三产业人才
       </span>
     </div>
-    <span :style="{color: '#41bcff', fontSize: '14px', fontWeight: 400, lineHeight: '20px', position: 'absolute', top: '1004px', left: '1776px'}">
+    <span :style="{color: '#00fff2', fontSize: '14px', fontWeight: 400, lineHeight: '20px', position: 'absolute', top: '1004px', left: '1776px'}">
       12.4%
     </span>
   </div>
@@ -183,7 +183,7 @@ export const resources = {
       craneStates: {
         department: null,
         mapData: [],
-        mapThumbnailOptions: {backgroundColor: 'transparent', series: {type: 'map', mapType: 'china', itemStyle: {areaColor: '#0e3e7d', borderColor: '#4589e1', borderType: 'dashed', borderWidth: 1}, emphasis: {label: {color: 'white', fontWeight: 600}, itemStyle: {areaColor: '#41bcff'}}}}
+        mapThumbnailOptions: {backgroundColor: 'transparent', series: {type: 'map', mapType: 'china', itemStyle: {areaColor: '#0e3e7d', borderColor: '#68a4f0', borderWidth: 1}, emphasis: {label: {color: 'white', fontWeight: 600}, itemStyle: {areaColor: '#00fff2'}}}}
       },
     }
   },
@@ -285,7 +285,7 @@ export default resources
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background-color: #6ad6ff;
+    background-color: #7b43ff;
     color: #ffffff;
   }
 }
@@ -293,7 +293,6 @@ export default resources
 [data-content]:hover {
   &:after {
     border-radius: 4px;
-    /*line-height: 18px;*/
     padding: 6px;
     background-color: #566374f0;
     color: #ffffff;
