@@ -270,16 +270,8 @@ module.exports = {
       ...digital_circle_icon
     },
     {
-      component: '@byzanteam/vis-components/data-loader',
+      component: 'div',
       position: [1500, 299],
-      exports: {
-        results: 'results',
-      },
-      props: {
-        $url: "areaSelectRequestUrl",
-        method: 'get',
-        $data: "[['暂无数据']]",
-      },
       children: [
         {
           id: 'area-select',
@@ -297,7 +289,7 @@ module.exports = {
             {
               component: 'iview/Option',
               vfor: {
-                data: "results",
+                data: "craneStates.multipleSelectData",
                 exports: {item: 'item', index: 'key'}
               },
               props: {
