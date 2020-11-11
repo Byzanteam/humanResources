@@ -42,7 +42,7 @@ exports.small_digital_style = {
     fontWeight: 400,
   },
   $digitalStyle: {
-    fontSize: '32px',
+    fontSize32: 'px',
     color: '#00fff2',
     fontWeight: 400,
     fontFamily: 'Oswald-Regular',
