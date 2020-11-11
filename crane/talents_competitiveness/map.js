@@ -1,22 +1,31 @@
 module.exports = [
   {
-    component: '@byzanteam/vis-components/brick-radio-button-select',
-    position: [864, 125],
+    component: 'div',
     props: {
-      $options: "provinceOptions",
-      'v-model': 'craneStates.province',
-      placeholder: '全省',
-    }
-  },
-  {
-    component: '@byzanteam/vis-components/brick-radio-button-select',
-    position: [979, 125],
-    props: {
-      'v-if': 'craneStates.province',
-      $options: "selectOptions",
-      'v-model': 'craneStates.city',
-      placeholder: '全省',
-    }
+      class: 'center-select',
+    },
+    children: [
+      {
+        component: '@byzanteam/vis-components/brick-radio-button-select',
+        props: {
+          $options: "provinceOptions",
+          'v-model': 'craneStates.province',
+          placeholder: '全省',
+        }
+      },
+      {
+        component: '@byzanteam/vis-components/brick-radio-button-select',
+        props: {
+          'v-if': 'craneStates.province',
+          $options: "selectOptions",
+          'v-model': 'craneStates.city',
+          placeholder: '全省',
+          $style: {
+            marginLeft: '12px'
+          }
+        }
+      },
+    ]
   },
   {
   component: '@byzanteam/vis-components/data-loader',

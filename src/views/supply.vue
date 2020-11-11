@@ -11,9 +11,10 @@
     <data-loader :style="{width: '1100px', height: '900px', position: 'absolute', top: '176px', left: '480px'}">
       <v-chart ref="map" :options="mapOptions" />
     </data-loader>
-    <data-loader class="center-select">
-      <brick-radio-button-select ref="departments-select" :options="selectOptions" v-model="craneStates.department" placeholder="全省" />
-    </data-loader>
+    <div class="center-select">
+      <brick-radio-button-select :options="provinceOptions" v-model="craneStates.province" placeholder="全省" />
+      <brick-radio-button-select ref="departments-select" :options="selectOptions" v-model="craneStates.department" placeholder="全省" :style="{marginLeft: '12px'}" />
+    </div>
     <data-loader ref="job_select" v-slot="{ results: results }" :url="`/v1/components/01b74ddd-39de-493f-84ab-9d87fcf23fee/data?job=${craneStates.inputQuery}`" method="get" :data="[['']]" :style="{position: 'absolute', top: '48px', left: '40px'}">
       <Select class="departments-select" :clearable="true" :filterable="true" :style="{width: '380px'}" v-model="craneStates.currentJob">
         <template v-slot:input class="ivu-select-selection">
@@ -149,6 +150,8 @@ const CHART_TAB_NAVS = [{uuid: 1, label: '人才学历'}, {uuid: 2, label: '人�
 
 const SELECT_OPTIONS = [{label: '福州', uuid: 'fuzhou'}, {label: '宁德', uuid: 'ningde'}, {label: '龙岩', uuid: 'longyan'}, {label: '莆田', uuid: 'putian'}, {label: '南平', uuid: 'nanping'}, {label: '三明', uuid: 'sanming'}, {label: '厦门', uuid: 'xiamen'}, {label: '漳州', uuid: 'zhangzhou'}, {label: '泉州', uuid: 'quanzhou'}]
 
+const PROVINCE_OPTIONS = [{label: '福建', uuid: 1}]
+
 export const supply = {
   mixins: [BuiltInMixin],
 
@@ -168,8 +171,10 @@ export const supply = {
   data () {
     return {
       selectOptions: SELECT_OPTIONS,
+      provinceOptions: PROVINCE_OPTIONS,
       Echarts: Echarts,
       craneStates: {
+        province: PROVINCE_OPTIONS[0],
         currentJob: '',
         inputQuery: '',
         year: new Date('2020'),
@@ -219,8 +224,8 @@ export const supply = {
             itemStyle: {
               areaColor: '#0e3e7d',
               borderColor: '#4589e1',
-              borderType: 'dashed',
-              borderWidth: 0.5
+              borderType: 'solid',
+              borderWidth: 2
             },
             emphasis: {
               label: {

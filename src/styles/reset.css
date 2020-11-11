@@ -210,4 +210,5 @@ input::placeholder {
   top: 124px;
   left: 50%;
   transform: translateX(-50%);
+  display: flex;
 }

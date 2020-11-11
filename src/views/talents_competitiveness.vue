@@ -6,8 +6,10 @@
     <div @click="()=>[openNavigator()]" :style="{cursor: 'pointer', width: '460px', color: '#fff', fontSize: '42px', fontWeight: 600, textAlign: 'center', lineHeight: 1, position: 'absolute', top: '36px', left: '730px'}">
       省域人才综合竞争力
     </div>
-    <brick-radio-button-select :options="provinceOptions" v-model="craneStates.province" placeholder="全省" :style="{position: 'absolute', top: '125px', left: '864px'}" />
-    <brick-radio-button-select v-if="craneStates.province" :options="selectOptions" v-model="craneStates.city" placeholder="全省" :style="{position: 'absolute', top: '125px', left: '979px'}" />
+    <div class="center-select">
+      <brick-radio-button-select :options="provinceOptions" v-model="craneStates.province" placeholder="全省" />
+      <brick-radio-button-select v-if="craneStates.province" :options="selectOptions" v-model="craneStates.city" placeholder="全省" :style="{marginLeft: '12px'}" />
+    </div>
     <data-loader :style="{width: '960px', height: '884px', position: 'absolute', top: '176px', left: '480px'}">
       <v-chart ref="map" :options="{backgroundColor: 'transparent', geo: {map: craneStates.city ? craneStates.city.uuid : 'fujian', label: {normal: {show: false}, emphasis: {show: false}}, itemStyle: {normal: {areaColor: '#0e3e7d', borderColor: '#68a4f0', borderType: 'solid', borderWidth: 2}, emphasis: {areaColor: '#29e8de'}}, regions: [{name: '南海诸岛', value: 0, itemStyle: { normal: { opacity: 0, label: { show: false}}}}]}, series: [
                 {

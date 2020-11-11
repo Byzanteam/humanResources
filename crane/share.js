@@ -174,8 +174,6 @@ exports.high_level_legendStyle_small = {
   inactiveColor: '#1C4159',
 }
 
-exports.color_series = "['#6ad6ff', '#4b9bbe', '#367290', '#275570', '#1c4159', '#153349']"
-
 exports.digital_bg = {
   component: 'div',
   props: {
@@ -224,7 +222,7 @@ exports.rankingStyle = {
   },
 }
 
-exports.pieColors = "['#00fff2', '#7b43ff', '#e0ad3a', '#189ef1', '#2174b8', '#f65446']"
+exports.serieColors = "['#00fff2', '#7b43ff', '#e0ad3a', '#189ef1', '#2174b8', '#f65446']"
 
 exports.mapColors = "['#1c44a2', '#2174bb', '#e0ad3a', '#d98278', '#bb4e54']"
 

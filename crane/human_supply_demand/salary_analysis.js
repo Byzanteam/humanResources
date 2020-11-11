@@ -4,7 +4,7 @@ const {
   subtitle_icon,
   subtitle_text,
   digital_bg,
-  pieColors,
+  serieColors,
   axisLabelStyle,
 } = require('../share')
 
@@ -89,7 +89,7 @@ module.exports = [
         component: 'v-chart',
         props: {
           $options: {
-            $color: pieColors,
+            $color: serieColors,
             grid: {
               $top: 30,
               $left: 52,

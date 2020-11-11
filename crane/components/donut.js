@@ -1,4 +1,4 @@
-const { pieColors } = require('../share')
+const { serieColors } = require('../share')
 
 module.exports = {
   component: '@byzanteam/vis-components/data-loader',
@@ -39,7 +39,7 @@ module.exports = {
             },
             inactiveColor: '#1C4159',
           },
-          $color: pieColors,
+          $color: serieColors,
           $series: "[{type: 'pie', minAngle: 5, left: -140, radius: ['35%', '62%'], label: {show: false}, labelLine: {show: false}, data: results.map(item => ({value: item[0], name: item[1]})).sort(compare())}]",
           $tooltip: {
             trigger: 'item',

@@ -1,4 +1,4 @@
-const { pieColors, axisLabelStyle } = require('../share')
+const { serieColors, axisLabelStyle } = require('../share')
 
 module.exports = {
   component: '@byzanteam/vis-components/data-loader',
@@ -41,7 +41,7 @@ module.exports = {
             trigger: 'item',
             backgroundColor: '#566374f0',
           },
-          $color: pieColors,
+          $color: serieColors,
           $radiusAxis: {
             $axisLine: {
               color: '#19394f'

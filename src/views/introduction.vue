@@ -45,9 +45,10 @@
     <div ref="high-level-talent-circle" :style="{height: '10px', width: '10px', borderRadius: '10px', borderWidth: '1px', borderColor: '#00fff2', borderStyle: 'solid', position: 'absolute', top: '741px', left: '104px'}" />
     <div ref="activity-bg" :style="{height: '50px', width: '380px', backgroundColor: 'rgba(13,45,120,.45)', borderRadius: '5px', position: 'absolute', top: '252px', left: '40px'}" />
     <div ref="high-level-bg" :style="{height: '50px', width: '380px', backgroundColor: 'rgba(13,45,120,.45)', borderRadius: '5px', position: 'absolute', top: '712px', left: '40px'}" />
-    <data-loader ref="departments-loader" :style="{position: 'absolute', top: '125px', left: '929px'}">
-      <brick-radio-button-select ref="departments-select" :options="craneStates.selectOptions" v-model="craneStates.department" placeholder="全省" />
-    </data-loader>
+    <div ref="departments-loader" class="center-select">
+      <brick-radio-button-select :options="provinceOptions" v-model="craneStates.province" placeholder="全省" />
+      <brick-radio-button-select ref="departments-select" :options="craneStates.selectOptions" v-model="craneStates.department" placeholder="全省" :style="{marginLeft: '12px'}" />
+    </div>
     <data-loader ref="activity-number-line" v-slot="{ results: results }" :url="`/v1/components/44b74ddd-39de-493f-84ab-9d87fcf23fee/data?area=${selectedArea}`" method="get" :data="[[0, '暂无数据']]" :style="{width: '380px', height: '240px', position: 'absolute', top: '334px', left: '40px'}">
       <v-chart ref="activity-number-line-content" :options="{xAxis: {axisLabel: {color: 'rgba(255, 255, 255, .8)', fontSize: 14, fontWeight: 400, rotate: 0}, axisLine: {show: false}, data: results ? results.map(item => (item[1])) : ['暂无数据']}, yAxis: {axisLabel: {color: 'rgba(255, 255, 255, .8)', fontSize: 14, fontWeight: 400, rotate: 0, align: 'center'}, axisTick: {show: false}, axisLine: {show: false}, splitLine: {show: false}, splitNumber: 5, name: '次', nameTextStyle: {align: 'center', padding: [0, 5, 0, 0], color: 'rgba(255, 255, 255, .8)', fontSize: 14, fontWeight: 400}}, series: {type: 'line', smooth: false, showSymbol: false, color: ['#00fff2'], lineStyle: {width: 4}, areaStyle: {color: new Echarts.graphic.LinearGradient(0, 0, 0, 1, [{
                       offset: 0,
@@ -118,6 +119,8 @@ import {
 } from 'iview'
 import Navigator from '../components/navigator'
 
+const PROVINCE_OPTIONS = [{label: '福建', uuid: 1}]
+
 export const introduction = {
   mixins: [BuiltInMixin],
 
@@ -134,7 +137,9 @@ export const introduction = {
   data () {
     return {
       Echarts: Echarts,
+      provinceOptions: PROVINCE_OPTIONS,
       craneStates: {
+        province: PROVINCE_OPTIONS[0],
         year: new Date('2020'),
         dateRange: [],
         selectedArea: {},
