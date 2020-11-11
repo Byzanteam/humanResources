@@ -229,3 +229,9 @@ exports.rankingStyle = {
 exports.pieColors = "['#00fff2', '#7b43ff', '#e0ad3a', '#189ef1', '#2174b8', '#f65446']"
 
 exports.mapColors = "['#1c44a2', '#2174bb', '#e0ad3a', '#d98278', '#bb4e54']"
+
+exports.axisLabelStyle = {
+  color: 'rgba(255, 255, 255, .8)',
+  $fontSize: 14,
+  $fontWeight: 400,
+}
