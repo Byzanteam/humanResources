@@ -7,7 +7,8 @@ const rank = require('./rank')
 const {
   page_title_content,
   page_title_bg,
-  digital_circle_icon
+  digital_circle_icon,
+  digital_bg,
 } = require('../share')
 const datePicker = require('./date_picker')
 const talentsDemandChange = require('./talents_demand_change')
@@ -183,29 +184,13 @@ module.exports = {
     },
     {
       id: 'production-bg',
-      component: 'div',
       position: [40, 128],
-      props: {
-        $style: {
-          height: '50px',
-          width: '380px',
-          backgroundColor: '#6ad6ff1a',
-          borderRadius: '5px',
-        }
-      }
+      ...digital_bg,
     },
     {
       id: 'production-bg',
-      component: 'div',
       position: [40, 208],
-      props: {
-        $style: {
-          height: '50px',
-          width: '380px',
-          backgroundColor: '#6ad6ff1a',
-          borderRadius: '5px',
-        }
-      }
+      ...digital_bg,
     },
     {
       id: 'departments-loader',

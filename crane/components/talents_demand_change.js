@@ -1,3 +1,5 @@
+const { axisLabelStyle } = require('../share')
+
 module.exports = [
   {
     id: 'talents-demand-change-icon',
@@ -90,11 +92,7 @@ module.exports = [
               $axisTick: {
                 $show: false,
               },
-              $axisLabel: {
-                color: 'rgba(255, 255, 255, .8)',
-                $fontSize: 12,
-                $fontWeight: 400
-              },
+              $axisLabel: axisLabelStyle,
               $splitLine: {
                 $show: false
               }
@@ -109,16 +107,12 @@ module.exports = [
                 $show: false,
               },
               $nameTextStyle: {
-                color: 'rgba(255, 255, 255, .8)',
-                $fontSize: 12,
-                $fontWeight: 400,
+                ...axisLabelStyle,
                 align: 'center',
                 $padding:"[0, 5, 0, 0]"
               },
               $axisLabel: {
-                color: 'rgba(255, 255, 255, .8)',
-                $fontSize: 12,
-                $fontWeight: 400,
+                ...axisLabelStyle,
                 align: 'center'
               },
               $splitLine: {
