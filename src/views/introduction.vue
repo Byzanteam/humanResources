@@ -61,15 +61,15 @@
                     false
                   )}, data: results ? results.map(item => (item[0])) : [0]}, tooltip: {trigger: 'axis', axisPointer: {lineStyle: {color: '#ffffff', type: 'dotted'}}, backgroundColor: '#566374f0', formatter: activityTooltipFormatterFunc}}" />
     </data-loader>
-    <data-loader ref="high-level-talent-bar" v-slot="{ results: results }" :url="`/v1/components/46b74ddd-39de-493f-84ab-9d87fcf23fee/data?area=${selectedArea}`" method="get" :data="[[0, '暂无数据']]" :style="{width: '400px', height: '250px', position: 'absolute', top: '783px', left: '30px'}">
-      <v-chart ref="high-level-talent-content" :options="{xAxis: {axisLabel: {rotate: 0, fontSize: 12, fontWeight: 400, color: '#367391'}, axisLine: {show: false}, data: results ? results.map(item => (item[1])) : ['暂无数据']}, yAxis: {axisLabel: {rotate: 0, fontSize: 12, fontWeight: 400, color: '#367391', align: 'center'}, axisTick: {show: false}, axisLine: {show: false}, splitLine: {show: false}, splitNumber: 5, name: '件', nameTextStyle: {fontSize: 12, fontWeight: 400, color: '#367391', align: 'center', padding: [0, 5, 0, 0]}}, series: {type: 'bar', barWidth: 7, barCategoryGap: '10%', itemStyle: {normal: {barBorderRadius: 7, color: new Echarts.graphic.LinearGradient(0, 1, 0, 0, [
+    <data-loader ref="high-level-talent-bar" v-slot="{ results: results }" :url="`/v1/components/46b74ddd-39de-493f-84ab-9d87fcf23fee/data?area=${selectedArea}`" method="get" :data="[[0, '暂无数据']]" :style="{width: '380px', height: '240px', position: 'absolute', top: '794px', left: '40px'}">
+      <v-chart ref="high-level-talent-content" :options="{xAxis: {axisLabel: {color: 'rgba(255, 255, 255, .8)', fontSize: 14, fontWeight: 400, rotate: 0}, axisLine: {show: false}, data: results ? results.map(item => (item[1])) : ['暂无数据']}, yAxis: {axisLabel: {color: 'rgba(255, 255, 255, .8)', fontSize: 14, fontWeight: 400, rotate: 0, align: 'center'}, axisTick: {show: false}, axisLine: {show: false}, splitLine: {show: false}, splitNumber: 5, name: '件', nameTextStyle: {align: 'center', padding: [0, 5, 0, 0], color: 'rgba(255, 255, 255, .8)', fontSize: 14, fontWeight: 400}}, series: {type: 'bar', barWidth: 7, barCategoryGap: '10%', itemStyle: {normal: {barBorderRadius: 7, color: new Echarts.graphic.LinearGradient(0, 1, 0, 0, [
                       {
                         offset: 0,
-                        color: '#117ea8'
+                        color: '#7d40ff'
                       },
                       {
                         offset: 1,
-                        color: '#6ad6ff'
+                        color: '#00fff2'
                       }], false),}}, data: results ? results.map(item => (item[0])) : [0]}, tooltip: {trigger: 'axis', axisPointer: {type: 'shadow'}, formatter: tooltipFormatterFunc, backgroundColor: '#566374f0'}}" />
     </data-loader>
     <data-loader ref="introduce-place" v-slot="{ results: results }" :url="`/v1/components/48b74ddd-39de-493f-84ab-9d87fcf23fee/data?area=${selectedArea}&year=${craneStates.year ? craneStates.year.getFullYear() : new Date(Date.now()).getFullYear()}`" method="get" :data="[[0, '暂无数据']]" :style="{width: '400px', height: '218px', position: 'absolute', top: '94px', left: '1490px'}">
@@ -223,7 +223,7 @@ export const introduction = {
 
   methods: {
     tooltipFormatterFunc(params) {
-      return `${params[0].name}<br/><span style="display:inline-block;margin-right:5px;border-radius:10px;width:10px;height:10px;background-color: #6ad6ff;"></span>高层次人才引进：${params[0].data}人`
+      return `${params[0].name}<br/><span style="display:inline-block;margin-right:5px;border-radius:10px;width:10px;height:10px;background: linear-gradient(0deg, #7d40ff, #00fff2);"></span>高层次人才引进：${params[0].data}人`
     },
     activityTooltipFormatterFunc(params) {
       return `${params[0].name}<br/><span style="display:inline-block;margin-right:5px;border-radius:10px;width:10px;height:10px;background-color: #00fff2;"></span>引才活动统计：${params[0].data}次`
