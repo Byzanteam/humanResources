@@ -84,6 +84,7 @@ const chartTooltipOptions = {
     },
   }
 };
+
 exports.chartTooltipOptions = chartTooltipOptions;
 
 exports.page_title_bg = {
@@ -118,7 +119,7 @@ exports.page_title_content = {
   }
 }
 
-exports.subtitle_text= {
+exports.subtitle_text = {
   component: 'div',
   props: {
     $style: {
