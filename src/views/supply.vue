@@ -28,7 +28,7 @@
     <data-loader :style="{width: '1100px', height: '900px', position: 'absolute', top: '176px', left: '480px'}">
       <v-chart ref="map" :options="mapOptions" />
     </data-loader>
-    <div ref="supply-demand-count" :style="{width: '380px', height: '50px', backgroundColor: 'rgba(106, 214, 255, .1)', borderRadius: '5px', position: 'absolute', top: '194px', left: '40px'}" />
+    <div ref="supply-demand-count" :style="{width: '380px', height: '50px', backgroundColor: 'rgba(13, 45, 120, .45)', borderRadius: '5px', position: 'absolute', top: '194px', left: '40px'}" />
     <div ref="value-circle" :style="{height: '10px', width: '10px', borderRadius: '10px', borderWidth: '1px', borderColor: '#00fff2', borderStyle: 'solid', position: 'absolute', top: '223px', left: '100px'}" />
     <data-loader ref="supply-demand-count" v-slot="{ results: results }" :url="`/v1/components/03b74ddd-39de-493f-84ab-9d87fcf23fee/data?job=${craneStates.currentJob || ''}&year=${generateYear}`" method="get" :data="[[0]]" :style="{position: 'absolute', top: '200px', left: '126px'}">
       <digital-roll ref="talent-age-index-content" data-content="默认为当年所有企业所需人才数量，可根据「区域」「岗位名」「时间」进行筛选统计查阅对应的企业人才需求数量" titlePosition="left" :content="{title: '企业人才需求数量', digital: results ? results[0][0] : 0, suffix: '人'}" :options="{separator: ','}" :style="{height: '39px'}" :prefixStyle="{color: '#00fff2', fontSize: '16px', fontWeight: '400'}" :suffixStyle="{color: '#00fff2', fontSize: '16px', fontWeight: '400'}" :titleStyle="{color: '#ffffff', fontSize: '16px', fontWeight: '400'}" :digitalStyle="{fontSize: '32px', color: '#00fff2', fontWeight: '400', fontFamily: 'Oswald-Regular', format: '11', letterSpacing: '2.4px'}" />
@@ -104,10 +104,10 @@
     </div>
     <brick-tabs :tabNavs="craneStates.chartTabNavs" :activeTab="craneStates.chartTabCurrent" :style="{position: 'absolute', top: '764px', left: '1586px'}" v-model="craneStates.chartTabCurrent" />
     <data-loader v-slot="{ results: results }" v-if="craneStates.chartTabCurrent === craneStates.chartTabNavs[0]" :url="`/v1/components/10b74ddd-39de-493f-84ab-9d87fcf23fee/data?year=${generateYear}&job=${craneStates.currentJob || ''}&area=${currentRegion}`" method="get" :data="[[0, '暂无数据']]" :style="{width: '380px', height: '218px', overflow: 'scroll', position: 'absolute', top: '822px', left: '1500px'}">
-      <v-chart :options="{backgroundColor: 'transparent', legend: {type: 'scroll', icon: 'circle', itemWidth: 10, itemHeight: 10, right: 75, top: 'middle', itemGap: 9, orient: 'vertical', textStyle: {color: '#ffffff', fontSize: 14}, inactiveColor: '#1C4159'}, color: ['#00fff2', '#7b43ff', '#e0ad3a', '#189ef1', '#2174b8', '#f65446'], series: [{type: 'pie', left: -140, radius: ['35%', '62%'], label: {show: false}, labelLine: {show: false}, data: results ? results.map(item => ({value: item [0], name: item[1]})) : [{value: 0, name: '暂无数据'}]}], tooltip: {trigger: 'item', formatter: pieTooltipFormatterFunc, backgroundColor: '#566374f0'}}" />
+      <v-chart :options="{backgroundColor: 'transparent', legend: {type: 'scroll', icon: 'circle', itemWidth: 10, itemHeight: 10, right: 35, top: 'middle', itemGap: 9, orient: 'vertical', textStyle: {color: '#ffffff', fontSize: 14}, inactiveColor: '#1C4159'}, color: ['#00fff2', '#7b43ff', '#e0ad3a', '#189ef1', '#2174b8', '#f65446'], series: [{type: 'pie', left: -140, radius: ['35%', '62%'], label: {show: false}, labelLine: {show: false}, data: results ? results.map(item => ({value: item [0], name: item[1]})) : [{value: 0, name: '暂无数据'}]}], tooltip: {trigger: 'item', formatter: pieTooltipFormatterFunc, backgroundColor: '#566374f0'}}" />
     </data-loader>
     <data-loader v-slot="{ results: results }" v-if="craneStates.chartTabCurrent === craneStates.chartTabNavs[1]" :url="`/v1/components/11b74ddd-39de-493f-84ab-9d87fcf23fee/data?year=${generateYear}&job=${craneStates.currentJob || ''}&area=${currentRegion}`" method="get" :data="[[0, '暂无数据']]" :style="{width: '400px', height: '218px', overflow: 'scroll', position: 'absolute', top: '822px', left: '1500px'}">
-      <v-chart :options="{backgroundColor: 'transparent', legend: {type: 'scroll', icon: 'circle', itemWidth: 10, itemHeight: 10, right: 75, top: 'middle', itemGap: 9, orient: 'vertical', textStyle: {color: '#4b9bbe', fontSize: 12}, inactiveColor: '#1C4159'}, color: ['#00fff2', '#7b43ff', '#e0ad3a', '#189ef1', '#2174b8', '#f65446'], series: [{type: 'pie', left: -140, radius: ['35%', '62%'], label: {show: false}, labelLine: {show: false}, data: results ? results.map(item => ({value: item [0], name: item[1]})) : [{value: 0, name: '暂无数据'}]}], tooltip: {trigger: 'item', formatter: pieTooltipFormatterFunc, backgroundColor: '#566374f0'}}" />
+      <v-chart :options="{backgroundColor: 'transparent', legend: {type: 'scroll', icon: 'circle', itemWidth: 10, itemHeight: 10, right: 35, top: 'middle', itemGap: 9, orient: 'vertical', textStyle: {color: '#ffffff', fontSize: 14}, inactiveColor: '#1C4159'}, color: ['#00fff2', '#7b43ff', '#e0ad3a', '#189ef1', '#2174b8', '#f65446'], series: [{type: 'pie', left: -140, radius: ['35%', '62%'], label: {show: false}, labelLine: {show: false}, data: results ? results.map(item => ({value: item [0], name: item[1]})) : [{value: 0, name: '暂无数据'}]}], tooltip: {trigger: 'item', formatter: pieTooltipFormatterFunc, backgroundColor: '#566374f0'}}" />
     </data-loader>
   </div>
 </template>
@@ -217,9 +217,9 @@ export const supply = {
               color: 'white'
             },
             itemStyle: {
-              areaColor: 'rgba(106, 214, 255, .05)',
-              borderColor: '#6ad6ff',
-              borderType: 'solid',
+              areaColor: '#0e3e7d',
+              borderColor: '#4589e1',
+              borderType: 'dashed',
               borderWidth: 0.5
             },
             emphasis: {
@@ -228,7 +228,7 @@ export const supply = {
                 fontWeight: 600
               },
               itemStyle: {
-                areaColor: '#4B9BBE'
+                areaColor: '#29e8de'
               }
             }
           }
