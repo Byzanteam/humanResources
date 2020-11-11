@@ -1,7 +1,8 @@
+const { pieColors, axisLabelStyle } = require('../share')
 module.exports = {
   id: 'talent-rank',
   component: '@byzanteam/vis-components/data-loader',
-  position: [1490, 414],
+  position: [1500, 432],
   exports: {
     results: 'results',
   },
@@ -10,7 +11,7 @@ module.exports = {
     method: 'get',
     $data: "[[0, '暂无数据']]",
     $style: {
-      width: '400px',
+      width: '380px',
       height: '218px'
     },
   },
@@ -20,7 +21,7 @@ module.exports = {
       component: 'v-chart',
       props: {
         $options:{
-          $color: "['#6ad6ff', '#4b9bbe', '#367290', '#275570', '#1c4159', '#153349']",
+          $color: pieColors,
           $legend: {
             type: 'scroll',
             orient: 'vertical',
@@ -31,8 +32,7 @@ module.exports = {
             $itemHeight: 8,
             $data: "results ? results.map(item => (item[1])) : ['暂无数据']",
             $textStyle: {
-              color: '#489bbe',
-              $fontSize: 14,
+              ...axisLabelStyle,
             },
             inactiveColor: '#1C4159',
           },

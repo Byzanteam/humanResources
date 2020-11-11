@@ -1,8 +1,9 @@
 
+const { axisLabelStyle } = require('../share');
 module.exports = {
-  id: 'activity-number-bar',
+  id: 'activity-number-line',
   component: '@byzanteam/vis-components/data-loader',
-  position: [30, 308],
+  position: [40, 334],
   exports: {
     results: 'results',
   },
@@ -11,83 +12,86 @@ module.exports = {
     method: 'get',
     $data: "[[0, '暂无数据']]",
     $style: {
-      width: '400px',
-      height: '250px'
+      width: '380px',
+      height: '240px'
     },
   },
   children: [
     {
-      id: 'activity-number-bar-content',
+      id: 'activity-number-line-content',
       component: 'v-chart',
       'v-if': 'results',
       props: {
         $options: {
           $xAxis: {
-            $axisLabel:{
+            $axisLabel: {
+              ...axisLabelStyle,
               $rotate: 0,
-              $fontSize: 12,
-              $fontWeight: 400,
-              color: '#367391'
             },
-            $axisLine:{
+            $axisLine: {
               $show: false
             },
             $data: "results ? results.map(item => (item[1])) : ['暂无数据']"
           },
           $yAxis: {
-            $axisLabel:{
+            $axisLabel: {
+              ...axisLabelStyle,
               $rotate: 0,
-              $fontSize: 12,
-              $fontWeight: 400,
-              color: '#367391',
               align: 'center'
             },
             $axisTick: {
               $show: false
             },
-            $axisLine:{
+            $axisLine: {
               $show: false
             },
             $splitLine: {
               $show: false
             },
             $splitNumber: 5,
-            name: '件',
+            name: '次',
             $nameTextStyle: {
-              $fontSize: 12,
-              $fontWeight: 400,
-              color: '#367391',
               align: 'center',
-              $padding:"[0, 5, 0, 0]"
+              $padding: "[0, 5, 0, 0]",
+              ...axisLabelStyle
             },
           },
           $series: {
-            type: 'bar',
-            $barWidth: 7,
-            barCategoryGap: '10%',
-            itemStyle: {
-              $normal: {
-                $barBorderRadius: 7,
-                $color: `new Echarts.graphic.LinearGradient(0, 1, 0, 0, [
-                  {
-                    offset: 0,
-                    color: '#117ea8'
-                  },
-                  {
-                    offset: 1,
-                    color: '#6ad6ff'
-                  }], false),`
-              },
+            type: 'line',
+            $smooth: false,
+            $showSymbol: false,
+            $color: "['#00fff2']",
+            $lineStyle: {
+              $width: 4,
+            },
+            $areaStyle: {
+              $color: `new Echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                  offset: 0,
+                  color: '#00fff2'
+                },
+                {
+                  offset: 1,
+                  color: 'rgba(0,255,242,0.6)'
+                }
+                ],
+                false
+              )`,
             },
             $data: "results ? results.map(item => (item[0])) : [0]"
           },
           $tooltip: {
             trigger: 'axis',
             $axisPointer: {
-              type: 'shadow',
+              type: 'line',
             },
-            $formatter: "activityTooltipFormatterFunc",
             backgroundColor: '#566374f0',
+            $formatter: "activityTooltipFormatterFunc",
+            $axisPointer: {
+              $lineStyle: {
+                color: '#ffffff',
+                type: 'dotted'
+              }
+            }
           }
         },
       },
