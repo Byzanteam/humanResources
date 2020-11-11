@@ -28,3 +28,10 @@
 input.map-tabs-input::placeholder {
   padding-left: 8px;
 }
+
+.btn {
+  padding: 6px 18px !important;
+}
+.btn--gradient {
+  background: linear-gradient(90deg,#41bdff, #29e8de) !important;
+}
