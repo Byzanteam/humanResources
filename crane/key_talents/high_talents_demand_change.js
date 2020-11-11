@@ -31,7 +31,7 @@ module.exports = [
   {
     id: 'high-talents-demand-change-line-chart',
     component: '@byzanteam/vis-components/data-loader',
-    position: [30, 550],
+    position: [40, 597],
     exports: {
       results: 'results',
     },
@@ -40,8 +40,8 @@ module.exports = [
       method: 'get',
       $data: "[[0, '暂无数据']]",
       $style: {
-        width: '400px',
-        height: '200px'
+        width: '380px',
+        height: '180px'
       }
     },
     children: [

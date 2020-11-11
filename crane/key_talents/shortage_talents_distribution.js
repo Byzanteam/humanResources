@@ -34,7 +34,7 @@ module.exports = [
   },
   {
     component: '@byzanteam/vis-components/data-loader',
-    position: [1350, 841],
+    position: [1500, 845],
     exports: {
       results: 'results',
     },
@@ -43,8 +43,8 @@ module.exports = [
       method: 'get',
       $data: "[[0, '暂无数据']]",
       $style: {
-        width: '600px',
-        height: '218px',
+        width: '380px',
+        height: '180px',
         overflow: 'scroll'
       }
     },
@@ -65,7 +65,7 @@ module.exports = [
               icon: 'circle',
               $itemWidth: 10,
               $itemHeight: 10,
-              $left: 350,
+              right: 'right',
               top: 'middle',
               $itemGap: 9,
               orient: 'vertical',
@@ -77,7 +77,7 @@ module.exports = [
               inactiveColor: '#1C4159',
             },
             $color: pieColors,
-            $series: "[{type: 'pie', minAngle: 5, left: -120, radius: ['35%', '62%'], label: {show: false}, labelLine: {show: false}, data: results ? results.map(item => ({value: item [0], name: item[1]})).sort(compare()) : [{value: 0, name: '暂无数据'}]}]"
+            $series: "[{type: 'pie', minAngle: 5, left: -140, radius: ['45%', '76%'], label: {show: false}, labelLine: {show: false}, data: results ? results.map(item => ({value: item [0], name: item[1]})).sort(compare()) : [{value: 0, name: '暂无数据'}]}]"
           }
         }
       }

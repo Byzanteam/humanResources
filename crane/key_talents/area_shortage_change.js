@@ -30,7 +30,7 @@ module.exports = [
   {
     id: 'high-talents-demand-change-line-chart',
     component: '@byzanteam/vis-components/data-loader',
-    position: [1490, 518],
+    position: [1500, 518],
     exports: {
       results: 'results',
     },
@@ -39,7 +39,7 @@ module.exports = [
       method: 'get',
       $data: "[['暂无数据', 0]]",
       $style: {
-        width: '400px',
+        width: '380px',
         height: '214px'
       }
     },
@@ -54,7 +54,7 @@ module.exports = [
               bottom: '10%'
             },
             backgroundColor: 'transparent',
-            $color: "['#6ad6ff', '#367390']",
+            $color: "['#00fff2', '#7b43ff']",
             $tooltip: {
               trigger: 'axis',
               $formatter: "shortageTooltipFormatterFunc",
