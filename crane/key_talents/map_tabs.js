@@ -104,7 +104,7 @@ module.exports = [
     children: [
       {
         component: 'iview/Select',
-        position: [43, 324],
+        position: [43, 391],
         props: {
           placeholder: '全部类型',
           class: 'map-select',
@@ -130,7 +130,7 @@ module.exports = [
       },
       {
         component: 'element-ui/input',
-        position: [237, 324],
+        position: [237, 391],
         props: {
           placeholder: '关键词',
           class: 'map-tabs-input',
@@ -151,7 +151,7 @@ module.exports = [
       },
       {
         component: '@byzanteam/vis-components/brick-button',
-        position: [156, 400],
+        position: [156, 465],
         content: '查看人才需求地图',
         props: {
           type: "gradient",
