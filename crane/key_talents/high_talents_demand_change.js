@@ -55,7 +55,7 @@ module.exports = [
               bottom: '10%'
             },
             backgroundColor: 'transparent',
-            $color: "['#6ad6ff', '#367390']",
+            $color: "['#00fff2', '#7b43ff']",
             $tooltip: {
               trigger: 'axis',
               $formatter: "demandTooltipFormatterFunc",
