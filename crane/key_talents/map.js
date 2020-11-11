@@ -1,3 +1,5 @@
+const { mapColors } = require('../share')
+
 module.exports = [
   {
     component: '@byzanteam/vis-components/brick-radio-button-select',
@@ -48,22 +50,23 @@ module.exports = [
             $itemGap: 10,
             $textGap: 8,
             $inRange: {
-              $color: "['rgba(106, 214, 255, .1)', 'rgba(106, 214, 255, .4)', 'rgba(106, 214, 255, .5)', 'rgba(106, 214, 255, .6)', 'rgba(106, 214, 255, .7)']"
+              $color: mapColors
             }
           },
           $series: `[
             {
               type: 'map',
-              mapType: craneStates.department.uuid,
+              mapType: craneStates.department ? craneStates.department.uuid : 'fujian',
               data: results.map(item => {return {name: item[1], value: item[0]}}),
               label: {
                 show: true,
-                fontSize: 14,
-                color: 'white'
+                fontSize: 15,
+                color: 'white',
+                fontWeight: 700
               },
               itemStyle: {
-                areaColor: 'rgba(106, 214, 255, .05)',
-                borderColor: '#6ad6ff',
+                areaColor: '#0e3e7d',
+                borderColor: '#68a4f0',
                 borderType: 'solid',
                 borderWidth: 0.5
               },
@@ -73,7 +76,7 @@ module.exports = [
                   fontWeight: 600,
                 },
                 itemStyle: {
-                  areaColor: '#6ad6ff'
+                  areaColor: '#29e8de'
                 }
               },
             }

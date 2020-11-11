@@ -102,19 +102,20 @@
     </data-loader>
     <brick-radio-button-select :options="craneStates.selectOptions" v-model="craneStates.department" placeholder="全省" :style="{position: 'absolute', top: '125px', left: '929px'}" />
     <data-loader v-slot="{ results: results }" :url="`${requestUrl}`" method="get" :data="[[0, '暂无数据']]" :style="{width: '1100px', height: '900px', position: 'absolute', top: '160px', left: '410px'}">
-      <v-chart :options="{backgroundColor: 'transparent', tooltip: {trigger: 'item', formatter: (params) => {return params.name + '<br />人才数量（人）：' + (isNaN(params.value) ? 0 : params.value)}, backgroundColor: '#566374f0'}, visualMap: {type: 'piecewise', pieces: [{gt: 1500, label: '1500人及以上'}, {gt: 1000, lte: 1500, label: '1000-1500人'}, {gt: 100, lte: 999, label: '100-999人'}, {gt: 10, lte: 99, label: '10-99人'}, {gt: 1, lt: 9, label: '1-9人'}], orient: 'horizontal', bottom: '6%', left: '26%', textStyle: {color: '#ffffff', fontSize: '14'}, itemWidth: 18, itemGap: 10, textGap: 8, inRange: {color: ['rgba(106, 214, 255, .1)', 'rgba(106, 214, 255, .4)', 'rgba(106, 214, 255, .5)', 'rgba(106, 214, 255, .6)', 'rgba(106, 214, 255, .7)']}}, series: [
+      <v-chart :options="{backgroundColor: 'transparent', tooltip: {trigger: 'item', formatter: (params) => {return params.name + '<br />人才数量（人）：' + (isNaN(params.value) ? 0 : params.value)}, backgroundColor: '#566374f0'}, visualMap: {type: 'piecewise', pieces: [{gt: 1500, label: '1500人及以上'}, {gt: 1000, lte: 1500, label: '1000-1500人'}, {gt: 100, lte: 999, label: '100-999人'}, {gt: 10, lte: 99, label: '10-99人'}, {gt: 1, lt: 9, label: '1-9人'}], orient: 'horizontal', bottom: '6%', left: '26%', textStyle: {color: '#ffffff', fontSize: '14'}, itemWidth: 18, itemGap: 10, textGap: 8, inRange: {color: ['#1c44a2', '#2174bb', '#e0ad3a', '#d98278', '#bb4e54']}}, series: [
                 {
                   type: 'map',
                   mapType: craneStates.department ? craneStates.department.uuid : 'fujian',
                   data: results.map(item => {return {name: item[1], value: item[0]}}),
                   label: {
                     show: true,
-                    fontSize: 14,
-                    color: 'white'
+                    fontSize: 15,
+                    color: 'white',
+                    fontWeight: 700
                   },
                   itemStyle: {
-                    areaColor: 'rgba(106, 214, 255, .05)',
-                    borderColor: '#6ad6ff',
+                    areaColor: '#0e3e7d',
+                    borderColor: '#68a4f0',
                     borderType: 'solid',
                     borderWidth: 0.5
                   },
@@ -124,7 +125,7 @@
                       fontWeight: 600,
                     },
                     itemStyle: {
-                      areaColor: '#6ad6ff'
+                      areaColor: '#29e8de'
                     }
                   },
                 }
@@ -133,13 +134,13 @@
     <div :style="{color: '#41bcff', fontSize: '14px', fontWeight: '400', textAlign: 'left', position: 'absolute', top: '49px', left: '40px'}">
       >>
     </div>
-    <div :style="{color: '#fff', fontSize: '20px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', position: 'absolute', top: '46px', left: '74px'}">
+    <div :style="{color: '#fff', fontSize: '20px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', cursor: 'pointer', position: 'absolute', top: '46px', left: '74px'}">
       高层次人才供需地图
     </div>
     <div :style="{color: '#41bcff', fontSize: '14px', fontWeight: '400', textAlign: 'left', position: 'absolute', top: '49px', left: '1504px'}">
       >>
     </div>
-    <div :style="{color: '#fff', fontSize: '20px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', position: 'absolute', top: '46px', left: '1536px'}">
+    <div :style="{color: '#fff', fontSize: '20px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', cursor: 'pointer', position: 'absolute', top: '46px', left: '1536px'}">
       区域紧缺人才地图
     </div>
     <div :style="{color: '#41bcff', fontSize: '14px', fontWeight: '400', textAlign: 'left', position: 'absolute', top: '561px', left: '40px'}">
