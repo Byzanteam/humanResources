@@ -35,7 +35,7 @@ module.exports = [
       $data: "null",
       $style: {
         width: '380px',
-        height: '221px',
+        height: '240px',
         overflow: 'scroll'
       }
     },
