@@ -6,7 +6,7 @@ const shortageTalentsDistribution = require('./shortage_talents_distribution')
 const areaShortageChange = require('./area_shortage_change')
 const map = require ('./map')
 const { page_title_content } = require('../share')
-
+const subtitle = require('./subtitle')
 module.exports = {
   route: {
     name: 'key_talents',
@@ -131,6 +131,7 @@ module.exports = {
     ...highTalentsDistribution,
     ...shortageTalentsDistribution,
     ...areaShortageChange,
-    ...map
+    ...map,
+    ...subtitle
   ]
 }

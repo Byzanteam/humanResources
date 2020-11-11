@@ -1,73 +1,49 @@
-const {small_digital_style} = require('../share')
+const {normal_digital_style, small_digital_style, digital_circle_icon, digital_bg} = require('../share')
 
-const digital_style = {
-  ...small_digital_style,
-  letterSpacing: '0.8px',
-  $suffixStyle: {
-    color: '#367391',
-    fontSize: '16px',
-    fontWeight: 400,
-  },
+const small_digital_container = {
+  component: 'div',
+  props: {
+    $style: {
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems : 'center',
+      flexDirection: 'column',
+      width: '120px'
+    }
+  }
 }
-
+const small_digital_title = {
+  component: 'div',
+  props: {
+    $style: {
+      color: '#ffffff',
+      fontSize: '16px',
+      fontWeight: 400,
+    }
+  }
+}
 module.exports = [
+  // 人才数量统计
   {
     component: 'div',
-    position: [40, 49],
+    position: [40, 84],
     props: {
       $style: {
-        color: '#6ad6ff',
-        fontSize: '14px',
-        fontWeight: 400,
-        textAlign: 'left',
-      },
-    },
-    content: '>>',
-  },
-  {
-    component: 'div',
-    position: [74, 46],
-    props: {
-      $style: {
-        color: '#fff',
-        fontSize: '18px',
-        fontWeight: '600',
-        textAlign: 'left',
-        letterSpacing: '1px',
-      },
-    },
-    content: '高层次人才供需地图',
-  },
-  {
-    component: 'div',
-    position: [30, 88],
-    props: {
-      $style: {
-        width: '400px',
-        height: '50px',
-        backgroundColor: 'rgba(106, 214, 255, .1)',
+        width: '380px',
+        height: '143px',
+        backgroundColor: 'rgba(13, 45, 120, .45)',
         borderRadius: '5px'
       }
     }
   },
   {
     id: 'value-circle',
-    component: 'div',
-    position: [119, 117],
-    props: {
-      $style: {
-        height:'10px',
-        width: '10px',
-        borderRadius: '10px',
-        borderWidth: '1px',
-        borderColor: '#6ad6ff',
-        borderStyle: 'solid',
-      }
-    },
+    position: [80, 117],
+    ...digital_circle_icon
   },
   {
     component: '@byzanteam/vis-components/data-loader',
-    position: [145, 94],
+    position: [106, 94],
     props: {
       $url: "`/v1/components/24b74ddd-39de-493f-84ab-9d87fcf23fee/data?type=${digitalKeyword || ''}`",
       method: 'get',
@@ -84,7 +60,7 @@ module.exports = [
           'data-content': '统计人才库中学历为「硕士」「博士」的人才数量',
           titlePosition: 'left',
           $content: {
-            title: '人才数量统计',
+            title: '中高端人才总数',
             $digital: "results ? results[0][0] : 0",
             suffix: '人',
           },
@@ -92,44 +68,149 @@ module.exports = [
             separator: '',
           },
           $style: {
-            width: '196px',
+            width: '250px',
             height: '39px'
           },
-          ...digital_style
+          ...normal_digital_style
         }
       },
     ]
   },
+
+    // 杰出人才 领军人才 紧缺人才
   {
+    id: 'cut-line',
     component: 'div',
-    position: [30, 154],
+    position: [50, 146],
     props: {
       $style: {
-        width: '400px',
-        height: '50px',
-        backgroundColor: 'rgba(106, 214, 255, .1)',
-        borderRadius: '5px'
+        width: '360px',
+        borderBottom: '1px solid rgba(69, 137, 225, .5)'
       }
     }
   },
   {
+    ...small_digital_container,
+    position: [50, 163],
+    children: [
+      {
+        ...small_digital_title,
+        content: '杰出人才'
+      },
+      {
+        component: '@byzanteam/vis-components/data-loader',
+        props: {
+          $url: "`/v1/components/24b74ddd-39de-493f-84ab-9d87fcf23fee/data?type=${digitalKeyword || ''}`",
+          method: 'get',
+          $data: "[[0]]",
+        },
+        exports: {
+          results: 'results',
+        },
+        children: [
+          {
+            component: '@byzanteam/vis-components/digital-roll',
+            props: {
+              $content: {
+                $digital: "results ? results[0][0] : 0",
+                suffix: '人',
+              },
+              $options: {
+                separator: '',
+              },
+              ...small_digital_style
+            }
+          },
+        ]
+      },
+    ]
+  },
+  {
+    ...small_digital_container,
+    position: [170, 163],
+    children: [
+      {
+        ...small_digital_title,
+        content: '领军人才'
+      },
+      {
+        component: '@byzanteam/vis-components/data-loader',
+        props: {
+          $url: "`/v1/components/24b74ddd-39de-493f-84ab-9d87fcf23fee/data?type=${digitalKeyword || ''}`",
+          method: 'get',
+          $data: "[[0]]",
+        },
+        exports: {
+          results: 'results',
+        },
+        children: [
+          {
+            component: '@byzanteam/vis-components/digital-roll',
+            props: {
+              $content: {
+                $digital: "results ? results[0][0] : 0",
+                suffix: '人',
+              },
+              $options: {
+                separator: '',
+              },
+              ...small_digital_style
+            }
+          },
+        ]
+      },
+    ]
+  },
+  {
+    ...small_digital_container,
+    position: [290, 163],
+    children: [
+      {
+        ...small_digital_title,
+        content: '紧缺人才'
+      },
+      {
+        component: '@byzanteam/vis-components/data-loader',
+        props: {
+          $url: "`/v1/components/24b74ddd-39de-493f-84ab-9d87fcf23fee/data?type=${digitalKeyword || ''}`",
+          method: 'get',
+          $data: "[[0]]",
+        },
+        exports: {
+          results: 'results',
+        },
+        children: [
+          {
+            component: '@byzanteam/vis-components/digital-roll',
+            props: {
+              $content: {
+                $digital: "results ? results[0][0] : 0",
+                suffix: '人',
+              },
+              $options: {
+                separator: '',
+              },
+              ...small_digital_style
+            }
+          },
+        ]
+      },
+    ]
+  },
+
+  // 人才引进统计
+  {
+    position: [40, 243],
+    ...digital_bg
+  },
+  {
     id: 'value-circle',
-    component: 'div',
-    position: [119, 183],
-    props: {
-      $style: {
-        height:'10px',
-        width: '10px',
-        borderRadius: '10px',
-        borderWidth: '1px',
-        borderColor: '#6ad6ff',
-        borderStyle: 'solid',
-      }
-    },
+    position: [130, 272],
+    ...digital_circle_icon
   },
   {
     component: '@byzanteam/vis-components/data-loader',
-    position: [145, 160],
+    position: [156, 249],
     props: {
       $url: "`/v1/components/45b74ddd-39de-493f-84ab-9d87fcf23fee/data?job=${craneStates.currentShortageType|| ''}&year=${this.craneStates.year ? this.craneStates.year.getFullYear() : new Date(Date.now()).getFullYear()}`",
       method: 'get',
@@ -157,65 +238,21 @@ module.exports = [
             width: '278px',
             height: '39px'
           },
-          ...digital_style
+          ...normal_digital_style
         }
       },
     ]
   },
+
+  // 紧缺人才数量
   {
-    component: 'div',
-    position: [1504, 49],
-    props: {
-      $style: {
-        color: '#6ad6ff',
-        fontSize: '14px',
-        fontWeight: 400,
-        textAlign: 'left',
-      },
-    },
-    content: '>>',
-  },
-  {
-    component: 'div',
-    position: [1536, 46],
-    props: {
-      $style: {
-        color: '#fff',
-        fontSize: '18px',
-        fontWeight: '600',
-        textAlign: 'left',
-        letterSpacing: '1px',
-        cursor: 'pointer',
-      },
-    },
-    content: '区域紧缺人才地图',
-  },
-  {
-    component: 'div',
-    position: [1490, 128],
-    props: {
-      $style: {
-        width: '400px',
-        height: '50px',
-        backgroundColor: 'rgba(106, 214, 255, .1)',
-        borderRadius: '5px'
-      }
-    }
+    position: [1500, 128],
+    ...digital_bg
   },
   {
     id: 'value-circle',
-    component: 'div',
     position: [1588, 157],
-    props: {
-      $style: {
-        height:'10px',
-        width: '10px',
-        borderRadius: '10px',
-        borderWidth: '1px',
-        borderColor: '#6ad6ff',
-        borderStyle: 'solid',
-      }
-    },
+    ...digital_circle_icon
   },
   {
     component: '@byzanteam/vis-components/data-loader',
@@ -247,7 +284,7 @@ module.exports = [
             width: '278px',
             height: '39px'
           },
-          ...digital_style,
+          ...normal_digital_style,
         }
       },
     ]

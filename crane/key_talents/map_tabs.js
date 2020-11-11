@@ -1,7 +1,7 @@
 module.exports = [
   {
     component: 'div',
-    position: [30, 244],
+    position: [30, 309],
     props: {
       $style: {
         width: '400px',
@@ -14,7 +14,7 @@ module.exports = [
   },
   {
     component: '@byzanteam/vis-components/brick-tabs',
-    position: [126, 256],
+    position: [126, 325],
     directive: {
       model: 'craneStates.mapTabCurrent',
     },
@@ -31,7 +31,7 @@ module.exports = [
     children: [
       {
         component: 'iview/Select',
-        position: [43, 324],
+        position: [43, 391],
         props: {
           placeholder: '全部类型',
           class: 'map-select',
@@ -57,7 +57,7 @@ module.exports = [
       },
       {
         component: 'element-ui/input',
-        position: [237, 324],
+        position: [237, 391],
         props: {
           placeholder: '关键词',
           class: 'map-tabs-input',
@@ -66,8 +66,8 @@ module.exports = [
             width: '180px',
             height: '48px',
             paddingLeft: '8px',
-            backgroundColor: 'rgba(106, 214, 255, .1)',
-            border: '1px solid rgba(106, 214, 255, .12)',
+            backgroundColor: 'rgba(9, 32, 91, 1)',
+            border: '1px solid rgba(69, 137, 225, 1)',
             borderRadius: '4px',
             color: '#ffffff',
             fontSize: '16px',
@@ -78,14 +78,14 @@ module.exports = [
       },
       {
         component: '@byzanteam/vis-components/brick-button',
-        position: [156, 400],
+        position: [156, 465],
         content: '查看人才供应地图',
         props: {
           type: "gradient",
           color: "primary",
           $style: {
             width: '148px',
-            height: '25px'
+            height: '28px'
           }
         },
         events: {
@@ -104,7 +104,7 @@ module.exports = [
     children: [
       {
         component: 'iview/Select',
-        position: [43, 324],
+        position: [43, 391],
         props: {
           placeholder: '全部类型',
           class: 'map-select',
@@ -130,7 +130,7 @@ module.exports = [
       },
       {
         component: 'element-ui/input',
-        position: [237, 324],
+        position: [237, 391],
         props: {
           placeholder: '关键词',
           class: 'map-tabs-input',
@@ -139,8 +139,8 @@ module.exports = [
             width: '180px',
             height: '48px',
             paddingLeft: '8px',
-            backgroundColor: 'rgba(106, 214, 255, .1)',
-            border: '1px solid rgba(106, 214, 255, .12)',
+            backgroundColor: 'rgba(9, 32, 91, 1)',
+            border: '1px solid rgba(69, 137, 225, 1)',
             borderRadius: '4px',
             color: '#ffffff',
             fontSize: '16px',
@@ -151,14 +151,14 @@ module.exports = [
       },
       {
         component: '@byzanteam/vis-components/brick-button',
-        position: [156, 400],
+        position: [156, 465],
         content: '查看人才需求地图',
         props: {
           type: "gradient",
           color: "primary",
           $style: {
             width: '148px',
-            height: '25px'
+            height: '28px'
           }
         },
         events: {
@@ -268,7 +268,7 @@ module.exports = [
           color: "primary",
           $style: {
             width: '148px',
-            height: '25px'
+            height: '28px'
           }
         },
         events: {

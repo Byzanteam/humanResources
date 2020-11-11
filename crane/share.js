@@ -26,11 +26,6 @@ exports.normal_digital_style = {
 };
 
 exports.small_digital_style = {
-  $prefixStyle: {
-    color: '#00fff2',
-    fontSize: '16px',
-    fontWeight: 400,
-  },
   $suffixStyle: {
     color: '#00fff2',
     fontSize: '16px',
@@ -42,9 +37,10 @@ exports.small_digital_style = {
     fontWeight: 400,
   },
   $digitalStyle: {
-    fontSize: '32px',
+    fontSize: '20px',
     color: '#00fff2',
-    fontWeight: 400,
+    fontWeight: 600,
+    lineHeight: '32px',
     fontFamily: 'Oswald-Regular',
     format: '11',
     letterSpacing: '2.4px',
@@ -128,6 +124,7 @@ exports.subtitle_text = {
       fontWeight: '600',
       textAlign: 'left',
       letterSpacing: '1px',
+      cursor: 'pointer',
     },
   },
 }

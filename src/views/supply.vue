@@ -8,6 +8,12 @@
     </div>
     <img ref="box-bg" :style="{width: '440px', height: '1059px', position: 'absolute', top: '10px', left: '10px'}" src="/hxrc/images/Box-Bg.png" />
     <img ref="right-box-bg" :style="{width: '440px', height: '1059px', position: 'absolute', top: '10px', left: '1471px'}" src="/hxrc/images/Box-Bg.png" />
+    <data-loader :style="{width: '1100px', height: '900px', position: 'absolute', top: '176px', left: '480px'}">
+      <v-chart ref="map" :options="mapOptions" />
+    </data-loader>
+    <data-loader class="center-select">
+      <brick-radio-button-select ref="departments-select" :options="selectOptions" v-model="craneStates.department" placeholder="全省" />
+    </data-loader>
     <data-loader ref="job_select" v-slot="{ results: results }" :url="`/v1/components/01b74ddd-39de-493f-84ab-9d87fcf23fee/data?job=${craneStates.inputQuery}`" method="get" :data="[['']]" :style="{position: 'absolute', top: '48px', left: '40px'}">
       <Select class="departments-select" :clearable="true" :filterable="true" :style="{width: '380px'}" v-model="craneStates.currentJob">
         <template v-slot:input class="ivu-select-selection">
@@ -22,16 +28,10 @@
     <data-loader ref="job_select" @requestDone="(param)=>[setState('dateRange', param.results.map((item) => (Number(item[0]))))]" url="/v1/components/02b74ddd-39de-493f-84ab-9d87fcf23fee/data" method="get" :data="[['']]" :style="{position: 'absolute', top: '114px', left: '40px'}">
       <date-picker format="yyyy年" v-model="craneStates.year" :style="{width: '380px', height: '50px'}" :options="{disabledDate: (time) => {return !craneStates.dateRange.includes(time.getFullYear())}}" type="year" class="supply-datepicker" placeholder="选择时间" />
     </data-loader>
-    <data-loader class="center-select">
-      <brick-radio-button-select ref="departments-select" :options="selectOptions" v-model="craneStates.department" placeholder="全省" />
-    </data-loader>
-    <data-loader :style="{width: '1100px', height: '900px', position: 'absolute', top: '176px', left: '480px'}">
-      <v-chart ref="map" :options="mapOptions" />
-    </data-loader>
     <div ref="supply-demand-count" :style="{width: '380px', height: '50px', backgroundColor: 'rgba(13, 45, 120, .45)', borderRadius: '5px', position: 'absolute', top: '194px', left: '40px'}" />
     <div ref="value-circle" :style="{height: '10px', width: '10px', borderRadius: '10px', borderWidth: '1px', borderColor: '#00fff2', borderStyle: 'solid', position: 'absolute', top: '223px', left: '100px'}" />
     <data-loader ref="supply-demand-count" v-slot="{ results: results }" :url="`/v1/components/03b74ddd-39de-493f-84ab-9d87fcf23fee/data?job=${craneStates.currentJob || ''}&year=${generateYear}`" method="get" :data="[[0]]" :style="{position: 'absolute', top: '200px', left: '126px'}">
-      <digital-roll ref="talent-age-index-content" data-content="默认为当年所有企业所需人才数量，可根据「区域」「岗位名」「时间」进行筛选统计查阅对应的企业人才需求数量" titlePosition="left" :content="{title: '企业人才需求数量', digital: results ? results[0][0] : 0, suffix: '人'}" :options="{separator: ','}" :style="{height: '39px'}" :prefixStyle="{color: '#00fff2', fontSize: '16px', fontWeight: '400'}" :suffixStyle="{color: '#00fff2', fontSize: '16px', fontWeight: '400'}" :titleStyle="{color: '#ffffff', fontSize: '16px', fontWeight: '400'}" :digitalStyle="{fontSize: '32px', color: '#00fff2', fontWeight: '400', fontFamily: 'Oswald-Regular', format: '11', letterSpacing: '2.4px'}" />
+      <digital-roll ref="talent-age-index-content" data-content="默认为当年所有企业所需人才数量，可根据「区域」「岗位名」「时间」进行筛选统计查阅对应的企业人才需求数量" titlePosition="left" :content="{title: '企业人才需求数量', digital: results ? results[0][0] : 0, suffix: '人'}" :options="{separator: ','}" :style="{height: '39px'}" :titleStyle="{color: '#ffffff', fontSize: '16px', fontWeight: '400'}" :prefixStyle="{color: '#00fff2', fontSize: '16px', fontWeight: '400'}" :suffixStyle="{color: '#00fff2', fontSize: '16px', fontWeight: '400'}" :digitalStyle="{fontSize: '32px', color: '#00fff2', fontWeight: '400', fontFamily: 'Oswald-Regular', format: '11', lineHeight: '38px', letterSpacing: '2.4px'}" />
     </data-loader>
     <div ref="talent-index-icon" :style="{color: '#41bcff', fontSize: '14px', fontWeight: '400', textAlign: 'left', position: 'absolute', top: '288px', left: '40px'}">
       >>
@@ -67,7 +67,7 @@
     <div ref="salary-count" :style="{width: '380px', height: '50px', backgroundColor: 'rgba(13, 45, 120, .45)', borderRadius: '5px', position: 'absolute', top: '764px', left: '40px'}" />
     <div ref="value-circle" :style="{height: '10px', width: '10px', borderRadius: '10px', borderWidth: '1px', borderColor: '#00fff2', borderStyle: 'solid', position: 'absolute', top: '793px', left: '116px'}" />
     <data-loader ref="salary-count-digital" v-slot="{ results: results }" :url="`/v1/components/06b74ddd-39de-493f-84ab-9d87fcf23fee/data?year=${generateYear}&job=${craneStates.currentJob || ''}&area=${currentRegion}`" method="get" :data="[[0]]" :style="{position: 'absolute', top: '770px', left: '146px'}">
-      <digital-roll titlePosition="left" :content="{title: '岗位平均薪酬', digital: results ? results[0][0] : 0, prefix: '￥'}" :options="{separator: ','}" :style="{height: '39px'}" :prefixStyle="{color: '#00fff2', fontSize: '16px', fontWeight: '400'}" :suffixStyle="{color: '#00fff2', fontSize: '16px', fontWeight: '400'}" :titleStyle="{color: '#ffffff', fontSize: '16px', fontWeight: '400'}" :digitalStyle="{fontSize: '32px', color: '#00fff2', fontWeight: '400', fontFamily: 'Oswald-Regular', format: '11', letterSpacing: '2.4px'}" />
+      <digital-roll titlePosition="left" :content="{title: '岗位平均薪酬', digital: results ? results[0][0] : 0, prefix: '￥'}" :options="{separator: ','}" :style="{height: '39px'}" :titleStyle="{color: '#ffffff', fontSize: '16px', fontWeight: '400'}" :prefixStyle="{color: '#00fff2', fontSize: '16px', fontWeight: '400'}" :suffixStyle="{color: '#00fff2', fontSize: '16px', fontWeight: '400'}" :digitalStyle="{fontSize: '32px', color: '#00fff2', fontWeight: '400', fontFamily: 'Oswald-Regular', format: '11', lineHeight: '38px', letterSpacing: '2.4px'}" />
     </data-loader>
     <data-loader ref="salary-count-line-chart" v-slot="{ results: results }" :url="`/v1/components/07b74ddd-39de-493f-84ab-9d87fcf23fee/data?job=${craneStates.currentJob || ''}&area=${currentRegion}`" method="get" :data="[[0, '暂无数据']]" :style="{width: '380px', height: '200px', position: 'absolute', top: '838px', left: '40px'}">
       <v-chart :options="{color: ['#00fff2', '#7b43ff', '#e0ad3a', '#189ef1', '#2174b8', '#f65446'], grid: {top: 30, left: 52, right: 10, bottom: 30}, backgroundColor: 'transparent', tooltip: {trigger: 'axis', axisPointer: {lineStyle: {color: '#ffffff', type: 'dotted'}}, formatter: salaryTooltipFormatterFunc, backgroundColor: '#566374f0'}, xAxis: {type: 'category', data: results ? results.map(item => (item[1])) : ['暂无数据'], axisLine: {show: false}, axisTick: {show: false}, axisLabel: {color: 'rgba(255, 255, 255, .8)', fontSize: 14, fontWeight: 400}, splitLine: {show: false}}, yAxis: {type: 'value', name: '元', splitNumber: '4', axisLine: {show: false}, axisTick: {show: false}, nameTextStyle: {color: 'rgba(255, 255, 255, .8)', fontSize: 14, fontWeight: 400, align: 'center', padding: [0, 0, 0, 3]}, axisLabel: {color: 'rgba(255, 255, 255, .8)', fontSize: 14, fontWeight: 400, align: 'center'}, splitLine: {show: false}}, series: [{type: 'line', data: results ? results.map(item => (item[0])) : [0], showSymbol: false, lineStyle: {width: 4}}]}" />
@@ -78,8 +78,8 @@
     <div ref="talent-demand" data-content="根据「区域」「时间」进行筛选统计企业需求量显示 Top10 排名，以企业所属行业类型进行统计排名" :style="{color: '#fff', fontSize: '18px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', cursor: 'pointer', position: 'absolute', top: '48px', left: '1533px'}">
       6大重点行业的人才需求排名
     </div>
-    <data-loader v-slot="{ results: results }" url="/v1/components/08b74ddd-39de-493f-84ab-9d87fcf23fee/data" method="get" :data="null" :style="{width: '380px', height: '221px', overflow: 'scroll', position: 'absolute', top: '100px', left: '1500px'}">
-      <vis-table :withHeader="false" theme="dark" stripe="" :headers="[{width: 80, key: 'index'}, {width: 200, key: 'name'}, {width: 100, key: 'count'}]" :data="results ? results.map((item, index) => ({index: index + 1, name: item[0], count: item[1]})) : [{index: 0, name: '暂无数据', count: 0}]">
+    <data-loader v-slot="{ results: results }" url="/v1/components/08b74ddd-39de-493f-84ab-9d87fcf23fee/data" method="get" :data="null" :style="{width: '380px', height: '240px', overflow: 'scroll', position: 'absolute', top: '100px', left: '1500px'}">
+      <vis-table :withHeader="false" theme="dark" stripe="" :headers="[{width: 60, key: 'index'}, {width: 140, key: 'name'}, {width: 100, key: 'count'}, {width: 100, key: 'ratio'}]" :data="results ? results.map((item, index) => ({index: index + 1, name: item[0], count: item[1] || 0, ratio: item[2] || 0})) : [{index: 0, name: '暂无数据', count: 0, ratio: 0}]">
         <template v-slot="{ cell: cell, columnKey: columnKey }">
           <span :class="columnKey === 'index' ? 'row-index-cell' : ''">
             {{cell}}

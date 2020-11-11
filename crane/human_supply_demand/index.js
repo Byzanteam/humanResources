@@ -99,9 +99,9 @@ module.exports = {
         src: '/hxrc/images/Box-Bg.png'
       },
     },
+    ...map,
     jobSelect,
     datePicker,
-    ...map,
     ...singleDigital,
     ...talentsExponent,
     ...salaryAnalysis,

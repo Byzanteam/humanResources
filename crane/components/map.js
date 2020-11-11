@@ -59,9 +59,9 @@ module.exports = {
             $data: "results.map(item => ({name: item[1], value: item[0]}))",
             $label: {
               $show: true,
-                $fontSize: 15,
-                color: 'white',
-                $fontWeight: 700
+              $fontSize: 15,
+              color: 'white',
+              $fontWeight: 700
             },
             $itemStyle: {
               areaColor: '#0e3e7d',

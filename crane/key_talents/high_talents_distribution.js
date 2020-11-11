@@ -1,38 +1,9 @@
+const { pieColors } = require('../share')
+
 module.exports = [
   {
-    id: 'degree-analysis-icon',
-    component: 'div',
-    position: [40, 806],
-    props: {
-      $style: {
-        color: '#6ad6ff',
-        fontSize: '14px',
-        fontWeight: 400,
-        textAlign: 'left',
-      },
-    },
-    content: '>>',
-  },
-  {
-    id: 'degree-analysis-title',
-    component: 'div',
-    position: [74, 803],
-    props: {
-      'data-content': '统计人才库中职称类型分布情况',
-      $style: {
-        color: '#fff',
-        fontSize: '18px',
-        fontWeight: '600',
-        textAlign: 'left',
-        letterSpacing: '1px',
-        cursor: 'pointer',
-      },
-    },
-    content: '高层次人才专业分布',
-  },
-  {
     component: '@byzanteam/vis-components/data-loader',
-    position: [-110, 841],
+    position: [40, 845],
     exports: {
       results: 'results',
     },
@@ -41,8 +12,8 @@ module.exports = [
       method: 'get',
       $data: "[[0, '暂无数据']]",
       $style: {
-        width: '600px',
-        height: '218px',
+        width: '380px',
+        height: '180px',
         overflow: 'scroll'
       }
     },
@@ -62,7 +33,7 @@ module.exports = [
               icon: 'circle',
               $itemWidth: 10,
               $itemHeight: 10,
-              $left: 350,
+              right: 'right',
               top: 'middle',
               $itemGap: 9,
               orient: 'vertical',
@@ -72,8 +43,8 @@ module.exports = [
               },
               inactiveColor: '#1C4159',
             },
-            $color: "['#6ad6ff', '#4b9bbe', '#367290', '#275570', '#1c4159', '#153349']",
-            $series: "[{type: 'pie', minAngle: 5, left: -120, radius: ['35%', '62%'], label: {show: false}, labelLine: {show: false}, data: results ? results.map(item => ({value: item [0], name: item[1]})) : [{value: 0, name: '暂无数据'}]}]"
+            $color: pieColors,
+            $series: "[{type: 'pie', minAngle: 5, left: -140, radius: ['45%', '76%'], label: {show: false}, labelLine: {show: false}, data: results ? results.map(item => ({value: item [0], name: item[1]})) : [{value: 0, name: '暂无数据'}]}]"
           }
         }
       }
