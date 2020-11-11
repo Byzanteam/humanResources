@@ -1,5 +1,5 @@
 const {
-  small_digital_style,
+  normal_digital_style,
   digital_circle_icon,
   digital_bg,
 } = require('../share')
@@ -45,7 +45,7 @@ module.exports = [
           $style: {
             height: '39px'
           },
-          ...small_digital_style,
+          ...normal_digital_style,
         }
       },
     ]
