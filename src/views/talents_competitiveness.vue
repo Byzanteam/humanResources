@@ -307,7 +307,6 @@ export default talents_competitiveness
         }
         td{
           text-align: left !important;
-          color: #4b9bbe !important;
           line-height: 46px;
           font-size: 14px;
           font-weight: 400;

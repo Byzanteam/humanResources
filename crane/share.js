@@ -123,7 +123,7 @@ exports.subtitle_text= {
   props: {
     $style: {
       color: '#fff',
-      fontSize: '18px',
+      fontSize: '20px',
       fontWeight: '600',
       textAlign: 'left',
       letterSpacing: '1px',
@@ -135,7 +135,7 @@ exports.subtitle_icon = {
   component: 'div',
   props: {
     $style: {
-      color: '#6ad6ff',
+      color: '#00fff2',
       fontSize: '14px',
       fontWeight: 400,
       textAlign: 'left',
@@ -178,13 +178,13 @@ exports.high_level_legendStyle_small = {
 
 exports.color_series = "['#6ad6ff', '#4b9bbe', '#367290', '#275570', '#1c4159', '#153349']"
 
-exports.digital_bg_400_50 = {
+exports.digital_bg = {
   component: 'div',
   props: {
     $style: {
-      width: '400px',
+      width: '380px',
       height: '50px',
-      backgroundColor: 'rgba(106, 214, 255, .1)',
+      backgroundColor: 'rgba(13, 45, 120, .45)',
       borderRadius: '5px'
     }
   }
