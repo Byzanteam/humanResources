@@ -136,7 +136,7 @@ exports.subtitle_icon = {
   component: 'div',
   props: {
     $style: {
-      color: '#00fff2',
+      color: '#41bcff',
       fontSize: '14px',
       fontWeight: 400,
       textAlign: 'left',
@@ -154,7 +154,7 @@ exports.high_level_legendStyle_normal = {
   $itemGap: 9,
   orient: 'vertical',
   $textStyle: {
-    color: '#4b9bbe',
+    color: '#ffffff',
     $fontSize: 12,
     $lineHeight: 15
   },
@@ -170,7 +170,7 @@ exports.high_level_legendStyle_small = {
   $itemGap: 9,
   orient: 'vertical',
   $textStyle: {
-    color: '#4b9bbe',
+    color: '#ffffff',
     $fontSize: 12,
     $lineHeight: 15
   },

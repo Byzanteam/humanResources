@@ -1,17 +1,10 @@
+const { subtitle_icon } = require('../share')
+
 module.exports = [
   {
     id: 'talent-index-icon',
-    component: 'div',
     position: [1500, 50],
-    props: {
-      $style: {
-        color: '#6ad6ff',
-        fontSize: '14px',
-        fontWeight: 400,
-        textAlign: 'left',
-      },
-    },
-    content: '>>',
+    ...subtitle_icon,
   },
   {
     id: 'talent-demand',
