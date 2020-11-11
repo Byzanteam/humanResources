@@ -1,3 +1,5 @@
+const { mapColors } = require('../share')
+
 module.exports = {
   component: '@byzanteam/vis-components/data-loader',
   position: [480, 176],
@@ -47,7 +49,7 @@ module.exports = {
             $itemGap: 10,
             $textGap: 8,
             $inRange: {
-              $color: "['#1c44a2', '#2174bb', '#e0ad3a', '#d98278', '#bb4e54']"
+              $color: mapColors
             }
           },
           $series: {
