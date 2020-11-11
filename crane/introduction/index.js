@@ -1,5 +1,5 @@
 const map = require('./map')
-const activity = require('./activity_number_bar')
+const activity = require('./activity_number_line')
 const highLevel = require('./high_level_talent_bar')
 const intro = require('./introduce_place_pie')
 const donut = require('./talent_rank_dount')

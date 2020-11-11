@@ -1,8 +1,8 @@
 
 module.exports = {
-  id: 'activity-number-bar',
+  id: 'activity-number-line',
   component: '@byzanteam/vis-components/data-loader',
-  position: [30, 308],
+  position: [40, 334],
   exports: {
     results: 'results',
   },
@@ -11,13 +11,13 @@ module.exports = {
     method: 'get',
     $data: "[[0, '暂无数据']]",
     $style: {
-      width: '400px',
-      height: '250px'
+      width: '380px',
+      height: '240px'
     },
   },
   children: [
     {
-      id: 'activity-number-bar-content',
+      id: 'activity-number-line-content',
       component: 'v-chart',
       'v-if': 'results',
       props: {
@@ -62,7 +62,7 @@ module.exports = {
             },
           },
           $series: {
-            type: 'bar',
+            type: 'line',
             $barWidth: 7,
             barCategoryGap: '10%',
             itemStyle: {
