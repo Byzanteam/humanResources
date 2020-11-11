@@ -1,13 +1,13 @@
 module.exports = {
   component: '@byzanteam/vis-components/data-loader',
-  position: [30, 316],
+  position: [40, 360],
   props: {
     $url: "tableRequestUrl",
     method: 'get',
     $data: "[[0, '暂无数据']]",
     $style: {
-      width: '400px',
-      height: '678px',
+      width: '380px',
+      height: '680px',
       overflow: 'scroll'
     }
   },

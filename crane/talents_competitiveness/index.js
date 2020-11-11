@@ -229,7 +229,7 @@ module.exports = {
     },
     {
       id: 'force-digital-bg',
-      position: [1490, 60],
+      position: [1500, 60],
       ...digital_bg,
     },
     talentsIndicatorsSummary,
@@ -237,7 +237,7 @@ module.exports = {
     {
       id: 'province-talent-number',
       component: 'div',
-      position: [74, 46],
+      position: [74, 48],
       props: {
         'data-content': '根据选择的对应十大指标体系结合「区域」检索对应区域对应的指标排名情况',
         ...subtitle_text.props,
@@ -246,22 +246,22 @@ module.exports = {
     },
     {
       id: 'province-talent-number-icon',
-      position: [48, 49],
+      position: [40, 50],
       ...subtitle_icon,
     },
     {
       id: 'ten-number',
       component: 'div',
-      position: [1536, 216],
+      position: [1533, 214],
       props: {
         'data-content': '区域为省级可横向对比市级的指标指数对比，区域为市级可横向对应区级的指标指数对比',
         ...subtitle_text.props,
       },
-      content: '10大指标汇总',
+      content: '15大指标汇总',
     },
     {
       id: 'ten-number-icon',
-      position: [1512, 219],
+      position: [1500, 217],
       ...subtitle_icon,
     },
     {

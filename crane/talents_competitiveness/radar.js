@@ -1,19 +1,21 @@
+const { pieColors, axisLabelStyle } = require('../share')
+
 module.exports = {
   component: '@byzanteam/vis-components/data-loader',
-  position: [1506, 455],
+  position: [1500, 455],
   props: {
     $url: "radarRequestUrl",
     method: 'get',
     $data: "[[0, '暂无数据']]",
     $style: {
-      width: '370px',
+      width: '380px',
       height: '480px'
     }
   },
   events: {
     requestDone: {
       params: ['param'],
-      actions: ["setState('radarData', param.results)"],
+      actions: ["setState('radarData', param.results || [])"],
     },
   },
   children: [
@@ -30,7 +32,7 @@ module.exports = {
             $itemWidth: 10,
             $itemHeight: 10,
             $textStyle: {
-              color: '#4b9bbe',
+              color: '#ffffff',
               $fontSize: 14,
               $padding: '[2, 4]'
             }
@@ -39,7 +41,7 @@ module.exports = {
             trigger: 'item',
             backgroundColor: '#566374f0',
           },
-          $color: "['#6ad6ff', '#4b9bbe', '#367290', '#275570', '#1c4159', '#153349']",
+          $color: pieColors,
           $radiusAxis: {
             $axisLine: {
               color: '#19394f'
@@ -54,8 +56,7 @@ module.exports = {
             radius: '50% ',
             $name: {
               $textStyle: {
-                color: '#4b9bbe',
-                $fontSize: 14,
+                ...axisLabelStyle
               }
             },
             $axisLine: {

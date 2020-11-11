@@ -1,7 +1,7 @@
 module.exports =
   {
     component: 'iview/RadioGroup',
-    position: [36, 92],
+    position: [37, 92],
     props: {
       'v-model': 'craneStates.indicator',
       type: 'button',
