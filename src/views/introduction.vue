@@ -199,7 +199,6 @@ export const introduction = {
   },
 
   mounted() {
-
     const { chart } = this.$refs.map
     chart.on('click', (params) => {
       chart.dispatchAction({

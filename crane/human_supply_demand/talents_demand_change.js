@@ -3,7 +3,7 @@ module.exports = [
   {
     id: 'talents-demand-change-icon',
     component: 'div',
-    position: [1504, 374],
+    position: [1500, 382],
     props: {
       $style: {
         color: '#6ad6ff',
@@ -17,7 +17,7 @@ module.exports = [
   {
     id: 'talents-demand-change-title·',
     component: 'div',
-    position: [1536, 371],
+    position: [1532, 380],
     props: {
       'data-content': '根据「区域」「时间」进行筛选统计企业发布的招聘人才数量与人才投递简历情况对比折线图体现供需变化',
       $style: {
@@ -34,7 +34,7 @@ module.exports = [
   {
     id: 'talents-demand-change-count-line-chart',
     component: '@byzanteam/vis-components/data-loader',
-    position: [1490, 419],
+    position: [1500, 432],
     exports: {
       results: 'results',
     },
@@ -127,7 +127,6 @@ module.exports = [
               }
             },
             $series: "[{type: 'line', name: '人才供给', data: results ? results.map(item => (item[2])) : [0], showSymbol: false, lineStyle: {width: 4}}, {type: 'line', name: '岗位需求', data: results ? results.map(item => (item[0])) : [0], showSymbol: false, lineStyle: {width: 4}}]",
-
           }
         }
       }

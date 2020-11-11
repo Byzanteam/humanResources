@@ -1,48 +1,49 @@
 exports.normal_digital_style = {
   $titleStyle: {
-    color: '#367391',
+    color: '#ffffff',
     fontSize: '16px',
     fontWeight: 400,
   },
   $prefixStyle: {
-    color: '#367391',
+    color: '#00fff2',
     fontSize: '16px',
     fontWeight: 400,
   },
   $suffixStyle: {
-    color: '#367391',
+    color: '#00fff2',
     fontSize: '16px',
     fontWeight: 400,
   },
   $digitalStyle: {
     fontSize: '32px',
-    color: '#6ad6ff',
+    color: '#00fff2',
     fontWeight: 400,
     fontFamily: 'Oswald-Regular',
     format: '11',
+    lineHeight: '38px',
     letterSpacing: '2.4px',
   },
 };
 
 exports.small_digital_style = {
   $prefixStyle: {
-    color: '#367391',
+    color: '#00fff2',
     fontSize: '16px',
     fontWeight: 400,
   },
   $suffixStyle: {
-    color: '#367391',
+    color: '#00fff2',
     fontSize: '16px',
     fontWeight: 400,
   },
   $titleStyle: {
-    color: '#367391',
+    color: '#ffffff',
     fontSize: '16px',
     fontWeight: 400,
   },
   $digitalStyle: {
     fontSize: '32px',
-    color: '#6ad6ff',
+    color: '#00fff2',
     fontWeight: 400,
     fontFamily: 'Oswald-Regular',
     format: '11',
@@ -85,9 +86,20 @@ const chartTooltipOptions = {
 };
 exports.chartTooltipOptions = chartTooltipOptions;
 
+exports.page_title_bg = {
+  position: [610, 0],
+  props: {
+    $style: {
+      width: '700px',
+      height: '124px',
+    },
+    src: '/hxrc/images/Title-Bg.png'
+  },
+}
+
 exports.page_title_content = {
   component: 'div',
-  position: [733, 38],
+  position: [730, 36],
   events: {
     'click': {
       actions: ["openNavigator()"]
@@ -96,7 +108,7 @@ exports.page_title_content = {
   props: {
     $style: {
       cursor: 'pointer',
-      width: '454px',
+      width: '460px',
       color: '#fff',
       fontSize: '42px',
       $fontWeight: '600',
@@ -186,8 +198,34 @@ exports.digital_circle_icon = {
       width: '10px',
       borderRadius: '10px',
       borderWidth: '1px',
-      borderColor: '#6ad6ff',
+      borderColor: '#00fff2',
       borderStyle: 'solid',
     }
   },
 }
+
+exports.rankingStyle = {
+  $labelStyle: {
+    color: '#ffffff',
+    fontSize: '16px',
+    lineHeight: '24px',
+  },
+  $valueStyle: {
+    color: '#00fff2',
+    fontSize: '16px',
+    fontFamily: 'Oswald-Regular',
+    lineHeight: '1.5',
+    fontWeight: 400,
+  },
+  $lineStyle: {
+    background: '#ffffff1a',
+    $lineColor: "['#00fff2', '#7d40ff']",
+    height: '8px',
+    borderRadius: '2.5px',
+    marginTop: '3px'
+  },
+}
+
+exports.pieColors = "['#00fff2', '#7b43ff', '#e0ad3a', '#189ef1', '#2174b8', '#f65446']"
+
+exports.mapColors = "['#1c44a2', '#2174bb', '#e0ad3a', '#d98278', '#bb4e54']"

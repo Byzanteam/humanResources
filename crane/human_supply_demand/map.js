@@ -1,7 +1,9 @@
 module.exports = [
   {
     component: '@byzanteam/vis-components/data-loader',
-    position: [876, 125],
+    props: {
+      class: 'center-select',
+    },
     children: [
       {
         id: 'departments-select',
@@ -16,7 +18,7 @@ module.exports = [
   },
   {
     component: '@byzanteam/vis-components/data-loader',
-    position: [410, 160],
+    position: [480, 176],
     props: {
       $style: {
         width: '1100px',

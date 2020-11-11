@@ -4,7 +4,11 @@ const donut = require('./donut')
 const partProduction = require('./part_production_digital')
 const talentNumber = require('./talent_number_digital')
 const rank = require('./rank')
-const { page_title_content } = require('../share')
+const {
+  page_title_content,
+  page_title_bg,
+  digital_circle_icon
+} = require('../share')
 const datePicker = require('./date_picker')
 const talentsDemandChange = require('./talents_demand_change')
 const mapThumbnail = require('./map_thumbnail')
@@ -24,6 +28,10 @@ module.exports = {
       id: 'mapData',
       value: []
     },
+    {
+      id: 'mapThumbnailOptions',
+      value: {backgroundColor: 'transparent', series: {type: 'map', mapType: 'china', itemStyle: {areaColor: '#0e3e7d', borderColor: '#68a4f0', borderWidth: 1}, emphasis: {label: {color: 'white', fontWeight: 600}, itemStyle: {areaColor: '#00fff2'}}}}
+    }
   ],
   components: [
     {
@@ -64,14 +72,7 @@ module.exports = {
     {
       id: 'title-bg',
       component: 'img',
-      position: [607, 0],
-      props: {
-        $style: {
-          width: '701px',
-          height: '123px',
-        },
-        src: '/hxrc/images/Title-Bg.png'
-      },
+      ...page_title_bg,
     },
     {
       ...page_title_content,
@@ -172,33 +173,13 @@ module.exports = {
     },
     {
       id: 'value-circle',
-      component: 'div',
       position: [104, 157],
-      props: {
-        $style: {
-          height:'10px',
-          width: '10px',
-          borderRadius: '10px',
-          borderWidth: '1px',
-          borderColor: '#6ad6ff',
-          borderStyle: 'solid',
-        }
-      },
+      ...digital_circle_icon,
     },
     {
       id: 'number-circle',
-      component: 'div',
       position: [104, 237],
-      props: {
-        $style: {
-          height:'10px',
-          width: '10px',
-          borderRadius: '10px',
-          borderWidth: '1px',
-          borderColor: '#6ad6ff',
-          borderStyle: 'solid',
-        }
-      },
+      ...digital_circle_icon,
     },
     {
       id: 'production-bg',
@@ -229,7 +210,9 @@ module.exports = {
     {
       id: 'departments-loader',
       component: 'div',
-      position: [929, 125],
+      props: {
+        class: 'center-select',
+      },
       children: [
         {
           id: 'departments-select',

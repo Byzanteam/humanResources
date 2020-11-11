@@ -1,5 +1,5 @@
 const title_style = {
-  color: '#41bcff',
+  color: '#00fff2',
   fontSize: '14px',
   $fontWeight: 400,
   lineHeight: '20px'
@@ -13,7 +13,7 @@ const subtitle_style = {
 }
 
 const value_style = {
-  color: '#41bcff',
+  color: '#00fff2',
   fontSize: '14px',
   $fontWeight: 400,
   lineHeight: '20px'
@@ -62,28 +62,7 @@ module.exports = [
             width: '240px',
             height: '248px',
           },
-          $options: {
-            backgroundColor: 'transparent',
-            $series: {
-              type: 'map',
-              mapType: "china",
-              $itemStyle: {
-                areaColor: '#0e3e7d',
-                borderColor: '#4589e1',
-                borderType: 'dashed',
-                $borderWidth: 1
-              },
-              $emphasis: {
-                $label: {
-                  color: 'white',
-                  $fontWeight: 600,
-                },
-                $itemStyle: {
-                  areaColor: '#41bcff',
-                }
-              },
-            }
-          }
+          $options: "craneStates.mapThumbnailOptions"
         }
       }
     ]
@@ -105,7 +84,8 @@ module.exports = [
         content: '·',
         props: {
           $style: {
-            marginRight: '4px'
+            marginRight: '4px',
+            color: '#ffffff'
           }
         }
       },
@@ -135,7 +115,8 @@ module.exports = [
         content: '·',
         props: {
           $style: {
-            marginRight: '4px'
+            marginRight: '4px',
+            color: '#ffffff'
           }
         }
       },
@@ -165,7 +146,8 @@ module.exports = [
         content: '·',
         props: {
           $style: {
-            marginRight: '4px'
+            marginRight: '4px',
+            color: '#ffffff'
           }
         }
       },
@@ -195,7 +177,8 @@ module.exports = [
         content: '·',
         props: {
           $style: {
-            marginRight: '4px'
+            marginRight: '4px',
+            color: '#ffffff'
           }
         }
       },

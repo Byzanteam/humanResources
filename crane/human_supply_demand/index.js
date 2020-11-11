@@ -7,7 +7,7 @@ const industriesDemandRanking = require('./industries_demand_ranking')
 const talentsDemandChange = require('./talents_demand_change')
 const degreeAnalysis = require('./degree_analysis')
 const map = require('./map')
-const { page_title_content } = require('../share')
+const { page_title_content, page_title_bg } = require('../share')
 
 module.exports = {
   route: {
@@ -69,14 +69,7 @@ module.exports = {
     {
       id: 'title-bg',
       component: 'img',
-      position: [607, 0],
-      props: {
-        $style: {
-          width: '701px',
-          height: '123px',
-        },
-        src: '/hxrc/images/Title-Bg.png'
-      },
+      ...page_title_bg
     },
     {
       ...page_title_content,

@@ -1,6 +1,8 @@
+const { mapColors } = require('../share')
+
 module.exports = {
   component: '@byzanteam/vis-components/data-loader',
-  position: [410, 160],
+  position: [480, 176],
   exports: {
     results: 'results',
   },
@@ -47,7 +49,7 @@ module.exports = {
             $itemGap: 10,
             $textGap: 8,
             $inRange: {
-              $color: "['#0e3e7d', '#065ba1', '#e0ad3a', '#d98278', '#bb4e54']"
+              $color: mapColors
             }
           },
           $series: {
@@ -56,12 +58,13 @@ module.exports = {
             $data: "results.map(item => ({name: item[1], value: item[0]}))",
             $label: {
               $show: true,
-                $fontSize: 14,
+                $fontSize: 15,
                 color: 'white',
+                $fontWeight: 700
             },
             $itemStyle: {
               areaColor: 'rgba(106, 214, 255, .05)',
-              borderColor: '#6ad6ff',
+              borderColor: '#68a4f0',
               borderType: 'solid',
               $borderWidth: 0.5
             },
@@ -71,7 +74,7 @@ module.exports = {
                 $fontWeight: 600,
               },
               $itemStyle: {
-                areaColor: '#6ad6ff'
+                areaColor: '#29e8de'
               }
             },
           }
