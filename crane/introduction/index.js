@@ -243,14 +243,14 @@ module.exports = {
     {
       id: 'activity-number-circle',
       component: 'div',
-      position: [128, 247],
+      position: [128, 281],
       props: {
         $style: {
           height:'10px',
           width: '10px',
           borderRadius: '10px',
           borderWidth: '1px',
-          borderColor: '#6ad6ff',
+          borderColor: '#00fff2',
           borderStyle: 'solid',
         }
       },
@@ -259,14 +259,14 @@ module.exports = {
     {
       id: 'high-level-talent-circle',
       component: 'div',
-      position: [104, 722],
+      position: [104, 741],
       props: {
         $style: {
           height:'10px',
           width: '10px',
           borderRadius: '10px',
           borderWidth: '1px',
-          borderColor: '#6ad6ff',
+          borderColor: '#00fff2',
           borderStyle: 'solid',
         }
       },
@@ -274,12 +274,12 @@ module.exports = {
     {
       id: 'activity-bg',
       component: 'div',
-      position: [30, 218],
+      position: [40, 252],
       props: {
         $style: {
           height: '50px',
-          width: '400px',
-          backgroundColor: '#6ad6ff1a',
+          width: '380px',
+          backgroundColor: 'rgba(13,45,120,.45)',
           borderRadius: '5px',
         }
       }
@@ -287,12 +287,12 @@ module.exports = {
     {
       id: 'high-level-bg',
       component: 'div',
-      position: [30, 693],
+      position: [40, 712],
       props: {
         $style: {
           height: '50px',
-          width: '400px',
-          backgroundColor: '#6ad6ff1a',
+          width: '380px',
+          backgroundColor: 'rgba(13,45,120,.45)',
           borderRadius: '5px',
         }
       }
