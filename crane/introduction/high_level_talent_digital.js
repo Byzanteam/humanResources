@@ -23,7 +23,7 @@ module.exports = {
         $content: {
           title: '高层次人才引进总数',
           suffix: '人',
-          $digital: "results[0][0]",
+          $digital: "results ? (results[0][0] || 0) : 0",
         },
         $options: {
           separator: ',',
