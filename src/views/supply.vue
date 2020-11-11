@@ -219,8 +219,8 @@ export const supply = {
             itemStyle: {
               areaColor: '#0e3e7d',
               borderColor: '#4589e1',
-              borderType: 'dashed',
-              borderWidth: 0.5
+              borderType: 'solid',
+              borderWidth: 2
             },
             emphasis: {
               label: {

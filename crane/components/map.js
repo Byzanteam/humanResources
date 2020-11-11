@@ -67,7 +67,7 @@ module.exports = {
               areaColor: '#0e3e7d',
               borderColor: '#68a4f0',
               borderType: 'solid',
-              $borderWidth: 0.5
+              $borderWidth: 2
             },
             $emphasis: {
               $label: {
