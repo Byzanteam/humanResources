@@ -13,6 +13,7 @@
     <data-loader v-slot="{ results: results }" :url="`/v1/components/24b74ddd-39de-493f-84ab-9d87fcf23fee/data?type=${digitalKeyword || ''}`" method="get" :data="[[0]]" :style="{position: 'absolute', top: '94px', left: '106px'}">
       <digital-roll ref="talent-age-index-content" data-content="统计人才库中学历为「硕士」「博士」的人才数量" titlePosition="left" :content="{title: '中高端人才总数', digital: results ? results[0][0] : 0, suffix: '人'}" :options="{separator: ''}" :style="{width: '250px', height: '39px'}" :titleStyle="{color: '#ffffff', fontSize: '16px', fontWeight: '400'}" :prefixStyle="{color: '#00fff2', fontSize: '16px', fontWeight: '400'}" :suffixStyle="{color: '#00fff2', fontSize: '16px', fontWeight: '400'}" :digitalStyle="{fontSize: '32px', color: '#00fff2', fontWeight: '400', fontFamily: 'Oswald-Regular', format: '11', lineHeight: '38px', letterSpacing: '2.4px'}" />
     </data-loader>
+    <div ref="cut-line" :style="{width: '360px', borderBottom: '1px solid rgba(69, 137, 225, .5)', position: 'absolute', top: '146px', left: '50px'}" />
     <div :style="{display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', width: '120px', position: 'absolute', top: '163px', left: '50px'}">
       <div :style="{color: '#ffffff', fontSize: '16px', fontWeight: '400'}">
         杰出人才

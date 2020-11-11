@@ -79,6 +79,17 @@ module.exports = [
 
     // 杰出人才 领军人才 紧缺人才
   {
+    id: 'cut-line',
+    component: 'div',
+    position: [50, 146],
+    props: {
+      $style: {
+        width: '360px',
+        borderBottom: '1px solid rgba(69, 137, 225, .5)'
+      }
+    }
+  },
+  {
     ...small_digital_container,
     position: [50, 163],
     children: [
@@ -114,7 +125,6 @@ module.exports = [
       },
     ]
   },
-
   {
     ...small_digital_container,
     position: [170, 163],
@@ -151,7 +161,6 @@ module.exports = [
       },
     ]
   },
-
   {
     ...small_digital_container,
     position: [290, 163],
