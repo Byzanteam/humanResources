@@ -220,7 +220,7 @@ exports.rankingStyle = {
   },
   $lineStyle: {
     background: '#ffffff1a',
-    $lineColor: "['#00fff2', '#7d40ff']",
+    $lineColor: "['#7d40ff', '#00fff2']",
     height: '8px',
     borderRadius: '2.5px',
     marginTop: '3px'

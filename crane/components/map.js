@@ -24,6 +24,7 @@ module.exports = {
   children: [
     {
       component: 'v-chart',
+      id: 'map',
       props: {
         'v-if': 'results',
         class: "map-chart",

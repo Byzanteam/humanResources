@@ -6,7 +6,7 @@
     <img ref="right-box-bg" :style="{width: '440px', height: '1059px', position: 'absolute', top: '10px', left: '1471px'}" src="/hxrc/images/Box-Bg.png" />
     <date-picker format="yyyy年" v-model="craneStates.year" :style="{width: '380px', height: '50px', position: 'absolute', top: '48px', left: '40px'}" :options="{disabledDate: (time) => {return !generateDateRange().includes(time.getFullYear())}}" type="year" class="supply-datepicker" placeholder="选择时间" />
     <data-loader v-slot="{ results: results }" @requestDone="(param)=>[setState('mapData', param.results.map((item) => ({name: item[1], value: item[0]})))]" :url="`/v1/components/20b74ddd-39de-493f-84ab-9d87fcf23fee/data?area=${craneStates.department ? craneStates.department.label : ''}`" method="get" :data="[[0, '暂无数据']]" :style="{width: '1100px', height: '900px', position: 'absolute', top: '176px', left: '480px'}">
-      <v-chart v-if="results" class="map-chart" :options="{backgroundColor: 'transparent', tooltip: {trigger: 'item', formatter: (params) => {return params.name + '<br />人才数量（人）：' + (isNaN(params.value) ? 0 : params.value)}, backgroundColor: '#566374f0'}, visualMap: {type: 'piecewise', inverse: true, pieces: [{gt: 1500, label: '1500人及以上'}, {gt: 1000, lte: 1500, label: '1000-1500人'}, {gt: 100, lte: 999, label: '100-999人'}, {gt: 10, lte: 99, label: '10-99人'}, {gt: 1, lt: 9, label: '1-9人'}], orient: 'horizontal', bottom: '6%', left: '26%', textStyle: {color: '#ffffff', fontSize: 14}, itemWidth: 18, itemGap: 10, textGap: 8, inRange: {color: ['#1c44a2', '#2174bb', '#e0ad3a', '#d98278', '#bb4e54']}}, series: {type: 'map', mapType: craneStates.department ? craneStates.department.uuid : 'fujian', data: results.map(item => ({name: item[1], value: item[0]})), label: {show: true, fontSize: 15, color: 'white', fontWeight: 700}, itemStyle: {areaColor: '#0e3e7d', borderColor: '#68a4f0', borderType: 'solid', borderWidth: 0.5}, emphasis: {label: {color: 'white', fontWeight: 600}, itemStyle: {areaColor: '#29e8de'}}}}" />
+      <v-chart ref="map" v-if="results" class="map-chart" :options="{backgroundColor: 'transparent', tooltip: {trigger: 'item', formatter: (params) => {return params.name + '<br />人才数量（人）：' + (isNaN(params.value) ? 0 : params.value)}, backgroundColor: '#566374f0'}, visualMap: {type: 'piecewise', inverse: true, pieces: [{gt: 1500, label: '1500人及以上'}, {gt: 1000, lte: 1500, label: '1000-1500人'}, {gt: 100, lte: 999, label: '100-999人'}, {gt: 10, lte: 99, label: '10-99人'}, {gt: 1, lt: 9, label: '1-9人'}], orient: 'horizontal', bottom: '6%', left: '26%', textStyle: {color: '#ffffff', fontSize: 14}, itemWidth: 18, itemGap: 10, textGap: 8, inRange: {color: ['#1c44a2', '#2174bb', '#e0ad3a', '#d98278', '#bb4e54']}}, series: {type: 'map', mapType: craneStates.department ? craneStates.department.uuid : 'fujian', data: results.map(item => ({name: item[1], value: item[0]})), label: {show: true, fontSize: 15, color: 'white', fontWeight: 700}, itemStyle: {areaColor: '#0e3e7d', borderColor: '#68a4f0', borderType: 'solid', borderWidth: 0.5}, emphasis: {label: {color: 'white', fontWeight: 600}, itemStyle: {areaColor: '#29e8de'}}}}" />
     </data-loader>
     <data-loader v-slot="{ results: results }" :url="`/v1/components/21b74ddd-39de-493f-84ab-9d87fcf23fee/data?area=${craneStates.department ? craneStates.department.label : ''}`" method="get" :data="[['暂无数据']]" :style="{width: '380px', height: '280px', overflow: 'scroll', position: 'absolute', top: '400px', left: '1500px'}">
       <vis-table :withHeader="false" theme="dark" stripe="" :headers="[{width: 80, key: 'index'}, {width: 200, key: 'name'}, {width: 100, key: 'count'}]" :data="results ? results.map((item, index) => ({index: index + 1, name: item[0], count: item[1] || 0})) : [{index: 0, name: '暂无数据', count: 0}]">
@@ -65,7 +65,7 @@
       <digital-roll ref="talent-number-content" v-if="results" data-content="根据「区域」选择统计该地区人才库中学历为「硕士」「博士」的人才数量" titlePosition="left" :content="{title: '中高端人才数量', digital: results[0][0] || 0, suffix: '人'}" :options="{separator: ','}" :titleStyle="{color: '#ffffff', fontSize: '16px', fontWeight: '400'}" :prefixStyle="{color: '#00fff2', fontSize: '16px', fontWeight: '400'}" :suffixStyle="{color: '#00fff2', fontSize: '16px', fontWeight: '400'}" :digitalStyle="{fontSize: '32px', color: '#00fff2', fontWeight: '400', fontFamily: 'Oswald-Regular', format: '11', lineHeight: '38px', letterSpacing: '2.4px'}" />
     </data-loader>
     <data-loader ref="ranking_rank" v-slot="{ results: results }" :url="`/v1/components/19b74ddd-39de-493f-84ab-9d87fcf23fee/data?area=${craneStates.department ? craneStates.department.label : ''}`" method="get" :data="[[20, '暂无数据']]" :style="{width: '296px', height: '290px', overflow: 'scroll', position: 'absolute', top: '412px', left: '90px'}">
-      <ranking ref="department-ranking-content" v-if="results" :data="results.map(item => ({label: item[1], amount: item[0]}))" :keys="{label: 'label', value: 'amount', tooltip: 'name'}" :labelStyle="{color: '#ffffff', fontSize: '16px', lineHeight: '24px'}" :valueStyle="{color: '#00fff2', fontSize: '16px', fontFamily: 'Oswald-Regular', lineHeight: '1.5', fontWeight: '400'}" :lineStyle="{background: '#ffffff1a', lineColor: ['#00fff2', '#7d40ff'], height: '8px', borderRadius: '2.5px', marginTop: '3px'}" :tooltip="{text: {align: 'center', baseline: 'middle', fill: '#FFFFFF', size: 14, weight: 400}, notation: {fill: '#367391', name: 'circle-small', size: 14}}" :tooltipOptions="{background: '#566374f0', text: {align: 'center', baseline: 'middle', fill: '#FFFFFF', size: 14, weight: 400}, title: {align: 'center', baseline: 'middle', fill: '#FFFFFF', size: 14, weight: 400}}" />
+      <ranking ref="department-ranking-content" v-if="results" :data="results.map(item => ({label: item[1], amount: item[0]}))" :keys="{label: 'label', value: 'amount', tooltip: 'name'}" :labelStyle="{color: '#ffffff', fontSize: '16px', lineHeight: '24px'}" :valueStyle="{color: '#00fff2', fontSize: '16px', fontFamily: 'Oswald-Regular', lineHeight: '1.5', fontWeight: '400'}" :lineStyle="{background: '#ffffff1a', lineColor: ['#7d40ff', '#00fff2'], height: '8px', borderRadius: '2.5px', marginTop: '3px'}" :tooltip="{text: {align: 'center', baseline: 'middle', fill: '#FFFFFF', size: 14, weight: 400}, notation: {fill: '#367391', name: 'circle-small', size: 14}}" :tooltipOptions="{background: '#566374f0', text: {align: 'center', baseline: 'middle', fill: '#FFFFFF', size: 14, weight: 400}, title: {align: 'center', baseline: 'middle', fill: '#FFFFFF', size: 14, weight: 400}}" />
     </data-loader>
     <div ref="talents-demand-change-icon" :style="{color: '#6ad6ff', fontSize: '14px', fontWeight: '400', textAlign: 'left', position: 'absolute', top: '742px', left: '1500px'}">
       >>
@@ -183,6 +183,7 @@ export const resources = {
       craneStates: {
         department: null,
         mapData: [],
+        selectedArea: {},
         mapThumbnailOptions: {backgroundColor: 'transparent', series: {type: 'map', mapType: 'china', itemStyle: {areaColor: '#0e3e7d', borderColor: '#68a4f0', borderWidth: 1}, emphasis: {label: {color: 'white', fontWeight: 600}, itemStyle: {areaColor: '#00fff2'}}}}
       },
     }
@@ -190,6 +191,7 @@ export const resources = {
 
   mounted() {
     this.requestMapGeojson(Echarts)
+    this.bindMapEvents()
   },
 
   created() {
@@ -197,6 +199,26 @@ export const resources = {
   },
 
   methods: {
+    bindMapEvents() {
+      const { chart } = this.$refs.map
+      chart.on('click', (params) => {
+        chart.dispatchAction({
+          type: 'mapSelect',
+          dataIndex: params.dataIndex
+        })
+        if(this.craneStates.selectedArea) {
+          chart.dispatchAction({
+            type: 'mapUnSelect',
+            dataIndex: this.craneStates.selectedArea.dataIndex
+          })
+        }
+        if(this.craneStates.selectedArea.dataIndex === params.dataIndex) {
+          this.craneStates.selectedArea = {}
+        } else {
+          this.craneStates.selectedArea = params
+        }
+      })
+    },
     demandTooltipFormatterFunc(params) {
       const series = params.reduce((memo, serie) => {
         return `${memo}${serie.marker}${serie.seriesName}: ${serie.value}人<br />`
