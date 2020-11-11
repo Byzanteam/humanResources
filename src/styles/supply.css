@@ -185,18 +185,18 @@
 }
 
 .tabs .tab-nav.tab-nav-active::before {
-  background-color: rgba(106, 214, 255, 1) !important;
+  background-color: #00fff2 !important;
 }
 
 .tabs .tab-navs .tab-nav-label {
-  color: rgba(75, 155, 190, 1);
+  color: rgba(0, 255, 242, .6);
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
 }
 
 .tab-navs .tab-nav-active .tab-nav-label {
-  color: #6ad6ff;
+  color: #00fff2;
   font-weight: 500;
 }
 
