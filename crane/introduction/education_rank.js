@@ -1,9 +1,9 @@
-const { chartTooltipOptions } = require('../share');
+const { rankingStyle } = require('../share');
 
 module.exports = {
   id: 'education_rank',
   component: '@byzanteam/vis-components/data-loader',
-  position: [1542, 746],
+  position: [1542, 752],
   exports: {
     results: 'results',
   },
@@ -13,7 +13,7 @@ module.exports = {
     $data: "[[0, '暂无数据']]",
     $style: {
       width: '296px',
-      height: '290px',
+      height: '270px',
       overflow: 'scroll'
     },
   },
@@ -22,31 +22,12 @@ module.exports = {
       id: 'education_rank-content',
       component: '@byzanteam/vis-components/ranking',
       props: {
-        $data: "results ? results.map(item => { return {label: item[1], amount: item[0] ? item[0].toFixed(0) : 0 }}) : []",
+        $data: "results ? results.map(item => { return {label: item[1], amount: item[0] ? Number(item[0].toFixed(0)) : 0 }}) : []",
         $keys: {
           label: 'label',
           value: 'amount',
-          tooltip: 'name'
         },
-        $labelStyle: {
-          color: '#4b9bbe',
-          fontSize: '16px',
-          lineHeight: '24px',
-        },
-        $valueStyle: {
-          color: '#6ad6ff',
-          fontSize: '16px',
-          fontFamily: 'Oswald-Regular',
-          lineHeight: '1.5',
-          fontWeight: 400,
-        },
-        $lineStyle: {
-          background: '#ffffff1a',
-          $lineColor: "['#0885b5', '#6ad6ff']",
-          height: '5px',
-          borderRadius: '2.5px'
-        },
-        ...chartTooltipOptions
+        ...rankingStyle,
       },
     },
   ],
