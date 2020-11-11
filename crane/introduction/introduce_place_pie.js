@@ -1,4 +1,4 @@
-const { pieColors, axisLabelStyle } = require('../share')
+const { serieColors, axisLabelStyle } = require('../share')
 
 module.exports = {
   id: 'introduce-place',
@@ -22,7 +22,7 @@ module.exports = {
       component: 'v-chart',
       props: {
         $options:{
-          $color: pieColors,
+          $color: serieColors,
           $legend: {
             type: 'scroll',
             orient: 'vertical',

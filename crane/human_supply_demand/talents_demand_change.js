@@ -1,5 +1,5 @@
 const {
-  pieColors,
+  serieColors,
   subtitle_icon,
   subtitle_text,
   axisLabelStyle,
@@ -48,7 +48,7 @@ module.exports = [
               $bottom: 30
             },
             backgroundColor: 'transparent',
-            $color: pieColors,
+            $color: serieColors,
             $tooltip: {
               trigger: 'axis',
               $axisPointer: {

@@ -1,4 +1,4 @@
-const { pieColors, subtitle_icon } = require('../share')
+const { serieColors, subtitle_icon } = require('../share')
 
 module.exports = [
   {
@@ -73,7 +73,7 @@ module.exports = [
               },
               inactiveColor: '#1C4159',
             },
-            $color: pieColors,
+            $color: serieColors,
             $series: "[{type: 'pie', left: -140, radius: ['35%', '62%'], label: {show: false}, labelLine: {show: false}, data: results ? results.map(item => ({value: item [0], name: item[1]})) : [{value: 0, name: '暂无数据'}]}]",
             $tooltip: {
               trigger: 'item',
@@ -123,7 +123,7 @@ module.exports = [
               },
               inactiveColor: '#1C4159',
             },
-            $color: pieColors,
+            $color: serieColors,
             $series: "[{type: 'pie', left: -140, radius: ['35%', '62%'], label: {show: false}, labelLine: {show: false}, data: results ? results.map(item => ({value: item [0], name: item[1]})) : [{value: 0, name: '暂无数据'}]}]",
             $tooltip: {
               trigger: 'item',
