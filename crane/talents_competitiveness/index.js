@@ -3,7 +3,13 @@ const table = require('./table')
 const talentsIndicatorsSummary = require('./talents_indicators_summary')
 const radar = require('./radar')
 const digital = require('./force_digital')
-const { page_title_content } = require('../share')
+const {
+  page_title_content,
+  subtitle_icon,
+  digital_circle_icon,
+  digital_bg,
+  subtitle_text,
+} = require('../share')
 
 module.exports = {
   route: {
@@ -223,16 +229,8 @@ module.exports = {
     },
     {
       id: 'force-digital-bg',
-      component: 'div',
       position: [1490, 60],
-      props: {
-        $style: {
-          height: '50px',
-          width: '400px',
-          backgroundColor: '#6ad6ff1a',
-          borderRadius: '5px',
-        }
-      }
+      ...digital_bg,
     },
     talentsIndicatorsSummary,
     radar,
@@ -242,30 +240,14 @@ module.exports = {
       position: [74, 46],
       props: {
         'data-content': '根据选择的对应十大指标体系结合「区域」检索对应区域对应的指标排名情况',
-        $style: {
-          color: '#fff',
-          fontSize: '18px',
-          fontWeight: '600',
-          textAlign: 'left',
-          letterSpacing: '1px',
-          cursor: 'pointer',
-        },
+        ...subtitle_text.props,
       },
       content: '省域人才指标汇总',
     },
     {
       id: 'province-talent-number-icon',
-      component: 'div',
       position: [48, 49],
-      props: {
-        $style: {
-          color: '#6ad6ff',
-          fontSize: '14px',
-          fontWeight: 400,
-          textAlign: 'left',
-        },
-      },
-      content: '>>',
+      ...subtitle_icon,
     },
     {
       id: 'ten-number',
@@ -273,45 +255,19 @@ module.exports = {
       position: [1536, 216],
       props: {
         'data-content': '区域为省级可横向对比市级的指标指数对比，区域为市级可横向对应区级的指标指数对比',
-        $style: {
-          color: '#fff',
-          fontSize: '18px',
-          fontWeight: '600',
-          textAlign: 'left',
-          letterSpacing: '1px',
-          cursor: 'pointer',
-        },
+        ...subtitle_text.props,
       },
       content: '10大指标汇总',
     },
     {
       id: 'ten-number-icon',
-      component: 'div',
       position: [1512, 219],
-      props: {
-        $style: {
-          color: '#6ad6ff',
-          fontSize: '14px',
-          fontWeight: 400,
-          textAlign: 'left',
-        },
-      },
-      content: '>>',
+      ...subtitle_icon,
     },
     {
       id: 'force-circle',
-      component: 'div',
       position: [1588, 89],
-      props: {
-        $style: {
-          height:'10px',
-          width: '10px',
-          borderRadius: '10px',
-          borderWidth: '1px',
-          borderColor: '#6ad6ff',
-          borderStyle: 'solid',
-        }
-      },
+      ...digital_circle_icon
     },
     {
       component: '@byzanteam/vis-components/data-loader',

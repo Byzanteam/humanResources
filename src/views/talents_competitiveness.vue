@@ -3,7 +3,7 @@
     <navigator ref="navigator"/>
     <img ref="background" src="/hxrc/images/Bg.png" :style="{position: 'absolute', top: '0px', left: '0px'}" />
     <img ref="title-bg" :style="{width: '701px', height: '123px', position: 'absolute', top: '0px', left: '607px'}" src="/hxrc/images/Title-Bg.png" />
-    <div @click="()=>[openNavigator()]" :style="{cursor: 'pointer', width: '454px', color: '#fff', fontSize: '42px', fontWeight: 600, textAlign: 'center', lineHeight: 1, position: 'absolute', top: '38px', left: '733px'}">
+    <div @click="()=>[openNavigator()]" :style="{cursor: 'pointer', width: '460px', color: '#fff', fontSize: '42px', fontWeight: 600, textAlign: 'center', lineHeight: 1, position: 'absolute', top: '36px', left: '730px'}">
       省域人才综合竞争力
     </div>
     <brick-radio-button-select :options="provinceOptions" v-model="craneStates.province" placeholder="全省" :style="{position: 'absolute', top: '125px', left: '864px'}" />
@@ -65,7 +65,7 @@
     </data-loader>
     <img ref="box-bg" :style="{width: '440px', height: '1059px', position: 'absolute', top: '10px', left: '10px'}" src="/hxrc/images/Box-Bg.png" />
     <img ref="right-box-bg" :style="{width: '440px', height: '1059px', position: 'absolute', top: '10px', left: '1471px'}" src="/hxrc/images/Box-Bg.png" />
-    <div ref="force-digital-bg" :style="{height: '50px', width: '400px', backgroundColor: '#6ad6ff1a', borderRadius: '5px', position: 'absolute', top: '60px', left: '1490px'}" />
+    <div ref="force-digital-bg" :style="{width: '380px', height: '50px', backgroundColor: 'rgba(13, 45, 120, .45)', borderRadius: '5px', position: 'absolute', top: '60px', left: '1490px'}" />
     <RadioGroup v-model="craneStates.indicator" type="button" :style="{width: '388px', height: '184px', position: 'absolute', top: '92px', left: '36px'}">
       <Radio v-for="(item, key) in craneStates.indicators" :key="key" :label="item.name" />
     </RadioGroup>
@@ -80,16 +80,16 @@
                 }
               ]}" />
     </data-loader>
-    <div ref="province-talent-number" data-content="根据选择的对应十大指标体系结合「区域」检索对应区域对应的指标排名情况" :style="{color: '#fff', fontSize: '18px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', cursor: 'pointer', position: 'absolute', top: '46px', left: '74px'}">
+    <div ref="province-talent-number" data-content="根据选择的对应十大指标体系结合「区域」检索对应区域对应的指标排名情况" :style="{color: '#fff', fontSize: '20px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', cursor: 'pointer', position: 'absolute', top: '46px', left: '74px'}">
       省域人才指标汇总
     </div>
-    <div ref="province-talent-number-icon" :style="{color: '#6ad6ff', fontSize: '14px', fontWeight: '400', textAlign: 'left', position: 'absolute', top: '49px', left: '48px'}">
+    <div ref="province-talent-number-icon" :style="{color: '#41bcff', fontSize: '14px', fontWeight: '400', textAlign: 'left', position: 'absolute', top: '49px', left: '48px'}">
       >>
     </div>
-    <div ref="ten-number" data-content="区域为省级可横向对比市级的指标指数对比，区域为市级可横向对应区级的指标指数对比" :style="{color: '#fff', fontSize: '18px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', cursor: 'pointer', position: 'absolute', top: '216px', left: '1536px'}">
+    <div ref="ten-number" data-content="区域为省级可横向对比市级的指标指数对比，区域为市级可横向对应区级的指标指数对比" :style="{color: '#fff', fontSize: '20px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', cursor: 'pointer', position: 'absolute', top: '216px', left: '1536px'}">
       10大指标汇总
     </div>
-    <div ref="ten-number-icon" :style="{color: '#6ad6ff', fontSize: '14px', fontWeight: '400', textAlign: 'left', position: 'absolute', top: '219px', left: '1512px'}">
+    <div ref="ten-number-icon" :style="{color: '#41bcff', fontSize: '14px', fontWeight: '400', textAlign: 'left', position: 'absolute', top: '219px', left: '1512px'}">
       >>
     </div>
     <div ref="force-circle" :style="{height: '10px', width: '10px', borderRadius: '10px', borderWidth: '1px', borderColor: '#6ad6ff', borderStyle: 'solid', position: 'absolute', top: '89px', left: '1588px'}" />
@@ -108,7 +108,7 @@
       </vis-table>
     </data-loader>
     <data-loader ref="force-value" v-slot="{ results: results }" :url="`/v1/components/38b74ddd-39de-493f-84ab-9d87fcf23fee/data?city=${craneStates.city ? craneStates.city.label : ''}&type='${this.craneStates.indicator}'`" method="get" :data="[[0]]" :style="{position: 'absolute', top: '66px', left: '1614px'}">
-      <digital-roll ref="force-value-content" v-if="results" data-content="根据选择的对应十大指标体系结合「区域」统计分析该区域的综合竞争力指数" titlePosition="left" :content="{title: '竞争力指数', digital: results[0][0]}" :options="{separator: ',', decimalPlaces: 1}" :titleStyle="{color: '#367391', fontSize: '16px', fontWeight: '400'}" :prefixStyle="{color: '#367391', fontSize: '16px', fontWeight: '400'}" :suffixStyle="{color: '#367391', fontSize: '16px', fontWeight: '400'}" :digitalStyle="{fontSize: '32px', color: '#6ad6ff', fontWeight: '400', fontFamily: 'Oswald-Regular', format: '11', letterSpacing: '2.4px'}" />
+      <digital-roll ref="force-value-content" v-if="results" data-content="根据选择的对应十大指标体系结合「区域」统计分析该区域的综合竞争力指数" titlePosition="left" :content="{title: '竞争力指数', digital: results[0][0]}" :options="{separator: ',', decimalPlaces: 1}" :titleStyle="{color: '#ffffff', fontSize: '16px', fontWeight: '400'}" :prefixStyle="{color: '#00fff2', fontSize: '16px', fontWeight: '400'}" :suffixStyle="{color: '#00fff2', fontSize: '16px', fontWeight: '400'}" :digitalStyle="{fontSize: '32px', color: '#00fff2', fontWeight: '400', fontFamily: 'Oswald-Regular', format: '11', lineHeight: '38px', letterSpacing: '2.4px'}" />
     </data-loader>
   </div>
 </template>
