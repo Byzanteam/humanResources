@@ -17,6 +17,10 @@ module.exports = {
   title:'人才供需专题',
   states: [
     {
+      id: 'province',
+      value: 'PROVINCE_OPTIONS[0]'
+    },
+    {
       id: 'currentJob',
       value: ''
     },
