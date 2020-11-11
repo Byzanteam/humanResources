@@ -273,7 +273,6 @@ export default resources
       }
       td:last-child {
         text-align: left;
-        color: #4b9bbe;
         line-height: 46px;
         font-size: 14px;
         font-weight: 400;

@@ -141,7 +141,6 @@ input::placeholder {
 }
 
 .table .table__body tr td {
-  background-color: rgba(13, 45, 120, .45);
   height: 36px;
   line-height: 36px;
 }

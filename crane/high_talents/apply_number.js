@@ -1,9 +1,9 @@
-const {normal_digital_style, digital_bg_400_50, digital_circle_icon} = require('../share')
+const {normal_digital_style, digital_bg, digital_circle_icon} = require('../share')
 
 module.exports = [
   {
     position: [40, 140],
-    ...digital_bg_400_50
+    ...digital_bg
   },
   {
     position: [94, 169],
