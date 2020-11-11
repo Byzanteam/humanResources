@@ -1,33 +1,5 @@
 module.exports = [
   {
-    component: 'div',
-    position: [1504, 459],
-    props: {
-      $style: {
-        color: '#6ad6ff',
-        fontSize: '14px',
-        fontWeight: 400,
-        textAlign: 'left',
-      },
-    },
-    content: '>>',
-  },
-  {
-    component: 'div',
-    position: [1536, 456],
-    props: {
-      'data-content': '根据「区域」「时间」「行业类型」进行筛选统计对应行业的历年紧缺人才数量情况',
-      $style: {
-        color: '#fff',
-        fontSize: '18px',
-        fontWeight: '600',
-        textAlign: 'left',
-        letterSpacing: '1px',
-      },
-    },
-    content: '区域紧缺人才趋势',
-  },
-  {
     id: 'high-talents-demand-change-line-chart',
     component: '@byzanteam/vis-components/data-loader',
     position: [1500, 518],

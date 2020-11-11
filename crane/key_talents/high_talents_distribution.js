@@ -2,37 +2,6 @@ const { pieColors } = require('../share')
 
 module.exports = [
   {
-    id: 'degree-analysis-icon',
-    component: 'div',
-    position: [40, 806],
-    props: {
-      $style: {
-        color: '#6ad6ff',
-        fontSize: '14px',
-        fontWeight: 400,
-        textAlign: 'left',
-      },
-    },
-    content: '>>',
-  },
-  {
-    id: 'degree-analysis-title',
-    component: 'div',
-    position: [74, 803],
-    props: {
-      'data-content': '统计人才库中职称类型分布情况',
-      $style: {
-        color: '#fff',
-        fontSize: '18px',
-        fontWeight: '600',
-        textAlign: 'left',
-        letterSpacing: '1px',
-        cursor: 'pointer',
-      },
-    },
-    content: '高层次人才专业分布',
-  },
-  {
     component: '@byzanteam/vis-components/data-loader',
     position: [40, 845],
     exports: {

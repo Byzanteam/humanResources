@@ -1,34 +1,5 @@
 module.exports = [
   {
-    component: 'div',
-    position: [40, 497],
-    props: {
-      $style: {
-        color: '#6ad6ff',
-        fontSize: '14px',
-        fontWeight: 400,
-        textAlign: 'left',
-      },
-    },
-    content: '>>',
-  },
-  {
-    component: 'div',
-    position: [74, 494],
-    props: {
-      'data-content': '根据「区域」「供需需求关键字」选择统计该地区人才库中学历为「硕士」「博士」的人才数量',
-      $style: {
-        color: '#fff',
-        fontSize: '18px',
-        fontWeight: '600',
-        textAlign: 'left',
-        letterSpacing: '1px',
-        cursor: 'pointer',
-      },
-    },
-    content: '高层次人才供需变化',
-  },
-  {
     id: 'high-talents-demand-change-line-chart',
     component: '@byzanteam/vis-components/data-loader',
     position: [40, 597],

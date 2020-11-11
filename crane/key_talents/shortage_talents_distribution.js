@@ -2,37 +2,6 @@ const { pieColors } = require('../share')
 
 module.exports = [
   {
-    id: 'degree-analysis-icon',
-    component: 'div',
-    position: [1504, 805],
-    props: {
-      $style: {
-        color: '#6ad6ff',
-        fontSize: '14px',
-        fontWeight: 400,
-        textAlign: 'left',
-      },
-    },
-    content: '>>',
-  },
-  {
-    id: 'degree-analysis-title',
-    component: 'div',
-    position: [1536, 803],
-    props: {
-      'data-content': '根据「区域」「时间」「行业类型」统计紧缺人才企业的行业分布情况',
-      $style: {
-        color: '#fff',
-        fontSize: '18px',
-        fontWeight: '600',
-        textAlign: 'left',
-        letterSpacing: '1px',
-        cursor: 'pointer',
-      },
-    },
-    content: '紧缺人才专业分布',
-  },
-  {
     component: '@byzanteam/vis-components/data-loader',
     position: [1500, 845],
     exports: {
