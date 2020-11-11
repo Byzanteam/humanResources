@@ -22,7 +22,7 @@ module.exports = {
         $content: {
           title: '引才活动统计',
           suffix: '次',
-          $digital: "results[0][0]",
+          $digital: "results ? (results[0][0] || 0) : 0",
         },
         $options: {
           separator: ',',
