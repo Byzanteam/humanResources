@@ -28,7 +28,7 @@ module.exports = {
             icon: 'circle',
             $itemWidth: 10,
             $itemHeight: 10,
-            $left: 270,
+            $left: 240,
             top: 'middle',
             $itemGap: 9,
             orient: 'vertical',
