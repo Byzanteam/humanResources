@@ -79,7 +79,7 @@
       6大重点行业的人才需求排名
     </div>
     <data-loader v-slot="{ results: results }" url="/v1/components/08b74ddd-39de-493f-84ab-9d87fcf23fee/data" method="get" :data="null" :style="{width: '380px', height: '240px', overflow: 'scroll', position: 'absolute', top: '100px', left: '1500px'}">
-      <vis-table :withHeader="false" theme="dark" stripe="" :headers="[{width: 80, key: 'index'}, {width: 200, key: 'name'}, {width: 100, key: 'count'}]" :data="results ? results.map((item, index) => ({index: index + 1, name: item[0], count: item[1]})) : [{index: 0, name: '暂无数据', count: 0}]">
+      <vis-table :withHeader="false" theme="dark" stripe="" :headers="[{width: 60, key: 'index'}, {width: 140, key: 'name'}, {width: 100, key: 'count'}, {width: 100, key: 'ratio'}]" :data="results ? results.map((item, index) => ({index: index + 1, name: item[0], count: item[1] || 0, ratio: item[2] || 0})) : [{index: 0, name: '暂无数据', count: 0, ratio: 0}]">
         <template v-slot="{ cell: cell, columnKey: columnKey }">
           <span :class="columnKey === 'index' ? 'row-index-cell' : ''">
             {{cell}}

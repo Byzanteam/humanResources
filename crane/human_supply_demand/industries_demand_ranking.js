@@ -46,8 +46,8 @@ module.exports = [
           $withHeader: false,
           theme: 'dark',
           stripe: '',
-          $headers: "[{width: 80, key: 'index'}, {width: 200, key: 'name'}, {width: 100, key: 'count'}]",
-          $data: "results ? results.map((item, index) => ({index: index + 1, name: item[0], count: item[1]})) : [{index: 0, name: '暂无数据', count: 0}]"
+          $headers: "[{width: 60, key: 'index'}, {width: 140, key: 'name'}, {width: 100, key: 'count'}, {width: 100, key: 'ratio'}]",
+          $data: "results ? results.map((item, index) => ({index: index + 1, name: item[0], count: item[1] || 0, ratio: item[2] || 0})) : [{index: 0, name: '暂无数据', count: 0, ratio: 0}]"
         },
         children: [
           {
