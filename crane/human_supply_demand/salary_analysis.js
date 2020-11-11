@@ -4,6 +4,8 @@ const {
   subtitle_icon,
   subtitle_text,
   digital_bg,
+  pieColors,
+  axisLabelStyle,
 } = require('../share')
 
 module.exports = [
@@ -87,7 +89,7 @@ module.exports = [
         component: 'v-chart',
         props: {
           $options: {
-            $color: "['#6ad6ff']",
+            $color: pieColors,
             grid: {
               $top: 30,
               $left: 52,
@@ -115,11 +117,7 @@ module.exports = [
               $axisTick: {
                 $show: false,
               },
-              $axisLabel: {
-                color: '#367391',
-                $fontSize: 12,
-                $fontWeight: 400
-              },
+              $axisLabel: axisLabelStyle,
               $splitLine: {
                 $show: false
               }
@@ -135,16 +133,12 @@ module.exports = [
                 $show: false,
               },
               $nameTextStyle: {
-                color: '#367391',
-                $fontSize: 12,
-                $fontWeight: 400,
+                ...axisLabelStyle,
                 align: 'center',
                 $padding: "[0, 0, 0, 3]"
               },
               $axisLabel: {
-                color: '#367391',
-                $fontSize: 12,
-                $fontWeight: 400,
+                ...axisLabelStyle,
                 align: 'center'
               },
               $splitLine: {

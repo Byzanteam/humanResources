@@ -1,18 +1,15 @@
+const {
+  pieColors,
+  subtitle_icon,
+  subtitle_text,
+  axisLabelStyle,
+} = require('../share')
 
 module.exports = [
   {
     id: 'talents-demand-change-icon',
-    component: 'div',
     position: [1500, 382],
-    props: {
-      $style: {
-        color: '#6ad6ff',
-        fontSize: '14px',
-        fontWeight: 400,
-        textAlign: 'left',
-      },
-    },
-    content: '>>',
+    ...subtitle_icon,
   },
   {
     id: 'talents-demand-change-title·',
@@ -20,14 +17,7 @@ module.exports = [
     position: [1532, 380],
     props: {
       'data-content': '根据「区域」「时间」进行筛选统计企业发布的招聘人才数量与人才投递简历情况对比折线图体现供需变化',
-      $style: {
-        color: '#fff',
-        fontSize: '18px',
-        fontWeight: '600',
-        textAlign: 'left',
-        letterSpacing: '1px',
-        cursor: 'pointer',
-      },
+      ...subtitle_text.props
     },
     content: '人才供需变化',
   },
@@ -58,7 +48,7 @@ module.exports = [
               $bottom: 30
             },
             backgroundColor: 'transparent',
-            $color: "['#6ad6ff', '#367390']",
+            $color: pieColors,
             $tooltip: {
               trigger: 'axis',
               $axisPointer: {
@@ -77,8 +67,8 @@ module.exports = [
               $right: 0,
               $itemGap: 14,
               $textStyle: {
-                color: '#4b9bbe',
-                fontSize: 14
+                color: '#ffffff',
+                $fontSize: 14
               },
               inactiveColor: '#1C4159',
             },
@@ -91,11 +81,7 @@ module.exports = [
               $axisTick: {
                 $show: false,
               },
-              $axisLabel: {
-                color: '#367391',
-                $fontSize: 12,
-                $fontWeight: 400
-              },
+              $axisLabel: axisLabelStyle,
               $splitLine: {
                 $show: false
               }
@@ -110,17 +96,13 @@ module.exports = [
                 $show: false,
               },
               $nameTextStyle: {
-                color: '#367391',
-                $fontSize: 12,
-                $fontWeight: 400,
                 align: 'center',
-                $padding:"[0, 5, 0, 0]"
+                $padding:"[0, 5, 0, 0]",
+                ...axisLabelStyle,
               },
               $axisLabel: {
-                color: '#367391',
-                $fontSize: 12,
-                $fontWeight: 400,
-                align: 'center'
+                align: 'center',
+                ...axisLabelStyle,
               },
               $splitLine: {
                 $show: false

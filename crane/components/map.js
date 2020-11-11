@@ -24,6 +24,7 @@ module.exports = {
   children: [
     {
       component: 'v-chart',
+      id: 'map',
       props: {
         'v-if': 'results',
         class: "map-chart",
@@ -63,7 +64,7 @@ module.exports = {
                 $fontWeight: 700
             },
             $itemStyle: {
-              areaColor: 'rgba(106, 214, 255, .05)',
+              areaColor: '#0e3e7d',
               borderColor: '#68a4f0',
               borderType: 'solid',
               $borderWidth: 0.5
