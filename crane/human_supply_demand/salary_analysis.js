@@ -1,5 +1,5 @@
 const {
-  small_digital_style,
+  normal_digital_style,
   digital_circle_icon,
   subtitle_icon,
   subtitle_text,
@@ -63,7 +63,7 @@ module.exports = [
           $style: {
             height: '39px'
           },
-          ...small_digital_style,
+          ...normal_digital_style,
         }
       },
     ]

@@ -1,4 +1,4 @@
-const {small_digital_style} = require('../share')
+const {normal_digital_style} = require('../share')
 
 module.exports = {
   id: 'talent-quality-index',
@@ -28,7 +28,7 @@ module.exports = {
           separator: '',
           $decimalPlaces: 1,
         },
-        ...small_digital_style,
+        ...normal_digital_style,
       }
     },
   ]
