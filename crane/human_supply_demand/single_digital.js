@@ -1,18 +1,14 @@
-const {small_digital_style, digital_circle_icon} = require('../share')
+const {
+  small_digital_style,
+  digital_circle_icon,
+  digital_bg,
+} = require('../share')
 
 module.exports = [
   {
     id: 'supply-demand-count',
-    component: 'div',
     position: [40, 194],
-    props: {
-      $style: {
-        width: '380px',
-        height: '50px',
-        backgroundColor: 'rgba(106, 214, 255, .1)',
-        borderRadius: '5px'
-      }
-    }
+    ...digital_bg,
   },
   {
     id: 'value-circle',

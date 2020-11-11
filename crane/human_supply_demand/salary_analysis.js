@@ -1,49 +1,34 @@
-const {small_digital_style, digital_circle_icon} = require('../share')
+const {
+  small_digital_style,
+  digital_circle_icon,
+  subtitle_icon,
+  subtitle_text,
+  digital_bg,
+  pieColors,
+  axisLabelStyle,
+} = require('../share')
 
 module.exports = [
   {
     id: 'salary-icon',
     component: 'div',
     position: [40, 722],
-    props: {
-      $style: {
-        color: '#6ad6ff',
-        fontSize: '14px',
-        fontWeight: 400,
-        textAlign: 'left',
-      },
-    },
-    content: '>>',
+    ...subtitle_icon,
   },
   {
     id: 'salary-title·',
     component: 'div',
     position: [74, 720],
     props: {
+      ...subtitle_text.props,
       'data-content': '默认为所有岗位的平均薪资，可根据「岗位名」进行筛选统计查阅对应行位当年平均薪资与历年的平均薪资',
-      $style: {
-        color: '#fff',
-        fontSize: '18px',
-        fontWeight: '600',
-        textAlign: 'left',
-        letterSpacing: '1px',
-        cursor: 'pointer',
-      },
     },
     content: '人才薪酬分析',
   },
   {
     id: 'salary-count',
-    component: '@byzanteam/vis-components/data-loader',
     position: [40, 764],
-    props: {
-      $style: {
-        width: '380px',
-        height: '50px',
-        backgroundColor: 'rgba(106, 214, 255, .1)',
-        borderRadius: '5px'
-      }
-    }
+    ...digital_bg,
   },
   {
     id: 'value-circle',
@@ -104,7 +89,7 @@ module.exports = [
         component: 'v-chart',
         props: {
           $options: {
-            $color: "['#6ad6ff']",
+            $color: pieColors,
             grid: {
               $top: 30,
               $left: 52,
@@ -132,11 +117,7 @@ module.exports = [
               $axisTick: {
                 $show: false,
               },
-              $axisLabel: {
-                color: '#367391',
-                $fontSize: 12,
-                $fontWeight: 400
-              },
+              $axisLabel: axisLabelStyle,
               $splitLine: {
                 $show: false
               }
@@ -152,16 +133,12 @@ module.exports = [
                 $show: false,
               },
               $nameTextStyle: {
-                color: '#367391',
-                $fontSize: 12,
-                $fontWeight: 400,
+                ...axisLabelStyle,
                 align: 'center',
                 $padding: "[0, 0, 0, 3]"
               },
               $axisLabel: {
-                color: '#367391',
-                $fontSize: 12,
-                $fontWeight: 400,
+                ...axisLabelStyle,
                 align: 'center'
               },
               $splitLine: {

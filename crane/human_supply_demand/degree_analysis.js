@@ -1,19 +1,10 @@
-const { pieColors } = require('../share')
+const { pieColors, subtitle_icon } = require('../share')
 
 module.exports = [
   {
     id: 'degree-analysis-icon',
-    component: 'div',
     position: [1500, 722],
-    props: {
-      $style: {
-        color: '#6ad6ff',
-        fontSize: '14px',
-        fontWeight: 400,
-        textAlign: 'left',
-      },
-    },
-    content: '>>',
+    ...subtitle_icon,
   },
   {
     id: 'degree-analysis-title',
@@ -72,13 +63,13 @@ module.exports = [
               icon: 'circle',
               $itemWidth: 10,
               $itemHeight: 10,
-              $right: 75,
+              $right: 35,
               top: 'middle',
               $itemGap: 9,
               orient: 'vertical',
               $textStyle: {
-                color: '#4b9bbe',
-                $fontSize: 12
+                color: '#ffffff',
+                $fontSize: 14
               },
               inactiveColor: '#1C4159',
             },
@@ -122,13 +113,13 @@ module.exports = [
               icon: 'circle',
               $itemWidth: 10,
               $itemHeight: 10,
-              $right: 75,
+              $right: 35,
               top: 'middle',
               $itemGap: 9,
               orient: 'vertical',
               $textStyle: {
-                color: '#4b9bbe',
-                $fontSize: 12
+                color: '#ffffff',
+                $fontSize: 14
               },
               inactiveColor: '#1C4159',
             },

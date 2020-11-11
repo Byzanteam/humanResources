@@ -84,6 +84,7 @@ const chartTooltipOptions = {
     },
   }
 };
+
 exports.chartTooltipOptions = chartTooltipOptions;
 
 exports.page_title_bg = {
@@ -118,12 +119,12 @@ exports.page_title_content = {
   }
 }
 
-exports.subtitle_text= {
+exports.subtitle_text = {
   component: 'div',
   props: {
     $style: {
       color: '#fff',
-      fontSize: '18px',
+      fontSize: '20px',
       fontWeight: '600',
       textAlign: 'left',
       letterSpacing: '1px',
@@ -135,7 +136,7 @@ exports.subtitle_icon = {
   component: 'div',
   props: {
     $style: {
-      color: '#6ad6ff',
+      color: '#41bcff',
       fontSize: '14px',
       fontWeight: 400,
       textAlign: 'left',
@@ -153,7 +154,7 @@ exports.high_level_legendStyle_normal = {
   $itemGap: 9,
   orient: 'vertical',
   $textStyle: {
-    color: '#4b9bbe',
+    color: '#ffffff',
     $fontSize: 12,
     $lineHeight: 15
   },
@@ -169,7 +170,7 @@ exports.high_level_legendStyle_small = {
   $itemGap: 9,
   orient: 'vertical',
   $textStyle: {
-    color: '#4b9bbe',
+    color: '#ffffff',
     $fontSize: 12,
     $lineHeight: 15
   },
@@ -178,13 +179,13 @@ exports.high_level_legendStyle_small = {
 
 exports.color_series = "['#6ad6ff', '#4b9bbe', '#367290', '#275570', '#1c4159', '#153349']"
 
-exports.digital_bg_400_50 = {
+exports.digital_bg = {
   component: 'div',
   props: {
     $style: {
-      width: '400px',
+      width: '380px',
       height: '50px',
-      backgroundColor: 'rgba(106, 214, 255, .1)',
+      backgroundColor: 'rgba(13, 45, 120, .45)',
       borderRadius: '5px'
     }
   }
@@ -219,7 +220,7 @@ exports.rankingStyle = {
   },
   $lineStyle: {
     background: '#ffffff1a',
-    $lineColor: "['#00fff2', '#7d40ff']",
+    $lineColor: "['#7d40ff', '#00fff2']",
     height: '8px',
     borderRadius: '2.5px',
     marginTop: '3px'
@@ -229,3 +230,9 @@ exports.rankingStyle = {
 exports.pieColors = "['#00fff2', '#7b43ff', '#e0ad3a', '#189ef1', '#2174b8', '#f65446']"
 
 exports.mapColors = "['#1c44a2', '#2174bb', '#e0ad3a', '#d98278', '#bb4e54']"
+
+exports.axisLabelStyle = {
+  color: 'rgba(255, 255, 255, .8)',
+  $fontSize: 14,
+  $fontWeight: 400,
+}

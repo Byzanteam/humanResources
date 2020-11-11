@@ -7,7 +7,9 @@ const rank = require('./rank')
 const {
   page_title_content,
   page_title_bg,
-  digital_circle_icon
+  digital_circle_icon,
+  digital_bg,
+  subtitle_icon,
 } = require('../share')
 const datePicker = require('./date_picker')
 const talentsDemandChange = require('./talents_demand_change')
@@ -27,6 +29,10 @@ module.exports = {
     {
       id: 'mapData',
       value: []
+    },
+    {
+      id: 'selectedArea',
+      value: {}
     },
     {
       id: 'mapThumbnailOptions',
@@ -131,45 +137,18 @@ module.exports = {
     },
     {
       id: 'talent-education-icon',
-      component: 'div',
       position: [40, 362],
-      props: {
-        $style: {
-          color: '#6ad6ff',
-          fontSize: '14px',
-          fontWeight: 400,
-          textAlign: 'left',
-        },
-      },
-      content: '>>',
+      ...subtitle_icon,
     },
     {
       id: 'talent-industry-icon',
-      component: 'div',
       position: [1500, 363],
-      props: {
-        $style: {
-          color: '#6ad6ff',
-          fontSize: '14px',
-          fontWeight: 400,
-          textAlign: 'left',
-        },
-      },
-      content: '>>',
+      ...subtitle_icon,
     },
     {
       id: 'industry-talent-icon',
-      component: 'div',
       position: [40, 743],
-      props: {
-        $style: {
-          color: '#6ad6ff',
-          fontSize: '14px',
-          fontWeight: 400,
-          textAlign: 'left',
-        },
-      },
-      content: '>>',
+      ...subtitle_icon,
     },
     {
       id: 'value-circle',
@@ -183,29 +162,13 @@ module.exports = {
     },
     {
       id: 'production-bg',
-      component: 'div',
       position: [40, 128],
-      props: {
-        $style: {
-          height: '50px',
-          width: '380px',
-          backgroundColor: '#6ad6ff1a',
-          borderRadius: '5px',
-        }
-      }
+      ...digital_bg,
     },
     {
       id: 'production-bg',
-      component: 'div',
       position: [40, 208],
-      props: {
-        $style: {
-          height: '50px',
-          width: '380px',
-          backgroundColor: '#6ad6ff1a',
-          borderRadius: '5px',
-        }
-      }
+      ...digital_bg,
     },
     {
       id: 'departments-loader',
