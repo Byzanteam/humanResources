@@ -124,6 +124,7 @@ exports.subtitle_text = {
       fontWeight: '600',
       textAlign: 'left',
       letterSpacing: '1px',
+      cursor: 'pointer',
     },
   },
 }

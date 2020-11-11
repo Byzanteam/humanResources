@@ -4,10 +4,10 @@
 }
 
 .ivu-radio-group-button .ivu-radio-wrapper.ivu-radio-group-item {
-  background-color: rgba(106, 214, 255, .1);
+  background: linear-gradient(90deg, #41bdff33, #29e8de33);
   border-color: rgba(106, 214, 255, .12);
   border-left: 1px solid rgba(106, 214, 255, .12);
-  color: rgba(106, 214, 255, .7);
+  color: rgba(0, 255, 242, .7);
   font-size: 14px;
   width: 116px;
   margin-right: 20px;
@@ -18,7 +18,7 @@
 }
 
 .ivu-radio-group-button .ivu-radio-wrapper.ivu-radio-group-item:hover {
-  background: linear-gradient(90deg, #6ad6ff80, #117ea880);
+  background: linear-gradient(90deg, #41bdff, #29e8de);
   color: #ffffff;
   border: none;
   box-shadow: none;
@@ -29,7 +29,7 @@
   margin-top: 0;
 }
 .ivu-radio-group-button .ivu-radio-wrapper.ivu-radio-wrapper-checked {
-  background: linear-gradient(90deg, #6ad6ff, #117ea8);
+  background: linear-gradient(90deg, #41bdff, #29e8de);
   border: none;
   color: #ffffff;
   box-shadow: none;

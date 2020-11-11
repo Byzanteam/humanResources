@@ -42,8 +42,9 @@ body {
   box-shadow: none!important;
   white-space: nowrap;
   margin-top: 8.8px !important;
-  border: 1px solid #6ad6ff1f !important;
+  border: 1px solid transparent !important;
   width: auto !important;
+  background-color: transparent;
 }
 
 .select-popover .popover__content .popover__body {
@@ -68,6 +69,7 @@ body {
   padding-top: 8px;
   padding-bottom: 8px;
   font-size: 14px;
+  cursor: pointer;
 }
 
 .select-popover .popover__content .popover__body .popover__body__content .select__selection .select__selection__options .list .list__item:hover {
@@ -138,11 +140,13 @@ input::placeholder {
 
 .table.table--dark th {
   line-height: 40px;
+  color: #00fff2;
 }
 
 .table .table__body tr td {
   height: 36px;
   line-height: 36px;
+  background-color: rgba(13, 45, 120, .45);
 }
 
 .table .table__body tr td .table__cell--scroll {

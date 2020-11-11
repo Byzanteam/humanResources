@@ -20,11 +20,11 @@ module.exports = [
   },
   {
   component: '@byzanteam/vis-components/data-loader',
-  position: [485, 190],
+  position: [480, 176],
   props: {
     $style: {
-      width: '950px',
-      height: '794px'
+      width: '960px',
+      height: '884px'
     }
   },
   children: [
@@ -46,13 +46,13 @@ module.exports = [
             },
             $itemStyle: {
               normal: {
-                areaColor: 'rgba(106, 214, 255, 0.05)',
-                borderColor: '#6ad6ff',
+                areaColor: '#0e3e7d',
+                borderColor: '#68a4f0',
                 borderType: 'solid',
-                $borderWidth: 0.5
+                $borderWidth: 2
               },
               emphasis: {
-                areaColor: '#6ad6ff',
+                areaColor: '#29e8de',
               }
             },
             $regions: "[{name: '南海诸岛', value: 0, itemStyle: { normal: { opacity: 0, label: { show: false}}}}]",
@@ -97,7 +97,7 @@ module.exports = [
               },
               itemStyle: {
                 normal: {
-                  color: '#37a6d7',
+                  color: '#41bcff',
                   opacity: 1
                 }
               },
