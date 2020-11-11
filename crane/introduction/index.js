@@ -50,7 +50,7 @@ module.exports = {
     {
       id: 'title-bg',
       component: 'img',
-      position: [607, 0],
+      position: [610, 0],
       props: {
         $style: {
           width: '701px',
@@ -90,7 +90,7 @@ module.exports = {
     {
       id: 'activity-number',
       component: 'div',
-      position: [74, 155],
+      position: [74, 200],
       props: {
         $style: {
           color: '#fff',
@@ -105,7 +105,7 @@ module.exports = {
     {
       id: 'high-level-talent',
       component: 'div',
-      position: [74, 631],
+      position: [74, 660],
       props: {
         'data-content': '默认显示当年高层次人才引进人数，可根据「区域」「时间」查看对应区域与年份的引才人数与历年的引进数量',
         $style: {
@@ -122,7 +122,7 @@ module.exports = {
     {
       id: 'introduce-place',
       component: 'div',
-      position: [1536, 46],
+      position: [1536, 48],
       props: {
         'data-content': '根据「区域」「时间」筛选统计引才活动发布方分布',
         $style: {
@@ -139,7 +139,7 @@ module.exports = {
     {
       id: 'talent-rank',
       component: 'div',
-      position: [1536, 366],
+      position: [1536, 380],
       props: {
         'data-content': '根据活动要求需要的人类类型进行统计分析',
         $style: {
@@ -156,7 +156,7 @@ module.exports = {
     {
       id: 'talent-education',
       component: 'div',
-      position: [1536, 691],
+      position: [1536, 700],
       props: {
         'data-content': '根据「区域」「时间」筛选对应区域的引进人才的学历分布情况',
         $style: {
@@ -173,7 +173,7 @@ module.exports = {
     {
       id: 'activity-number-icon',
       component: 'div',
-      position: [40, 157],
+      position: [40, 200],
       props: {
         $style: {
           color: '#6ad6ff',
@@ -187,7 +187,7 @@ module.exports = {
     {
       id: 'high-level-talent-icon',
       component: 'div',
-      position: [40, 634],
+      position: [40, 663],
       props: {
         $style: {
           color: '#6ad6ff',
@@ -201,7 +201,7 @@ module.exports = {
     {
       id: 'introduce-place-icon',
       component: 'div',
-      position: [1504, 49],
+      position: [1504, 51],
       props: {
         $style: {
           color: '#6ad6ff',
@@ -215,7 +215,7 @@ module.exports = {
     {
       id: 'talent-rank-icon',
       component: 'div',
-      position: [1504, 369],
+      position: [1504, 383],
       props: {
         $style: {
           color: '#6ad6ff',
@@ -229,7 +229,7 @@ module.exports = {
     {
       id: 'talent-education-icon',
       component: 'div',
-      position: [1504, 694],
+      position: [1504, 704],
       props: {
         $style: {
           color: '#6ad6ff',

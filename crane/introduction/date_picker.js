@@ -14,7 +14,7 @@ module.exports = {
   children: [
     {
       component: 'iview/date-picker',
-      position: [40, 50],
+      position: [40, 48],
       props: {
         class: 'supply-datepicker',
         $style: {
