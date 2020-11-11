@@ -56,8 +56,8 @@
           {{item.name}}
         </Option>
       </Select>
-      <input placeholder="关键词" class="map-tabs-input" v-model="craneStates.supplyInputWord" :style="{width: '180px', height: '48px', paddingLeft: '8px', backgroundColor: 'rgba(106, 214, 255, .1)', border: '1px solid rgba(106, 214, 255, .12)', borderRadius: '4px', color: '#ffffff', fontSize: '16px', fontWeight: '500', outline: 'none', position: 'absolute', top: '391px', left: '237px'}" />
-      <brick-button @click="()=>[setState('mapType', 'supply')]" type="gradient" color="primary" :style="{width: '148px', height: '25px', position: 'absolute', top: '465px', left: '156px'}">
+      <input placeholder="关键词" class="map-tabs-input" v-model="craneStates.supplyInputWord" :style="{width: '180px', height: '48px', paddingLeft: '8px', backgroundColor: 'rgba(9, 32, 91, 1)', border: '1px solid rgba(69, 137, 225, 1)', borderRadius: '4px', color: '#ffffff', fontSize: '16px', fontWeight: '500', outline: 'none', position: 'absolute', top: '391px', left: '237px'}" />
+      <brick-button @click="()=>[setState('mapType', 'supply')]" type="gradient" color="primary" :style="{width: '148px', height: '28px', position: 'absolute', top: '465px', left: '156px'}">
         查看人才供应地图
       </brick-button>
     </div>
@@ -67,8 +67,8 @@
           {{item.name}}
         </Option>
       </Select>
-      <input placeholder="关键词" class="map-tabs-input" v-model="craneStates.demandInputWord" :style="{width: '180px', height: '48px', paddingLeft: '8px', backgroundColor: 'rgba(106, 214, 255, .1)', border: '1px solid rgba(106, 214, 255, .12)', borderRadius: '4px', color: '#ffffff', fontSize: '16px', fontWeight: '500', outline: 'none', position: 'absolute', top: '391px', left: '237px'}" />
-      <brick-button @click="()=>[setState('mapType', 'demand')]" type="gradient" color="primary" :style="{width: '148px', height: '25px', position: 'absolute', top: '465px', left: '156px'}">
+      <input placeholder="关键词" class="map-tabs-input" v-model="craneStates.demandInputWord" :style="{width: '180px', height: '48px', paddingLeft: '8px', backgroundColor: 'rgba(9, 32, 91, 1)', border: '1px solid rgba(69, 137, 225, 1)', borderRadius: '4px', color: '#ffffff', fontSize: '16px', fontWeight: '500', outline: 'none', position: 'absolute', top: '391px', left: '237px'}" />
+      <brick-button @click="()=>[setState('mapType', 'demand')]" type="gradient" color="primary" :style="{width: '148px', height: '28px', position: 'absolute', top: '465px', left: '156px'}">
         查看人才需求地图
       </brick-button>
     </div>
@@ -84,7 +84,7 @@
           </Option>
         </Select>
       </data-loader>
-      <brick-button @click="()=>[setState('mapType', 'shortage')]" type="gradient" color="primary" :style="{width: '148px', height: '25px', position: 'absolute', top: '346px', left: '1616px'}">
+      <brick-button @click="()=>[setState('mapType', 'shortage')]" type="gradient" color="primary" :style="{width: '148px', height: '28px', position: 'absolute', top: '346px', left: '1616px'}">
         查看紧缺人才地图
       </brick-button>
     </div>

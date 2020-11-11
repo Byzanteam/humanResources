@@ -66,8 +66,8 @@ module.exports = [
             width: '180px',
             height: '48px',
             paddingLeft: '8px',
-            backgroundColor: 'rgba(106, 214, 255, .1)',
-            border: '1px solid rgba(106, 214, 255, .12)',
+            backgroundColor: 'rgba(9, 32, 91, 1)',
+            border: '1px solid rgba(69, 137, 225, 1)',
             borderRadius: '4px',
             color: '#ffffff',
             fontSize: '16px',
@@ -85,7 +85,7 @@ module.exports = [
           color: "primary",
           $style: {
             width: '148px',
-            height: '25px'
+            height: '28px'
           }
         },
         events: {
@@ -139,8 +139,8 @@ module.exports = [
             width: '180px',
             height: '48px',
             paddingLeft: '8px',
-            backgroundColor: 'rgba(106, 214, 255, .1)',
-            border: '1px solid rgba(106, 214, 255, .12)',
+            backgroundColor: 'rgba(9, 32, 91, 1)',
+            border: '1px solid rgba(69, 137, 225, 1)',
             borderRadius: '4px',
             color: '#ffffff',
             fontSize: '16px',
@@ -158,7 +158,7 @@ module.exports = [
           color: "primary",
           $style: {
             width: '148px',
-            height: '25px'
+            height: '28px'
           }
         },
         events: {
@@ -268,7 +268,7 @@ module.exports = [
           color: "primary",
           $style: {
             width: '148px',
-            height: '25px'
+            height: '28px'
           }
         },
         events: {
