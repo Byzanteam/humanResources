@@ -1,5 +1,27 @@
-const {normal_digital_style, digital_circle_icon, digital_bg} = require('../share')
+const {normal_digital_style, small_digital_style, digital_circle_icon, digital_bg} = require('../share')
 
+const small_digital_container = {
+  component: 'div',
+  props: {
+    $style: {
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems : 'center',
+      flexDirection: 'column',
+      width: '120px'
+    }
+  }
+}
+const small_digital_title = {
+  component: 'div',
+  props: {
+    $style: {
+      color: '#ffffff',
+      fontSize: '16px',
+      fontWeight: 400,
+    }
+  }
+}
 module.exports = [
   // 人才数量统计
   {
@@ -16,12 +38,12 @@ module.exports = [
   },
   {
     id: 'value-circle',
-    position: [119, 117],
+    position: [80, 117],
     ...digital_circle_icon
   },
   {
     component: '@byzanteam/vis-components/data-loader',
-    position: [145, 94],
+    position: [106, 94],
     props: {
       $url: "`/v1/components/24b74ddd-39de-493f-84ab-9d87fcf23fee/data?type=${digitalKeyword || ''}`",
       method: 'get',
@@ -38,7 +60,7 @@ module.exports = [
           'data-content': '统计人才库中学历为「硕士」「博士」的人才数量',
           titlePosition: 'left',
           $content: {
-            title: '人才数量统计',
+            title: '中高端人才总数',
             $digital: "results ? results[0][0] : 0",
             suffix: '人',
           },
@@ -46,11 +68,123 @@ module.exports = [
             separator: '',
           },
           $style: {
-            width: '196px',
+            width: '250px',
             height: '39px'
           },
           ...normal_digital_style
         }
+      },
+    ]
+  },
+
+    // 杰出人才 领军人才 紧缺人才
+  {
+    ...small_digital_container,
+    position: [50, 163],
+    children: [
+      {
+        ...small_digital_title,
+        content: '杰出人才'
+      },
+      {
+        component: '@byzanteam/vis-components/data-loader',
+        props: {
+          $url: "`/v1/components/24b74ddd-39de-493f-84ab-9d87fcf23fee/data?type=${digitalKeyword || ''}`",
+          method: 'get',
+          $data: "[[0]]",
+        },
+        exports: {
+          results: 'results',
+        },
+        children: [
+          {
+            component: '@byzanteam/vis-components/digital-roll',
+            props: {
+              $content: {
+                $digital: "results ? results[0][0] : 0",
+                suffix: '人',
+              },
+              $options: {
+                separator: '',
+              },
+              ...small_digital_style
+            }
+          },
+        ]
+      },
+    ]
+  },
+
+  {
+    ...small_digital_container,
+    position: [170, 163],
+    children: [
+      {
+        ...small_digital_title,
+        content: '领军人才'
+      },
+      {
+        component: '@byzanteam/vis-components/data-loader',
+        props: {
+          $url: "`/v1/components/24b74ddd-39de-493f-84ab-9d87fcf23fee/data?type=${digitalKeyword || ''}`",
+          method: 'get',
+          $data: "[[0]]",
+        },
+        exports: {
+          results: 'results',
+        },
+        children: [
+          {
+            component: '@byzanteam/vis-components/digital-roll',
+            props: {
+              $content: {
+                $digital: "results ? results[0][0] : 0",
+                suffix: '人',
+              },
+              $options: {
+                separator: '',
+              },
+              ...small_digital_style
+            }
+          },
+        ]
+      },
+    ]
+  },
+
+  {
+    ...small_digital_container,
+    position: [290, 163],
+    children: [
+      {
+        ...small_digital_title,
+        content: '紧缺人才'
+      },
+      {
+        component: '@byzanteam/vis-components/data-loader',
+        props: {
+          $url: "`/v1/components/24b74ddd-39de-493f-84ab-9d87fcf23fee/data?type=${digitalKeyword || ''}`",
+          method: 'get',
+          $data: "[[0]]",
+        },
+        exports: {
+          results: 'results',
+        },
+        children: [
+          {
+            component: '@byzanteam/vis-components/digital-roll',
+            props: {
+              $content: {
+                $digital: "results ? results[0][0] : 0",
+                suffix: '人',
+              },
+              $options: {
+                separator: '',
+              },
+              ...small_digital_style
+            }
+          },
+        ]
       },
     ]
   },
@@ -62,12 +196,12 @@ module.exports = [
   },
   {
     id: 'value-circle',
-    position: [119, 183],
+    position: [130, 272],
     ...digital_circle_icon
   },
   {
     component: '@byzanteam/vis-components/data-loader',
-    position: [145, 160],
+    position: [156, 249],
     props: {
       $url: "`/v1/components/45b74ddd-39de-493f-84ab-9d87fcf23fee/data?job=${craneStates.currentShortageType|| ''}&year=${this.craneStates.year ? this.craneStates.year.getFullYear() : new Date(Date.now()).getFullYear()}`",
       method: 'get',
