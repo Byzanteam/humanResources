@@ -1,8 +1,9 @@
 
+const { axisLabelStyle } = require('../share');
 module.exports = {
   id: 'high-level-talent-bar',
   component: '@byzanteam/vis-components/data-loader',
-  position: [30, 783],
+  position: [40, 794],
   exports: {
     results: 'results',
   },
@@ -12,8 +13,8 @@ module.exports = {
     method: 'get',
     $data: "[[0, '暂无数据']]",
     $style: {
-      width: '400px',
-      height: '250px'
+      width: '380px',
+      height: '240px'
     },
   },
   children: [
@@ -24,10 +25,8 @@ module.exports = {
         $options: {
           $xAxis: {
             $axisLabel:{
+              ...axisLabelStyle,
               $rotate: 0,
-              $fontSize: 12,
-              $fontWeight: 400,
-              color: '#367391'
             },
             $axisLine:{
               $show: false
@@ -36,10 +35,8 @@ module.exports = {
           },
           $yAxis: {
             $axisLabel:{
+              ...axisLabelStyle,
               $rotate: 0,
-              $fontSize: 12,
-              $fontWeight: 400,
-              color: '#367391',
               align: 'center'
             },
             $axisTick: {
@@ -54,11 +51,9 @@ module.exports = {
             $splitNumber: 5,
             name: '件',
             $nameTextStyle: {
-              $fontSize: 12,
-              $fontWeight: 400,
-              color: '#367391',
               align: 'center',
-              $padding:"[0, 5, 0, 0]"
+              $padding:"[0, 5, 0, 0]",
+              ...axisLabelStyle
             },
           },
           $series: {
@@ -71,11 +66,11 @@ module.exports = {
                 $color: `new Echarts.graphic.LinearGradient(0, 1, 0, 0, [
                   {
                     offset: 0,
-                    color: '#117ea8'
+                    color: '#7d40ff'
                   },
                   {
                     offset: 1,
-                    color: '#6ad6ff'
+                    color: '#00fff2'
                   }], false),`
               },
             },
