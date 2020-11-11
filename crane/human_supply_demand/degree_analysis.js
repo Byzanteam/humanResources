@@ -1,19 +1,10 @@
-const { pieColors } = require('../share')
+const { pieColors, subtitle_icon } = require('../share')
 
 module.exports = [
   {
     id: 'degree-analysis-icon',
-    component: 'div',
     position: [1500, 722],
-    props: {
-      $style: {
-        color: '#6ad6ff',
-        fontSize: '14px',
-        fontWeight: 400,
-        textAlign: 'left',
-      },
-    },
-    content: '>>',
+    ...subtitle_icon,
   },
   {
     id: 'degree-analysis-title',

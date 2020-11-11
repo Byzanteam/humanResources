@@ -78,7 +78,7 @@ module.exports = [
               $right: 0,
               $itemGap: 14,
               $textStyle: {
-                color: '#4b9bbe',
+                color: '#ffffff',
                 fontSize: 14
               },
               inactiveColor: '#1C4159',

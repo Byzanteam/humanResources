@@ -136,7 +136,7 @@ exports.subtitle_icon = {
   component: 'div',
   props: {
     $style: {
-      color: '#00fff2',
+      color: '#41bcff',
       fontSize: '14px',
       fontWeight: 400,
       textAlign: 'left',
