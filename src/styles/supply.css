@@ -52,6 +52,10 @@
 }
 
 .ivu-select-dropdown .ivu-picker-panel-body .ivu-picker-panel-icon-btn:hover {
+  color: #00fff2;
+}
+
+.ivu-select-dropdown .ivu-picker-panel-body .ivu-picker-panel-icon-btn:hover {
   color: rgba(106, 214, 255, .6);
 }
 
@@ -72,7 +76,7 @@
   width: 68px;
   height: 34px;
   line-height: 34px;
-  color: #4b9bbe;
+  color: #ffffff;
   font-size: 16px;
   text-align: center;
 }
@@ -82,15 +86,17 @@
 }
 
 .ivu-date-picker .ivu-date-picker-cells .ivu-date-picker-cells-cell:hover{
-  background-color: #6ad6ff0A;
+  background-color: #00fff20A;
   border-radius: 4px;
   font-size: 16px;
-  color: #6ad6ff;
+  color: #ffffff;
 }
 
-.ivu-date-picker-cells .ivu-date-picker-cells-cell-focused,
-.ivu-date-picker-cells .ivu-date-picker-cells-cell-selected {
-  background-color: #6ad6ff;
+.ivu-date-picker .ivu-date-picker-cells .ivu-date-picker-cells-cell-focused,
+.ivu-date-picker .ivu-date-picker-cells .ivu-date-picker-cells-cell-selected,
+.ivu-date-picker .ivu-date-picker-cells .ivu-date-picker-cells-cell-focused:hover,
+.ivu-date-picker .ivu-date-picker-cells .ivu-date-picker-cells-cell-selected:hover {
+  background-color: #00fff2;
   color: #ffffff;
 }
 
@@ -144,18 +150,20 @@
 
 .ivu-date-picker .ivu-input-prefix i, .ivu-date-picker .ivu-input-suffix i {
   line-height: 50px;
+  color: #ffffff;
 }
 
 .ivu-date-picker .ivu-select-dropdown {
+  background-color: #093773;
   margin-top: 10px !important;
   background-color: #06172c;
-  border-color: rgba(106, 214, 255, .12);
+  border-color: #4589e1;
 }
 
 .supply-datepicker.ivu-date-picker .ivu-select-dropdown {
-  background-color: #152d47;
+  background-color: #093773;
   width: 380px;
-  border: 1px solid rgba(106, 214, 255, .12);
+  border: 1px solid #4589e1;
   top: 46px !important;
   box-shadow: none;
 }
@@ -197,5 +205,5 @@
 }
 
 .ivu-icon-ios-calendar-outline:before {
-  color: #fff;
+  color: rgba(255, 255, 255, .8);
 }
