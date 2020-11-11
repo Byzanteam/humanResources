@@ -17,6 +17,10 @@ module.exports = {
   title: '人才引进专题',
   states: [
     {
+      id: 'province',
+      value: 'PROVINCE_OPTIONS[0]'
+    },
+    {
       id: 'year',
       value: ''
     },
@@ -299,9 +303,19 @@ module.exports = {
     },
     {
       id: 'departments-loader',
-      component: '@byzanteam/vis-components/data-loader',
-      position: [929, 125],
+      component: 'div',
+      props: {
+        class: 'center-select',
+      },
       children: [
+        {
+          component: '@byzanteam/vis-components/brick-radio-button-select',
+          props: {
+            $options: "provinceOptions",
+            'v-model': 'craneStates.province',
+            placeholder: '全省',
+          }
+        },
         {
           id: 'departments-select',
           component: '@byzanteam/vis-components/brick-radio-button-select',
@@ -309,6 +323,9 @@ module.exports = {
             $options: "craneStates.selectOptions",
             'v-model': 'craneStates.department',
             placeholder: '全省',
+            $style: {
+              marginLeft: '12px'
+            }
           },
         },
       ],
