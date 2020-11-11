@@ -158,8 +158,8 @@ export const introduction = {
               color: 'white'
             },
             itemStyle: {
-              areaColor: 'rgba(106, 214, 255, .05)',
-              borderColor: '#6ad6ff',
+              areaColor: '#0e3e7d',
+              borderColor: '#4589e1',
               borderType: 'solid',
               borderWidth: 0.5
             },
@@ -169,7 +169,7 @@ export const introduction = {
                 fontWeight: 600
               },
               itemStyle: {
-                areaColor: '#4B9BBE'
+                areaColor: '#29e8d1'
               }
             }
           }
