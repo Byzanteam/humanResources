@@ -1,7 +1,6 @@
 <template>
   <div class="introduction">
     <navigator ref="navigator"/>
-    <img ref="background" src="/hxrc/images/Bg.png" :style="{position: 'absolute', top: '0px', left: '0px'}" />
     <data-loader :style="{width: '960px', height: '884px', position: 'absolute', top: '176px', left: '480px'}">
       <v-chart ref="map" :options="mapOptions" />
     </data-loader>

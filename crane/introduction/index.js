@@ -42,14 +42,6 @@ module.exports = {
     }
   ],
   components: [
-    {
-      id: 'background',
-      component: 'img',
-      position: [0, 0],
-      props: {
-        src: '/hxrc/images/Bg.png'
-      },
-    },
     map,
     {
       id: 'title-bg',

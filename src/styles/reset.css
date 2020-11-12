@@ -1,6 +1,14 @@
 body {
   background-image: linear-gradient(270deg, #030D1C 0%, #081C35 28%, #0E2A4D 50%, #081A31 78%, #030D1C 100%);
 }
+
+body > div {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url('../../public/hxrc/images/Bg.png');
+}
+
 .select-trigger {
   background-color: transparent !important;
 }

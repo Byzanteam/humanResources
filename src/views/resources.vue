@@ -1,7 +1,6 @@
 <template>
   <div class="resources">
     <navigator ref="navigator"/>
-    <img ref="background" src="/hxrc/images/Bg.png" :style="{position: 'absolute', top: '0px', left: '0px'}" />
     <img ref="box-bg" :style="{width: '440px', height: '1059px', position: 'absolute', top: '10px', left: '10px'}" src="/hxrc/images/Box-Bg.png" />
     <img ref="right-box-bg" :style="{width: '440px', height: '1059px', position: 'absolute', top: '10px', left: '1471px'}" src="/hxrc/images/Box-Bg.png" />
     <date-picker format="yyyy年" v-model="craneStates.year" :style="{width: '380px', height: '50px', position: 'absolute', top: '48px', left: '40px'}" :options="{disabledDate: (time) => {return !generateDateRange().includes(time.getFullYear())}}" type="year" class="supply-datepicker" placeholder="选择时间" />
@@ -277,13 +276,6 @@ export default resources
 .echarts {
   width: 100%;
   height: 100%;
-}
-
-.resources {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-image: url('../../public/hxrc/images/Bg.png');
 }
 
 .table {
