@@ -37,6 +37,29 @@ module.exports = [
             $formatter: "(params) => {return params.name + '<br />人才数量（人）：' + (isNaN(params.value) ? 0 : params.value)}",
             backgroundColor: '#566374f0',
           },
+          $geo: {
+            $map: "craneStates.department ? craneStates.department.uuid : 'fujian'",
+            $label: {
+              $normal: {
+                $show: false
+              },
+              $emphasis: {
+                $show: false,
+              }
+            },
+            $itemStyle: {
+              normal: {
+                areaColor: '#0e3e7d',
+                borderColor: '#68a4f0',
+                borderType: 'solid',
+                $borderWidth: 2
+              },
+              emphasis: {
+                areaColor: '#29e8de',
+              }
+            },
+            $regions: "[{name: '南海诸岛', value: 0, itemStyle: { normal: { opacity: 0, label: { show: false}}}}]",
+          },
           $visualMap: {
             type: 'piecewise',
             $inverse: true,
@@ -59,6 +82,7 @@ module.exports = [
             {
               type: 'map',
               mapType: craneStates.department ? craneStates.department.uuid : 'fujian',
+              geoIndex: 0,
               data: results.map(item => {return {name: item[1], value: item[0]}}),
               label: {
                 show: true,
@@ -85,7 +109,58 @@ module.exports = [
                   shadowOffsetY: 10
                 }
               },
-            }
+            },
+            {
+              symbolSize: 0.1,
+              label: {
+                normal: {
+                  formatter: '{b}',
+                  position: 'bottom',
+                  show: true
+                },
+                emphasis: {
+                  show: true
+                }
+              },
+              itemStyle: {
+                normal: {
+                  color: '#fff'
+                }
+              },
+              type: 'scatter',
+              coordinateSystem: 'geo',
+              data: [],
+            },
+            {
+              type: 'scatter',
+              coordinateSystem: 'geo',
+              symbol: 'pin',
+              symbolSize: [48, 54],
+              label: {
+                normal: {
+                  show: true,
+                  color: '#fff',
+                  fontSize: 12,
+                  fontWeight: 500,
+                  formatter (value){
+                    return value.data.value[2]
+                  }
+                }
+              },
+              itemStyle: {
+                normal: {
+                  color: '#41bcff',
+                  opacity: 1
+                }
+              },
+              data: [],
+              showEffectOn: 'render',
+              rippleEffect: {
+                brushType: 'stroke'
+              },
+              hoverAnimation: true,
+              zlevel: 1
+            },
           ]`
         }
       }
