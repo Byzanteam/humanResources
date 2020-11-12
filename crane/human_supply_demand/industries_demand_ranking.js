@@ -43,6 +43,7 @@ module.exports = [
       {
         component: '@byzanteam/vis-components/vis-table',
         props: {
+          'v-scroll': "{itemHeight: 40}",
           $withHeader: false,
           theme: 'dark',
           stripe: '',

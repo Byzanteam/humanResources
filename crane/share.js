@@ -201,6 +201,7 @@ exports.digital_circle_icon = {
 }
 
 exports.rankingStyle = {
+  'v-scroll': "{itemHeight: 35}",
   $labelStyle: {
     color: '#ffffff',
     fontSize: '16px',

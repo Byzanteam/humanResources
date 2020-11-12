@@ -42,7 +42,7 @@
     </div>
     <brick-tabs :tabNavs="craneStates.tabNavs" :activeTab="craneStates.tabCurrent" :style="{position: 'absolute', top: '330px', left: '110px'}" v-model="craneStates.tabCurrent" />
     <data-loader v-slot="{ results: results }" v-show="craneStates.tabCurrent === craneStates.tabNavs[0]" :url="`/v1/components/04b74ddd-39de-493f-84ab-9d87fcf23fee/data?year=${generateYear}&job=${craneStates.currentJob || ''}&area=${currentRegion}`" method="get" :data="null" :style="{width: '380px', height: '280px', overflow: 'scroll', position: 'absolute', top: '392px', left: '40px'}">
-      <vis-table :withHeader="false" theme="dark" stripe="" :headers="[{width: 80, key: 'index'}, {width: 200, key: 'name'}, {width: 100, key: 'count'}]" :data="results ? results.map((item, index) => ({index: index + 1, name: item[0], count: item[1]})) : [{index: 0, name: '暂无数据', count: 0}]">
+      <vis-table v-scroll="{itemHeight: 40}" :withHeader="false" theme="dark" stripe="" :headers="[{width: 80, key: 'index'}, {width: 200, key: 'name'}, {width: 100, key: 'count'}]" :data="results ? results.map((item, index) => ({index: index + 1, name: item[0], count: item[1]})) : [{index: 0, name: '暂无数据', count: 0}]">
         <template v-slot="{ cell: cell, columnKey: columnKey }">
           <span :class="columnKey === 'index' ? 'row-index-cell' : ''">
             {{cell}}
@@ -51,7 +51,7 @@
       </vis-table>
     </data-loader>
     <data-loader v-slot="{ results: results }" v-show="craneStates.tabCurrent === craneStates.tabNavs[1]" :url="`/v1/components/05b74ddd-39de-493f-84ab-9d87fcf23fee/data?year=${generateYear}&job=${craneStates.currentJob || ''}&area=${currentRegion}`" method="get" :data="null" :style="{width: '380px', height: '280px', overflow: 'scroll', position: 'absolute', top: '392px', left: '40px'}">
-      <vis-table :withHeader="false" theme="dark" stripe="" :headers="[{width: 80, key: 'index'}, {width: 200, key: 'name'}, {width: 100, key: 'salary'}]" :data="results ? results.map((item, index) => ({index: index + 1, salary: item[0], name: item[1]})) : [{index: 0, name: '暂无数据', salary: 0}]">
+      <vis-table v-scroll="{itemHeight: 40}" :withHeader="false" theme="dark" stripe="" :headers="[{width: 80, key: 'index'}, {width: 200, key: 'name'}, {width: 100, key: 'salary'}]" :data="results ? results.map((item, index) => ({index: index + 1, salary: item[0], name: item[1]})) : [{index: 0, name: '暂无数据', salary: 0}]">
         <template v-slot="{ cell: cell, columnKey: columnKey }">
           <span :class="columnKey === 'index' ? 'row-index-cell' : ''">
             {{cell}}
@@ -62,7 +62,7 @@
     <div ref="salary-icon" :style="{color: '#41bcff', fontSize: '14px', fontWeight: '400', textAlign: 'left', position: 'absolute', top: '722px', left: '40px'}">
       >>
     </div>
-    <div ref="salary-title·" :style="{color: '#fff', fontSize: '20px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', position: 'absolute', top: '720px', left: '74px'}" data-content="默认为所有岗位的平均薪资，可根据「岗位名」进行筛选统计查阅对应行位当年平均薪资与历年的平均薪资">
+    <div ref="salary-title·" :style="{color: '#fff', fontSize: '20px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', cursor: 'pointer', position: 'absolute', top: '720px', left: '74px'}" data-content="默认为所有岗位的平均薪资，可根据「岗位名」进行筛选统计查阅对应行位当年平均薪资与历年的平均薪资">
       人才薪酬分析
     </div>
     <div ref="salary-count" :style="{width: '380px', height: '50px', backgroundColor: 'rgba(13, 45, 120, .45)', borderRadius: '5px', position: 'absolute', top: '764px', left: '40px'}" />
@@ -80,7 +80,7 @@
       6大重点行业的人才需求排名
     </div>
     <data-loader v-slot="{ results: results }" url="/v1/components/08b74ddd-39de-493f-84ab-9d87fcf23fee/data" method="get" :data="null" :style="{width: '380px', height: '240px', overflow: 'scroll', position: 'absolute', top: '100px', left: '1500px'}">
-      <vis-table :withHeader="false" theme="dark" stripe="" :headers="[{width: 60, key: 'index'}, {width: 140, key: 'name'}, {width: 100, key: 'count'}, {width: 100, key: 'ratio'}]" :data="results ? results.map((item, index) => ({index: index + 1, name: item[0], count: item[1] || 0, ratio: item[2] || 0})) : [{index: 0, name: '暂无数据', count: 0, ratio: 0}]">
+      <vis-table v-scroll="{itemHeight: 40}" :withHeader="false" theme="dark" stripe="" :headers="[{width: 60, key: 'index'}, {width: 140, key: 'name'}, {width: 100, key: 'count'}, {width: 100, key: 'ratio'}]" :data="results ? results.map((item, index) => ({index: index + 1, name: item[0], count: item[1] || 0, ratio: item[2] || 0})) : [{index: 0, name: '暂无数据', count: 0, ratio: 0}]">
         <template v-slot="{ cell: cell, columnKey: columnKey }">
           <span :class="columnKey === 'index' ? 'row-index-cell' : ''">
             {{cell}}
@@ -91,7 +91,7 @@
     <div ref="talents-demand-change-icon" :style="{color: '#41bcff', fontSize: '14px', fontWeight: '400', textAlign: 'left', position: 'absolute', top: '382px', left: '1500px'}">
       >>
     </div>
-    <div ref="talents-demand-change-title·" data-content="根据「区域」「时间」进行筛选统计企业发布的招聘人才数量与人才投递简历情况对比折线图体现供需变化" :style="{color: '#fff', fontSize: '20px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', position: 'absolute', top: '380px', left: '1532px'}">
+    <div ref="talents-demand-change-title·" data-content="根据「区域」「时间」进行筛选统计企业发布的招聘人才数量与人才投递简历情况对比折线图体现供需变化" :style="{color: '#fff', fontSize: '20px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', cursor: 'pointer', position: 'absolute', top: '380px', left: '1532px'}">
       人才供需变化
     </div>
     <data-loader ref="talents-demand-change-count-line-chart" v-slot="{ results: results }" :url="`/v1/components/09b74ddd-39de-493f-84ab-9d87fcf23fee/data?job=${craneStates.currentJob || ''}&area=${currentRegion}`" method="get" :data="[[0, '暂无数据']]" :style="{width: '400px', height: '230px', position: 'absolute', top: '432px', left: '1500px'}">

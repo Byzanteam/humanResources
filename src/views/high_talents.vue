@@ -6,46 +6,46 @@
     <div @click="()=>[openNavigator()]" :style="{cursor: 'pointer', width: '460px', color: '#fff', fontSize: '42px', fontWeight: 600, textAlign: 'center', lineHeight: 1, position: 'absolute', top: '36px', left: '730px'}">
       高端人才专题
     </div>
-    <div ref="talent-analysis" :style="{color: '#fff', fontSize: '20px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', position: 'absolute', top: '230px', left: '77px'}">
+    <div ref="talent-analysis" :style="{color: '#fff', fontSize: '20px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', cursor: 'pointer', position: 'absolute', top: '230px', left: '77px'}">
       申报分析
     </div>
-    <div ref="apply-rank" :style="{color: '#fff', fontSize: '20px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', position: 'absolute', top: '230px', left: '1507px'}">
+    <div ref="apply-rank" :style="{color: '#fff', fontSize: '20px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', cursor: 'pointer', position: 'absolute', top: '230px', left: '1507px'}">
       申报数排名
     </div>
-    <div ref="apply-route" :style="{color: '#fff', fontSize: '20px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', position: 'absolute', top: '230px', left: '517px'}">
+    <div ref="apply-route" :style="{color: '#fff', fontSize: '20px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', cursor: 'pointer', position: 'absolute', top: '230px', left: '517px'}">
       申报途径
     </div>
-    <div ref="talent-type" :style="{color: '#fff', fontSize: '20px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', position: 'absolute', top: '230px', left: '957px'}">
+    <div ref="talent-type" :style="{color: '#fff', fontSize: '20px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', cursor: 'pointer', position: 'absolute', top: '230px', left: '957px'}">
       认定类型
     </div>
-    <div ref="talent-past" :style="{color: '#fff', fontSize: '20px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', position: 'absolute', top: '590px', left: '517px'}">
+    <div ref="talent-past" :style="{color: '#fff', fontSize: '20px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', cursor: 'pointer', position: 'absolute', top: '590px', left: '517px'}">
       引进类型
     </div>
-    <div ref="talent-now" :style="{color: '#fff', fontSize: '20px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', position: 'absolute', top: '590px', left: '837px'}">
+    <div ref="talent-now" :style="{color: '#fff', fontSize: '20px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', cursor: 'pointer', position: 'absolute', top: '590px', left: '837px'}">
       人才引进
     </div>
-    <div ref="talent-abroad" :style="{color: '#fff', fontSize: '20px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', position: 'absolute', top: '590px', left: '1157px'}">
+    <div ref="talent-abroad" :style="{color: '#fff', fontSize: '20px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', cursor: 'pointer', position: 'absolute', top: '590px', left: '1157px'}">
       人才区域
     </div>
-    <div ref="talent-analysis-icon" :style="{color: '#00fff2', fontSize: '14px', fontWeight: '400', textAlign: 'left', position: 'absolute', top: '232px', left: '40px'}">
+    <div ref="talent-analysis-icon" :style="{color: '#41bcff', fontSize: '14px', fontWeight: '400', textAlign: 'left', position: 'absolute', top: '232px', left: '40px'}">
       >>
     </div>
-    <div ref="apply-rank-icon" :style="{color: '#00fff2', fontSize: '14px', fontWeight: '400', textAlign: 'left', position: 'absolute', top: '232px', left: '1470px'}">
+    <div ref="apply-rank-icon" :style="{color: '#41bcff', fontSize: '14px', fontWeight: '400', textAlign: 'left', position: 'absolute', top: '232px', left: '1470px'}">
       >>
     </div>
-    <div ref="apply-route-icon" :style="{color: '#00fff2', fontSize: '14px', fontWeight: '400', textAlign: 'left', position: 'absolute', top: '232px', left: '480px'}">
+    <div ref="apply-route-icon" :style="{color: '#41bcff', fontSize: '14px', fontWeight: '400', textAlign: 'left', position: 'absolute', top: '232px', left: '480px'}">
       >>
     </div>
-    <div ref="talent-type-icon" :style="{color: '#00fff2', fontSize: '14px', fontWeight: '400', textAlign: 'left', position: 'absolute', top: '232px', left: '920px'}">
+    <div ref="talent-type-icon" :style="{color: '#41bcff', fontSize: '14px', fontWeight: '400', textAlign: 'left', position: 'absolute', top: '232px', left: '920px'}">
       >>
     </div>
-    <div ref="talent-past-icon" :style="{color: '#00fff2', fontSize: '14px', fontWeight: '400', textAlign: 'left', position: 'absolute', top: '592px', left: '480px'}">
+    <div ref="talent-past-icon" :style="{color: '#41bcff', fontSize: '14px', fontWeight: '400', textAlign: 'left', position: 'absolute', top: '592px', left: '480px'}">
       >>
     </div>
-    <div ref="talent-now-icon" :style="{color: '#00fff2', fontSize: '14px', fontWeight: '400', textAlign: 'left', position: 'absolute', top: '592px', left: '800px'}">
+    <div ref="talent-now-icon" :style="{color: '#41bcff', fontSize: '14px', fontWeight: '400', textAlign: 'left', position: 'absolute', top: '592px', left: '800px'}">
       >>
     </div>
-    <div ref="talent-abroad-icon" :style="{color: '#00fff2', fontSize: '14px', fontWeight: '400', textAlign: 'left', position: 'absolute', top: '592px', left: '1120px'}">
+    <div ref="talent-abroad-icon" :style="{color: '#41bcff', fontSize: '14px', fontWeight: '400', textAlign: 'left', position: 'absolute', top: '592px', left: '1120px'}">
       >>
     </div>
     <data-loader ref="department_select" @requestDone="(param)=>[setState('selectOptions', param.results ? param.results.map((item, index) => ({index: item[0], name: item[0]})) : [])]" :url="`/v1/components/00004ddd-39de-493f-84ab-9d87fcf23fee/data`" method="get" :data="[['']]" :style="{position: 'absolute', top: '140px', left: '760px'}">
@@ -56,7 +56,7 @@
       </Select>
     </data-loader>
     <data-loader v-slot="{ results: results }" :url="`/v1/components/00104ddd-39de-493f-84ab-9d87fcf23fee/data`" method="get" :data="[[0, '暂无数据']]" :style="{width: '428px', height: '546px', position: 'absolute', top: '280px', left: '1470px'}">
-      <vis-table theme="dark" stripe="" :headers="[{width: 88, key: 'index',}, {width: 226, key: 'name', title: '单位名称'}, {width: 114, key: 'value', title: '申报人数'}]" :data="results.map((item, index) => ({index: index + 1, name: item[0], value: item[1]}))" :style="{overflow: 'scroll'}">
+      <vis-table v-scroll="{itemHeight: 40}" theme="dark" stripe="" :headers="[{width: 88, key: 'index',}, {width: 226, key: 'name', title: '单位名称'}, {width: 114, key: 'value', title: '申报人数'}]" :data="results.map((item, index) => ({index: index + 1, name: item[0], value: item[1]}))" :style="{overflow: 'scroll'}">
         <template v-slot="{ cell: cell, columnKey: columnKey }">
           <span :class="columnKey === 'index' ? 'row-index-cell' : ''">
             {{cell}}
