@@ -15,6 +15,10 @@ module.exports = {
   title:'重点人才专题',
   states: [
     {
+      id: 'selectedArea',
+      value: {}
+    },
+    {
       id: 'types',
       value: [
         {index: 1, name: '学术型人才'},

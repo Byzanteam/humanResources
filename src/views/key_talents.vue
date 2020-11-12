@@ -101,7 +101,7 @@
     </data-loader>
     <brick-radio-button-select :options="craneStates.selectOptions" v-model="craneStates.department" placeholder="全省" :style="{position: 'absolute', top: '125px', left: '929px'}" />
     <data-loader v-slot="{ results: results }" :url="`${requestUrl}`" method="get" :data="[[0, '暂无数据']]" :style="{width: '1100px', height: '900px', position: 'absolute', top: '160px', left: '410px'}">
-      <v-chart :options="{backgroundColor: 'transparent', tooltip: {trigger: 'item', formatter: (params) => {return params.name + '<br />人才数量（人）：' + (isNaN(params.value) ? 0 : params.value)}, backgroundColor: '#566374f0'}, visualMap: {type: 'piecewise', pieces: [{gt: 1500, label: '1500人及以上'}, {gt: 1000, lte: 1500, label: '1000-1500人'}, {gt: 100, lte: 999, label: '100-999人'}, {gt: 10, lte: 99, label: '10-99人'}, {gt: 1, lt: 9, label: '1-9人'}], orient: 'horizontal', bottom: '6%', left: '26%', textStyle: {color: '#ffffff', fontSize: '14'}, itemWidth: 18, itemGap: 10, textGap: 8, inRange: {color: ['#1c44a2', '#2174bb', '#e0ad3a', '#d98278', '#bb4e54']}}, series: [
+      <v-chart ref="map" :options="{backgroundColor: 'transparent', tooltip: {trigger: 'item', formatter: (params) => {return params.name + '<br />人才数量（人）：' + (isNaN(params.value) ? 0 : params.value)}, backgroundColor: '#566374f0'}, visualMap: {type: 'piecewise', inverse: true, pieces: [{gt: 1500, label: '1500人及以上'}, {gt: 1000, lte: 1500, label: '1000-1500人'}, {gt: 100, lte: 999, label: '100-999人'}, {gt: 10, lte: 99, label: '10-99人'}, {gt: 1, lt: 9, label: '1-9人'}], orient: 'horizontal', bottom: '6%', left: '26%', textStyle: {color: '#ffffff', fontSize: '14'}, itemWidth: 18, itemGap: 10, textGap: 8, inRange: {color: ['#1c44a2', '#2174bb', '#e0ad3a', '#d98278', '#bb4e54']}}, series: [
                 {
                   type: 'map',
                   mapType: craneStates.department ? craneStates.department.uuid : 'fujian',
@@ -124,7 +124,11 @@
                       fontWeight: 600,
                     },
                     itemStyle: {
-                      areaColor: '#29e8de'
+                      areaColor: '#29e8de',
+                      shadowColor: 'rgba(0, 0, 0, .5)',
+                      shadowBlur: 12,
+                      shadowOffsetX: 0,
+                      shadowOffsetY: 10
                     }
                   },
                 }
@@ -223,6 +227,7 @@ export const key_talents = {
     return {
       Echarts: Echarts,
       craneStates: {
+        selectedArea: {},
         types: [{index: 1, name: '学术型人才'}, {index: 2, name: '工程型人才'}, {index: 3, name: '技能型人才'}, {index: 4, name: '技术型人才'}],
         supplyInputWord: '',
         demandInputWord: '',
@@ -275,11 +280,35 @@ export const key_talents = {
     document.title = '重点人才专题'
   },
 
+  mounted() {
+    this.bindMapEvents()
+  },
+
   beforeMount() {
     this.requestMapGeojson(Echarts)
   },
 
   methods: {
+    bindMapEvents() {
+      const { chart } = this.$refs.map
+      chart.on('click', (params) => {
+        chart.dispatchAction({
+          type: 'mapSelect',
+          dataIndex: params.dataIndex
+        })
+        if(this.craneStates.selectedArea) {
+          chart.dispatchAction({
+            type: 'mapUnSelect',
+            dataIndex: this.craneStates.selectedArea.dataIndex
+          })
+        }
+        if(this.craneStates.selectedArea.dataIndex === params.dataIndex) {
+          this.craneStates.selectedArea = {}
+        } else {
+          this.craneStates.selectedArea = params
+        }
+      })
+    },
     shortageTooltipFormatterFunc(params) {
       return `${params[0].name}<br/>${params[0].marker}${params[0].seriesName}：${params[0].data}人`
     },

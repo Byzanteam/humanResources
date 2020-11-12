@@ -75,7 +75,11 @@ module.exports = {
                 $fontWeight: 600,
               },
               $itemStyle: {
-                areaColor: '#29e8de'
+                areaColor: '#29e8de',
+                shadowColor: 'rgba(0, 0, 0, .5)',
+                $shadowBlur: 12,
+                $shadowOffsetX: 0,
+                $shadowOffsetY: 10
               }
             },
           }

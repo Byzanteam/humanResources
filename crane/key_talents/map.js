@@ -27,6 +27,7 @@ module.exports = [
   },
   children: [
     {
+      id: 'map',
       component: 'v-chart',
       props: {
         $options: {
@@ -38,6 +39,7 @@ module.exports = [
           },
           $visualMap: {
             type: 'piecewise',
+            $inverse: true,
             $pieces: "[{gt: 1500, label: '1500人及以上'}, {gt: 1000, lte: 1500, label: '1000-1500人'}, {gt: 100, lte: 999, label: '100-999人'}, {gt: 10, lte: 99, label: '10-99人'}, {gt: 1, lt: 9, label: '1-9人'}]",
             orient: 'horizontal',
             bottom: '6%',
@@ -76,7 +78,11 @@ module.exports = [
                   fontWeight: 600,
                 },
                 itemStyle: {
-                  areaColor: '#29e8de'
+                  areaColor: '#29e8de',
+                  shadowColor: 'rgba(0, 0, 0, .5)',
+                  shadowBlur: 12,
+                  shadowOffsetX: 0,
+                  shadowOffsetY: 10
                 }
               },
             }
