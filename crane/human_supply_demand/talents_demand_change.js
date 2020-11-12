@@ -5,6 +5,30 @@ const {
   axisLabelStyle,
 } = require('../share')
 
+const yAxis_style = {
+  type: 'value',
+  $axisLine: {
+    $show: false
+  },
+  $axisTick: {
+    $show: false,
+  },
+  $nameTextStyle: {
+    align: 'center',
+    $padding:"[0, 5, 0, 0]",
+    ...axisLabelStyle,
+  },
+  $axisLabel: {
+    align: 'center',
+    ...axisLabelStyle,
+  },
+  $splitLine: {
+    $show: false
+  }
+}
+
+const yAxises = ['人', '百分比']
+
 module.exports = [
   {
     id: 'talents-demand-change-icon',
@@ -44,7 +68,7 @@ module.exports = [
           $options: {
             grid: {
               $left: 52,
-              $right: -10,
+              $right: 30,
               $bottom: 30
             },
             backgroundColor: 'transparent',
@@ -86,29 +110,8 @@ module.exports = [
                 $show: false
               }
             },
-            $yAxis: {
-              type: 'value',
-              name: '人',
-              $axisLine: {
-                $show: false
-              },
-              $axisTick: {
-                $show: false,
-              },
-              $nameTextStyle: {
-                align: 'center',
-                $padding:"[0, 5, 0, 0]",
-                ...axisLabelStyle,
-              },
-              $axisLabel: {
-                align: 'center',
-                ...axisLabelStyle,
-              },
-              $splitLine: {
-                $show: false
-              }
-            },
-            $series: "[{type: 'line', name: '人才供给', data: results ? results.map(item => (item[2])) : [0], showSymbol: false, lineStyle: {width: 4}}, {type: 'line', name: '岗位需求', data: results ? results.map(item => (item[0])) : [0], showSymbol: false, lineStyle: {width: 4}}]",
+            $yAxis: `${yAxises.map(item => ({name: item, ...yAxis_style}))}`,
+            $series: "[{type: 'line', name: '人才供给', data: results ? results.map(item => (item[2])) : [0], showSymbol: false, lineStyle: {width: 4}}, {type: 'line', name: '岗位需求', data: results ? results.map(item => (item[0])) : [0], showSymbol: false, lineStyle: {width: 4}}, {type: 'line', name: '供求比', yAxisIndex: 1, data: results ? results.map(item => (item[3])) : [0], showSymbol: false, lineStyle: {width: 4}}]",
           }
         }
       }

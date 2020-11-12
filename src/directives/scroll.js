@@ -16,7 +16,7 @@ const setTimr = (el, itemHeight) => {
   timr = setInterval(() => {
     if(distance >= limit) {
       distance = 0
-      el.style.transform = `translate3d(0px, -${distance}px, 0px)`
+      el.style.transform = `translate3d(0px, ${distance}px, 0px)`
     } else {
       distance += itemHeight
       el.style.transform = `translate3d(0px, -${distance}px, 0px)`
