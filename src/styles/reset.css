@@ -149,12 +149,18 @@ input::placeholder {
 .table.table--dark th {
   line-height: 40px;
   color: #00fff2;
+  text-align: left !important;
 }
 
 .table .table__body tr td {
   height: 36px;
   line-height: 36px;
   background-color: rgba(13, 45, 120, .45);
+}
+
+.table .table__body tr td:not(:first-child) {
+  padding-right: 20px;
+  padding-left: 0;
 }
 
 .table .table__body tr td .table__cell--scroll {
