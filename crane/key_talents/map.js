@@ -13,9 +13,6 @@ module.exports = [
   {
   component: '@byzanteam/vis-components/data-loader',
   position: [410, 160],
-  exports: {
-    results: 'results',
-  },
   props: {
     $url: "`${requestUrl}`",
     method: 'get',
@@ -24,6 +21,12 @@ module.exports = [
       width: '1100px',
       height: '900px'
     }
+  },
+  events: {
+    requestDone: {
+      params: ['param'],
+      actions: ["setState('mapData', param.results.map((item) => ({name: item[1], value: item[0]})))"],
+    },
   },
   children: [
     {
@@ -83,7 +86,7 @@ module.exports = [
               type: 'map',
               mapType: craneStates.department ? craneStates.department.uuid : 'fujian',
               geoIndex: 0,
-              data: results.map(item => {return {name: item[1], value: item[0]}}),
+              data: craneStates.mapData,
               label: {
                 show: true,
                 fontSize: 15,

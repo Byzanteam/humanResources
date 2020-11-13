@@ -19,6 +19,10 @@ module.exports = {
       value: {}
     },
     {
+      id: 'mapData',
+      value: []
+    },
+    {
       id: 'types',
       value: [
         {index: 1, name: '学术型人才'},

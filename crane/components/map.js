@@ -56,7 +56,7 @@ module.exports = {
           $series: {
             type: 'map',
             $mapType: "craneStates.department ? craneStates.department.uuid : 'fujian'",
-            $data: "results.map(item => ({name: item[1], value: item[0]}))",
+            $data: "craneStates.mapData",
             $label: {
               $show: true,
               $fontSize: 15,
