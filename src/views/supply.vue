@@ -12,7 +12,7 @@
     </data-loader>
     <div class="center-select">
       <brick-radio-button-select :options="provinceOptions" v-model="craneStates.province" placeholder="全省" />
-      <brick-radio-button-select ref="departments-select" :options="selectOptions" v-model="craneStates.department" placeholder="全省" :style="{marginLeft: '12px'}" />
+      <brick-radio-button-select ref="departments-select" :options="craneStates.selectOptions" v-model="craneStates.department" placeholder="全省" :style="{marginLeft: '12px'}" />
     </div>
     <data-loader ref="job_select" v-slot="{ results: results }" :url="`/v1/components/01b74ddd-39de-493f-84ab-9d87fcf23fee/data?job=${craneStates.inputQuery}`" method="get" :data="[['']]" :style="{position: 'absolute', top: '48px', left: '40px'}">
       <Select class="departments-select" :clearable="true" :filterable="true" :style="{width: '380px'}" v-model="craneStates.currentJob">
@@ -147,8 +147,6 @@ const TAB_NAVS = [{uuid: 1, label: '岗位排名'}, {uuid: 2, label: '岗位薪�
 
 const CHART_TAB_NAVS = [{uuid: 1, label: '人才学历'}, {uuid: 2, label: '人才职称'}]
 
-const SELECT_OPTIONS = [{label: '福州', uuid: 'fuzhou'}, {label: '宁德', uuid: 'ningde'}, {label: '龙岩', uuid: 'longyan'}, {label: '莆田', uuid: 'putian'}, {label: '南平', uuid: 'nanping'}, {label: '三明', uuid: 'sanming'}, {label: '厦门', uuid: 'xiamen'}, {label: '漳州', uuid: 'zhangzhou'}, {label: '泉州', uuid: 'quanzhou'}]
-
 const PROVINCE_OPTIONS = [{label: '福建', uuid: 1}]
 
 export const supply = {
@@ -169,7 +167,6 @@ export const supply = {
 
   data () {
     return {
-      selectOptions: SELECT_OPTIONS,
       provinceOptions: PROVINCE_OPTIONS,
       Echarts: Echarts,
       craneStates: {
@@ -256,28 +253,39 @@ export const supply = {
 
   mounted() {
     const { chart } = this.$refs.map
-    chart.on('click', (params) => {
-      chart.dispatchAction({
-        type: 'mapSelect',
-        dataIndex: params.dataIndex
-      })
-      if(this.craneStates.selectedArea) {
-        chart.dispatchAction({
-          type: 'mapUnSelect',
-          dataIndex: this.craneStates.selectedArea.dataIndex
-        })
-      }
-      if(this.craneStates.selectedArea.dataIndex === params.dataIndex) {
-        this.craneStates.selectedArea = {}
-      } else {
-        this.craneStates.selectedArea = params
-      }
-    })
+    this.mapClickedFunc(chart)
+    this.mapDbclickedFunc(chart)
   },
 
   methods: {
     salaryTooltipFormatterFunc(params) {
       return `${params[0].name}<br/><span style="display:inline-block;margin-right:5px;border-radius:10px;width:10px;height:10px;background-color: #6ad6ff;"></span>${params[0].seriesName}：${params[0].data}元`
+    },
+    mapDbclickedFunc(chart) {
+      chart.on('dblclick', (params) => {
+        const { name } = params
+        const area = _.find(this.craneStates.selectOptions, (option) => (option.label === name))
+        this.craneStates.department = area ? area : this.craneStates.department
+      })
+    },
+    mapClickedFunc(chart) {
+      chart.on('click', (params) => {
+        chart.dispatchAction({
+          type: 'mapSelect',
+          dataIndex: params.dataIndex
+        })
+        if(this.craneStates.selectedArea) {
+          chart.dispatchAction({
+            type: 'mapUnSelect',
+            dataIndex: this.craneStates.selectedArea.dataIndex
+          })
+        }
+        if(this.craneStates.selectedArea.dataIndex === params.dataIndex) {
+          this.craneStates.selectedArea = {}
+        } else {
+          this.craneStates.selectedArea = params
+        }
+      })
     },
     demandTooltipFormatterFunc(params) {
       const series = params.reduce((memo, serie) => {

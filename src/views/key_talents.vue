@@ -293,7 +293,6 @@ export const key_talents = {
         year: new Date('2020'),
         dateRange: [],
         currentShortageType: '',
-        selectOptions: [{label: '福州', uuid: 'fuzhou'}, {label: '宁德', uuid: 'ningde'}, {label: '龙岩', uuid: 'longyan'}, {label: '莆田', uuid: 'putian'}, {label: '南平', uuid: 'nanping'}, {label: '三明', uuid: 'sanming'}, {label: '厦门', uuid: 'xiamen'}, {label: '漳州', uuid: 'zhangzhou'}, {label: '泉州', uuid: 'quanzhou'}],
         department: null,
       },
     }
@@ -334,7 +333,9 @@ export const key_talents = {
   },
 
   mounted() {
-    this.bindMapEvents()
+    const { chart } = this.$refs.map
+    this.mapClickedFunc(chart)
+    this.mapDbclickedFunc(chart)
   },
 
   beforeMount() {
@@ -342,8 +343,7 @@ export const key_talents = {
   },
 
   methods: {
-    bindMapEvents() {
-      const { chart } = this.$refs.map
+    mapClickedFunc(chart) {
       chart.on('click', (params) => {
         chart.dispatchAction({
           type: 'mapSelect',
@@ -360,6 +360,13 @@ export const key_talents = {
         } else {
           this.craneStates.selectedArea = params
         }
+      })
+    },
+    mapDbclickedFunc(chart) {
+      chart.on('dblclick', (params) => {
+        const { name } = params
+        const area = _.find(this.craneStates.selectOptions, (option) => (option.label === name))
+        this.craneStates.department = area ? area : this.craneStates.department
       })
     },
     shortageTooltipFormatterFunc(params) {

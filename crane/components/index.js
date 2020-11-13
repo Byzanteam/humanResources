@@ -173,7 +173,7 @@ module.exports = {
           id: 'departments-select',
           component: '@byzanteam/vis-components/brick-radio-button-select',
           props: {
-            $options: "selectOptions",
+            $options: "craneStates.selectOptions",
             'v-model': 'craneStates.department',
             placeholder: '全省',
           },

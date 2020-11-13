@@ -142,7 +142,6 @@ export const introduction = {
         year: new Date('2020'),
         dateRange: [],
         selectedArea: {},
-        selectOptions: [{label: '福州', uuid: 'fuzhou'}, {label: '宁德', uuid: 'ningde'}, {label: '龙岩', uuid: 'longyan'}, {label: '莆田', uuid: 'putian'}, {label: '南平', uuid: 'nanping'}, {label: '三明', uuid: 'sanming'}, {label: '厦门', uuid: 'xiamen'}, {label: '漳州', uuid: 'zhangzhou'}, {label: '泉州', uuid: 'quanzhou'}],
         department: null,
       },
     }
@@ -206,26 +205,37 @@ export const introduction = {
 
   mounted() {
     const { chart } = this.$refs.map
-    chart.on('click', (params) => {
-      chart.dispatchAction({
-        type: 'mapSelect',
-        dataIndex: params.dataIndex
-      })
-      if(this.craneStates.selectedArea) {
-        chart.dispatchAction({
-          type: 'mapUnSelect',
-          dataIndex: this.craneStates.selectedArea.dataIndex
-        })
-      }
-      if(this.craneStates.selectedArea.dataIndex === params.dataIndex) {
-        this.craneStates.selectedArea = {}
-      } else {
-        this.craneStates.selectedArea = params
-      }
-    })
+    this.mapClickedFunc(chart)
+    this.mapDbclickedFunc(chart)
   },
 
   methods: {
+    mapDbclickedFunc(chart) {
+      chart.on('dblclick', (params) => {
+        const { name } = params
+        const area = _.find(this.craneStates.selectOptions, (option) => (option.label === name))
+        this.craneStates.department = area ? area : this.craneStates.department
+      })
+    },
+    mapClickedFunc(chart) {
+      chart.on('click', (params) => {
+        chart.dispatchAction({
+          type: 'mapSelect',
+          dataIndex: params.dataIndex
+        })
+        if(this.craneStates.selectedArea) {
+          chart.dispatchAction({
+            type: 'mapUnSelect',
+            dataIndex: this.craneStates.selectedArea.dataIndex
+          })
+        }
+        if(this.craneStates.selectedArea.dataIndex === params.dataIndex) {
+          this.craneStates.selectedArea = {}
+        } else {
+          this.craneStates.selectedArea = params
+        }
+      })
+    },
     tooltipFormatterFunc(params) {
       return `${params[0].name}<br/><span style="display:inline-block;margin-right:5px;border-radius:10px;width:10px;height:10px;background: linear-gradient(0deg, #7d40ff, #00fff2);"></span>高层次人才引进：${params[0].data}人`
     },

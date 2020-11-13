@@ -43,7 +43,7 @@
     <div ref="production-bg" :style="{width: '380px', height: '50px', backgroundColor: 'rgba(13, 45, 120, .45)', borderRadius: '5px', position: 'absolute', top: '128px', left: '40px'}" />
     <div ref="production-bg" :style="{width: '380px', height: '50px', backgroundColor: 'rgba(13, 45, 120, .45)', borderRadius: '5px', position: 'absolute', top: '208px', left: '40px'}" />
     <div ref="departments-loader" class="center-select">
-      <brick-radio-button-select ref="departments-select" :options="selectOptions" v-model="craneStates.department" placeholder="全省" />
+      <brick-radio-button-select ref="departments-select" :options="craneStates.selectOptions" v-model="craneStates.department" placeholder="全省" />
     </div>
     <div ref="talents-demand-change-icon" :style="{color: '#6ad6ff', fontSize: '14px', fontWeight: '400', textAlign: 'left', position: 'absolute', top: '51px', left: '1500px'}">
       >>
@@ -139,7 +139,6 @@ import china from '../../public/hxrc/china.json'
 Echarts.registerMap('fujian', fujian)
 Echarts.registerMap('china', china)
 
-const SELECT_OPTIONS = [{label: '福州', uuid: 'fuzhou'}, {label: '宁德', uuid: 'ningde'}, {label: '龙岩', uuid: 'longyan'}, {label: '莆田', uuid: 'putian'}, {label: '南平', uuid: 'nanping'}, {label: '三明', uuid: 'sanming'}, {label: '厦门', uuid: 'xiamen'}, {label: '漳州', uuid: 'zhangzhou'}, {label: '泉州', uuid: 'quanzhou'}]
 const DATE_RANGE = [2006, new Date().getFullYear()]
 
 import BuiltInMixin from '../mixins/built_in'
@@ -178,7 +177,6 @@ export const resources = {
   data () {
     return {
       Echarts: Echarts,
-      selectOptions: SELECT_OPTIONS,
       craneStates: {
         department: null,
         mapData: [],
@@ -200,6 +198,17 @@ export const resources = {
   methods: {
     bindMapEvents() {
       const { chart } = this.$refs.map
+      this.mapClickedFunc(chart)
+      this.mapDbclickedFunc(chart)
+    },
+    mapDbclickedFunc(chart) {
+      chart.on('dblclick', (params) => {
+        const { name } = params
+        const area = _.find(this.craneStates.selectOptions, (option) => (option.label === name))
+        this.craneStates.department = area ? area : this.craneStates.department
+      })
+    },
+    mapClickedFunc(chart) {
       chart.on('click', (params) => {
         chart.dispatchAction({
           type: 'mapSelect',
