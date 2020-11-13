@@ -1,23 +1,46 @@
 var timr = null
 var limit = 0
+var distance = 0
+var duration = '1.2s'
+
+const init = el => {
+  if (timr) {
+    clearInterval(timr)
+  }
+
+  scrollTop(el)
+}
+
+const setStyle = el => {
+  el.style.transitionDuration = duration
+  el.style.transitionProperty = 'transform'
+  el.style.transform = `translate3d(0px, ${distance}px, 0px)`
+}
+
+const scrollTop = el => {
+  distance = 0
+  duration = '0s'
+  setStyle(el)
+}
 
 const scrollAuto = (el, { itemHeight }) => {
-  el.style.transitionDuration = '1.2s'
-  el.style.transitionProperty = 'transform'
+  init(el)
   const clientHeight = el.parentNode.clientHeight,
         scrollHeight = el.parentNode.scrollHeight
   if (scrollHeight <= clientHeight) return
-  limit = scrollHeight - clientHeight
+  limit = scrollHeight
   setTimr(el, itemHeight)
 }
 
 const setTimr = (el, itemHeight) => {
-  var distance = 0
   timr = setInterval(() => {
     if(distance >= limit) {
-      distance = 0
-      el.style.transform = `translate3d(0px, ${distance}px, 0px)`
+      scrollTop(el)
     } else {
+      if(duration === '0s') {
+        duration = '1.2s'
+        setStyle(el)
+      }
       distance += itemHeight
       el.style.transform = `translate3d(0px, -${distance}px, 0px)`
     }
@@ -26,7 +49,10 @@ const setTimr = (el, itemHeight) => {
 }
 
 export default {
-  componentUpdated(el, { value }) {
+  update(el, { value }) {
     scrollAuto(el, value)
   },
+  unbind() {
+    clearInterval(timr)
+  }
 }
