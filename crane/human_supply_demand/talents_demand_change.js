@@ -14,12 +14,12 @@ const yAxis_style = {
     $show: false,
   },
   $nameTextStyle: {
-    align: 'center',
+    align: 'right',
     $padding:"[0, 5, 0, 0]",
     ...axisLabelStyle,
   },
   $axisLabel: {
-    align: 'center',
+    align: 'right',
     ...axisLabelStyle,
   },
   $splitLine: {
@@ -57,7 +57,7 @@ module.exports = [
       method: 'get',
       $data: "[[0, '暂无数据']]",
       $style: {
-        width: '400px',
+        width: '380px',
         height: '230px'
       }
     },
@@ -68,7 +68,7 @@ module.exports = [
           $options: {
             grid: {
               $left: 52,
-              $right: 30,
+              $right: 50,
               $bottom: 30
             },
             backgroundColor: 'transparent',

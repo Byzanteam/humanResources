@@ -44,7 +44,7 @@ module.exports = [
       method: 'get',
       $data: "[[0, '暂无数据']]",
       $style: {
-        width: '400px',
+        width: '380px',
         height: '230px'
       }
     },
@@ -108,7 +108,7 @@ module.exports = [
               },
               $nameTextStyle: {
                 ...axisLabelStyle,
-                align: 'center',
+                align: 'right',
                 $padding:"[0, 5, 0, 0]"
               },
               $axisLabel: {

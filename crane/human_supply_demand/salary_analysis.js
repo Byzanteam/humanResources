@@ -134,8 +134,8 @@ module.exports = [
               },
               $nameTextStyle: {
                 ...axisLabelStyle,
-                align: 'center',
-                $padding: "[0, 0, 0, 3]"
+                align: 'right',
+                $padding: "[0, 5, 0, 0]"
               },
               $axisLabel: {
                 ...axisLabelStyle,

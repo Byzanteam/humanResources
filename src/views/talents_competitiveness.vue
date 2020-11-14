@@ -71,7 +71,7 @@
       <Radio v-for="(item, key) in craneStates.indicators" :key="key" :label="item.name" />
     </RadioGroup>
     <data-loader @requestDone="(param)=>[setState('radarData', param.results || [])]" :url="radarRequestUrl" method="get" :data="[[0, '暂无数据']]" :style="{width: '380px', height: '480px', position: 'absolute', top: '455px', left: '1500px'}">
-      <v-chart :options="{legend: {orient: 'vertical', top: 350, icon: 'circle', inactiveColor: '#1C4159', itemGap: 5, itemWidth: 10, itemHeight: 10, textStyle: {color: '#ffffff', fontSize: 14, padding: [2, 4]}}, tooltip: {trigger: 'item', backgroundColor: '#566374f0'}, color: ['#00fff2', '#7b43ff', '#e0ad3a', '#189ef1', '#2174b8', '#f65446'], radiusAxis: {axisLine: {color: '#19394f'}, splitLine: {color: '#19394f'}}, radar: {shape: 'circle', center: ['50%', '26%'], radius: '50% ', name: {textStyle: {color: 'rgba(255, 255, 255, .8)', fontSize: 14, fontWeight: 400}}, axisLine: {lineStyle: {color: '#19394f'}}, splitArea: {areaStyle: {color: 'transparent'}}, splitLine: {lineStyle: {color: '#19394f'}}, indicator: craneStates.indicators}, series: [{
+      <v-chart :options="{legend: {orient: 'vertical', top: 274, icon: 'circle', inactiveColor: '#1C4159', itemGap: 5, itemWidth: 10, itemHeight: 10, textStyle: {color: '#ffffff', fontSize: 14, padding: [2, 4]}}, tooltip: {trigger: 'item', backgroundColor: '#566374f0'}, color: ['#00fff2', '#7b43ff', '#e0ad3a', '#189ef1', '#2174b8', '#f65446'], radiusAxis: {axisLine: {color: '#19394f'}, splitLine: {color: '#19394f'}}, radar: {shape: 'circle', center: ['50%', '26%'], radius: '50% ', name: {textStyle: {color: 'rgba(255, 255, 255, .8)', fontSize: 14, fontWeight: 400}}, axisLine: {lineStyle: {color: '#19394f'}}, splitArea: {areaStyle: {color: 'transparent'}}, splitLine: {lineStyle: {color: '#19394f'}}, indicator: craneStates.indicators}, series: [{
                   type: 'radar',
                   areaStyle: {opacity: 0.2},
                   lineStyle: {width: 1},
@@ -102,7 +102,7 @@
       </Select>
     </div>
     <data-loader @requestDone="(param)=>[setState('mapData', param.results.map((item) => ({name: item[1], value: craneStates.areaCoordMap[item[1]].concat(item[0].toFixed(2))}))), setState('tableData', param.results.map((item, index) => ({index: index + 1, name: item[1], value: item[0].toFixed(2)})))]" :url="tableRequestUrl" method="get" :data="[[0, '暂无数据']]" :style="{width: '380px', height: '680px', overflow: 'scroll', position: 'absolute', top: '360px', left: '40px'}">
-      <vis-table v-scroll="{itemHeight: 40}" theme="dark" stripe="" :headers="[{width: 80, key: 'index',}, {width: 160, key: 'name', title: '省市排名'}, {width: 160, key: 'value', title: '人才质量指标'}]" :data="sortTableData">
+      <vis-table v-scroll="{itemHeight: 40}" theme="dark" stripe="" :headers="[{width: 80, key: 'index',}, {width: 160, key: 'name', title: '省市排名'}, {width: 140, key: 'value', title: '人才指标'}]" :data="sortTableData">
         <template v-slot="{ cell: cell, columnKey: columnKey }">
           <span :class="columnKey === 'index' ? 'row-index-cell' : ''">
             {{cell}}

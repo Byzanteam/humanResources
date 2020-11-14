@@ -25,7 +25,7 @@ module.exports = {
         $options: {
           $legend: {
             orient: 'vertical',
-            $top: 350,
+            $top: 274,
             icon: 'circle',
             inactiveColor: '#1C4159',
             $itemGap: 5,

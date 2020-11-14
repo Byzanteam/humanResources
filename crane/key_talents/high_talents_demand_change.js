@@ -23,7 +23,7 @@ module.exports = [
             $grid: {
               top: '24%',
               right: '5%',
-              bottom: '10%'
+              bottom: '12%'
             },
             backgroundColor: 'transparent',
             $color: "['#00fff2', '#7b43ff']",
@@ -45,7 +45,7 @@ module.exports = [
               $itemWidth: 8,
               $itemHeight: 8,
               $textStyle: {
-                color: '#4b9bbe',
+                color: '#ffffff',
                 $fontSize: 14
               },
               inactiveColor: '#1C4159',
@@ -60,7 +60,7 @@ module.exports = [
                 $show: false,
               },
               $axisLabel: {
-                color: '#367391',
+                color: '#ffffff',
                 $fontSize: 12,
                 $fontWeight: 400
               },
@@ -78,14 +78,14 @@ module.exports = [
                 $show: false,
               },
               $nameTextStyle: {
-                color: '#367391',
+                color: '#ffffff',
                 $fontSize: 12,
                 $fontWeight: 400,
                 align: 'center',
                 $padding:"[0, 5, 0, 0]"
               },
               $axisLabel: {
-                color: '#367391',
+                color: '#ffffff',
                 $fontSize: 12,
                 $fontWeight: 400,
                 align: 'center'

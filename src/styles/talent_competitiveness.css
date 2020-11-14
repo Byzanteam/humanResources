@@ -9,5 +9,6 @@
 }
 
 .ivu-select-multiple .ivu-icon-ios-close:before {
-  color: #6ad6ff33
+  color: #6ad6ff33;
+  opacity: .6;
 }
