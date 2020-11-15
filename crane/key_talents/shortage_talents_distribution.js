@@ -39,8 +39,8 @@ module.exports = [
               $itemGap: 9,
               orient: 'vertical',
               $textStyle: {
-                color: '#4b9bbe',
-                $fontSize: 12,
+                color: '#ffffff',
+                $fontSize: 14,
                 $lineHeight: 15
               },
               inactiveColor: '#1C4159',

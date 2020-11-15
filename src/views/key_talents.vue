@@ -1,7 +1,6 @@
 <template>
   <div class="key_talents">
     <navigator ref="navigator"/>
-    <img ref="background" src="/hxrc/images/Bg.png" :style="{position: 'absolute', top: '0px', left: '0px'}" />
     <img ref="title-bg" :style="{width: '701px', height: '123px', position: 'absolute', top: '0px', left: '607px'}" src="/hxrc/images/Title-Bg.png" />
     <div @click="()=>[openNavigator()]" :style="{cursor: 'pointer', width: '460px', color: '#fff', fontSize: '42px', fontWeight: 600, textAlign: 'center', lineHeight: 1, position: 'absolute', top: '36px', left: '730px'}">
       重点人才专题
@@ -89,24 +88,25 @@
       </brick-button>
     </div>
     <data-loader ref="high-talents-demand-change-line-chart" v-slot="{ results: results }" :url="`/v1/components/09b74ddd-39de-493f-84ab-9d87fcf23fee/data?area=${craneStates.department ? craneStates.department.label : ''}`" method="get" :data="[[0, '暂无数据']]" :style="{width: '380px', height: '180px', position: 'absolute', top: '597px', left: '40px'}">
-      <v-chart :options="{grid: {top: '24%', right: '5%', bottom: '10%'}, backgroundColor: 'transparent', color: ['#00fff2', '#7b43ff'], tooltip: {trigger: 'axis', formatter: demandTooltipFormatterFunc, backgroundColor: '#566374f0', axisPointer: {lineStyle: {color: '#ffffff', type: 'dotted'}}}, legend: {icon: 'circle', right: 10, itemGap: 14, itemWidth: 8, itemHeight: 8, textStyle: {color: '#4b9bbe', fontSize: 14}, inactiveColor: '#1C4159'}, xAxis: {type: 'category', data: results ? results.map(item => (item[1])) : ['暂无数据'], axisLine: {show: false}, axisTick: {show: false}, axisLabel: {color: '#367391', fontSize: 12, fontWeight: 400}, splitLine: {show: false}}, yAxis: {type: 'value', name: '人', axisLine: {show: false}, axisTick: {show: false}, nameTextStyle: {color: '#367391', fontSize: 12, fontWeight: 400, align: 'center', padding: [0, 5, 0, 0]}, axisLabel: {color: '#367391', fontSize: 12, fontWeight: 400, align: 'center'}, splitLine: {show: false}, splitNumber: 4}, series: [{type: 'line', name: '人才供应', data: results ? results.map(item => (item[2])) : [0], showSymbol: false, lineStyle: {width: 4}}, {type: 'line', name: '人才需求', data: results ? results.map(item => (item[0])) : [0], showSymbol: false, lineStyle: {width: 4}}]}" />
+      <v-chart :options="{grid: {top: '24%', right: '5%', bottom: '12%'}, backgroundColor: 'transparent', color: ['#00fff2', '#7b43ff'], tooltip: {trigger: 'axis', formatter: demandTooltipFormatterFunc, backgroundColor: '#566374f0', axisPointer: {lineStyle: {color: '#ffffff', type: 'dotted'}}}, legend: {icon: 'circle', right: 10, itemGap: 14, itemWidth: 8, itemHeight: 8, textStyle: {color: '#ffffff', fontSize: 14}, inactiveColor: '#1C4159'}, xAxis: {type: 'category', data: results ? results.map(item => (item[1])) : ['暂无数据'], axisLine: {show: false}, axisTick: {show: false}, axisLabel: {color: '#ffffff', fontSize: 12, fontWeight: 400}, splitLine: {show: false}}, yAxis: {type: 'value', name: '人', axisLine: {show: false}, axisTick: {show: false}, nameTextStyle: {color: '#ffffff', fontSize: 12, fontWeight: 400, align: 'right', padding: [0, 5, 0, 0]}, axisLabel: {color: '#ffffff', fontSize: 12, fontWeight: 400, align: 'right'}, splitLine: {show: false}, splitNumber: 4}, series: [{type: 'line', name: '人才供应', data: results ? results.map(item => (item[2])) : [0], showSymbol: false, lineStyle: {width: 4}}, {type: 'line', name: '人才需求', data: results ? results.map(item => (item[0])) : [0], showSymbol: false, lineStyle: {width: 4}}]}" />
     </data-loader>
     <data-loader v-slot="{ results: results }" :url="`/v1/components/28b74ddd-39de-493f-84ab-9d87fcf23fee/data?industry=${craneStates.currentShortageType|| ''}`" method="get" :data="[[0, '暂无数据']]" :style="{width: '380px', height: '180px', overflow: 'scroll', position: 'absolute', top: '845px', left: '40px'}">
-      <v-chart :options="{backgroundColor: 'transparent', tooltip: {trigger: 'item', formatter: pieTooltipFormatterFunc, backgroundColor: '#566374f0'}, legend: {type: 'scroll', icon: 'circle', itemWidth: 10, itemHeight: 10, right: 'right', top: 'middle', itemGap: 9, orient: 'vertical', textStyle: {color: '#4b9bbe', fontSize: 12}, inactiveColor: '#1C4159'}, color: ['#00fff2', '#7b43ff', '#e0ad3a', '#189ef1', '#2174b8', '#f65446'], series: [{type: 'pie', minAngle: 5, left: -140, radius: ['45%', '76%'], label: {show: false}, labelLine: {show: false}, data: results ? results.map(item => ({value: item [0], name: item[1]})) : [{value: 0, name: '暂无数据'}]}]}" />
+      <v-chart :options="{backgroundColor: 'transparent', tooltip: {trigger: 'item', formatter: pieTooltipFormatterFunc, backgroundColor: '#566374f0'}, legend: {type: 'scroll', icon: 'circle', itemWidth: 10, itemHeight: 10, right: 'right', top: 'middle', itemGap: 9, orient: 'vertical', textStyle: {color: '#ffffff', fontSize: 14}, inactiveColor: '#1C4159'}, color: ['#00fff2', '#7b43ff', '#e0ad3a', '#189ef1', '#2174b8', '#f65446'], series: [{type: 'pie', minAngle: 5, left: -140, radius: ['45%', '76%'], label: {show: false}, labelLine: {show: false}, data: results ? results.map(item => ({value: item [0], name: item[1]})) : [{value: 0, name: '暂无数据'}]}]}" />
     </data-loader>
     <data-loader v-slot="{ results: results }" :url="`/v1/components/33b74ddd-39de-493f-84ab-9d87fcf23fee/data?industry=${craneStates.currentShortageType|| ''}&year=${craneStates.year ? craneStates.year.getFullYear() : new Date(Date.now()).getFullYear()}`" method="get" :data="[[0, '暂无数据']]" :style="{width: '380px', height: '180px', overflow: 'scroll', position: 'absolute', top: '845px', left: '1500px'}">
-      <v-chart :options="{backgroundColor: 'transparent', tooltip: {trigger: 'item', formatter: pieTooltipFormatterFunc, backgroundColor: '#566374f0'}, legend: {type: 'scroll', formatter: legendText, icon: 'circle', itemWidth: 10, itemHeight: 10, right: 'right', top: 'middle', itemGap: 9, orient: 'vertical', textStyle: {color: '#4b9bbe', fontSize: 12, lineHeight: 15}, inactiveColor: '#1C4159'}, color: ['#00fff2', '#7b43ff', '#e0ad3a', '#189ef1', '#2174b8', '#f65446'], series: [{type: 'pie', minAngle: 5, left: -140, radius: ['45%', '76%'], label: {show: false}, labelLine: {show: false}, data: results ? results.map(item => ({value: item [0], name: item[1]})).sort(compare()) : [{value: 0, name: '暂无数据'}]}]}" />
+      <v-chart :options="{backgroundColor: 'transparent', tooltip: {trigger: 'item', formatter: pieTooltipFormatterFunc, backgroundColor: '#566374f0'}, legend: {type: 'scroll', formatter: legendText, icon: 'circle', itemWidth: 10, itemHeight: 10, right: 'right', top: 'middle', itemGap: 9, orient: 'vertical', textStyle: {color: '#ffffff', fontSize: 14, lineHeight: 15}, inactiveColor: '#1C4159'}, color: ['#00fff2', '#7b43ff', '#e0ad3a', '#189ef1', '#2174b8', '#f65446'], series: [{type: 'pie', minAngle: 5, left: -140, radius: ['45%', '76%'], label: {show: false}, labelLine: {show: false}, data: results ? results.map(item => ({value: item [0], name: item[1]})).sort(compare()) : [{value: 0, name: '暂无数据'}]}]}" />
     </data-loader>
     <data-loader ref="high-talents-demand-change-line-chart" v-slot="{ results: results }" :url="`/v1/components/32b74ddd-39de-493f-84ab-9d87fcf23fee/data?industry=${craneStates.currentShortageType|| ''}`" method="get" :data="[['暂无数据', 0]]" :style="{width: '380px', height: '214px', position: 'absolute', top: '518px', left: '1500px'}">
-      <v-chart :options="{grid: {top: '24%', right: '5%', bottom: '10%'}, backgroundColor: 'transparent', color: ['#00fff2', '#7b43ff'], tooltip: {trigger: 'axis', formatter: shortageTooltipFormatterFunc, backgroundColor: '#566374f0', axisPointer: {lineStyle: {color: '#ffffff', type: 'dotted'}}}, xAxis: {type: 'category', data: results ? results.map(item => (item[0])) : ['暂无数据'], axisLine: {show: false}, axisTick: {show: false}, axisLabel: {color: '#367391', fontSize: 12, fontWeight: 400}, splitLine: {show: false}}, yAxis: {type: 'value', name: '人', axisLine: {show: false}, axisTick: {show: false}, nameTextStyle: {color: '#367391', fontSize: 12, fontWeight: 400, align: 'center', padding: [0, 5, 0, 0]}, axisLabel: {color: '#367391', fontSize: 12, fontWeight: 400, align: 'center'}, splitLine: {show: false}, splitNumber: 4}, series: [{type: 'line', name: '紧缺人才', data: results ? results.map(item => (item[1])) : [0], showSymbol: false, lineStyle: {width: 4}}]}" />
+      <v-chart :options="{grid: {top: '24%', right: '5%', bottom: '10%'}, backgroundColor: 'transparent', color: ['#00fff2', '#7b43ff'], tooltip: {trigger: 'axis', formatter: shortageTooltipFormatterFunc, backgroundColor: '#566374f0', axisPointer: {lineStyle: {color: '#ffffff', type: 'dotted'}}}, xAxis: {type: 'category', data: results ? results.map(item => (item[0])) : ['暂无数据'], axisLine: {show: false}, axisTick: {show: false}, axisLabel: {color: '#ffffff', fontSize: 12, fontWeight: 400}, splitLine: {show: false}}, yAxis: {type: 'value', name: '人', axisLine: {show: false}, axisTick: {show: false}, nameTextStyle: {color: '#ffffff', fontSize: 12, fontWeight: 400, align: 'right', padding: [0, 5, 0, 0]}, axisLabel: {color: '#ffffff', fontSize: 12, fontWeight: 400, align: 'right'}, splitLine: {show: false}, splitNumber: 4}, series: [{type: 'line', name: '紧缺人才', data: results ? results.map(item => (item[1])) : [0], showSymbol: false, lineStyle: {width: 4}}]}" />
     </data-loader>
     <brick-radio-button-select :options="craneStates.selectOptions" v-model="craneStates.department" placeholder="全省" :style="{position: 'absolute', top: '125px', left: '929px'}" />
-    <data-loader v-slot="{ results: results }" :url="`${requestUrl}`" method="get" :data="[[0, '暂无数据']]" :style="{width: '1100px', height: '900px', position: 'absolute', top: '160px', left: '410px'}">
-      <v-chart :options="{backgroundColor: 'transparent', tooltip: {trigger: 'item', formatter: (params) => {return params.name + '<br />人才数量（人）：' + (isNaN(params.value) ? 0 : params.value)}, backgroundColor: '#566374f0'}, visualMap: {type: 'piecewise', pieces: [{gt: 1500, label: '1500人及以上'}, {gt: 1000, lte: 1500, label: '1000-1500人'}, {gt: 100, lte: 999, label: '100-999人'}, {gt: 10, lte: 99, label: '10-99人'}, {gt: 1, lt: 9, label: '1-9人'}], orient: 'horizontal', bottom: '6%', left: '26%', textStyle: {color: '#ffffff', fontSize: '14'}, itemWidth: 18, itemGap: 10, textGap: 8, inRange: {color: ['#1c44a2', '#2174bb', '#e0ad3a', '#d98278', '#bb4e54']}}, series: [
+    <data-loader @requestDone="(param)=>[setState('mapData', param.results.map((item) => ({name: item[1], value: item[0]})))]" :url="`${requestUrl}`" method="get" :data="[[0, '暂无数据']]" :style="{width: '1100px', height: '900px', position: 'absolute', top: '160px', left: '410px'}">
+      <v-chart ref="map" :options="{backgroundColor: 'transparent', tooltip: {trigger: 'item', formatter: (params) => {return params.name + '<br />人才数量（人）：' + (isNaN(params.value) ? 0 : params.value)}, backgroundColor: '#566374f0'}, geo: {map: craneStates.department ? craneStates.department.uuid : 'fujian', label: {normal: {show: false}, emphasis: {show: false}}, itemStyle: {normal: {areaColor: '#0e3e7d', borderColor: '#68a4f0', borderType: 'solid', borderWidth: 2}, emphasis: {areaColor: '#29e8de'}}, regions: [{name: '南海诸岛', value: 0, itemStyle: { normal: { opacity: 0, label: { show: false}}}}]}, visualMap: {type: 'piecewise', inverse: true, pieces: [{gt: 1500, label: '1500人及以上'}, {gt: 1000, lte: 1500, label: '1000-1500人'}, {gt: 100, lte: 999, label: '100-999人'}, {gt: 10, lte: 99, label: '10-99人'}, {gt: 1, lt: 9, label: '1-9人'}], orient: 'horizontal', bottom: '6%', left: '26%', textStyle: {color: '#ffffff', fontSize: '14'}, itemWidth: 18, itemGap: 10, textGap: 8, inRange: {color: ['#1c44a2', '#2174bb', '#e0ad3a', '#d98278', '#bb4e54']}}, series: [
                 {
                   type: 'map',
                   mapType: craneStates.department ? craneStates.department.uuid : 'fujian',
-                  data: results.map(item => {return {name: item[1], value: item[0]}}),
+                  geoIndex: 0,
+                  data: craneStates.mapData,
                   label: {
                     show: true,
                     fontSize: 15,
@@ -125,10 +125,65 @@
                       fontWeight: 600,
                     },
                     itemStyle: {
-                      areaColor: '#29e8de'
+                      areaColor: '#29e8de',
+                      shadowColor: 'rgba(0, 0, 0, .5)',
+                      shadowBlur: 12,
+                      shadowOffsetX: 0,
+                      shadowOffsetY: 10
                     }
                   },
-                }
+                },
+                {
+                  symbolSize: 0.1,
+                  label: {
+                    normal: {
+                      formatter: '{b}',
+                      position: 'bottom',
+                      show: true
+                    },
+                    emphasis: {
+                      show: true
+                    }
+                  },
+                  itemStyle: {
+                    normal: {
+                      color: '#fff'
+                    }
+                  },
+                  type: 'scatter',
+                  coordinateSystem: 'geo',
+                  data: [],
+                },
+                {
+                  type: 'scatter',
+                  coordinateSystem: 'geo',
+                  symbol: 'pin',
+                  symbolSize: [48, 54],
+                  label: {
+                    normal: {
+                      show: true,
+                      color: '#fff',
+                      fontSize: 12,
+                      fontWeight: 500,
+                      formatter (value){
+                        return value.data.value[2]
+                      }
+                    }
+                  },
+                  itemStyle: {
+                    normal: {
+                      color: '#41bcff',
+                      opacity: 1
+                    }
+                  },
+                  data: [],
+                  showEffectOn: 'render',
+                  rippleEffect: {
+                    brushType: 'stroke'
+                  },
+                  hoverAnimation: true,
+                  zlevel: 1
+                },
               ]}" />
     </data-loader>
     <div :style="{color: '#41bcff', fontSize: '14px', fontWeight: '400', textAlign: 'left', position: 'absolute', top: '49px', left: '40px'}">
@@ -181,6 +236,7 @@ import 'echarts/lib/component/tooltip'
 import 'echarts/lib/component/legend'
 import 'echarts/lib/component/visualMap'
 import 'echarts/lib/component/legendScroll'
+import 'echarts/lib/chart/scatter'
 import fujian from '../../public/hxrc/fujian.json'
 Echarts.registerMap('fujian', fujian);
 
@@ -224,6 +280,8 @@ export const key_talents = {
     return {
       Echarts: Echarts,
       craneStates: {
+        selectedArea: {},
+        mapData: [],
         types: [{index: 1, name: '学术型人才'}, {index: 2, name: '工程型人才'}, {index: 3, name: '技能型人才'}, {index: 4, name: '技术型人才'}],
         supplyInputWord: '',
         demandInputWord: '',
@@ -236,7 +294,6 @@ export const key_talents = {
         year: new Date('2020'),
         dateRange: [],
         currentShortageType: '',
-        selectOptions: [{label: '福州', uuid: 'fuzhou'}, {label: '宁德', uuid: 'ningde'}, {label: '龙岩', uuid: 'longyan'}, {label: '莆田', uuid: 'putian'}, {label: '南平', uuid: 'nanping'}, {label: '三明', uuid: 'sanming'}, {label: '厦门', uuid: 'xiamen'}, {label: '漳州', uuid: 'zhangzhou'}, {label: '泉州', uuid: 'quanzhou'}],
         department: null,
       },
     }
@@ -272,8 +329,20 @@ export const key_talents = {
     }
   },
 
+  watch: {
+    'craneStates.department'() {
+      this.setState('mapData', [])
+    }
+  },
+
   created() {
     document.title = '重点人才专题'
+  },
+
+  mounted() {
+    const { chart } = this.$refs.map
+    this.mapClickedFunc(chart)
+    this.mapDbclickedFunc(chart)
   },
 
   beforeMount() {
@@ -281,6 +350,32 @@ export const key_talents = {
   },
 
   methods: {
+    mapClickedFunc(chart) {
+      chart.on('click', (params) => {
+        chart.dispatchAction({
+          type: 'mapSelect',
+          dataIndex: params.dataIndex
+        })
+        if(this.craneStates.selectedArea) {
+          chart.dispatchAction({
+            type: 'mapUnSelect',
+            dataIndex: this.craneStates.selectedArea.dataIndex
+          })
+        }
+        if(this.craneStates.selectedArea.dataIndex === params.dataIndex) {
+          this.craneStates.selectedArea = {}
+        } else {
+          this.craneStates.selectedArea = params
+        }
+      })
+    },
+    mapDbclickedFunc(chart) {
+      chart.on('dblclick', (params) => {
+        const { name } = params
+        const area = _.find(this.craneStates.selectOptions, (option) => (option.label === name))
+        this.craneStates.department = area ? area : this.craneStates.department
+      })
+    },
     shortageTooltipFormatterFunc(params) {
       return `${params[0].name}<br/>${params[0].marker}${params[0].seriesName}：${params[0].data}人`
     },

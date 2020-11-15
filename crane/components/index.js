@@ -41,14 +41,6 @@ module.exports = {
   ],
   components: [
     {
-      id: 'background',
-      component: 'img',
-      position: [0, 0],
-      props: {
-        src: '/hxrc/images/Bg.png'
-      },
-    },
-    {
       id: 'box-bg',
       component: 'img',
       position: [10, 10],
@@ -181,7 +173,7 @@ module.exports = {
           id: 'departments-select',
           component: '@byzanteam/vis-components/brick-radio-button-select',
           props: {
-            $options: "selectOptions",
+            $options: "craneStates.selectOptions",
             'v-model': 'craneStates.department',
             placeholder: '全省',
           },

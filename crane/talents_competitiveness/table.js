@@ -21,9 +21,10 @@ module.exports = {
     {
       component: '@byzanteam/vis-components/vis-table',
       props: {
+        'v-scroll': "{itemHeight: 40}",
         theme: 'dark',
         stripe: '',
-        $headers: "[{width: 80, key: 'index',}, {width: 160, key: 'name', title: '省市排名'}, {width: 160, key: 'value', title: '人才质量指标'}]",
+        $headers: "[{width: 80, key: 'index',}, {width: 160, key: 'name', title: '省市排名'}, {width: 160, key: 'value', title: '人才指标'}]",
         $data: "sortTableData"
       },
       children: [

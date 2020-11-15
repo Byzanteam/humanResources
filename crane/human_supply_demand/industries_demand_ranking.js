@@ -43,10 +43,10 @@ module.exports = [
       {
         component: '@byzanteam/vis-components/vis-table',
         props: {
-          $withHeader: false,
+          'v-scroll': "{itemHeight: 40}",
           theme: 'dark',
           stripe: '',
-          $headers: "[{width: 60, key: 'index'}, {width: 140, key: 'name'}, {width: 100, key: 'count'}, {width: 100, key: 'ratio'}]",
+          $headers: "[{width: 60, key: 'index'}, {width: 140, key: 'name', title: '行业名称'}, {width: 100, key: 'count', title: '需求人数'}, {width: 100, key: 'ratio', title: '供求比'}]",
           $data: "results ? results.map((item, index) => ({index: index + 1, name: item[0], count: item[1] || 0, ratio: item[2] || 0})) : [{index: 0, name: '暂无数据', count: 0, ratio: 0}]"
         },
         children: [

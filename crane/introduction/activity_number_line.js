@@ -23,6 +23,10 @@ module.exports = {
       'v-if': 'results',
       props: {
         $options: {
+          $grid: {
+            $left: 20,
+            $right: 0
+          },
           $xAxis: {
             $axisLabel: {
               ...axisLabelStyle,
@@ -37,7 +41,7 @@ module.exports = {
             $axisLabel: {
               ...axisLabelStyle,
               $rotate: 0,
-              align: 'center'
+              align: 'right'
             },
             $axisTick: {
               $show: false
@@ -51,7 +55,7 @@ module.exports = {
             $splitNumber: 5,
             name: '次',
             $nameTextStyle: {
-              align: 'center',
+              align: 'right',
               $padding: "[0, 5, 0, 0]",
               ...axisLabelStyle
             },

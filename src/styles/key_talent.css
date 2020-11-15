@@ -24,11 +24,6 @@
   margin: 12px 14px 12px 14px !important;
 }
 
-
-input.map-tabs-input::placeholder {
-  padding-left: 8px;
-}
-
 .btn {
   padding: 6px 18px !important;
 }

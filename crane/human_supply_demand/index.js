@@ -63,14 +63,6 @@ module.exports = {
   ],
   components: [
     {
-      id: 'background',
-      component: 'img',
-      position: [0, 0],
-      props: {
-        src: '/hxrc/images/Bg.png'
-      },
-    },
-    {
       id: 'title-bg',
       component: 'img',
       ...page_title_bg

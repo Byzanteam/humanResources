@@ -1,70 +1,69 @@
 <template>
   <div class="talents_competitiveness">
     <navigator ref="navigator"/>
-    <img ref="background" src="/hxrc/images/Bg.png" :style="{position: 'absolute', top: '0px', left: '0px'}" />
     <img ref="title-bg" :style="{width: '701px', height: '123px', position: 'absolute', top: '0px', left: '607px'}" src="/hxrc/images/Title-Bg.png" />
     <div @click="()=>[openNavigator()]" :style="{cursor: 'pointer', width: '460px', color: '#fff', fontSize: '42px', fontWeight: 600, textAlign: 'center', lineHeight: 1, position: 'absolute', top: '36px', left: '730px'}">
       省域人才综合竞争力
     </div>
-    <div class="center-select">
-      <brick-radio-button-select :options="provinceOptions" v-model="craneStates.province" placeholder="全省" />
-      <brick-radio-button-select v-if="craneStates.province" :options="selectOptions" v-model="craneStates.city" placeholder="全省" :style="{marginLeft: '12px'}" />
-    </div>
     <data-loader :style="{width: '960px', height: '884px', position: 'absolute', top: '176px', left: '480px'}">
       <v-chart ref="map" :options="{backgroundColor: 'transparent', geo: {map: craneStates.city ? craneStates.city.uuid : 'fujian', label: {normal: {show: false}, emphasis: {show: false}}, itemStyle: {normal: {areaColor: '#0e3e7d', borderColor: '#68a4f0', borderType: 'solid', borderWidth: 2}, emphasis: {areaColor: '#29e8de'}}, regions: [{name: '南海诸岛', value: 0, itemStyle: { normal: { opacity: 0, label: { show: false}}}}]}, series: [
-                {
-                  symbolSize: 0.1,
-                  label: {
-                    normal: {
-                      formatter: '{b}',
-                      position: 'bottom',
-                      show: true
-                    },
-                    emphasis: {
-                      show: true
-                    }
-                  },
-                  itemStyle: {
-                    normal: {
-                      color: '#fff'
-                    }
-                  },
-                  type: 'scatter',
-                  coordinateSystem: 'geo',
-                  data: craneStates.mapData,
-                },
-                {
-                  type: 'scatter',
-                  coordinateSystem: 'geo',
-                  symbol: 'pin',
-                  symbolSize: [48, 54],
-                  label: {
-                    normal: {
-                      show: true,
-                      color: '#fff',
-                      fontSize: 12,
-                      fontWeight: 500,
-                      formatter (value){
-                        return value.data.value[2]
+                  {
+                    symbolSize: 0.1,
+                    label: {
+                      normal: {
+                        formatter: '{b}',
+                        position: 'bottom',
+                        show: true
+                      },
+                      emphasis: {
+                        show: true
                       }
-                    }
+                    },
+                    itemStyle: {
+                      normal: {
+                        color: '#fff'
+                      }
+                    },
+                    type: 'scatter',
+                    coordinateSystem: 'geo',
+                    data: craneStates.mapData,
                   },
-                  itemStyle: {
-                    normal: {
-                      color: '#41bcff',
-                      opacity: 1
-                    }
+                  {
+                    type: 'scatter',
+                    coordinateSystem: 'geo',
+                    symbol: 'pin',
+                    symbolSize: [48, 54],
+                    label: {
+                      normal: {
+                        show: true,
+                        color: '#fff',
+                        fontSize: 12,
+                        fontWeight: 500,
+                        formatter (value){
+                          return value.data.value[2]
+                        }
+                      }
+                    },
+                    itemStyle: {
+                      normal: {
+                        color: '#41bcff',
+                        opacity: 1
+                      }
+                    },
+                    data: craneStates.mapData,
+                    showEffectOn: 'render',
+                    rippleEffect: {
+                      brushType: 'stroke'
+                    },
+                    hoverAnimation: true,
+                    zlevel: 1
                   },
-                  data: craneStates.mapData,
-                  showEffectOn: 'render',
-                  rippleEffect: {
-                    brushType: 'stroke'
-                  },
-                  hoverAnimation: true,
-                  zlevel: 1
-                },
-              ]}" />
+                ]}" />
     </data-loader>
+    <div class="center-select">
+      <brick-radio-button-select :options="provinceOptions" v-model="craneStates.province" placeholder="全省" />
+      <brick-radio-button-select v-if="craneStates.province" :options="craneStates.selectOptions" v-model="craneStates.city" placeholder="全省" :style="{marginLeft: '12px'}" />
+    </div>
     <img ref="box-bg" :style="{width: '440px', height: '1059px', position: 'absolute', top: '10px', left: '10px'}" src="/hxrc/images/Box-Bg.png" />
     <img ref="right-box-bg" :style="{width: '440px', height: '1059px', position: 'absolute', top: '10px', left: '1471px'}" src="/hxrc/images/Box-Bg.png" />
     <div ref="force-digital-bg" :style="{width: '380px', height: '50px', backgroundColor: 'rgba(13, 45, 120, .45)', borderRadius: '5px', position: 'absolute', top: '60px', left: '1500px'}" />
@@ -72,7 +71,7 @@
       <Radio v-for="(item, key) in craneStates.indicators" :key="key" :label="item.name" />
     </RadioGroup>
     <data-loader @requestDone="(param)=>[setState('radarData', param.results || [])]" :url="radarRequestUrl" method="get" :data="[[0, '暂无数据']]" :style="{width: '380px', height: '480px', position: 'absolute', top: '455px', left: '1500px'}">
-      <v-chart :options="{legend: {orient: 'vertical', top: 350, icon: 'circle', inactiveColor: '#1C4159', itemGap: 5, itemWidth: 10, itemHeight: 10, textStyle: {color: '#ffffff', fontSize: 14, padding: [2, 4]}}, tooltip: {trigger: 'item', backgroundColor: '#566374f0'}, color: ['#00fff2', '#7b43ff', '#e0ad3a', '#189ef1', '#2174b8', '#f65446'], radiusAxis: {axisLine: {color: '#19394f'}, splitLine: {color: '#19394f'}}, radar: {shape: 'circle', center: ['50%', '26%'], radius: '50% ', name: {textStyle: {color: 'rgba(255, 255, 255, .8)', fontSize: 14, fontWeight: 400}}, axisLine: {lineStyle: {color: '#19394f'}}, splitArea: {areaStyle: {color: 'transparent'}}, splitLine: {lineStyle: {color: '#19394f'}}, indicator: craneStates.indicators}, series: [{
+      <v-chart :options="{legend: {orient: 'vertical', top: 274, icon: 'circle', inactiveColor: '#1C4159', itemGap: 5, itemWidth: 10, itemHeight: 10, textStyle: {color: '#ffffff', fontSize: 14, padding: [2, 4]}}, tooltip: {trigger: 'item', backgroundColor: '#566374f0'}, color: ['#00fff2', '#7b43ff', '#e0ad3a', '#189ef1', '#2174b8', '#f65446'], radiusAxis: {axisLine: {color: '#19394f'}, splitLine: {color: '#19394f'}}, radar: {shape: 'circle', center: ['50%', '26%'], radius: '50% ', name: {textStyle: {color: 'rgba(255, 255, 255, .8)', fontSize: 14, fontWeight: 400}}, axisLine: {lineStyle: {color: '#19394f'}}, splitArea: {areaStyle: {color: 'transparent'}}, splitLine: {lineStyle: {color: '#19394f'}}, indicator: craneStates.indicators}, series: [{
                   type: 'radar',
                   areaStyle: {opacity: 0.2},
                   lineStyle: {width: 1},
@@ -103,7 +102,7 @@
       </Select>
     </div>
     <data-loader @requestDone="(param)=>[setState('mapData', param.results.map((item) => ({name: item[1], value: craneStates.areaCoordMap[item[1]].concat(item[0].toFixed(2))}))), setState('tableData', param.results.map((item, index) => ({index: index + 1, name: item[1], value: item[0].toFixed(2)})))]" :url="tableRequestUrl" method="get" :data="[[0, '暂无数据']]" :style="{width: '380px', height: '680px', overflow: 'scroll', position: 'absolute', top: '360px', left: '40px'}">
-      <vis-table theme="dark" stripe="" :headers="[{width: 80, key: 'index',}, {width: 160, key: 'name', title: '省市排名'}, {width: 160, key: 'value', title: '人才质量指标'}]" :data="sortTableData">
+      <vis-table v-scroll="{itemHeight: 40}" theme="dark" stripe="" :headers="[{width: 80, key: 'index',}, {width: 160, key: 'name', title: '省市排名'}, {width: 140, key: 'value', title: '人才指标'}]" :data="sortTableData">
         <template v-slot="{ cell: cell, columnKey: columnKey }">
           <span :class="columnKey === 'index' ? 'row-index-cell' : ''">
             {{cell}}
@@ -144,7 +143,6 @@ import {
 } from 'iview'
 import Navigator from '../components/navigator'
 
-const SELECT_OPTIONS = [{label: '福州市', uuid: 'fuzhou'}, {label: '宁德市', uuid: 'ningde'}, {label: '龙岩市', uuid: 'longyan'}, {label: '莆田市', uuid: 'putian'}, {label: '南平市', uuid: 'nanping'}, {label: '三明市', uuid: 'sanming'}, {label: '厦门市', uuid: 'xiamen'}, {label: '漳州市', uuid: 'zhangzhou'}, {label: '泉州市', uuid: 'quanzhou'}]
 const PROVINCE_OPTIONS = [{label: '福建', uuid: 1}]
 
 export const talents_competitiveness = {
@@ -165,7 +163,6 @@ export const talents_competitiveness = {
 
   data () {
     return {
-      selectOptions: SELECT_OPTIONS,
       provinceOptions: PROVINCE_OPTIONS,
       Echarts: Echarts,
       craneStates: {
@@ -192,6 +189,10 @@ export const talents_competitiveness = {
 
   beforeMount() {
     this.requestMapGeojson(Echarts)
+  },
+
+  mounted() {
+    this.mapDbclickedFunc()
   },
 
   watch: {
@@ -250,6 +251,14 @@ export const talents_competitiveness = {
   },
 
   methods: {
+    mapDbclickedFunc () {
+      const {chart} = this.$refs.map
+      chart.on('dblclick', (params) => {
+        const { name } = params
+        const area = _.find(this.craneStates.selectOptions, (option) => (option.label === name))
+        this.craneStates.department = area ? area : this.craneStates.department
+      })
+    },
     generateRadarData () {
       const indicators = {}
       this.craneStates.radarData.forEach(item => {

@@ -11,7 +11,7 @@ module.exports = {
     method: 'get',
     $data: "[[0, '暂无数据']]",
     $style: {
-      width: '460px',
+      width: '380px',
       height: '218px'
     },
   },
@@ -19,7 +19,6 @@ module.exports = {
     {
       component: 'v-chart',
       props: {
-        class: "pie-chart",
         $options: {
           backgroundColor: 'transparent',
           $legend: {

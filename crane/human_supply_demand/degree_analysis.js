@@ -97,7 +97,7 @@ module.exports = [
       method: 'get',
       $data: "[[0, '暂无数据']]",
       $style: {
-        width: '400px',
+        width: '380px',
         height: '218px',
         overflow: 'scroll'
       }
