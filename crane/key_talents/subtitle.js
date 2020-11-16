@@ -53,7 +53,7 @@ module.exports = [
       'data-content': '统计人才库中职称类型分布情况',
       ...data_content_subtitle_text
     },
-    content: '高层次人才专业分布',
+    content: '高层次人才类型分布',
   },
   {
     position: [1504, 459],

@@ -208,7 +208,7 @@
       >>
     </div>
     <div data-content="统计人才库中职称类型分布情况" :style="{color: '#fff', fontSize: '20px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', cursor: 'pointer', position: 'absolute', top: '806px', left: '74px'}">
-      高层次人才专业分布
+      高层次人才类型分布
     </div>
     <div :style="{color: '#41bcff', fontSize: '14px', fontWeight: '400', textAlign: 'left', position: 'absolute', top: '459px', left: '1504px'}">
       >>
