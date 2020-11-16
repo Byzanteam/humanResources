@@ -203,7 +203,7 @@ input::placeholder {
   font-weight: 400;
   content: attr(data-content);
   cursor: pointer;
-  z-index: 0;
+  z-index: 999;
 }
 
 .line-break-talent-demand::after {
@@ -211,10 +211,22 @@ input::placeholder {
   max-width: none;
 }
 
+.ranking-tooltip {
+  height: 22px;
+}
+
+.ranking-tooltip [data-content]:after {
+  z-index: 0;
+}
+
 .line-break-degree::after {
   width: 500px;
   max-width: none;
   right: 210px;
+}
+
+.ranking-tooltip:hover [data-content]:after{
+  z-index: 1;
 }
 
 [data-content]:hover:after {

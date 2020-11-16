@@ -139,7 +139,7 @@ module.exports = [
               },
               $axisLabel: {
                 ...axisLabelStyle,
-                align: 'center'
+                align: 'right'
               },
               $splitLine: {
                 $show: false
