@@ -102,7 +102,7 @@
       </Select>
     </div>
     <data-loader @requestDone="(param)=>[setState('mapData', param.results.map((item) => ({name: item[1], value: craneStates.areaCoordMap[item[1]].concat(item[0].toFixed(2))}))), setState('tableData', param.results.map((item, index) => ({index: index + 1, name: item[1], value: item[0].toFixed(2)})))]" :url="tableRequestUrl" method="get" :data="[[0, '暂无数据']]" :style="{width: '380px', height: '680px', overflow: 'scroll', position: 'absolute', top: '360px', left: '40px'}">
-      <vis-table v-scroll="{itemHeight: 40}" theme="dark" stripe="" :headers="[{width: 80, key: 'index',}, {width: 160, key: 'name', title: '省市排名'}, {width: 140, key: 'value', title: '人才指标'}]" :data="sortTableData">
+      <vis-table v-scroll="{itemHeight: 40, headerHeight: 56}" theme="dark" stripe="" :headers="[{width: 80, key: 'index',}, {width: 160, key: 'name', title: '省市排名'}, {width: 140, key: 'value', title: '人才指标'}]" :data="sortTableData">
         <template v-slot="{ cell: cell, columnKey: columnKey }">
           <span :class="columnKey === 'index' ? 'row-index-cell' : ''">
             {{cell}}
