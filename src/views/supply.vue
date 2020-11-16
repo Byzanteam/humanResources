@@ -99,10 +99,8 @@
     <div ref="degree-analysis-icon" :style="{color: '#41bcff', fontSize: '14px', fontWeight: '400', textAlign: 'left', position: 'absolute', top: '722px', left: '1500px'}">
       >>
     </div>
-    <div ref="degree-analysis-title" class="line-break-degree" :style="{color: '#fff', fontSize: '18px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', cursor: 'pointer', position: 'absolute', top: '720px', left: '1532px'}">
-      <div data-content="人才学历： 根据「区域」「时间」进行筛选统计对应的人才学历分布情况人才职称：根据「区域」「时间」进行筛选统计对应的人才职称分布情况" :style="{position: 'relative'}">
-        学历职称分析
-      </div>
+    <div ref="degree-analysis-title" class="line-break-degree" data-content="人才学历： 根据「区域」「时间」进行筛选统计对应的人才学历分布情况人才职称：根据「区域」「时间」进行筛选统计对应的人才职称分布情况" :style="{color: '#fff', fontSize: '18px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', cursor: 'pointer', position: 'absolute', top: '720px', left: '1532px'}">
+      学历职称分析
     </div>
     <brick-tabs :tabNavs="craneStates.chartTabNavs" :activeTab="craneStates.chartTabCurrent" :style="{position: 'absolute', top: '764px', left: '1586px'}" v-model="craneStates.chartTabCurrent" />
     <data-loader v-slot="{ results: results }" v-if="craneStates.chartTabCurrent === craneStates.chartTabNavs[0]" :url="`/v1/components/10b74ddd-39de-493f-84ab-9d87fcf23fee/data?year=${generateYear}&job=${craneStates.currentJob || ''}&area=${currentRegion}`" method="get" :data="[[0, '暂无数据']]" :style="{width: '380px', height: '218px', overflow: 'scroll', position: 'absolute', top: '822px', left: '1500px'}">
