@@ -28,6 +28,12 @@ module.exports = [
     exports: {
       results: 'results',
     },
+    events: {
+      requestDone: {
+        params: ['param'],
+        actions: ["setState('supplyLineChartData', param.results.map(item => (item[3])))"],
+      },
+    },
     props: {
       $url: "`/v1/components/09b74ddd-39de-493f-84ab-9d87fcf23fee/data?job=${craneStates.currentJob || ''}&area=${currentRegion}`",
       method: 'get',
@@ -44,7 +50,7 @@ module.exports = [
           $options: {
             grid: {
               $left: 52,
-              $right: 50,
+              $right: 0,
               $bottom: 30
             },
             backgroundColor: 'transparent',
@@ -109,7 +115,7 @@ module.exports = [
                 $show: false
               }
             },
-            $series: "[{type: 'line', name: '人才供给', data: results ? results.map(item => (item[2])) : [0], showSymbol: false, lineStyle: {width: 4}}, {type: 'line', name: '岗位需求', data: results ? results.map(item => (item[0])) : [0], showSymbol: false, lineStyle: {width: 4}}, {type: 'line', name: '供求比', data: results ? results.map(item => (item[3])) : [0], showSymbol: false, itemStyle: {color: 'transparent'}}]",
+            $series: "[{type: 'line', name: '人才供给', data: results ? results.map(item => (item[2])) : [0], showSymbol: false, lineStyle: {width: 4}}, {type: 'line', name: '岗位需求', data: results ? results.map(item => (item[0])) : [0], showSymbol: false, lineStyle: {width: 4}}]",
           }
         }
       }

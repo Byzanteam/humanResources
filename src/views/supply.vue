@@ -95,8 +95,8 @@
     <div ref="talents-demand-change-title·" data-content="根据「区域」「时间」进行筛选统计企业发布的招聘人才数量与人才投递简历情况对比折线图体现供需变化" :style="{color: '#fff', fontSize: '20px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', cursor: 'pointer', position: 'absolute', top: '380px', left: '1532px'}">
       人才供需变化
     </div>
-    <data-loader ref="talents-demand-change-count-line-chart" v-slot="{ results: results }" :url="`/v1/components/09b74ddd-39de-493f-84ab-9d87fcf23fee/data?job=${craneStates.currentJob || ''}&area=${currentRegion}`" method="get" :data="[[0, '暂无数据']]" :style="{width: '380px', height: '230px', position: 'absolute', top: '432px', left: '1500px'}">
-      <v-chart :options="{grid: {left: 52, right: 50, bottom: 30}, backgroundColor: 'transparent', color: ['#00fff2', '#7b43ff', '#e0ad3a', '#189ef1', '#2174b8', '#f65446'], tooltip: {trigger: 'axis', axisPointer: {lineStyle: {color: '#ffffff', type: 'dotted'}}, formatter: demandTooltipFormatterFunc, backgroundColor: '#566374f0'}, legend: {icon: 'circle', itemWidth: 8, itemHeight: 8, right: 0, itemGap: 14, textStyle: {color: '#ffffff', fontSize: 14}, data: ['人才供给', '岗位需求'], inactiveColor: '#1C4159'}, xAxis: {type: 'category', data: results ? results.map(item => (item[1])) : ['暂无数据'], axisLine: {show: false}, axisTick: {show: false}, axisLabel: {color: 'rgba(255, 255, 255, .8)', fontSize: 14, fontWeight: 400}, splitLine: {show: false}}, yAxis: {name: '人', type: 'value', axisLine: {show: false}, axisTick: {show: false}, nameTextStyle: {align: 'right', padding: [0, 5, 0, 0], color: 'rgba(255, 255, 255, .8)', fontSize: 14, fontWeight: 400}, axisLabel: {align: 'right', color: 'rgba(255, 255, 255, .8)', fontSize: 14, fontWeight: 400}, splitLine: {show: false}}, series: [{type: 'line', name: '人才供给', data: results ? results.map(item => (item[2])) : [0], showSymbol: false, lineStyle: {width: 4}}, {type: 'line', name: '岗位需求', data: results ? results.map(item => (item[0])) : [0], showSymbol: false, lineStyle: {width: 4}}, {type: 'line', name: '供求比', data: results ? results.map(item => (item[3])) : [0], showSymbol: false, itemStyle: {color: 'transparent'}}]}" />
+    <data-loader ref="talents-demand-change-count-line-chart" v-slot="{ results: results }" @requestDone="(param)=>[setState('supplyLineChartData', param.results.map(item => (item[3])))]" :url="`/v1/components/09b74ddd-39de-493f-84ab-9d87fcf23fee/data?job=${craneStates.currentJob || ''}&area=${currentRegion}`" method="get" :data="[[0, '暂无数据']]" :style="{width: '380px', height: '230px', position: 'absolute', top: '432px', left: '1500px'}">
+      <v-chart :options="{grid: {left: 52, right: 0, bottom: 30}, backgroundColor: 'transparent', color: ['#00fff2', '#7b43ff', '#e0ad3a', '#189ef1', '#2174b8', '#f65446'], tooltip: {trigger: 'axis', axisPointer: {lineStyle: {color: '#ffffff', type: 'dotted'}}, formatter: demandTooltipFormatterFunc, backgroundColor: '#566374f0'}, legend: {icon: 'circle', itemWidth: 8, itemHeight: 8, right: 0, itemGap: 14, textStyle: {color: '#ffffff', fontSize: 14}, data: ['人才供给', '岗位需求'], inactiveColor: '#1C4159'}, xAxis: {type: 'category', data: results ? results.map(item => (item[1])) : ['暂无数据'], axisLine: {show: false}, axisTick: {show: false}, axisLabel: {color: 'rgba(255, 255, 255, .8)', fontSize: 14, fontWeight: 400}, splitLine: {show: false}}, yAxis: {name: '人', type: 'value', axisLine: {show: false}, axisTick: {show: false}, nameTextStyle: {align: 'right', padding: [0, 5, 0, 0], color: 'rgba(255, 255, 255, .8)', fontSize: 14, fontWeight: 400}, axisLabel: {align: 'right', color: 'rgba(255, 255, 255, .8)', fontSize: 14, fontWeight: 400}, splitLine: {show: false}}, series: [{type: 'line', name: '人才供给', data: results ? results.map(item => (item[2])) : [0], showSymbol: false, lineStyle: {width: 4}}, {type: 'line', name: '岗位需求', data: results ? results.map(item => (item[0])) : [0], showSymbol: false, lineStyle: {width: 4}}]}" />
     </data-loader>
     <div ref="degree-analysis-icon" :style="{color: '#41bcff', fontSize: '14px', fontWeight: '400', textAlign: 'left', position: 'absolute', top: '722px', left: '1500px'}">
       >>
@@ -184,7 +184,8 @@ export const supply = {
         tabCurrent: TAB_NAVS[0],
         chartTabNavs: CHART_TAB_NAVS,
         chartTabCurrent: CHART_TAB_NAVS[0],
-        selectedArea: {}
+        selectedArea: {},
+        supplyLineChartData: [],
       },
     }
   },
@@ -294,12 +295,16 @@ export const supply = {
     demandTooltipFormatterFunc(params) {
       const series = params.reduce((memo, serie) => {
         if(serie.seriesName === '供求比') {
-          const marker = serie.marker.replace(/transparent/, '#e0ad3a')
+          const marker = serie.marker.replace(/transparent/, )
           return `${memo}${marker}${serie.seriesName}: ${serie.value}`
         }
         return `${memo}${serie.marker}${serie.seriesName}: ${serie.value}人<br />`
       }, '')
-      return `${params[0].name}<br />${series}`
+      return `
+        ${params[0].name}<br />
+        ${series}<br />
+        <span style="display: inline-block; margin-right: 5px; border-radius: 10px; width:10px; height: 10px; background-color: #e0ad3a;"></span>供求比: ${this.craneStates.supplyLineChartData[params[0].dataIndex]}
+      `
     },
     pieTooltipFormatterFunc(params) {
       return `${params.marker}${params.name}：${params.percent}%`

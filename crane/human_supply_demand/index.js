@@ -59,6 +59,10 @@ module.exports = {
     {
       id: 'selectedArea',
       value: {}
+    },
+    {
+      id: 'supplyLineChartData',
+      value: []
     }
   ],
   components: [
