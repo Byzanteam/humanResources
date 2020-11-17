@@ -24,7 +24,7 @@ module.exports = {
         'v-scroll': "{itemHeight: 40, headerHeight: 56}",
         theme: 'dark',
         stripe: '',
-        $headers: "[{width: 80, key: 'index',}, {width: 160, key: 'name', title: '省市排名'}, {width: 160, key: 'value', title: '人才指标'}]",
+        $headers: "[{width: 80, key: 'index',}, {width: 160, key: 'name', title: '省市排名'}, {width: 140, key: 'value', title: '人才指标'}]",
         $data: "sortTableData"
       },
       children: [

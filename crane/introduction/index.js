@@ -99,7 +99,6 @@ module.exports = {
       component: 'div',
       position: [74, 660],
       props: {
-        'data-content': '默认显示当年高层次人才引进人数，可根据「区域」「时间」查看对应区域与年份的引才人数与历年的引进数量',
         $style: {
           color: '#fff',
           fontSize: '18px',
@@ -109,14 +108,24 @@ module.exports = {
           cursor: 'pointer',
         },
       },
-      content: '高层次人才引进统计',
+      children: [
+        {
+          component: 'div',
+          props: {
+            'data-content': '默认显示当年高层次人才引进人数，可根据「区域」「时间」查看对应区域与年份的引才人数与历年的引进数量',
+            $style: {
+              position: 'relative'
+            }
+          },
+          content: '高层次人才引进统计',
+        }
+      ]
     },
     {
       id: 'introduce-place',
       component: 'div',
       position: [1536, 48],
       props: {
-        'data-content': '根据「区域」「时间」筛选统计引才活动发布方分布',
         $style: {
           color: '#fff',
           fontSize: '18px',
@@ -126,14 +135,24 @@ module.exports = {
           cursor: 'pointer',
         },
       },
-      content: '引进渠道分析',
+      children: [
+        {
+          component: 'div',
+          props: {
+            'data-content': '根据「区域」「时间」筛选统计引才活动发布方分布',
+            $style: {
+              position: 'relative'
+            }
+          },
+          content: '引进渠道分析',
+        }
+      ]
     },
     {
       id: 'talent-rank',
       component: 'div',
       position: [1536, 380],
       props: {
-        'data-content': '根据活动要求需要的人类类型进行统计分析',
         $style: {
           color: '#fff',
           fontSize: '18px',
@@ -143,14 +162,24 @@ module.exports = {
           cursor: 'pointer',
         },
       },
-      content: '引进人才职称分布',
+      children: [
+        {
+          component: 'div',
+          props: {
+            'data-content': '根据活动要求需要的人类类型进行统计分析',
+            $style: {
+              position: 'relative'
+            }
+          },
+          content: '引进人才职称分布',
+        }
+      ]
     },
     {
       id: 'talent-education',
       component: 'div',
       position: [1536, 700],
       props: {
-        'data-content': '根据「区域」「时间」筛选对应区域的引进人才的学历分布情况',
         $style: {
           color: '#fff',
           fontSize: '18px',
@@ -160,7 +189,18 @@ module.exports = {
           cursor: 'pointer',
         },
       },
-      content: '引进人才学历分布',
+      children: [
+        {
+          component: 'div',
+          props: {
+            'data-content': '根据「区域」「时间」筛选对应区域的引进人才的学历分布情况',
+            $style: {
+              position: 'relative'
+            }
+          },
+          content: '引进人才学历分布',
+        }
+      ]
     },
     {
       id: 'activity-number-icon',

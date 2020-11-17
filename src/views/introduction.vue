@@ -13,17 +13,25 @@
     <div ref="activity-number" :style="{color: '#fff', fontSize: '18px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', position: 'absolute', top: '200px', left: '74px'}">
       引才活动数量统计
     </div>
-    <div ref="high-level-talent" data-content="默认显示当年高层次人才引进人数，可根据「区域」「时间」查看对应区域与年份的引才人数与历年的引进数量" :style="{color: '#fff', fontSize: '18px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', cursor: 'pointer', position: 'absolute', top: '660px', left: '74px'}">
-      高层次人才引进统计
+    <div ref="high-level-talent" :style="{color: '#fff', fontSize: '18px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', cursor: 'pointer', position: 'absolute', top: '660px', left: '74px'}">
+      <div data-content="默认显示当年高层次人才引进人数，可根据「区域」「时间」查看对应区域与年份的引才人数与历年的引进数量" :style="{position: 'relative'}">
+        高层次人才引进统计
+      </div>
     </div>
-    <div ref="introduce-place" data-content="根据「区域」「时间」筛选统计引才活动发布方分布" :style="{color: '#fff', fontSize: '18px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', cursor: 'pointer', position: 'absolute', top: '48px', left: '1536px'}">
-      引进渠道分析
+    <div ref="introduce-place" :style="{color: '#fff', fontSize: '18px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', cursor: 'pointer', position: 'absolute', top: '48px', left: '1536px'}">
+      <div data-content="根据「区域」「时间」筛选统计引才活动发布方分布" :style="{position: 'relative'}">
+        引进渠道分析
+      </div>
     </div>
-    <div ref="talent-rank" data-content="根据活动要求需要的人类类型进行统计分析" :style="{color: '#fff', fontSize: '18px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', cursor: 'pointer', position: 'absolute', top: '380px', left: '1536px'}">
-      引进人才职称分布
+    <div ref="talent-rank" :style="{color: '#fff', fontSize: '18px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', cursor: 'pointer', position: 'absolute', top: '380px', left: '1536px'}">
+      <div data-content="根据活动要求需要的人类类型进行统计分析" :style="{position: 'relative'}">
+        引进人才职称分布
+      </div>
     </div>
-    <div ref="talent-education" data-content="根据「区域」「时间」筛选对应区域的引进人才的学历分布情况" :style="{color: '#fff', fontSize: '18px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', cursor: 'pointer', position: 'absolute', top: '700px', left: '1536px'}">
-      引进人才学历分布
+    <div ref="talent-education" :style="{color: '#fff', fontSize: '18px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', cursor: 'pointer', position: 'absolute', top: '700px', left: '1536px'}">
+      <div data-content="根据「区域」「时间」筛选对应区域的引进人才的学历分布情况" :style="{position: 'relative'}">
+        引进人才学历分布
+      </div>
     </div>
     <div ref="activity-number-icon" :style="{color: '#6ad6ff', fontSize: '14px', fontWeight: '400', textAlign: 'left', position: 'absolute', top: '200px', left: '40px'}">
       >>

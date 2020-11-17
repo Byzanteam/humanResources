@@ -81,14 +81,18 @@
                 }
               ]}" />
     </data-loader>
-    <div ref="province-talent-number" data-content="根据选择的对应十大指标体系结合「区域」检索对应区域对应的指标排名情况" :style="{color: '#fff', fontSize: '20px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', cursor: 'pointer', position: 'absolute', top: '48px', left: '74px'}">
-      省域人才指标汇总
+    <div ref="province-talent-number" :style="{color: '#fff', fontSize: '20px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', cursor: 'pointer', position: 'absolute', top: '48px', left: '74px'}">
+      <div data-content="根据选择的对应十大指标体系结合「区域」检索对应区域对应的指标排名情况" :style="{position: 'relative'}">
+        省域人才指标汇总
+      </div>
     </div>
     <div ref="province-talent-number-icon" :style="{color: '#41bcff', fontSize: '14px', fontWeight: '400', textAlign: 'left', position: 'absolute', top: '50px', left: '40px'}">
       >>
     </div>
-    <div ref="ten-number" data-content="区域为省级可横向对比市级的指标指数对比，区域为市级可横向对应区级的指标指数对比" :style="{color: '#fff', fontSize: '20px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', cursor: 'pointer', position: 'absolute', top: '214px', left: '1533px'}">
-      15大指标汇总
+    <div ref="ten-number" :style="{color: '#fff', fontSize: '20px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', cursor: 'pointer', position: 'absolute', top: '214px', left: '1533px'}">
+      <div data-content="区域为省级可横向对比市级的指标指数对比，区域为市级可横向对应区级的指标指数对比" :style="{position: 'relative'}">
+        15大指标汇总
+      </div>
     </div>
     <div ref="ten-number-icon" :style="{color: '#41bcff', fontSize: '14px', fontWeight: '400', textAlign: 'left', position: 'absolute', top: '217px', left: '1500px'}">
       >>

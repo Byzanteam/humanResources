@@ -187,13 +187,13 @@ input::placeholder {
 }
 
 [data-content]:after {
-  display: inline-flex;
+  display: none;
   width: auto;
   max-width: 192px;
-  position: relative;
+  position: absolute;
   opacity: 0;
-  top: 15px;
-  right: 10px;
+  top: 30px;
+  right: -40%;
   transition: all .25s linear;
   border-radius: 4px;
   padding: 6px;
@@ -204,6 +204,12 @@ input::placeholder {
   content: attr(data-content);
   cursor: pointer;
   z-index: 999;
+}
+
+[data-content]:hover::after {
+  opacity: 1;
+  display: inline-flex;
+  transition: all .5s linear;
 }
 
 .line-break-talent-demand::after {
@@ -227,11 +233,6 @@ input::placeholder {
 
 .ranking-tooltip:hover [data-content]:after{
   z-index: 1;
-}
-
-[data-content]:hover:after {
-  opacity: 1;
-  transition: opacity .5s linear;
 }
 
 .center-select {

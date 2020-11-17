@@ -20,7 +20,6 @@ module.exports = [
     component: 'div',
     position: [1533, 48],
     props: {
-      'data-content': '根据「区域」「时间」进行筛选统计企业发布的招聘人才数量与人才投递简历情况对比折线图体现供需变化',
       $style: {
         color: '#fff',
         fontSize: '18px',
@@ -30,7 +29,18 @@ module.exports = [
         cursor: 'pointer',
       },
     },
-    content: '人才供需月度变化',
+    children: [
+      {
+        component: 'div',
+        props: {
+          'data-content': '根据「区域」「时间」进行筛选统计企业发布的招聘人才数量与人才投递简历情况对比折线图体现供需变化',
+          $style: {
+            position: 'relative'
+          }
+        },
+        content: '人才供需月度变化',
+      }
+    ]
   },
   {
     id: 'talents-demand-change-count-line-chart',

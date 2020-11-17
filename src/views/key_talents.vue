@@ -201,26 +201,34 @@
     <div :style="{color: '#41bcff', fontSize: '14px', fontWeight: '400', textAlign: 'left', position: 'absolute', top: '561px', left: '40px'}">
       >>
     </div>
-    <div data-content="根据「区域」「供需需求关键字」选择统计该地区人才库中学历为「硕士」「博士」的人才数量" :style="{color: '#fff', fontSize: '20px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', cursor: 'pointer', position: 'absolute', top: '558px', left: '74px'}">
-      高层次人才供需变化
+    <div :style="{color: '#fff', fontSize: '20px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', cursor: 'pointer', position: 'absolute', top: '558px', left: '74px'}">
+      <div data-content="根据「区域」「供需需求关键字」选择统计该地区人才库中学历为「硕士」「博士」的人才数量" :style="{position: 'relative'}">
+        高层次人才供需变化
+      </div>
     </div>
     <div :style="{color: '#41bcff', fontSize: '14px', fontWeight: '400', textAlign: 'left', position: 'absolute', top: '809px', left: '40px'}">
       >>
     </div>
-    <div data-content="统计人才库中职称类型分布情况" :style="{color: '#fff', fontSize: '20px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', cursor: 'pointer', position: 'absolute', top: '806px', left: '74px'}">
-      高层次人才类型分布
+    <div :style="{color: '#fff', fontSize: '20px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', cursor: 'pointer', position: 'absolute', top: '806px', left: '74px'}">
+      <div data-content="统计人才库中职称类型分布情况" :style="{position: 'relative'}">
+        高层次人才类型分布
+      </div>
     </div>
     <div :style="{color: '#41bcff', fontSize: '14px', fontWeight: '400', textAlign: 'left', position: 'absolute', top: '459px', left: '1504px'}">
       >>
     </div>
-    <div data-content="根据「区域」「时间」「行业类型」进行筛选统计对应行业的历年紧缺人才数量情况" :style="{color: '#fff', fontSize: '20px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', cursor: 'pointer', position: 'absolute', top: '456px', left: '1536px'}">
-      区域紧缺人才趋势
+    <div :style="{color: '#fff', fontSize: '20px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', cursor: 'pointer', position: 'absolute', top: '456px', left: '1536px'}">
+      <div data-content="根据「区域」「时间」「行业类型」进行筛选统计对应行业的历年紧缺人才数量情况" :style="{position: 'relative'}">
+        区域紧缺人才趋势
+      </div>
     </div>
     <div :style="{color: '#41bcff', fontSize: '14px', fontWeight: '400', textAlign: 'left', position: 'absolute', top: '809px', left: '1504px'}">
       >>
     </div>
-    <div data-content="根据「区域」「时间」「行业类型」统计紧缺人才企业的行业分布情况" :style="{color: '#fff', fontSize: '20px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', cursor: 'pointer', position: 'absolute', top: '806px', left: '1536px'}">
-      紧缺人才专业分布
+    <div :style="{color: '#fff', fontSize: '20px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', cursor: 'pointer', position: 'absolute', top: '806px', left: '1536px'}">
+      <div data-content="根据「区域」「时间」「行业类型」统计紧缺人才企业的行业分布情况" :style="{position: 'relative'}">
+        紧缺人才专业分布
+      </div>
     </div>
   </div>
 </template>

@@ -25,12 +25,22 @@ module.exports = [
       {
         component: 'div',
         props: {
-          'data-content': '岗位排名：根据「区域」「时间」进行筛选统计查阅对应的企业人才需求岗位排名岗位薪资排名：根据「区域」「时间」进行筛选统计查阅岗位的薪资排名情况',
           $style: {
             position: 'relative'
           }
         },
-        content: '需求岗位排名',
+        children: [
+          {
+            component: 'div',
+            props: {
+              'data-content': '岗位排名：根据「区域」「时间」进行筛选统计查阅对应的企业人才需求岗位排名岗位薪资排名：根据「区域」「时间」进行筛选统计查阅岗位的薪资排名情况',
+              $style: {
+                position: 'relative'
+              }
+            },
+            content: '需求岗位排名',
+          }
+        ]
       }
     ],
   },
