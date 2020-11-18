@@ -28,11 +28,11 @@ module.exports = {
     },
     {
       id: 'indicators',
-      value: [{name: '人才数量指标'}, {name: '人才质量指标'}, {name: '人才结构指标'}, {name: '人才投入指标'}, {name: '人才平台指标'}, {name: '人才生活指标'}, {name: '人才环境指标'}, {name: '人才效能指标'}, {name: '人才效益指标'}, {name: '人才发展指标'}]
+      value: [{name: '人才规模'}, {name: '人才质量'}, {name: '人才结构'}, {name: '教育投入'}, {name: '研发投入'}, {name: '医疗投入'}, {name: '经济基础'}, {name: '发展潜力'}, {name: '科技实力'}, {name: '外商投资'}, {name: '生存环境'}, {name: '生活水平'}, {name: '培养能力'}, {name: '科技创新'}, {name: '发展成效'}]
     },
     {
       id: 'indicator',
-      value: '人才数量指标'
+      value: '人才规模'
     },
     {
       id: 'types',
