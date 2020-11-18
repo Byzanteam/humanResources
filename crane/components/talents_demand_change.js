@@ -50,7 +50,7 @@ module.exports = [
       results: 'results',
     },
     props: {
-      url: "/v1/components/09b74ddd-39de-493f-84ab-9d87fcf23fee/data?",
+      $url: "`/v1/components/50b74ddd-39de-493f-84ab-9d87fcf23fee/data?area=${currentArea ? currentArea : ''}&year=${craneStates.year ? craneStates.year.getFullYear() : new Date().getFullYear()}`",
       method: 'get',
       $data: "[[0, '暂无数据']]",
       $style: {
@@ -95,7 +95,7 @@ module.exports = [
             },
             $xAxis: {
               type: 'category',
-              $data: "results ? results.map(item => (item[1])) : ['暂无数据']",
+              $data: "results ? results.map(item => (`${item[1]}月`)) : ['暂无数据']",
               $axisLine: {
                 $show: false
               },

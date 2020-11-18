@@ -51,7 +51,7 @@ module.exports = [
     content: '全国人才区域分布',
   },
   {
-    component: 'data-loader',
+    component: 'div',
     children: [
       {
         component: 'v-chart',
@@ -99,12 +99,18 @@ module.exports = [
     ]
   },
   {
-    component: 'span',
+    component: '@byzanteam/vis-components/data-loader',
     position: [1776, 848],
+    exports: {
+      results: 'results',
+    },
     props: {
+      $url: "`/v1/components/54b74ddd-39de-493f-84ab-9d87fcf23fee/data?area=${currentArea ? currentArea : ''}&year=${craneStates.year ? craneStates.year.getFullYear() : new Date().getFullYear()}`",
+      method: 'get',
+      $data: "[[0, '暂无数据']]",
       $style: value_style
     },
-    content: '12.4%'
+    content: '{{`${results[0][0] ? results[0][0].toFixed(2) : 0}%`}}'
   },
   {
     component: 'div',
@@ -130,12 +136,18 @@ module.exports = [
     ]
   },
   {
-    component: 'span',
+    component: '@byzanteam/vis-components/data-loader',
     position: [1776, 900],
+    exports: {
+      results: 'results',
+    },
     props: {
+      $url: "`/v1/components/51b74ddd-39de-493f-84ab-9d87fcf23fee/data?area=${currentArea ? currentArea : ''}&year=${craneStates.year ? craneStates.year.getFullYear() : new Date().getFullYear()}`",
+      method: 'get',
+      $data: "[[0, '暂无数据']]",
       $style: value_style
     },
-    content: '12.4%'
+    content: '{{`${results[0][0] ? results[0][0].toFixed(2) : 0}%`}}'
   },
   {
     component: 'div',
@@ -161,12 +173,18 @@ module.exports = [
     ]
   },
   {
-    component: 'div',
+    component: '@byzanteam/vis-components/data-loader',
     position: [1776, 952],
+    exports: {
+      results: 'results',
+    },
     props: {
+      $url: "`/v1/components/52b74ddd-39de-493f-84ab-9d87fcf23fee/data?area=${currentArea ? currentArea : ''}&year=${craneStates.year ? craneStates.year.getFullYear() : new Date().getFullYear()}`",
+      method: 'get',
+      $data: "[[0, '暂无数据']]",
       $style: value_style
     },
-    content: '12.4%'
+    content: '{{`${results[0][0] ? results[0][0].toFixed(2) : 0}%`}}'
   },
   {
     component: 'div',
@@ -192,11 +210,17 @@ module.exports = [
     ]
   },
   {
-    component: 'span',
+    component: '@byzanteam/vis-components/data-loader',
     position: [1776, 1004],
+    exports: {
+      results: 'results',
+    },
     props: {
+      $url: "`/v1/components/53b74ddd-39de-493f-84ab-9d87fcf23fee/data?area=${currentArea ? currentArea : ''}&year=${craneStates.year ? craneStates.year.getFullYear() : new Date().getFullYear()}`",
+      method: 'get',
+      $data: "[[0, '暂无数据']]",
       $style: value_style
     },
-    content: '12.4%'
+    content: '{{`${results[0][0] ? results[0][0].toFixed(2) : 0}%`}}'
   },
 ]
