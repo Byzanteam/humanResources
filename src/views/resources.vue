@@ -65,10 +65,10 @@
     <data-loader v-slot="{ results: results }" url="/v1/components/22b74ddd-39de-493f-84ab-9d87fcf23fee/data" method="get" :data="[[0, '暂无数据']]" :style="{width: '380px', height: '218px', position: 'absolute', top: '792px', left: '40px'}">
       <v-chart :options="{backgroundColor: 'transparent', legend: {formatter: legendText, type: 'scroll', icon: 'circle', itemWidth: 10, itemHeight: 10, left: 240, top: 'middle', itemGap: 9, orient: 'vertical', textStyle: {color: '#ffffff', fontSize: 14, lineHeight: 15}, inactiveColor: '#1C4159'}, color: ['#00fff2', '#7b43ff', '#e0ad3a', '#189ef1', '#2174b8', '#f65446'], series: [{type: 'pie', minAngle: 5, left: -140, radius: ['35%', '62%'], label: {show: false}, labelLine: {show: false}, data: results.map(item => ({value: item[0], name: item[1]})).sort(compare())}], tooltip: {trigger: 'item', formatter: pieTooltipFormatterFunc, backgroundColor: '#566374f0'}}" />
     </data-loader>
-    <data-loader ref="part-production-value" v-slot="{ results: results }" :url="`/v1/components/12b74ddd-39de-493f-84ab-9d87fcf23fee/data?city=${craneStates.selectedArea.name ? craneStates.selectedArea.name : ''}&year=${craneStates.year ? craneStates.year.getFullYear() : new Date().getFullYear()}`" method="get" :data="[[0]]" :style="{position: 'absolute', top: '134px', left: '130px'}">
+    <data-loader ref="part-production-value" v-slot="{ results: results }" :url="`/v1/components/12b74ddd-39de-493f-84ab-9d87fcf23fee/data?city=${currentArea ? currentArea : ''}&year=${craneStates.year ? craneStates.year.getFullYear() : new Date().getFullYear()}`" method="get" :data="[[0]]" :style="{position: 'absolute', top: '134px', left: '130px'}">
       <digital-roll ref="deal-number-total" v-if="results" data-content="根据「区域」选择统计该区域 2019 年地区生产总值" titlePosition="left" :content="{title: '地区生产总值', suffix: '万元', digital: results[0][0] || 0}" :options="{separator: ','}" :titleStyle="{color: '#ffffff', fontSize: '16px', fontWeight: '400'}" :prefixStyle="{color: '#00fff2', fontSize: '16px', fontWeight: '400'}" :suffixStyle="{color: '#00fff2', fontSize: '16px', fontWeight: '400'}" :digitalStyle="{fontSize: '32px', color: '#00fff2', fontWeight: '400', fontFamily: 'Oswald-Regular', format: '11', lineHeight: '38px', letterSpacing: '2.4px'}" />
     </data-loader>
-    <data-loader ref="talent-number" v-slot="{ results: results }" :url="`/v1/components/13b74ddd-39de-493f-84ab-9d87fcf23fee/data?area=${craneStates.department ? craneStates.department.label : ''}`" method="get" :data="[[0]]" :style="{position: 'absolute', top: '214px', left: '130px'}">
+    <data-loader ref="talent-number" v-slot="{ results: results }" :url="`/v1/components/13b74ddd-39de-493f-84ab-9d87fcf23fee/data?area=${currentArea ? currentArea : ''}&year=${craneStates.year ? craneStates.year.getFullYear() : new Date().getFullYear()}`" method="get" :data="[[0]]" :style="{position: 'absolute', top: '214px', left: '130px'}">
       <digital-roll ref="talent-number-content" v-if="results" data-content="根据「区域」选择统计该地区人才库中学历为「硕士」「博士」的人才数量" titlePosition="left" :content="{title: '中高端人才数量', digital: results[0][0] || 0, suffix: '人'}" :options="{separator: ','}" :titleStyle="{color: '#ffffff', fontSize: '16px', fontWeight: '400'}" :prefixStyle="{color: '#00fff2', fontSize: '16px', fontWeight: '400'}" :suffixStyle="{color: '#00fff2', fontSize: '16px', fontWeight: '400'}" :digitalStyle="{fontSize: '32px', color: '#00fff2', fontWeight: '400', fontFamily: 'Oswald-Regular', format: '11', lineHeight: '38px', letterSpacing: '2.4px'}" />
     </data-loader>
     <data-loader ref="ranking_rank" v-slot="{ results: results }" :url="`/v1/components/19b74ddd-39de-493f-84ab-9d87fcf23fee/data?area=${craneStates.department ? craneStates.department.label : ''}`" method="get" :data="[[20, '暂无数据']]" :style="{width: '296px', height: '290px', overflow: 'scroll', position: 'absolute', top: '412px', left: '90px'}">
@@ -185,11 +185,12 @@ export const resources = {
   data () {
     return {
       Echarts: Echarts,
+      currentArea: '',
       craneStates: {
         department: null,
         mapData: [],
         selectedArea: {},
-        year: DATE_RANGE[1],
+        year: new Date(),
         mapThumbnailOptions: {backgroundColor: 'transparent', series: {type: 'map', mapType: 'china', itemStyle: {areaColor: '#0e3e7d', borderColor: '#68a4f0', borderWidth: 1}, emphasis: {label: {color: 'white', fontWeight: 600}, itemStyle: {areaColor: '#00fff2'}}}}
       },
     }
@@ -205,9 +206,16 @@ export const resources = {
   },
 
   watch: {
-    'craneStates.department'() {
+    'craneStates.department'(value) {
+      this.currentArea = value ? value.label : ''
       this.setState('mapData', [])
     },
+
+    'craneStates.selectedArea'(value) {
+      if(value) {
+        this.currentArea = value.name
+      }
+    }
   },
 
   methods: {

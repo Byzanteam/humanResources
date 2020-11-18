@@ -36,7 +36,7 @@ module.exports = {
     },
     {
       id: 'year',
-      value: ''
+      value: new Date()
     },
     {
       id: 'mapThumbnailOptions',

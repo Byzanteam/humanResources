@@ -8,7 +8,7 @@ module.exports = {
     results: 'results',
   },
   props: {
-    $url: "`/v1/components/12b74ddd-39de-493f-84ab-9d87fcf23fee/data?city=${craneStates.selectedArea.name ? craneStates.selectedArea.name : ''}&year=${craneStates.year ? craneStates.year.getFullYear() : new Date().getFullYear()}`",
+    $url: "`/v1/components/12b74ddd-39de-493f-84ab-9d87fcf23fee/data?city=${currentArea ? currentArea : ''}&year=${craneStates.year ? craneStates.year.getFullYear() : new Date().getFullYear()}`",
     method: 'get',
     $data: "[[0]]",
   },
