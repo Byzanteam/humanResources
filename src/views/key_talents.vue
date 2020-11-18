@@ -9,7 +9,7 @@
     <img ref="box-bg" :style="{width: '440px', height: '1059px', position: 'absolute', top: '10px', left: '1471px'}" src="/hxrc/images/Box-Bg.png" />
     <div :style="{width: '380px', height: '143px', backgroundColor: 'rgba(13, 45, 120, .45)', borderRadius: '5px', position: 'absolute', top: '84px', left: '40px'}" />
     <div ref="value-circle" :style="{height: '10px', width: '10px', borderRadius: '10px', borderWidth: '1px', borderColor: '#00fff2', borderStyle: 'solid', position: 'absolute', top: '117px', left: '80px'}" />
-    <data-loader v-slot="{ results: results }" :url="`/v1/components/24b74ddd-39de-493f-84ab-9d87fcf23fee/data?type=${digitalKeyword || ''}`" method="get" :data="[[0]]" :style="{position: 'absolute', top: '94px', left: '106px'}">
+    <data-loader v-slot="{ results: results }" :url="`/v1/components/55b74ddd-39de-493f-84ab-9d87fcf23fee/data?type=${digitalKeyword || ''}&tag=${craneStates.supplyInputWord}&area=${currentArea}`" method="get" :data="[[0]]" :style="{position: 'absolute', top: '94px', left: '106px'}">
       <digital-roll ref="talent-age-index-content" data-content="统计人才库中学历为「硕士」「博士」的人才数量" titlePosition="left" :content="{title: '中高端人才总数', digital: results ? results[0][0] : 0, suffix: '人'}" :options="{separator: ''}" :style="{width: '250px', height: '39px'}" :titleStyle="{color: '#ffffff', fontSize: '16px', fontWeight: '400'}" :prefixStyle="{color: '#00fff2', fontSize: '16px', fontWeight: '400'}" :suffixStyle="{color: '#00fff2', fontSize: '16px', fontWeight: '400'}" :digitalStyle="{fontSize: '32px', color: '#00fff2', fontWeight: '400', fontFamily: 'Oswald-Regular', format: '11', lineHeight: '38px', letterSpacing: '2.4px'}" />
     </data-loader>
     <div ref="cut-line" :style="{width: '360px', borderBottom: '1px solid rgba(69, 137, 225, .5)', position: 'absolute', top: '146px', left: '50px'}" />
@@ -17,7 +17,7 @@
       <div :style="{color: '#ffffff', fontSize: '16px', fontWeight: '400'}">
         杰出人才
       </div>
-      <data-loader v-slot="{ results: results }" :url="`/v1/components/24b74ddd-39de-493f-84ab-9d87fcf23fee/data?type=${digitalKeyword || ''}`" method="get" :data="[[0]]">
+      <data-loader v-slot="{ results: results }" :url="`/v1/components/56b74ddd-39de-493f-84ab-9d87fcf23fee/data?type=${digitalKeyword || ''}&tag=${craneStates.supplyInputWord}&area=${currentArea}`" method="get" :data="[[0]]">
         <digital-roll :content="{digital: results ? results[0][0] : 0, suffix: '人'}" :options="{separator: ''}" :suffixStyle="{color: '#00fff2', fontSize: '16px', fontWeight: '400'}" :titleStyle="{color: '#ffffff', fontSize: '16px', fontWeight: '400'}" :digitalStyle="{fontSize: '20px', color: '#00fff2', fontWeight: '600', lineHeight: '32px', fontFamily: 'Oswald-Regular', format: '11', letterSpacing: '2.4px'}" />
       </data-loader>
     </div>
@@ -25,7 +25,7 @@
       <div :style="{color: '#ffffff', fontSize: '16px', fontWeight: '400'}">
         领军人才
       </div>
-      <data-loader v-slot="{ results: results }" :url="`/v1/components/24b74ddd-39de-493f-84ab-9d87fcf23fee/data?type=${digitalKeyword || ''}`" method="get" :data="[[0]]">
+      <data-loader v-slot="{ results: results }" :url="`/v1/components/57b74ddd-39de-493f-84ab-9d87fcf23fee/data?type=${digitalKeyword || ''}&tag=${craneStates.supplyInputWord}&area=${currentArea}`" method="get" :data="[[0]]">
         <digital-roll :content="{digital: results ? results[0][0] : 0, suffix: '人'}" :options="{separator: ''}" :suffixStyle="{color: '#00fff2', fontSize: '16px', fontWeight: '400'}" :titleStyle="{color: '#ffffff', fontSize: '16px', fontWeight: '400'}" :digitalStyle="{fontSize: '20px', color: '#00fff2', fontWeight: '600', lineHeight: '32px', fontFamily: 'Oswald-Regular', format: '11', letterSpacing: '2.4px'}" />
       </data-loader>
     </div>
@@ -33,24 +33,24 @@
       <div :style="{color: '#ffffff', fontSize: '16px', fontWeight: '400'}">
         紧缺人才
       </div>
-      <data-loader v-slot="{ results: results }" :url="`/v1/components/24b74ddd-39de-493f-84ab-9d87fcf23fee/data?type=${digitalKeyword || ''}`" method="get" :data="[[0]]">
+      <data-loader v-slot="{ results: results }" :url="`/v1/components/58b74ddd-39de-493f-84ab-9d87fcf23fee/data?type=${digitalKeyword || ''}&tag=${craneStates.supplyInputWord}&area=${currentArea}`" method="get" :data="[[0]]">
         <digital-roll :content="{digital: results ? results[0][0] : 0, suffix: '人'}" :options="{separator: ''}" :suffixStyle="{color: '#00fff2', fontSize: '16px', fontWeight: '400'}" :titleStyle="{color: '#ffffff', fontSize: '16px', fontWeight: '400'}" :digitalStyle="{fontSize: '20px', color: '#00fff2', fontWeight: '600', lineHeight: '32px', fontFamily: 'Oswald-Regular', format: '11', letterSpacing: '2.4px'}" />
       </data-loader>
     </div>
     <div :style="{width: '380px', height: '50px', backgroundColor: 'rgba(13, 45, 120, .45)', borderRadius: '5px', position: 'absolute', top: '243px', left: '40px'}" />
     <div ref="value-circle" :style="{height: '10px', width: '10px', borderRadius: '10px', borderWidth: '1px', borderColor: '#00fff2', borderStyle: 'solid', position: 'absolute', top: '272px', left: '130px'}" />
-    <data-loader v-slot="{ results: results }" :url="`/v1/components/45b74ddd-39de-493f-84ab-9d87fcf23fee/data?job=${craneStates.currentShortageType|| ''}&year=${this.craneStates.year ? this.craneStates.year.getFullYear() : new Date(Date.now()).getFullYear()}`" method="get" :data="[[0]]" :style="{position: 'absolute', top: '249px', left: '156px'}">
+    <data-loader v-slot="{ results: results }" :url="`/v1/components/45b74ddd-39de-493f-84ab-9d87fcf23fee/data?area=${currentArea}&year=${craneStates.year ? craneStates.year.getFullYear() : new Date(Date.now()).getFullYear()}`" method="get" :data="[[0]]" :style="{position: 'absolute', top: '249px', left: '156px'}">
       <digital-roll ref="talent-age-index-content" data-content="统计历年举行的人才引进活动次数" titlePosition="left" :content="{title: '人才引进统计', digital: results ? results[0][0] : 0, suffix: '次'}" :options="{separator: ''}" :style="{width: '278px', height: '39px'}" :titleStyle="{color: '#ffffff', fontSize: '16px', fontWeight: '400'}" :prefixStyle="{color: '#00fff2', fontSize: '16px', fontWeight: '400'}" :suffixStyle="{color: '#00fff2', fontSize: '16px', fontWeight: '400'}" :digitalStyle="{fontSize: '32px', color: '#00fff2', fontWeight: '400', fontFamily: 'Oswald-Regular', format: '11', lineHeight: '38px', letterSpacing: '2.4px'}" />
     </data-loader>
     <div :style="{width: '380px', height: '50px', backgroundColor: 'rgba(13, 45, 120, .45)', borderRadius: '5px', position: 'absolute', top: '128px', left: '1500px'}" />
     <div ref="value-circle" :style="{height: '10px', width: '10px', borderRadius: '10px', borderWidth: '1px', borderColor: '#00fff2', borderStyle: 'solid', position: 'absolute', top: '157px', left: '1588px'}" />
-    <data-loader v-slot="{ results: results }" :url="`/v1/components/29b74ddd-39de-493f-84ab-9d87fcf23fee/data?job=${craneStates.currentShortageType|| ''}&year=${craneStates.year ? craneStates.year.getFullYear() : new Date(Date.now()).getFullYear()}`" method="get" :data="[[0]]" :style="{position: 'absolute', top: '134px', left: '1614px'}">
+    <data-loader v-slot="{ results: results }" :url="`/v1/components/58b74ddd-39de-493f-84ab-9d87fcf23fee/data?type=${digitalKeyword || ''}&tag=${craneStates.supplyInputWord}&area=${currentArea}`" method="get" :data="[[0]]" :style="{position: 'absolute', top: '134px', left: '1614px'}">
       <digital-roll ref="talent-age-index-content" data-content="默认统计所有行业供大于求判定为紧缺人才，可根据「区域」「时间」「行业类型」进行筛选统计对应行业的紧缺人才数量情况" titlePosition="left" :content="{title: '紧缺人才数量', digital: results ? results[0][0] : 0, suffix: '人'}" :options="{separator: ''}" :style="{width: '278px', height: '39px'}" :titleStyle="{color: '#ffffff', fontSize: '16px', fontWeight: '400'}" :prefixStyle="{color: '#00fff2', fontSize: '16px', fontWeight: '400'}" :suffixStyle="{color: '#00fff2', fontSize: '16px', fontWeight: '400'}" :digitalStyle="{fontSize: '32px', color: '#00fff2', fontWeight: '400', fontFamily: 'Oswald-Regular', format: '11', lineHeight: '38px', letterSpacing: '2.4px'}" />
     </data-loader>
     <div :style="{width: '400px', height: '220px', backgroundColor: 'rgba(0, 0, 0, .03)', borderRadius: '4px', border: '1px dotted rgba(106, 214, 255, .3)', position: 'absolute', top: '309px', left: '30px'}" />
     <brick-tabs :tabNavs="craneStates.mapTabNavs" :activeTab="craneStates.mapTabCurrent" :style="{position: 'absolute', top: '325px', left: '126px'}" v-model="craneStates.mapTabCurrent" />
     <div v-if="craneStates.mapTabCurrent === craneStates.mapTabNavs[0]">
-      <Select placeholder="全部类型" class="map-select" :style="{width: '180px', position: 'absolute', top: '391px', left: '43px'}" v-model="craneStates.currentTalentType">
+      <Select :clearable="true" placeholder="全部类型" class="map-select" :style="{width: '180px', position: 'absolute', top: '391px', left: '43px'}" v-model="craneStates.currentTalentType">
         <Option v-for="(item, key) in craneStates.types" :key="key" :value="item.index" :label="item.name">
           {{item.name}}
         </Option>
@@ -61,7 +61,7 @@
       </brick-button>
     </div>
     <div v-if="craneStates.mapTabCurrent === craneStates.mapTabNavs[1]">
-      <Select placeholder="全部类型" class="map-select" :style="{width: '180px', position: 'absolute', top: '391px', left: '43px'}" v-model="craneStates.currentDemandType">
+      <Select :clearable="true" placeholder="全部类型" class="map-select" :style="{width: '180px', position: 'absolute', top: '391px', left: '43px'}" v-model="craneStates.currentDemandType">
         <Option v-for="(item, key) in craneStates.types" :key="key" :value="item.index" :label="item.name">
           {{item.name}}
         </Option>
@@ -73,12 +73,12 @@
     </div>
     <div :style="{width: '400px', height: '180px', backgroundColor: 'rgba(0, 0, 0, .03)', borderRadius: '4px', border: '1px dotted rgba(106, 214, 255, .3)', position: 'absolute', top: '225px', left: '1490px'}" />
     <div>
-      <data-loader ref="job_select" @requestDone="(exports)=>[setState('dateRange', exports.results.map((item) => (Number(item[0]))))]" url="/v1/components/02b74ddd-39de-493f-84ab-9d87fcf23fee/data" method="get" :data="[['']]" :style="{position: 'absolute', top: '270px', left: '1503px'}">
+      <data-loader ref="job_select" @requestDone="(exports)=>[setState('dateRange', exports.results ? exports.results.map((item) => (Number(item[0]))) : [])]" url="/v1/components/02b74ddd-39de-493f-84ab-9d87fcf23fee/data" method="get" :data="[['']]" :style="{position: 'absolute', top: '270px', left: '1503px'}">
         <date-picker class="map-tab-datepicker" :options="{disabledDate: (time) => {return !craneStates.dateRange.includes(time.getFullYear())}}" :style="{width: '180px'}" format="yyyy年" v-model="craneStates.year" type="year" placeholder="选择时间" />
       </data-loader>
       <data-loader ref="industry_select" v-slot="{ results: results }" url="/v1/components/30b74ddd-39de-493f-84ab-9d87fcf23fee/data?offset=10" method="get" :data="[['']]" :style="{position: 'absolute', top: '270px', left: '1697px'}">
-        <Select placeholder="所有行业" clearable class="map-select" :style="{width: '180px'}" v-model="craneStates.currentShortageType">
-          <Option v-for="(item, key) in results.map((item, index) => ({index: item[0], name: item[0]}))" :key="key" :value="item.index" :label="item.name">
+        <Select :clearable="true" placeholder="所有行业" class="map-select" :style="{width: '180px'}" v-model="craneStates.currentShortageType">
+          <Option v-for="(item, key) in results ? results.map((item, index) => ({index: item[0], name: item[0]})) : []" :key="key" :value="item.index" :label="item.name">
             {{item.name}}
           </Option>
         </Select>
@@ -87,8 +87,10 @@
         查看紧缺人才地图
       </brick-button>
     </div>
-    <data-loader ref="high-talents-demand-change-line-chart" v-slot="{ results: results }" :url="`/v1/components/09b74ddd-39de-493f-84ab-9d87fcf23fee/data?area=${craneStates.department ? craneStates.department.label : ''}`" method="get" :data="[[0, '暂无数据']]" :style="{width: '380px', height: '180px', position: 'absolute', top: '597px', left: '40px'}">
-      <v-chart :options="{grid: {top: '24%', right: '5%', bottom: '12%'}, backgroundColor: 'transparent', color: ['#00fff2', '#7b43ff'], tooltip: {trigger: 'axis', formatter: demandTooltipFormatterFunc, backgroundColor: '#566374f0', axisPointer: {lineStyle: {color: '#ffffff', type: 'dotted'}}}, legend: {icon: 'circle', right: 10, itemGap: 14, itemWidth: 8, itemHeight: 8, textStyle: {color: '#ffffff', fontSize: 14}, inactiveColor: '#1C4159'}, xAxis: {type: 'category', data: results ? results.map(item => (item[1])) : ['暂无数据'], axisLine: {show: false}, axisTick: {show: false}, axisLabel: {color: '#ffffff', fontSize: 12, fontWeight: 400}, splitLine: {show: false}}, yAxis: {type: 'value', name: '人', axisLine: {show: false}, axisTick: {show: false}, nameTextStyle: {color: '#ffffff', fontSize: 12, fontWeight: 400, align: 'right', padding: [0, 5, 0, 0]}, axisLabel: {color: '#ffffff', fontSize: 12, fontWeight: 400, align: 'right'}, splitLine: {show: false}, splitNumber: 4}, series: [{type: 'line', name: '人才供应', data: results ? results.map(item => (item[2])) : [0], showSymbol: false, lineStyle: {width: 4}}, {type: 'line', name: '人才需求', data: results ? results.map(item => (item[0])) : [0], showSymbol: false, lineStyle: {width: 4}}]}" />
+    <data-loader ref="high-talents-demand-change-line-chart" v-slot="{ results: supplyResults }" :url="`/v1/components/5ab74ddd-39de-493f-84ab-9d87fcf23fee/data?area=${currentArea}&type=${digitalKeyword || ''}&job=${craneStates.supplyInputWord}`" method="get" :data="[[0, '暂无数据']]">
+      <data-loader ref="high-talents-demand-change-line-chart" v-slot="{ results: demandResults }" :url="`/v1/components/5bb74ddd-39de-493f-84ab-9d87fcf23fee/data?area=${currentArea}&type=${digitalKeyword || ''}&job=${craneStates.supplyInputWord}`" method="get" :data="[[0, '暂无数据']]" :style="{width: '380px', height: '180px', position: 'absolute', top: '597px', left: '40px'}">
+        <v-chart :options="{grid: {top: '24%', left: 0, bottom: '12%', containLabel: true}, backgroundColor: 'transparent', color: ['#00fff2', '#7b43ff'], tooltip: {trigger: 'axis', formatter: demandTooltipFormatterFunc, backgroundColor: '#566374f0', axisPointer: {lineStyle: {color: '#ffffff', type: 'dotted'}}}, legend: {icon: 'circle', right: 10, itemGap: 14, itemWidth: 8, itemHeight: 8, textStyle: {color: '#ffffff', fontSize: 14}, inactiveColor: '#1C4159'}, xAxis: {type: 'category', data: supplyResults ? supplyResults.map(item => (item[0])) : ['暂无数据'], axisLine: {show: false}, axisTick: {show: false}, axisLabel: {color: '#ffffff', fontSize: 12, fontWeight: 400}, splitLine: {show: false}}, yAxis: {type: 'value', name: '人', axisLine: {show: false}, axisTick: {show: false}, nameTextStyle: {color: '#ffffff', fontSize: 12, fontWeight: 400, align: 'right', padding: [0, 5, 0, 0]}, axisLabel: {color: '#ffffff', fontSize: 12, fontWeight: 400, align: 'right'}, splitLine: {show: false}, splitNumber: 4}, series: [{type: 'line', name: '人才供应', data: supplyResults ? supplyResults.map(item => (item[1])) : [0], showSymbol: false, lineStyle: {width: 4}}, {type: 'line', name: '人才需求', data: demandResults ? demandResults.map(item => (item[1])) : [0], showSymbol: false, lineStyle: {width: 4}}]}" />
+      </data-loader>
     </data-loader>
     <data-loader v-slot="{ results: results }" :url="`/v1/components/28b74ddd-39de-493f-84ab-9d87fcf23fee/data?industry=${craneStates.currentShortageType|| ''}`" method="get" :data="[[0, '暂无数据']]" :style="{width: '380px', height: '180px', overflow: 'scroll', position: 'absolute', top: '845px', left: '40px'}">
       <v-chart :options="{backgroundColor: 'transparent', tooltip: {trigger: 'item', formatter: pieTooltipFormatterFunc, backgroundColor: '#566374f0'}, legend: {type: 'scroll', icon: 'circle', itemWidth: 10, itemHeight: 10, right: 'right', top: 'middle', itemGap: 9, orient: 'vertical', textStyle: {color: '#ffffff', fontSize: 14}, inactiveColor: '#1C4159'}, color: ['#00fff2', '#7b43ff', '#e0ad3a', '#189ef1', '#2174b8', '#f65446'], series: [{type: 'pie', minAngle: 5, left: -140, radius: ['45%', '76%'], label: {show: false}, labelLine: {show: false}, data: results ? results.map(item => ({value: item [0], name: item[1]})) : [{value: 0, name: '暂无数据'}]}]}" />
@@ -97,7 +99,7 @@
       <v-chart :options="{backgroundColor: 'transparent', tooltip: {trigger: 'item', formatter: pieTooltipFormatterFunc, backgroundColor: '#566374f0'}, legend: {type: 'scroll', formatter: legendText, icon: 'circle', itemWidth: 10, itemHeight: 10, right: 'right', top: 'middle', itemGap: 9, orient: 'vertical', textStyle: {color: '#ffffff', fontSize: 14, lineHeight: 15}, inactiveColor: '#1C4159'}, color: ['#00fff2', '#7b43ff', '#e0ad3a', '#189ef1', '#2174b8', '#f65446'], series: [{type: 'pie', minAngle: 5, left: -140, radius: ['45%', '76%'], label: {show: false}, labelLine: {show: false}, data: results ? results.map(item => ({value: item [0], name: item[1]})).sort(compare()) : [{value: 0, name: '暂无数据'}]}]}" />
     </data-loader>
     <data-loader ref="high-talents-demand-change-line-chart" v-slot="{ results: results }" :url="`/v1/components/32b74ddd-39de-493f-84ab-9d87fcf23fee/data?industry=${craneStates.currentShortageType|| ''}`" method="get" :data="[['暂无数据', 0]]" :style="{width: '380px', height: '214px', position: 'absolute', top: '518px', left: '1500px'}">
-      <v-chart :options="{grid: {top: '24%', right: '5%', bottom: '10%'}, backgroundColor: 'transparent', color: ['#00fff2', '#7b43ff'], tooltip: {trigger: 'axis', formatter: shortageTooltipFormatterFunc, backgroundColor: '#566374f0', axisPointer: {lineStyle: {color: '#ffffff', type: 'dotted'}}}, xAxis: {type: 'category', data: results ? results.map(item => (item[0])) : ['暂无数据'], axisLine: {show: false}, axisTick: {show: false}, axisLabel: {color: '#ffffff', fontSize: 12, fontWeight: 400}, splitLine: {show: false}}, yAxis: {type: 'value', name: '人', axisLine: {show: false}, axisTick: {show: false}, nameTextStyle: {color: '#ffffff', fontSize: 12, fontWeight: 400, align: 'right', padding: [0, 5, 0, 0]}, axisLabel: {color: '#ffffff', fontSize: 12, fontWeight: 400, align: 'right'}, splitLine: {show: false}, splitNumber: 4}, series: [{type: 'line', name: '紧缺人才', data: results ? results.map(item => (item[1])) : [0], showSymbol: false, lineStyle: {width: 4}}]}" />
+      <v-chart :options="{grid: {top: '24%', left: 0, bottom: '10%', containLabel: true}, backgroundColor: 'transparent', color: ['#00fff2', '#7b43ff'], tooltip: {trigger: 'axis', formatter: shortageTooltipFormatterFunc, backgroundColor: '#566374f0', axisPointer: {lineStyle: {color: '#ffffff', type: 'dotted'}}}, xAxis: {type: 'category', data: results ? results.map(item => (item[0])) : ['暂无数据'], axisLine: {show: false}, axisTick: {show: false}, axisLabel: {color: '#367391', fontSize: 12, fontWeight: 400}, splitLine: {show: false}}, yAxis: {type: 'value', name: '人', axisLine: {show: false}, axisTick: {show: false}, nameTextStyle: {color: '#367391', fontSize: 12, fontWeight: 400, align: 'right', padding: [0, 5, 0, 0]}, axisLabel: {color: '#367391', fontSize: 12, fontWeight: 400, align: 'right'}, splitLine: {show: false}, splitNumber: 4}, series: [{type: 'line', name: '紧缺人才', data: results ? results.map(item => (item[1])) : [0], showSymbol: false, lineStyle: {width: 4}}]}" />
     </data-loader>
     <brick-radio-button-select :options="craneStates.selectOptions" v-model="craneStates.department" placeholder="全省" :style="{position: 'absolute', top: '125px', left: '929px'}" />
     <data-loader @requestDone="(param)=>[setState('mapData', param.results.map((item) => ({name: item[1], value: item[0]})))]" :url="`${requestUrl}`" method="get" :data="[[0, '暂无数据']]" :style="{width: '1100px', height: '900px', position: 'absolute', top: '160px', left: '410px'}">
@@ -287,6 +289,7 @@ export const key_talents = {
   data () {
     return {
       Echarts: Echarts,
+      currentArea: '',
       craneStates: {
         selectedArea: {},
         mapData: [],
@@ -339,7 +342,13 @@ export const key_talents = {
 
   watch: {
     'craneStates.department'() {
+      this.currentArea = value ? value.label : ''
       this.setState('mapData', [])
+    },
+    'craneStates.selectedArea'(value) {
+      if(value) {
+        this.currentArea = value.name
+      }
     }
   },
 
