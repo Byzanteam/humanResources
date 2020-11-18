@@ -61,7 +61,7 @@ module.exports = [
           titlePosition: 'left',
           $content: {
             title: '中高端人才总数',
-            $digital: "results ? results[0][0] : 0",
+            $digital: "results[0][0] ? results[0][0] : 0",
             suffix: '人',
           },
           $options: {
@@ -112,7 +112,7 @@ module.exports = [
             component: '@byzanteam/vis-components/digital-roll',
             props: {
               $content: {
-                $digital: "results ? results[0][0] : 0",
+                $digital: "results[0][0] ? results[0][0] : 0",
                 suffix: '人',
               },
               $options: {
@@ -148,7 +148,7 @@ module.exports = [
             component: '@byzanteam/vis-components/digital-roll',
             props: {
               $content: {
-                $digital: "results ? results[0][0] : 0",
+                $digital: "results[0][0] ? results[0][0] : 0",
                 suffix: '人',
               },
               $options: {
@@ -184,7 +184,7 @@ module.exports = [
             component: '@byzanteam/vis-components/digital-roll',
             props: {
               $content: {
-                $digital: "results ? results[0][0] : 0",
+                $digital: "results[0][0] ? results[0][0] : 0",
                 suffix: '人',
               },
               $options: {
@@ -228,7 +228,7 @@ module.exports = [
           titlePosition: 'left',
           $content: {
             title: '人才引进统计',
-            $digital: "results ? results[0][0] : 0",
+            $digital: "results[0][0] ? results[0][0] : 0",
             suffix: '次',
           },
           $options: {
@@ -274,7 +274,7 @@ module.exports = [
           titlePosition: 'left',
           $content: {
             title: '紧缺人才数量',
-            $digital: "results ? results[0][0] : 0",
+            $digital: "results[0][0] ? results[0][0] : 0",
             suffix: '人',
           },
           $options: {
