@@ -427,10 +427,18 @@ export const key_talents = {
     mapClickedFunc(chart) {
       chart.on('click', (params) => {
         chart.dispatchAction({
+          type: 'geoSelect',
+          name: params.name
+        })
+        chart.dispatchAction({
           type: 'mapSelect',
           dataIndex: params.dataIndex
         })
         if(this.craneStates.selectedArea) {
+          chart.dispatchAction({
+            type: 'geoUnSelect',
+            name: this.craneStates.selectedArea.name
+          })
           chart.dispatchAction({
             type: 'mapUnSelect',
             dataIndex: this.craneStates.selectedArea.dataIndex
