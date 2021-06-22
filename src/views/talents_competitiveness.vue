@@ -67,9 +67,11 @@
     <img ref="box-bg" :style="{width: '440px', height: '1059px', position: 'absolute', top: '10px', left: '10px'}" src="/hxrc/images/Box-Bg.png" />
     <img ref="right-box-bg" :style="{width: '440px', height: '1059px', position: 'absolute', top: '10px', left: '1471px'}" src="/hxrc/images/Box-Bg.png" />
     <div ref="force-digital-bg" :style="{width: '380px', height: '50px', backgroundColor: 'rgba(13, 45, 120, .45)', borderRadius: '5px', position: 'absolute', top: '60px', left: '1500px'}" />
-    <RadioGroup v-model="craneStates.indicator" type="button" :style="{width: '388px', height: '184px', position: 'absolute', top: '92px', left: '37px'}">
-      <Radio v-for="(item, key) in craneStates.indicators" :key="key" :label="item.name" />
-    </RadioGroup>
+    <data-loader @requestDone="(param)=>[setState('indicators', param.results.map(item => ({name: item.index_2})))]" :url="`/custom/daas/api/9f5c2cc6-f4cc-4757-8a01-7d79cbb06125?tableName=${dataTableName}&filter=city=${ craneStates.city && craneStates.city.label || '福州市'}&fields=index_2&orderBy=&pageSize=100&pageNumber=1&apiID=9a7c1d5e-2380-49ab-940b-56b70fc69b3e&apiKey=54fc233d9f2b4aa3a7f7b3bf04f4d158`" method="get" :data="[]">
+      <RadioGroup v-model="craneStates.indicator" type="button" :style="{width: '388px', height: '184px', position: 'absolute', top: '92px', left: '37px'}">
+        <Radio v-for="(item, key) in craneStates.indicators" :key="key" :label="item.name" />
+      </RadioGroup>
+    </data-loader>
     <data-loader @requestDone="(param)=>[setState('radarData', param.results || [])]" :url="radarRequestUrl" method="get" :data="[[0, '暂无数据']]" :style="{width: '380px', height: '480px', position: 'absolute', top: '455px', left: '1500px'}">
       <v-chart :options="{legend: {orient: 'vertical', top: 274, icon: 'circle', inactiveColor: '#1C4159', itemGap: 5, itemWidth: 10, itemHeight: 10, textStyle: {color: '#ffffff', fontSize: 14, padding: [2, 4]}}, tooltip: {trigger: 'item', backgroundColor: '#566374f0'}, color: ['#00fff2', '#7b43ff', '#e0ad3a', '#189ef1', '#2174b8', '#f65446'], radiusAxis: {axisLine: {color: '#19394f'}, splitLine: {color: '#19394f'}}, radar: {shape: 'circle', center: ['50%', '26%'], radius: '50% ', name: {textStyle: {color: 'rgba(255, 255, 255, .8)', fontSize: 14, fontWeight: 400}}, axisLine: {lineStyle: {color: '#19394f'}}, splitArea: {areaStyle: {color: 'transparent'}}, splitLine: {lineStyle: {color: '#19394f'}}, indicator: craneStates.indicators}, series: [{
                   type: 'radar',
@@ -105,7 +107,7 @@
         </Option>
       </Select>
     </div>
-    <data-loader @requestDone="(param)=>[setState('mapData', param.results.map((item) => ({name: item[1], value: craneStates.areaCoordMap[item[1]].concat(item[0].toFixed(2))}))), setState('tableData', param.results.map((item, index) => ({index: index + 1, name: item[1], value: item[0].toFixed(2)})))]" :url="tableRequestUrl" method="get" :data="[[0, '暂无数据']]" :style="{width: '380px', height: '680px', overflow: 'scroll', position: 'absolute', top: '360px', left: '40px'}">
+    <data-loader @requestDone="(param)=>[setState('mapData', param.results.map((item) => ({name: item.city, value: craneStates.areaCoordMap[item.city].concat(Number(item.value).toFixed(2))}))), setState('tableData', param.results.map((item, index) => ({index: index + 1, name: item.city, value: Number(item.value).toFixed(2)})))]" :url="tableRequestUrl" method="get" :data="[[0, '暂无数据']]" :style="{width: '380px', height: '680px', overflow: 'scroll', position: 'absolute', top: '360px', left: '40px'}">
       <vis-table v-scroll="{itemHeight: 40, headerHeight: 56}" theme="dark" stripe="" :headers="[{width: 80, key: 'index',}, {width: 160, key: 'name', title: '省市排名'}, {width: 140, key: 'value', title: '人才指标'}]" :data="sortTableData">
         <template v-slot="{ cell: cell, columnKey: columnKey }">
           <span :class="columnKey === 'index' ? 'row-index-cell' : ''">
@@ -169,11 +171,12 @@ export const talents_competitiveness = {
     return {
       provinceOptions: PROVINCE_OPTIONS,
       Echarts: Echarts,
+      dataTableName: 'fj_index_1',
       craneStates: {
         province: PROVINCE_OPTIONS[0],
         city: null,
-        indicators: [{name: '人才规模'}, {name: '人才质量'}, {name: '人才结构'}, {name: '教育投入'}, {name: '研发投入'}, {name: '医疗投入'}, {name: '经济基础'}, {name: '发展潜力'}, {name: '科技实力'}, {name: '外商投资'}, {name: '生存环境'}, {name: '生活水平'}, {name: '培养能力'}, {name: '科技创新'}, {name: '发展成效'}],
-        indicator: '人才规模',
+        indicators: [],
+        indicator: '',
         types: [{index: 1, name: '四川省'}, {index: 2, name: '重庆市'}, {index: 3, name: '青海省'}, {index: 4, name: '浙江省'}, {index: 5, name: '湖南省'}, {index: 6, name: '湖北省'}, {index: 7, name: '甘肃省'}, {index: 8, name: '山东省'}, {index: 9, name: '江苏省'}, {index: 10, name: '江西省'}, {index: 11, name: '福建省'}, {index: 12, name: '贵州省'}, {index: 13, name: '陕西省'}, {index: 14, name: '山西省'}],
         currentProvince: [],
         selectedArea: {},
@@ -217,10 +220,7 @@ export const talents_competitiveness = {
 
   computed: {
     tableRequestUrl () {
-      if(this.craneStates.city) {
-        return `/v1/components/35b74ddd-39de-493f-84ab-9d87fcf23fee/data?type='${this.craneStates.indicator}'&city=${this.craneStates.city.label}`
-      }
-      return `/v1/components/34b74ddd-39de-493f-84ab-9d87fcf23fee/data?type='${this.craneStates.indicator}'&province=福建省`
+      return `/custom/daas/api/9f5c2cc6-f4cc-4757-8a01-7d79cbb06125?tableName=${this.dataTableName}&filter=index_2=${ this.craneStates.indicator || ''}&fields=&orderBy=&pageSize=100&pageNumber=1&apiID=9a7c1d5e-2380-49ab-940b-56b70fc69b3e&apiKey=54fc233d9f2b4aa3a7f7b3bf04f4d158`
     },
     radarRequestUrl () {
       const { currentProvince } = this.craneStates
@@ -232,22 +232,22 @@ export const talents_competitiveness = {
       }, '')
       // 请求市级数据
       if(!this.craneStates.city && this.craneStates.currentProvince.length > 0) {
-        return `/v1/components/40b74ddd-39de-493f-84ab-9d87fcf23fee/data?city=${areas}`
+        return `http://service.testbuild.youedata.cc/custom/daas/api/9f5c2cc6-f4cc-4757-8a01-7d79cbb06125?city=${areas}`
       }
       // 请求县级数据
       if(this.craneStates.city && this.craneStates.currentProvince.length > 0) {
-        return `/v1/components/41b74ddd-39de-493f-84ab-9d87fcf23fee/data?area=${areas}`
+        return `http://service.testbuild.youedata.cc/custom/daas/api/9f5c2cc6-f4cc-4757-8a01-7d79cbb06125?area=${areas}`
       }
       // 请求省级数据
-      return '/v1/components/39b74ddd-39de-493f-84ab-9d87fcf23fee/data'
+      return 'http://service.testbuild.youedata.cc/custom/daas/api/9f5c2cc6-f4cc-4757-8a01-7d79cbb06125'
     },
     areaSelectRequestUrl () {
       // 请求区县列表
       if(this.craneStates.city) {
-        return `/v1/components/37b74ddd-39de-493f-84ab-9d87fcf23fee/data?city=${this.craneStates.city.label}`
+        return `http://service.testbuild.youedata.cc/custom/daas/api/9f5c2cc6-f4cc-4757-8a01-7d79cbb06125?city=${this.craneStates.city.label}`
       }
       // 请求市区列表
-      return `/v1/components/36b74ddd-39de-493f-84ab-9d87fcf23fee/data?province=福建省`
+      return `http://service.testbuild.youedata.cc/custom/daas/api/9f5c2cc6-f4cc-4757-8a01-7d79cbb06125?province=福建省`
     },
     sortTableData () {
       return this.craneStates.tableData.sort(this.compare())

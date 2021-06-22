@@ -19,4 +19,12 @@ module.exports = {
       },
     },
   },
+  devServer: {
+    proxy: {
+      '/custom/*': {
+        target: 'http://service.testbuild.youedata.cc',
+        changeOrigin: true,
+      },
+    },
+  },
 }
