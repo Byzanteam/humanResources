@@ -22,7 +22,7 @@ module.exports = {
         titlePosition: 'left',
         $content: {
           title: '竞争力指数',
-          $digital: "results[0] ? Number(results[0].value) : 0",
+          $digital: "digitalData",
         },
         $options: {
           separator: ',',
