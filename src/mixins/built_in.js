@@ -63,52 +63,52 @@ export default {
     },
 
     requestMapGeojson (Echarts) {
-      this.axios.get('/v1/components/00b74ddd-39de-493f-84ab-9d87fcf23fee/data?name=福建')
+      this.axios.get('http://vis.cdyoue.com:35006/v1/components/00b74ddd-39de-493f-84ab-9d87fcf23fee/data?name=福建')
       .then(({data: { data }}) => {
         Echarts.registerMap('fujian', data[0][0]);
       })
 
-      this.axios.get('/v1/components/00b74ddd-39de-493f-84ab-9d87fcf23fee/data?name=福州')
+      this.axios.get('http://vis.cdyoue.com:35006/v1/components/00b74ddd-39de-493f-84ab-9d87fcf23fee/data?name=福州')
       .then(({data: { data }}) => {
         Echarts.registerMap('fuzhou', data[0][0]);
       })
 
-      this.axios.get('/v1/components/00b74ddd-39de-493f-84ab-9d87fcf23fee/data?name=宁德')
+      this.axios.get('http://vis.cdyoue.com:35006/v1/components/00b74ddd-39de-493f-84ab-9d87fcf23fee/data?name=宁德')
       .then(({data: { data }}) => {
         Echarts.registerMap('ningde', data[0][0]);
       })
 
-      this.axios.get('/v1/components/00b74ddd-39de-493f-84ab-9d87fcf23fee/data?name=龙岩')
+      this.axios.get('http://vis.cdyoue.com:35006/v1/components/00b74ddd-39de-493f-84ab-9d87fcf23fee/data?name=龙岩')
       .then(({data: { data }}) => {
         Echarts.registerMap('longyan', data[0][0]);
       })
 
-      this.axios.get('/v1/components/00b74ddd-39de-493f-84ab-9d87fcf23fee/data?name=莆田')
+      this.axios.get('http://vis.cdyoue.com:35006/v1/components/00b74ddd-39de-493f-84ab-9d87fcf23fee/data?name=莆田')
       .then(({data: { data }}) => {
         Echarts.registerMap('putian', data[0][0]);
       })
 
-      this.axios.get('/v1/components/00b74ddd-39de-493f-84ab-9d87fcf23fee/data?name=南平')
+      this.axios.get('http://vis.cdyoue.com:35006/v1/components/00b74ddd-39de-493f-84ab-9d87fcf23fee/data?name=南平')
       .then(({data: { data }}) => {
         Echarts.registerMap('nanping', data[0][0]);
       })
 
-      this.axios.get('/v1/components/00b74ddd-39de-493f-84ab-9d87fcf23fee/data?name=三明')
+      this.axios.get('http://vis.cdyoue.com:35006/v1/components/00b74ddd-39de-493f-84ab-9d87fcf23fee/data?name=三明')
       .then(({data: { data }}) => {
         Echarts.registerMap('sanming', data[0][0]);
       })
 
-      this.axios.get('/v1/components/00b74ddd-39de-493f-84ab-9d87fcf23fee/data?name=厦门')
+      this.axios.get('http://vis.cdyoue.com:35006/v1/components/00b74ddd-39de-493f-84ab-9d87fcf23fee/data?name=厦门')
       .then(({data: { data }}) => {
         Echarts.registerMap('xiamen', data[0][0]);
       })
 
-      this.axios.get('/v1/components/00b74ddd-39de-493f-84ab-9d87fcf23fee/data?name=漳州')
+      this.axios.get('http://vis.cdyoue.com:35006/v1/components/00b74ddd-39de-493f-84ab-9d87fcf23fee/data?name=漳州')
       .then(({data: { data }}) => {
         Echarts.registerMap('zhangzhou', data[0][0]);
       })
 
-      this.axios.get('/v1/components/00b74ddd-39de-493f-84ab-9d87fcf23fee/data?name=泉州')
+      this.axios.get('http://vis.cdyoue.com:35006/v1/components/00b74ddd-39de-493f-84ab-9d87fcf23fee/data?name=泉州')
       .then(({data: { data }}) => {
         Echarts.registerMap('quanzhou', data[0][0]);
       })

@@ -243,7 +243,6 @@ export const talents_competitiveness = {
           name: key,
           value: this.craneStates.indicators.map(indicator => {
             const value = _.find(item, indicator_value => {
-              debugger
               return indicator_value.index_2 === indicator.name
             })
             return value ? Number(value.value) : 0
