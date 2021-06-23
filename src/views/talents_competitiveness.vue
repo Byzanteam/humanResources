@@ -242,12 +242,8 @@ export const talents_competitiveness = {
       return 'http://service.testbuild.youedata.cc/custom/daas/api/9f5c2cc6-f4cc-4757-8a01-7d79cbb06125'
     },
     areaSelectRequestUrl () {
-      // 请求区县列表
-      if(this.craneStates.city) {
-        return `http://service.testbuild.youedata.cc/custom/daas/api/9f5c2cc6-f4cc-4757-8a01-7d79cbb06125?city=${this.craneStates.city.label}`
-      }
       // 请求市区列表
-      return `http://service.testbuild.youedata.cc/custom/daas/api/9f5c2cc6-f4cc-4757-8a01-7d79cbb06125?province=福建省`
+      return `/custom/daas/api/9f5c2cc6-f4cc-4757-8a01-7d79cbb06125?tableName=${this.dataTableName}&filter=&fields=city&orderBy=&pageSize=100&pageNumber=1&apiID=9a7c1d5e-2380-49ab-940b-56b70fc69b3e&apiKey=54fc233d9f2b4aa3a7f7b3bf04f4d158`
     },
     sortTableData () {
       return this.craneStates.tableData.sort(this.compare())
@@ -294,8 +290,12 @@ export const talents_competitiveness = {
       }
     },
     areaSelectRequest() {
-      this.axios.get(this.areaSelectRequestUrl).then((data) => {
-        this.craneStates.multipleSelectData = data.data.data
+      this.axios.get(this.areaSelectRequestUrl).then(({data: {data}}) => {
+        const citys = data.reduce((acc, item) => {
+          acc[item.city] = [item.city]
+          return acc
+        }, {})
+        this.craneStates.multipleSelectData = _.values(citys)
         this.craneStates.currentProvince = ['厦门市', '福州市']
       })
     }
