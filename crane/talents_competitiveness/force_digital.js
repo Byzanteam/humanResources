@@ -8,7 +8,7 @@ module.exports = {
     results: 'results',
   },
   props: {
-    $url: "`/v1/components/38b74ddd-39de-493f-84ab-9d87fcf23fee/data?city=${craneStates.city ? craneStates.city.label : ''}&type='${this.craneStates.indicator}'`",
+    $url: "`/custom/daas/api/9f5c2cc6-f4cc-4757-8a01-7d79cbb06125?tableName=${dataTableName}&filter=city=${ craneStates.city && craneStates.city.label || '福州市'}&fields=value&orderBy=&pageSize=100&pageNumber=1&apiID=9a7c1d5e-2380-49ab-940b-56b70fc69b3e&apiKey=54fc233d9f2b4aa3a7f7b3bf04f4d158`",
     method: 'get',
     $data: "[[0]]",
   },
@@ -22,7 +22,7 @@ module.exports = {
         titlePosition: 'left',
         $content: {
           title: '竞争力指数',
-          $digital: "results[0][0]",
+          $digital: "results[0] ? results[0].value : 0",
         },
         $options: {
           separator: ',',
