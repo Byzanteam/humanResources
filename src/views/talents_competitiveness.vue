@@ -223,23 +223,7 @@ export const talents_competitiveness = {
       return `/custom/daas/api/9f5c2cc6-f4cc-4757-8a01-7d79cbb06125?tableName=${this.dataTableName}&filter=index_2=${ this.craneStates.indicator || ''}&fields=&orderBy=&pageSize=100&pageNumber=1&apiID=9a7c1d5e-2380-49ab-940b-56b70fc69b3e&apiKey=54fc233d9f2b4aa3a7f7b3bf04f4d158`
     },
     radarRequestUrl () {
-      const { currentProvince } = this.craneStates
-      const areas = currentProvince.reduce((acc, item, index) => {
-        if(index === currentProvince.length - 1) {
-          return `${acc}'${item}'`
-        }
-        return `${acc}'${item}',`
-      }, '')
-      // 请求市级数据
-      if(!this.craneStates.city && this.craneStates.currentProvince.length > 0) {
-        return `http://service.testbuild.youedata.cc/custom/daas/api/9f5c2cc6-f4cc-4757-8a01-7d79cbb06125?city=${areas}`
-      }
-      // 请求县级数据
-      if(this.craneStates.city && this.craneStates.currentProvince.length > 0) {
-        return `http://service.testbuild.youedata.cc/custom/daas/api/9f5c2cc6-f4cc-4757-8a01-7d79cbb06125?area=${areas}`
-      }
-      // 请求省级数据
-      return 'http://service.testbuild.youedata.cc/custom/daas/api/9f5c2cc6-f4cc-4757-8a01-7d79cbb06125'
+      return `/custom/daas/api/9f5c2cc6-f4cc-4757-8a01-7d79cbb06125?tableName=${this.dataTableName}&filter=&fields=&orderBy=&pageSize=100&pageNumber=1&apiID=9a7c1d5e-2380-49ab-940b-56b70fc69b3e&apiKey=54fc233d9f2b4aa3a7f7b3bf04f4d158`
     },
     areaSelectRequestUrl () {
       // 请求市区列表
@@ -247,6 +231,24 @@ export const talents_competitiveness = {
     },
     sortTableData () {
       return this.craneStates.tableData.sort(this.compare())
+    },
+    radarData() {
+      return  _.chain(this.craneStates.radarData)
+      .groupBy('city')
+      .reduce((acc, item, key) => {
+        acc.push({
+          name: key,
+          value: this.craneStates.indicators.map(indicator => {
+            const value = _.find(item, indicator_value => {
+              debugger
+              return indicator_value.index_2 === indicator.name
+            })
+            return value ? Number(value.value) : 0
+          })
+        })
+        return acc
+      }, [])
+      .value()
     }
   },
 
@@ -260,27 +262,14 @@ export const talents_competitiveness = {
       })
     },
     generateRadarData () {
-      const indicators = {}
-      this.craneStates.radarData.forEach(item => {
-        const a = {}
-        a[item[0]] = item [1]
-        if(!indicators[item[2]]) {
-          indicators[item[2]] = []
+      const { currentProvince } = this.craneStates
+      const areas = currentProvince.reduce((acc, item, index) => {
+        if(index === currentProvince.length - 1) {
+          return `${acc}'${item}'`
         }
-        indicators[item[2]].push(a)
-      })
-      return _.reduce(indicators, (acc, value, key) => {
-        acc.push({
-          name: key,
-          value: this.craneStates.indicators.map(item => {
-            const c =  value.find((exponent) => {
-              return exponent[item.name]
-            }, [])
-            return c[item.name].toFixed(2)
-          })
-        })
-        return acc
-      }, [])
+        return `${acc}'${item}',`
+      }, '')
+      return _.filter(this.radarData, item => (areas.includes(item.name)))
     },
     compare() {
       return function (value1, value2) {
