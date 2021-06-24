@@ -90,7 +90,7 @@ module.exports = {
           width: '701px',
           height: '123px',
         },
-        src: '/hxrc/images/Title-Bg.png'
+        src: '../../public/hxrc/images/Title-Bg.png'
       },
     },
     {
@@ -106,7 +106,7 @@ module.exports = {
           width: '440px',
           height: '1059px',
         },
-        src: '/hxrc/images/Box-Bg.png'
+        src: '../../public/hxrc/images/Box-Bg.png'
       },
     },
     {
@@ -118,7 +118,7 @@ module.exports = {
           width: '440px',
           height: '1059px',
         },
-        src: '/hxrc/images/Box-Bg.png'
+        src: '../../public/hxrc/images/Box-Bg.png'
       },
     },
     ...digitals,

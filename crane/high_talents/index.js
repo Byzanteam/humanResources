@@ -36,7 +36,7 @@ module.exports = {
           width: '701px',
           height: '123px',
         },
-        src: '/hxrc/images/Title-Bg.png'
+        src: '../../public/hxrc/images/Title-Bg.png'
       },
     },
     {

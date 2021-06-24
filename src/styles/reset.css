@@ -117,16 +117,16 @@ input::placeholder {
 @font-face {
   font-family: 'Oswald-Regular';
   src:
-    url('/hxrc/fonts/Oswald-Regular.woff') format('woff'),
-    url('/hxrc/fonts/Oswald-Regular.woff2') format('woff');
+    url('../../public/hxrc/fonts/Oswald-Regular.woff') format('woff'),
+    url('../../public/hxrc/fonts/Oswald-Regular.woff2') format('woff');
   font-weight: normal;
 }
 
 @font-face {
   font-family: 'Oswald-Light';
   src:
-    url('/hxrc/fonts/Oswald-Light.woff') format('woff'),
-    url('/hxrc/fonts/Oswald-Light.woff2') format('woff');
+    url('../../public/hxrc/fonts/Oswald-Light.woff') format('woff'),
+    url('../../public/hxrc/fonts/Oswald-Light.woff2') format('woff');
   font-weight: normal;
 }
 

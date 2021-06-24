@@ -53,7 +53,7 @@ module.exports = {
           width: '440px',
           height: '1059px',
         },
-        src: '/hxrc/images/Box-Bg.png'
+        src: '../../public/hxrc/images/Box-Bg.png'
       },
     },
     {
@@ -65,7 +65,7 @@ module.exports = {
           width: '440px',
           height: '1059px',
         },
-        src: '/hxrc/images/Box-Bg.png'
+        src: '../../public/hxrc/images/Box-Bg.png'
       },
     },
     datePicker,
