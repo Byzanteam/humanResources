@@ -69,7 +69,7 @@
     <div ref="force-digital-bg" :style="{width: '380px', height: '50px', backgroundColor: 'rgba(13, 45, 120, .45)', borderRadius: '5px', position: 'absolute', top: '60px', left: '1500px'}" />
     <data-loader @requestDone="(param)=>[setState('indicators', param.results.map(item => ({name: item.index_2})))]" :url="`/custom/daas/api/9f5c2cc6-f4cc-4757-8a01-7d79cbb06125?tableName=${dataTableName}&filter=city=${ craneStates.city && craneStates.city.label || '福州市'}&fields=index_2&orderBy=&pageSize=100&pageNumber=1&apiID=9a7c1d5e-2380-49ab-940b-56b70fc69b3e&apiKey=54fc233d9f2b4aa3a7f7b3bf04f4d158`" method="get" :data="[]">
       <RadioGroup v-model="craneStates.indicator" type="button" :style="{width: '388px', height: '184px', position: 'absolute', top: '92px', left: '37px'}">
-        <Radio v-for="(item, key) in craneStates.indicators" :key="key" :label="item.name" />
+        <Radio v-for="(item, key) in craneStates.indicators" v-if="item.name !== '综合指标'" :key="key" :label="item.name" />
       </RadioGroup>
     </data-loader>
     <data-loader @requestDone="(param)=>[setState('radarData', param.results || [])]" :url="radarRequestUrl" method="get" :data="[[0, '暂无数据']]" :style="{width: '380px', height: '480px', position: 'absolute', top: '455px', left: '1500px'}">
@@ -107,7 +107,7 @@
         </Option>
       </Select>
     </div>
-    <data-loader @requestDone="(param)=>[setState('mapData', param.results.map((item) => ({name: item.city, value: craneStates.areaCoordMap[item.city].concat(Number(item.value).toFixed(2))}))), setState('tableData', param.results.map((item, index) => ({index: index + 1, name: item.city, value: Number(item.value).toFixed(2)})))]" :url="tableRequestUrl" method="get" :data="[[0, '暂无数据']]" :style="{width: '380px', height: '594px', overflow: 'scroll', position: 'absolute', top: '446px', left: '40px'}">
+    <data-loader @requestDone="(param)=>[setState('mapData', param.results.map((item) => ({name: item.city, value: craneStates.areaCoordMap[item.city].concat(Number(item.value).toFixed(2))}))), setState('tableData', param.results.map((item, index) => ({name: item.city, value: Number(item.value).toFixed(2)})))]" :url="tableRequestUrl" method="get" :data="[[0, '暂无数据']]" :style="{width: '380px', height: '594px', overflow: 'scroll', position: 'absolute', top: '446px', left: '40px'}">
       <vis-table v-scroll="{itemHeight: 40, headerHeight: 56}" theme="dark" stripe="" :headers="[{width: 80, key: 'index',}, {width: 160, key: 'name', title: '省市排名'}, {width: 140, key: 'value', title: '人才指标'}]" :data="sortTableData">
         <template v-slot="{ cell: cell, columnKey: columnKey }">
           <span :class="columnKey === 'index' ? 'row-index-cell' : ''">
@@ -233,7 +233,8 @@ export const talents_competitiveness = {
       return `/custom/daas/api/9f5c2cc6-f4cc-4757-8a01-7d79cbb06125?tableName=${this.dataTableName}&filter=&fields=city&orderBy=&pageSize=100&pageNumber=1&apiID=9a7c1d5e-2380-49ab-940b-56b70fc69b3e&apiKey=54fc233d9f2b4aa3a7f7b3bf04f4d158`
     },
     sortTableData () {
-      return this.craneStates.tableData.sort(this.compare())
+      const sorted_data = this.craneStates.tableData.sort(this.compare())
+      return sorted_data.map((item, index) => ({...item, index: index+1}))
     },
     radarData() {
       return  _.chain(this.craneStates.radarData)
@@ -284,8 +285,8 @@ export const talents_competitiveness = {
     },
     compare() {
       return function (value1, value2) {
-        let v1 = value1.value;
-        let v2 = value2.value;
+        let v1 = Number(value1.value);
+        let v2 = Number(value2.value);
         return v2 - v1
       }
     },

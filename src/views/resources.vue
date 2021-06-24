@@ -391,8 +391,8 @@ export default resources
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 20px;
-    height: 20px;
+    width: 19px;
+    height: 19px;
     border-radius: 50%;
     background-color: #7b43ff;
     color: #ffffff;

@@ -14,7 +14,7 @@ module.exports = {
   events: {
     requestDone: {
       params: ['param'],
-      actions: ["setState('mapData', param.results.map((item) => ({name: item.city, value: craneStates.areaCoordMap[item.city].concat(Number(item.value).toFixed(2))})))", "setState('tableData', param.results.map((item, index) => ({index: index + 1, name: item.city, value: Number(item.value).toFixed(2)})))"],
+      actions: ["setState('mapData', param.results.map((item) => ({name: item.city, value: craneStates.areaCoordMap[item.city].concat(Number(item.value).toFixed(2))})))", "setState('tableData', param.results.map((item, index) => ({name: item.city, value: Number(item.value).toFixed(2)})))"],
     },
   },
   children: [
