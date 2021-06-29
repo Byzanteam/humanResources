@@ -15,11 +15,11 @@
       <brick-radio-button-select ref="departments-select" :options="craneStates.selectOptions" v-model="craneStates.department" placeholder="全省" :style="{marginLeft: '12px'}" />
     </div>
     <data-loader ref="job_select" v-slot="{ results: results }" :url="`/v1/components/01b74ddd-39de-493f-84ab-9d87fcf23fee/data?job=${craneStates.inputQuery}`" method="get" :data="[['']]" :style="{position: 'absolute', top: '48px', left: '40px'}">
-      <Select class="departments-select" :clearable="true" :filterable="true" :style="{width: '380px'}" v-model="craneStates.currentJob">
-        <template v-slot:input class="ivu-select-selection">
-          <input v-model="craneStates.inputQuery" type="text" placeholder="全部" class="ivu-select-input" />
-          <i class="ivu-icon ivu-icon-ios-arrow-down ivu-select-arrow" />
-        </template>
+      <Select class="departments-select" placeholder="全部" :clearable="true" :filterable="true" :style="{width: '380px'}" v-model="craneStates.currentJob">
+<!--        <template v-slot:input class="ivu-select-selection">-->
+<!--          <input v-model="craneStates.inputQuery" type="text" placeholder="全部" class="ivu-select-input" />-->
+<!--          <i class="ivu-icon ivu-icon-ios-arrow-down ivu-select-arrow" />-->
+<!--        </template>-->
         <Option v-for="(item, key) in results.map((item, index) => ({index: item[0], name: item[0]}))" :key="key" :value="item.index" :label="item.name">
           {{item.name}}
         </Option>
@@ -107,7 +107,7 @@
       <v-chart :options="{backgroundColor: 'transparent', legend: {type: 'scroll', icon: 'circle', itemWidth: 10, itemHeight: 10, right: 35, top: 'middle', itemGap: 9, orient: 'vertical', textStyle: {color: '#ffffff', fontSize: 14}, inactiveColor: '#1C4159'}, color: ['#00fff2', '#7b43ff', '#e0ad3a', '#189ef1', '#2174b8', '#f65446'], series: [{type: 'pie', left: -140, radius: ['35%', '62%'], label: {show: false}, labelLine: {show: false}, data: results ? results.map(item => ({value: item [0], name: item[1]})) : [{value: 0, name: '暂无数据'}]}], tooltip: {trigger: 'item', formatter: pieTooltipFormatterFunc, backgroundColor: '#566374f0'}}" />
     </data-loader>
     <data-loader v-slot="{ results: results }" v-if="craneStates.chartTabCurrent === craneStates.chartTabNavs[1]" :url="`/v1/components/11b74ddd-39de-493f-84ab-9d87fcf23fee/data?year=${generateYear}&job=${craneStates.currentJob || ''}&area=${currentRegion}`" method="get" :data="[[0, '暂无数据']]" :style="{width: '380px', height: '218px', overflow: 'scroll', position: 'absolute', top: '822px', left: '1500px'}">
-      <v-chart :options="{backgroundColor: 'transparent', legend: {type: 'scroll', icon: 'circle', itemWidth: 10, itemHeight: 10, right: 35, top: 'middle', itemGap: 9, orient: 'vertical', textStyle: {color: '#ffffff', fontSize: 14}, inactiveColor: '#1C4159'}, color: ['#00fff2', '#7b43ff', '#e0ad3a', '#189ef1', '#2174b8', '#f65446'], series: [{type: 'pie', left: -140, radius: ['35%', '62%'], label: {show: false}, labelLine: {show: false}, data: results ? results.map(item => ({value: item [0], name: item[1]})) : [{value: 0, name: '暂无数据'}]}], tooltip: {trigger: 'item', formatter: pieTooltipFormatterFunc, backgroundColor: '#566374f0'}}" />
+      <v-chart :options="{backgroundColor: 'transparent', legend: {pageIconColor: '#aaa', pageIconInactiveColor: '#2f4554', formatter: legendText, type: 'scroll', icon: 'circle', itemWidth: 10, itemHeight: 10, right: 35, top: 'middle', itemGap: 9, orient: 'vertical', textStyle: {color: '#ffffff', fontSize: 14}, inactiveColor: '#1C4159'}, color: ['#00fff2', '#7b43ff', '#e0ad3a', '#189ef1', '#2174b8', '#f65446'], series: [{type: 'pie', left: -140, radius: ['35%', '62%'], label: {show: false}, labelLine: {show: false}, data: results ? results.map(item => ({value: item [0], name: item[1]})) : [{value: 0, name: '暂无数据'}]}], tooltip: {trigger: 'item', formatter: pieTooltipFormatterFunc, backgroundColor: '#566374f0'}}" />
     </data-loader>
   </div>
 </template>
@@ -285,6 +285,9 @@ export const supply = {
         } else {
           this.craneStates.selectedArea = params
         }
+        const { name } = params
+        const area = _.find(this.craneStates.selectOptions, (option) => (option.label === name))
+        this.craneStates.department = area ? area : this.craneStates.department
       })
     },
     demandTooltipFormatterFunc(params) {
@@ -295,6 +298,24 @@ export const supply = {
     },
     pieTooltipFormatterFunc(params) {
       return `${params.marker}${params.name}：${params.percent}%`
+    },
+    legendText(name) {
+      return this.makeMultiLine(name, 7)
+    },
+    makeMultiLine (str, charQty){
+      const strs = str.split('')
+      const len = strs.length
+      if (len < charQty + 1) {
+        return str
+      }
+      let result = ''
+      strs.forEach((_, index) => {
+        result += _
+        if ((index + 1) % charQty === 0 && index < len - 1) {
+          result += '\n'
+        }
+      })
+      return result
     },
   }
 }

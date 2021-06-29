@@ -38,7 +38,7 @@ module.exports = {
           $visualMap: {
             type: 'piecewise',
             $inverse: true,
-            $pieces: "[{gt: 1500, label: '1500人及以上'}, {gt: 1000, lte: 1500, label: '1000-1500人'}, {gt: 100, lte: 999, label: '100-999人'}, {gt: 10, lte: 99, label: '10-99人'}, {gt: 1, lt: 9, label: '1-9人'}]",
+            $pieces: "[{gt: 1500, label: '1500人及以上'}, {gt: 1000, lte: 1500, label: '1000-1500人'}, {gt: 100, lte: 999, label: '100-999人'}, {gt: 10, lte: 99, label: '10-99人'}, {gte: 1, lt: 9, label: '1-9人'}]",
             orient: 'horizontal',
             bottom: '6%',
             left: '26%',

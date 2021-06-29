@@ -22,12 +22,14 @@ module.exports = {
         $options: {
           backgroundColor: 'transparent',
           $legend: {
+            pageIconColor: '#aaa',
+            pageIconInactiveColor: '#2f4554',
             $formatter: "legendText",
             type: 'scroll',
             icon: 'circle',
             $itemWidth: 10,
             $itemHeight: 10,
-            $left: 240,
+            $left: 230,
             top: 'middle',
             $itemGap: 9,
             orient: 'vertical',

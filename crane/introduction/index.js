@@ -133,7 +133,7 @@ module.exports = {
       component: 'div',
       position: [1536, 380],
       props: {
-        'data-content': '根据活动要求需要的人类类型进行统计分析',
+        'data-content': '根据活动要求需要的人才类型进行统计分析',
         $style: {
           color: '#fff',
           fontSize: '18px',
