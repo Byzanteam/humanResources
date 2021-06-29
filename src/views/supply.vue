@@ -78,8 +78,20 @@
     <div ref="talent-demand" data-content="根据「区域」「时间」进行筛选统计企业需求量显示 Top10 排名，以企业所属行业类型进行统计排名" :style="{color: '#fff', fontSize: '18px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', cursor: 'pointer', position: 'absolute', top: '48px', left: '1533px'}">
       6大重点行业的人才需求排名
     </div>
-    <data-loader v-slot="{ results: results }" url="/v1/components/08b74ddd-39de-493f-84ab-9d87fcf23fee/data" method="get" :data="null" :style="{width: '380px', height: '240px', overflow: 'scroll', position: 'absolute', top: '100px', left: '1500px'}">
-      <vis-table v-scroll="{itemHeight: 40}" theme="dark" stripe="" :headers="[{width: 60, key: 'index'}, {width: 140, key: 'name', title: '行业名称'}, {width: 100, key: 'count', title: '需求人数'}, {width: 100, key: 'ratio', title: '供求比'}]" :data="results ? results.map((item, index) => ({index: index + 1, name: item[0], count: item[1] || 0, ratio: item[2] || 0})) : [{index: 0, name: '暂无数据', count: 0, ratio: 0}]">
+    <div class="rank" :style="{display: 'flex', position: 'absolute', top: '100px', left: '1500px'}">
+      <div :style="{width: '60px'}" />
+      <div :style="{width: '140px'}">
+        行业名称
+      </div>
+      <div :style="{width: '100px'}">
+        需求人数
+      </div>
+      <div :style="{width: '100px'}">
+        供求比
+      </div>
+    </div>
+    <data-loader v-slot="{ results: results }" url="/v1/components/08b74ddd-39de-493f-84ab-9d87fcf23fee/data" method="get" :data="null" :style="{width: '380px', height: '198px', overflow: 'scroll', position: 'absolute', top: '142px', left: '1500px'}">
+      <vis-table v-scroll="{itemHeight: 40}" theme="dark" stripe="" :withHeader="false" :headers="[{width: 60, key: 'index'}, {width: 140, key: 'name', title: '行业名称'}, {width: 100, key: 'count', title: '需求人数'}, {width: 100, key: 'ratio', title: '供求比'}]" :data="results ? results.map((item, index) => ({index: index + 1, name: item[0], count: item[1] || 0, ratio: item[2] || 0})) : [{index: 0, name: '暂无数据', count: 0, ratio: 0}]">
         <template v-slot="{ cell: cell, columnKey: columnKey }">
           <span :class="columnKey === 'index' ? 'row-index-cell' : ''">
             {{cell}}

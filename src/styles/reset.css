@@ -203,7 +203,7 @@ input::placeholder {
   font-weight: 400;
   content: attr(data-content);
   cursor: pointer;
-  z-index: 0;
+  z-index: 99;
 }
 
 .line-break-talent-demand::after {

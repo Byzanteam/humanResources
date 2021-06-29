@@ -24,8 +24,56 @@ module.exports = [
     content: '6大重点行业的人才需求排名',
   },
   {
-    component: '@byzanteam/vis-components/data-loader',
+    component: 'div',
     position: [1500, 100],
+    props: {
+      class:'rank',
+      $style:{
+        display: 'flex',
+      }
+    },
+    children: [
+      {
+        component: 'div',
+        content:'',
+        props: {
+          $style:{
+            width:'60px',
+          }
+        }
+      },
+      {
+        component: 'div',
+        content:'行业名称',
+        props: {
+          $style:{
+            width:'140px',
+          }
+        }
+      },
+      {
+        component: 'div',
+        content:'需求人数',
+        props: {
+          $style:{
+            width:'100px',
+          }
+        }
+      },
+      {
+        component: 'div',
+        content:'供求比',
+        props: {
+          $style:{
+            width:'100px',
+          }
+        }
+      },
+    ]
+  },
+  {
+    component: '@byzanteam/vis-components/data-loader',
+    position: [1500, 142],
     exports: {
       results: 'results',
     },
@@ -35,7 +83,7 @@ module.exports = [
       $data: "null",
       $style: {
         width: '380px',
-        height: '240px',
+        height: '198px',
         overflow: 'scroll'
       }
     },
@@ -46,6 +94,7 @@ module.exports = [
           'v-scroll': "{itemHeight: 40}",
           theme: 'dark',
           stripe: '',
+          $withHeader:"false",
           $headers: "[{width: 60, key: 'index'}, {width: 140, key: 'name', title: '行业名称'}, {width: 100, key: 'count', title: '需求人数'}, {width: 100, key: 'ratio', title: '供求比'}]",
           $data: "results ? results.map((item, index) => ({index: index + 1, name: item[0], count: item[1] || 0, ratio: item[2] || 0})) : [{index: 0, name: '暂无数据', count: 0, ratio: 0}]"
         },

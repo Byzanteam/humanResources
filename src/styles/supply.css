@@ -209,6 +209,10 @@
 }
 
 .rank{
-  position: absolute;
   z-index: 99;
+  color: #00fff2;
+  font-size: .8rem;
+  line-height: 3rem;
+  font-weight: bold;
+  height: 42px;
 }
