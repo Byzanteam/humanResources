@@ -1,5 +1,8 @@
 class Scroll {
   constructor({el, value: {itemHeight, headerHeight}}) {
+    let body_style = document.body.style
+    let regex1 = /(?<=\().*?(?=\))/g;
+    let elScale = body_style.transform.match(regex1)[0]
     this.el = el
     this.itemHeight = itemHeight
     this.headerHeight = headerHeight
@@ -9,6 +12,7 @@ class Scroll {
     this.duration = '1.2s'
     this.itemHeight = itemHeight
     this.scrollAuto()
+    this.elScale=elScale-0
   }
 
   init () {
@@ -35,14 +39,14 @@ class Scroll {
     const clientHeight = this.el.parentNode.clientHeight,
           scrollHeight = this.el.parentNode.scrollHeight
     if (scrollHeight <= clientHeight) return
-    this.limit = scrollHeight
+    this.limit = scrollHeight * this.elScale
     this.setTimr()
   }
 
   setTimr () {
     clearInterval(this.timr)
     this.timr = setInterval(() => {
-      if (this.distance >= this.limit) {
+      if(this.distance >= this.limit/this.elScale) {
         this.scrollTop(this.el)
       } else {
         if(this.duration === '0s') {

@@ -24,7 +24,7 @@ module.exports = {
       props: {
         $options: {
           $grid: {
-            $left: 20,
+            $left: 50,
             $right: 0
           },
           $xAxis: {

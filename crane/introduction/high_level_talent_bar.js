@@ -53,7 +53,7 @@ module.exports = {
               $show: false
             },
             $splitNumber: 5,
-            name: '件',
+            name: '人',
             $nameTextStyle: {
               align: 'right',
               $padding:"[0, 5, 0, 0]",

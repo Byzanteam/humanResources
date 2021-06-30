@@ -59,8 +59,8 @@ module.exports = [
         position: [1500, 792],
         props: {
           $style: {
-            width: '240px',
-            height: '248px',
+            width: '270px',
+            height: '250px',
           },
           $options: "craneStates.mapThumbnailOptions"
         }

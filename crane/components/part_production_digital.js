@@ -18,7 +18,7 @@ module.exports = {
       component: '@byzanteam/vis-components/digital-roll',
       props: {
         'v-if': 'results',
-        'data-content': '根据「区域」选择统计该区域 2019 年地区生产总值',
+        'data-content': '根据「区域」选择统计该区域地区生产总值',
         titlePosition: 'left',
         $content: {
           title: '地区生产总值',

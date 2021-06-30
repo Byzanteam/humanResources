@@ -24,7 +24,7 @@
       </div>
     </div>
     <div ref="talent-rank" :style="{color: '#fff', fontSize: '18px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', cursor: 'pointer', position: 'absolute', top: '380px', left: '1536px'}">
-      <div data-content="根据活动要求需要的人类类型进行统计分析" :style="{position: 'relative'}">
+      <div data-content="根据活动要求需要的人才类型进行统计分析" :style="{position: 'relative'}">
         引进人才职称分布
       </div>
     </div>
@@ -57,7 +57,7 @@
       <brick-radio-button-select ref="departments-select" :options="craneStates.selectOptions" v-model="craneStates.department" placeholder="全省" :style="{marginLeft: '12px'}" />
     </div>
     <data-loader ref="activity-number-line" v-slot="{ results: results }" :url="`/v1/components/44b74ddd-39de-493f-84ab-9d87fcf23fee/data?area=${selectedArea}`" method="get" :data="[[0, '暂无数据']]" :style="{width: '380px', height: '240px', position: 'absolute', top: '334px', left: '40px'}">
-      <v-chart ref="activity-number-line-content" :options="{grid: {left: 20, right: 0}, xAxis: {axisLabel: {color: 'rgba(255, 255, 255, .8)', fontSize: 14, fontWeight: 400, rotate: 0}, axisLine: {show: false}, data: results ? results.map(item => (item[1])) : ['暂无数据']}, yAxis: {axisLabel: {color: 'rgba(255, 255, 255, .8)', fontSize: 14, fontWeight: 400, rotate: 0, align: 'right'}, axisTick: {show: false}, axisLine: {show: false}, splitLine: {show: false}, splitNumber: 5, name: '次', nameTextStyle: {align: 'right', padding: [0, 5, 0, 0], color: 'rgba(255, 255, 255, .8)', fontSize: 14, fontWeight: 400}}, series: {type: 'line', smooth: false, showSymbol: false, color: ['#00fff2'], lineStyle: {width: 4}, areaStyle: {color: new Echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+      <v-chart ref="activity-number-line-content" :options="{grid: {left: 50, right: 0}, xAxis: {axisLabel: {color: 'rgba(255, 255, 255, .8)', fontSize: 14, fontWeight: 400, rotate: 0}, axisLine: {show: false}, data: results ? results.map(item => (item[1])) : ['暂无数据']}, yAxis: {axisLabel: {color: 'rgba(255, 255, 255, .8)', fontSize: 14, fontWeight: 400, rotate: 0, align: 'right'}, axisTick: {show: false}, axisLine: {show: false}, splitLine: {show: false}, splitNumber: 5, name: '次', nameTextStyle: {align: 'right', padding: [0, 5, 0, 0], color: 'rgba(255, 255, 255, .8)', fontSize: 14, fontWeight: 400}}, series: {type: 'line', smooth: false, showSymbol: false, color: ['#00fff2'], lineStyle: {width: 4}, areaStyle: {color: new Echarts.graphic.LinearGradient(0, 0, 0, 1, [{
                       offset: 0,
                       color: '#00fff2'
                     },
@@ -70,7 +70,7 @@
                   )}, data: results ? results.map(item => (item[0])) : [0]}, tooltip: {trigger: 'axis', axisPointer: {lineStyle: {color: '#ffffff', type: 'dotted'}}, backgroundColor: '#566374f0', formatter: activityTooltipFormatterFunc}}" />
     </data-loader>
     <data-loader ref="high-level-talent-bar" v-slot="{ results: results }" :url="`/v1/components/46b74ddd-39de-493f-84ab-9d87fcf23fee/data?area=${selectedArea}`" method="get" :data="[[0, '暂无数据']]" :style="{width: '380px', height: '240px', position: 'absolute', top: '794px', left: '40px'}">
-      <v-chart ref="high-level-talent-content" :options="{grid:{left: 50, right: 0}, xAxis: {axisLabel: {color: 'rgba(255, 255, 255, .8)', fontSize: 14, fontWeight: 400, rotate: 0}, axisLine: {show: false}, data: results ? results.map(item => (item[1])) : ['暂无数据']}, yAxis: {axisLabel: {color: 'rgba(255, 255, 255, .8)', fontSize: 14, fontWeight: 400, rotate: 0, align: 'right'}, axisTick: {show: false}, axisLine: {show: false}, splitLine: {show: false}, splitNumber: 5, name: '件', nameTextStyle: {align: 'right', padding: [0, 5, 0, 0], color: 'rgba(255, 255, 255, .8)', fontSize: 14, fontWeight: 400}}, series: {type: 'bar', barWidth: 7, barCategoryGap: '10%', itemStyle: {normal: {barBorderRadius: 7, color: new Echarts.graphic.LinearGradient(0, 1, 0, 0, [
+      <v-chart ref="high-level-talent-content" :options="{grid:{left: 50, right: 0}, xAxis: {axisLabel: {color: 'rgba(255, 255, 255, .8)', fontSize: 14, fontWeight: 400, rotate: 0}, axisLine: {show: false}, data: results ? results.map(item => (item[1])) : ['暂无数据']}, yAxis: {axisLabel: {color: 'rgba(255, 255, 255, .8)', fontSize: 14, fontWeight: 400, rotate: 0, align: 'right'}, axisTick: {show: false}, axisLine: {show: false}, splitLine: {show: false}, splitNumber: 5, name: '人', nameTextStyle: {align: 'right', padding: [0, 5, 0, 0], color: 'rgba(255, 255, 255, .8)', fontSize: 14, fontWeight: 400}}, series: {type: 'bar', barWidth: 7, barCategoryGap: '10%', itemStyle: {normal: {barBorderRadius: 7, color: new Echarts.graphic.LinearGradient(0, 1, 0, 0, [
                       {
                         offset: 0,
                         color: '#7d40ff'

@@ -78,7 +78,7 @@ module.exports = {
     },
     {
       ...page_title_content,
-      content: '全省人才资源态势总览',
+      content: '人才资源综合驾驶舱',
     },
     {
       id: 'talent-education',
