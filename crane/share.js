@@ -90,7 +90,7 @@ exports.page_title_bg = {
       width: '700px',
       height: '124px',
     },
-    src: '/hxrc/images/Title-Bg.png'
+    src: '../../public/hxrc/images/Title-Bg.png'
   },
 }
 

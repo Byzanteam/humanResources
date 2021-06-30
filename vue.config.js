@@ -1,5 +1,5 @@
 module.exports = {
-  publicPath: '/hxrc',
+  publicPath: './',
   outputDir: 'fujian',
   pluginOptions: {
     i18n: {
@@ -16,6 +16,14 @@ module.exports = {
           './src/styles/',
         ],
         data: '@import \'injects\';',
+      },
+    },
+  },
+  devServer: {
+    proxy: {
+      '/custom/*': {
+        target: 'http://service.testbuild.youedata.cc',
+        changeOrigin: true,
       },
     },
   },

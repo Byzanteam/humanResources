@@ -35,6 +35,10 @@ module.exports = {
       value: {}
     },
     {
+      id: 'year',
+      value: new Date()
+    },
+    {
       id: 'mapThumbnailOptions',
       value: {backgroundColor: 'transparent', series: {type: 'map', mapType: 'china', itemStyle: {areaColor: '#0e3e7d', borderColor: '#68a4f0', borderWidth: 1}, emphasis: {label: {color: 'white', fontWeight: 600}, itemStyle: {areaColor: '#00fff2'}}}}
     }
@@ -49,7 +53,7 @@ module.exports = {
           width: '440px',
           height: '1059px',
         },
-        src: '/hxrc/images/Box-Bg.png'
+        src: '../../public/hxrc/images/Box-Bg.png'
       },
     },
     {
@@ -61,7 +65,7 @@ module.exports = {
           width: '440px',
           height: '1059px',
         },
-        src: '/hxrc/images/Box-Bg.png'
+        src: '../../public/hxrc/images/Box-Bg.png'
       },
     },
     datePicker,
@@ -81,7 +85,6 @@ module.exports = {
       component: 'div',
       position: [73, 360],
       props: {
-        'data-content': '根据「区域」选择统计该区域人才学历分布情况',
         $style: {
           color: '#fff',
           fontSize: '18px',
@@ -91,14 +94,24 @@ module.exports = {
           cursor: 'pointer',
         },
       },
-      content: '人才学历层次',
+      children: [
+        {
+          component: 'div',
+          props: {
+            'data-content': '根据「区域」选择统计该区域人才学历分布情况',
+            $style: {
+              position: 'relative'
+            }
+          },
+          content: '人才学历层次',
+        }
+      ],
     },
     {
       id: 'talent-industry',
       component: 'div',
       position: [1533, 360],
       props: {
-        'data-content': '以「区域」作为筛选条件，统计分析历史简历数据判断岗位平均的流动时间并进行排名',
         $style: {
           color: '#fff',
           fontSize: '18px',
@@ -108,14 +121,24 @@ module.exports = {
           cursor: 'pointer',
         },
       },
-      content: '人才流动岗位排名',
+      children: [
+        {
+          component: 'div',
+          props: {
+            'data-content': '以「区域」作为筛选条件，统计分析历史简历数据判断岗位平均的流动时间并进行排名',
+            $style: {
+              position: 'relative'
+            }
+          },
+          content: '人才流动岗位排名',
+        }
+      ]
     },
     {
       id: 'industry-talent',
       component: 'div',
       position: [73, 740],
       props: {
-        'data-content': '以「区域」作为筛选条件，统计该区域人才所在行业分布',
         $style: {
           color: '#fff',
           fontSize: '18px',
@@ -125,7 +148,18 @@ module.exports = {
           cursor: 'pointer',
         },
       },
-      content: '人才专业占比',
+      children: [
+        {
+          component: 'div',
+          props: {
+            'data-content': '以「区域」作为筛选条件，统计该区域人才所在行业分布',
+            $style: {
+              position: 'relative'
+            }
+          },
+          content: '人才专业占比',
+        }
+      ]
     },
     {
       id: 'talent-education-icon',

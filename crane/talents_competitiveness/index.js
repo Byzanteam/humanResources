@@ -28,11 +28,11 @@ module.exports = {
     },
     {
       id: 'indicators',
-      value: [{name: '人才数量指标'}, {name: '人才质量指标'}, {name: '人才结构指标'}, {name: '人才投入指标'}, {name: '人才平台指标'}, {name: '人才生活指标'}, {name: '人才环境指标'}, {name: '人才效能指标'}, {name: '人才效益指标'}, {name: '人才发展指标'}]
+      value: [{name: '人才规模'}, {name: '人才质量'}, {name: '人才结构'}, {name: '教育投入'}, {name: '研发投入'}, {name: '医疗投入'}, {name: '经济基础'}, {name: '发展潜力'}, {name: '科技实力'}, {name: '外商投资'}, {name: '生存环境'}, {name: '生活水平'}, {name: '培养能力'}, {name: '科技创新'}, {name: '发展成效'}]
     },
     {
       id: 'indicator',
-      value: '人才数量指标'
+      value: '人才规模'
     },
     {
       id: 'types',
@@ -187,7 +187,7 @@ module.exports = {
           width: '701px',
           height: '123px',
         },
-        src: '/hxrc/images/Title-Bg.png'
+        src: '../../public/hxrc/images/Title-Bg.png'
       },
     },
     {
@@ -204,7 +204,7 @@ module.exports = {
           width: '440px',
           height: '1059px',
         },
-        src: '/hxrc/images/Box-Bg.png'
+        src: '../../public/hxrc/images/Box-Bg.png'
       },
     },
     {
@@ -216,7 +216,7 @@ module.exports = {
           width: '440px',
           height: '1059px',
         },
-        src: '/hxrc/images/Box-Bg.png'
+        src: '../../public/hxrc/images/Box-Bg.png'
       },
     },
     {
@@ -231,10 +231,20 @@ module.exports = {
       component: 'div',
       position: [74, 48],
       props: {
-        'data-content': '根据选择的对应十大指标体系结合「区域」检索对应区域对应的指标排名情况',
         ...subtitle_text.props,
       },
-      content: '省域人才指标汇总',
+      children: [
+        {
+          component: 'div',
+          props: {
+            'data-content': '根据选择的对应十大指标体系结合「区域」检索对应区域对应的指标排名情况',
+            $style: {
+              position: 'relative'
+            }
+          },
+          content: '省域人才指标汇总',
+        }
+      ]
     },
     {
       id: 'province-talent-number-icon',
@@ -246,10 +256,20 @@ module.exports = {
       component: 'div',
       position: [1533, 214],
       props: {
-        'data-content': '区域为省级可横向对比市级的指标指数对比，区域为市级可横向对应区级的指标指数对比',
         ...subtitle_text.props,
       },
-      content: '15大指标汇总',
+      children: [
+        {
+          component: 'div',
+          props: {
+            'data-content': '区域为省级可横向对比市级的指标指数对比，区域为市级可横向对应区级的指标指数对比',
+            $style: {
+              position: 'relative'
+            }
+          },
+          content: '15大指标汇总',
+        }
+      ]
     },
     {
       id: 'ten-number-icon',

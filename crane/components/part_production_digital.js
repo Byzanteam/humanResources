@@ -8,7 +8,7 @@ module.exports = {
     results: 'results',
   },
   props: {
-    $url: "`/v1/components/12b74ddd-39de-493f-84ab-9d87fcf23fee/data?city=${craneStates.department ? craneStates.department.label : ''}`",
+    $url: "`/v1/components/12b74ddd-39de-493f-84ab-9d87fcf23fee/data?city=${currentArea ? currentArea : ''}&year=${craneStates.year ? craneStates.year.getFullYear() : new Date().getFullYear()}`",
     method: 'get',
     $data: "[[0]]",
   },
@@ -22,7 +22,7 @@ module.exports = {
         titlePosition: 'left',
         $content: {
           title: '地区生产总值',
-          suffix: '亿元',
+          suffix: '万元',
           $digital: "results[0][0] || 0",
         },
         $options: {

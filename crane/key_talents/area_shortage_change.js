@@ -22,8 +22,9 @@ module.exports = [
           $options: {
             $grid: {
               top: '24%',
-              right: '5%',
-              bottom: '10%'
+              $left: 0,
+              bottom: '10%',
+              $containLabel: true
             },
             backgroundColor: 'transparent',
             $color: "['#00fff2', '#7b43ff']",
@@ -69,14 +70,14 @@ module.exports = [
                 color: '#367391',
                 $fontSize: 12,
                 $fontWeight: 400,
-                align: 'center',
+                align: 'right',
                 $padding:"[0, 5, 0, 0]"
               },
               $axisLabel: {
                 color: '#367391',
                 $fontSize: 12,
                 $fontWeight: 400,
-                align: 'center'
+                align: 'right'
               },
               $splitLine: {
                 $show: false

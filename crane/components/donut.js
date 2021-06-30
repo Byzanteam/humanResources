@@ -7,7 +7,7 @@ module.exports = {
     results: 'results',
   },
   props: {
-    url: "/v1/components/22b74ddd-39de-493f-84ab-9d87fcf23fee/data",
+    $url: "`/v1/components/22b74ddd-39de-493f-84ab-9d87fcf23fee/data?year=${craneStates.year ? craneStates.year.getFullYear() : new Date().getFullYear()}`",
     method: 'get',
     $data: "[[0, '暂无数据']]",
     $style: {

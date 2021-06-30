@@ -1,16 +1,18 @@
 class Scroll {
-  constructor({el, value: {itemHeight}}) {
+  constructor({el, value: {itemHeight, headerHeight}}) {
     let body_style = document.body.style
     let regex1 = /(?<=\().*?(?=\))/g;
     let elScale = body_style.transform.match(regex1)[0]
-    this.elScale=elScale-0
     this.el = el
+    this.itemHeight = itemHeight
+    this.headerHeight = headerHeight
     this.timr = null
     this.limit = 0
     this.distance = 0
     this.duration = '1.2s'
     this.itemHeight = itemHeight
     this.scrollAuto()
+    this.elScale=elScale-0
   }
 
   init () {
@@ -50,7 +52,11 @@ class Scroll {
         if(this.duration === '0s') {
           this.duration = '1.2s'
         }
-        this.distance += this.itemHeight
+        if (this.distance === 0 && this.headerHeight) {
+          this.distance = this.headerHeight
+        } else {
+          this.distance += this.itemHeight
+        }
         this.setStyle()
       }
     }, 5000);
