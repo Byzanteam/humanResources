@@ -11,7 +11,7 @@
       <v-chart ref="map" :options="mapOptions" />
     </data-loader>
     <div class="center-select">
-      <brick-radio-button-select :options="provinceOptions" v-model="craneStates.province" placeholder="全省" />
+<!--      <brick-radio-button-select :options="provinceOptions" v-model="craneStates.province" placeholder="全省" />-->
       <brick-radio-button-select ref="departments-select" :options="craneStates.selectOptions" v-model="craneStates.department" placeholder="全省" :style="{marginLeft: '12px'}" />
     </div>
     <data-loader ref="job_select" v-slot="{ results: results }" :url="`/v1/components/01b74ddd-39de-493f-84ab-9d87fcf23fee/data?job=${craneStates.inputQuery}`" method="get" :data="[['']]" :style="{position: 'absolute', top: '48px', left: '40px'}">
