@@ -191,7 +191,7 @@ input::placeholder {
   width: auto;
   max-width: 192px;
   position: relative;
-  opacity: 0;
+  display: none;
   top: 15px;
   right: 10px;
   transition: all .25s linear;
@@ -218,8 +218,8 @@ input::placeholder {
 }
 
 [data-content]:hover:after {
-  opacity: 1;
-  transition: opacity .5s linear;
+  display: block;
+  /*transition: opacity .5s linear;*/
 }
 
 .center-select {
