@@ -16,7 +16,7 @@
             {{list.name}}
           </div>
           <div class="navigation__list__title__icon">
-            <img src="/hxrc/images/card-title.jpg">
+            <img src="../../public/hxrc/images/card-title.jpg">
             <div class="navigation__list__title__icon__line"></div>
           </div>
         </div>
@@ -31,10 +31,10 @@
           </router-link>
         </div>
       </div>
-      <img src="/hxrc/images/bg-adorn-small-left.png" :style="{position: 'absolute', left: '48px', top: '325px', width: '41px', height: '430px', zIndex: 101}"/>
-      <img src="/hxrc/images/bg-adorn-left.png" :style="{position: 'absolute', left: '100px', top: '250px', width: '78px', height: '580px', zIndex: 101}"/>
-      <img src="/hxrc/images/bg-adorn-small-right.png" :style="{position: 'absolute', left: '1831px', top: '325px', width: '41px', height: '430px', zIndex: 101}"/>
-      <img src="/hxrc/images/bg-adorn-right.png" :style="{position: 'absolute', left: '1742px', top: '250px', width: '78px', height: '580px', zIndex: 101}"/>
+      <img src="../../public/hxrc/images/bg-adorn-small-left.png" :style="{position: 'absolute', left: '48px', top: '325px', width: '41px', height: '430px', zIndex: 101}"/>
+      <img src="../../public/hxrc/images/bg-adorn-left.png" :style="{position: 'absolute', left: '100px', top: '250px', width: '78px', height: '580px', zIndex: 101}"/>
+      <img src="../../public/hxrc/images/bg-adorn-small-right.png" :style="{position: 'absolute', left: '1831px', top: '325px', width: '41px', height: '430px', zIndex: 101}"/>
+      <img src="../../public/hxrc/images/bg-adorn-right.png" :style="{position: 'absolute', left: '1742px', top: '250px', width: '78px', height: '580px', zIndex: 101}"/>
     </div>
   </div>
 </template>
@@ -135,7 +135,7 @@ export default {
     height: 720px;
     top: 180px;
     position: absolute;
-    background-image: url('/hxrc/images/card-bg-430_367.png');
+    background-image: url('../../public/hxrc/images/card-bg-430_367.png');
     background-size: 100% 100%;
     overflow: hidden;
     transform-origin: top;
@@ -214,7 +214,7 @@ export default {
   }
 
   &__list__item {
-    background-image: url('/hxrc/images/btn-nav-default.png');
+    background-image: url('../../public/hxrc/images/btn-nav-default.png');
     background-size: 100% 100%;
     height: 48px;
     width: 330px;
@@ -228,7 +228,7 @@ export default {
 
     &.router-link-active,
     &:hover {
-      background-image: url('/hxrc/images/btn-nav-hover.png');
+      background-image: url('../../public/hxrc/images/btn-nav-hover.png');
     }
   }
 }
