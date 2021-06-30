@@ -66,7 +66,7 @@ module.exports = [
       {
         component: 'div',
         props: {
-          'data-content': '统计人才库中职称类型分布情况',
+          'data-content': '统计人才库中高层次人才类型分布情况',
           $style: {
             position: 'relative'
           }

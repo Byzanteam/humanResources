@@ -53,7 +53,7 @@
     <div ref="activity-bg" :style="{height: '50px', width: '380px', backgroundColor: 'rgba(13,45,120,.45)', borderRadius: '5px', position: 'absolute', top: '252px', left: '40px'}" />
     <div ref="high-level-bg" :style="{height: '50px', width: '380px', backgroundColor: 'rgba(13,45,120,.45)', borderRadius: '5px', position: 'absolute', top: '712px', left: '40px'}" />
     <div ref="departments-loader" class="center-select">
-      <brick-radio-button-select :options="provinceOptions" v-model="craneStates.province" placeholder="全省" />
+<!--      <brick-radio-button-select :options="provinceOptions" v-model="craneStates.province" placeholder="全省" />-->
       <brick-radio-button-select ref="departments-select" :options="craneStates.selectOptions" v-model="craneStates.department" placeholder="全省" :style="{marginLeft: '12px'}" />
     </div>
     <data-loader ref="activity-number-line" v-slot="{ results: results }" :url="`/v1/components/44b74ddd-39de-493f-84ab-9d87fcf23fee/data?area=${selectedArea}`" method="get" :data="[[0, '暂无数据']]" :style="{width: '380px', height: '240px', position: 'absolute', top: '334px', left: '40px'}">
