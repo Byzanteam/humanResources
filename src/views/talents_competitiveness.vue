@@ -1,7 +1,7 @@
 <template>
   <div class="talents_competitiveness">
     <navigator ref="navigator"/>
-    <img ref="title-bg" :style="{width: '701px', height: '123px', position: 'absolute', top: '0px', left: '607px'}" src="/hxrc/images/Title-Bg.png" />
+    <img ref="title-bg" :style="{width: '701px', height: '123px', position: 'absolute', top: '0px', left: '607px'}" src="../../public/hxrc/images/Title-Bg.png" />
     <div @click="()=>[openNavigator()]" :style="{cursor: 'pointer', width: '460px', color: '#fff', fontSize: '42px', fontWeight: 600, textAlign: 'center', lineHeight: 1, position: 'absolute', top: '36px', left: '730px'}">
       省域人才综合竞争力
     </div>
@@ -64,12 +64,14 @@
       <brick-radio-button-select :options="provinceOptions" v-model="craneStates.province" placeholder="全省" />
       <brick-radio-button-select v-if="craneStates.province" :options="craneStates.selectOptions" v-model="craneStates.city" placeholder="全省" :style="{marginLeft: '12px'}" />
     </div>
-    <img ref="box-bg" :style="{width: '440px', height: '1059px', position: 'absolute', top: '10px', left: '10px'}" src="/hxrc/images/Box-Bg.png" />
-    <img ref="right-box-bg" :style="{width: '440px', height: '1059px', position: 'absolute', top: '10px', left: '1471px'}" src="/hxrc/images/Box-Bg.png" />
+    <img ref="box-bg" :style="{width: '440px', height: '1059px', position: 'absolute', top: '10px', left: '10px'}" src="../../public/hxrc/images/Box-Bg.png" />
+    <img ref="right-box-bg" :style="{width: '440px', height: '1059px', position: 'absolute', top: '10px', left: '1471px'}" src="../../public/hxrc/images/Box-Bg.png" />
     <div ref="force-digital-bg" :style="{width: '380px', height: '50px', backgroundColor: 'rgba(13, 45, 120, .45)', borderRadius: '5px', position: 'absolute', top: '60px', left: '1500px'}" />
-    <RadioGroup v-model="craneStates.indicator" type="button" :style="{width: '388px', height: '184px', position: 'absolute', top: '92px', left: '37px'}">
-      <Radio v-for="(item, key) in craneStates.indicators" :key="key" :label="item.name" />
-    </RadioGroup>
+    <data-loader @requestDone="(param)=>[setState('indicators', param.results.map(item => ({name: item.index_2})))]" :url="`/custom/daas/api/9f5c2cc6-f4cc-4757-8a01-7d79cbb06125?tableName=${dataTableName}&filter=city=${ craneStates.city && craneStates.city.label || '福州市'}&fields=index_2&orderBy=&pageSize=100&pageNumber=1&apiID=9a7c1d5e-2380-49ab-940b-56b70fc69b3e&apiKey=54fc233d9f2b4aa3a7f7b3bf04f4d158`" method="get" :data="[]">
+      <RadioGroup v-model="craneStates.indicator" type="button" :style="{width: '388px', height: '184px', position: 'absolute', top: '92px', left: '37px'}">
+        <Radio v-for="(item, key) in craneStates.indicators" v-if="item.name !== '综合指标'" :key="key" :label="item.name" />
+      </RadioGroup>
+    </data-loader>
     <data-loader @requestDone="(param)=>[setState('radarData', param.results || [])]" :url="radarRequestUrl" method="get" :data="[[0, '暂无数据']]" :style="{width: '380px', height: '480px', position: 'absolute', top: '455px', left: '1500px'}">
       <v-chart :options="{legend: {orient: 'vertical', top: 274, icon: 'circle', inactiveColor: '#1C4159', itemGap: 5, itemWidth: 10, itemHeight: 10, textStyle: {color: '#ffffff', fontSize: 14, padding: [2, 4]}}, tooltip: {trigger: 'item', backgroundColor: '#566374f0'}, color: ['#00fff2', '#7b43ff', '#e0ad3a', '#189ef1', '#2174b8', '#f65446'], radiusAxis: {axisLine: {color: '#19394f'}, splitLine: {color: '#19394f'}}, radar: {shape: 'circle', center: ['50%', '26%'], radius: '50% ', name: {textStyle: {color: 'rgba(255, 255, 255, .8)', fontSize: 14, fontWeight: 400}}, axisLine: {lineStyle: {color: '#19394f'}}, splitArea: {areaStyle: {color: 'transparent'}}, splitLine: {lineStyle: {color: '#19394f'}}, indicator: craneStates.indicators}, series: [{
                   type: 'radar',
@@ -81,14 +83,18 @@
                 }
               ]}" />
     </data-loader>
-    <div ref="province-talent-number" data-content="根据选择的对应十大指标体系结合「区域」检索对应区域对应的指标排名情况" :style="{color: '#fff', fontSize: '20px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', cursor: 'pointer', position: 'absolute', top: '48px', left: '74px'}">
-      省域人才指标汇总
+    <div ref="province-talent-number" :style="{color: '#fff', fontSize: '20px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', cursor: 'pointer', position: 'absolute', top: '48px', left: '74px'}">
+      <div data-content="根据选择的对应十大指标体系结合「区域」检索对应区域对应的指标排名情况" :style="{position: 'relative'}">
+        省域人才指标汇总
+      </div>
     </div>
     <div ref="province-talent-number-icon" :style="{color: '#41bcff', fontSize: '14px', fontWeight: '400', textAlign: 'left', position: 'absolute', top: '50px', left: '40px'}">
       >>
     </div>
-    <div ref="ten-number" data-content="区域为省级可横向对比市级的指标指数对比，区域为市级可横向对应区级的指标指数对比" :style="{color: '#fff', fontSize: '20px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', cursor: 'pointer', position: 'absolute', top: '214px', left: '1533px'}">
-      15大指标汇总
+    <div ref="ten-number" :style="{color: '#fff', fontSize: '20px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', cursor: 'pointer', position: 'absolute', top: '214px', left: '1533px'}">
+      <div data-content="区域为省级可横向对比市级的指标指数对比，区域为市级可横向对应区级的指标指数对比" :style="{position: 'relative'}">
+        15大指标汇总
+      </div>
     </div>
     <div ref="ten-number-icon" :style="{color: '#41bcff', fontSize: '14px', fontWeight: '400', textAlign: 'left', position: 'absolute', top: '217px', left: '1500px'}">
       >>
@@ -101,8 +107,8 @@
         </Option>
       </Select>
     </div>
-    <data-loader @requestDone="(param)=>[setState('mapData', param.results.map((item) => ({name: item[1], value: craneStates.areaCoordMap[item[1]].concat(item[0].toFixed(2))}))), setState('tableData', param.results.map((item, index) => ({index: index + 1, name: item[1], value: item[0].toFixed(2)})))]" :url="tableRequestUrl" method="get" :data="[[0, '暂无数据']]" :style="{width: '380px', height: '680px', overflow: 'scroll', position: 'absolute', top: '360px', left: '40px'}">
-      <vis-table v-scroll="{itemHeight: 40}" theme="dark" stripe="" :headers="[{width: 80, key: 'index',}, {width: 160, key: 'name', title: '省市排名'}, {width: 140, key: 'value', title: '人才指标'}]" :data="sortTableData">
+    <data-loader @requestDone="(param)=>[setState('mapData', param.results.map((item) => ({name: item.city, value: craneStates.areaCoordMap[item.city].concat(Number(item.value).toFixed(2))}))), setState('tableData', param.results.map((item, index) => ({name: item.city, value: Number(item.value).toFixed(2)})))]" :url="tableRequestUrl" method="get" :data="[[0, '暂无数据']]" :style="{width: '380px', height: '594px', overflow: 'scroll', position: 'absolute', top: '446px', left: '40px'}">
+      <vis-table v-scroll="{itemHeight: 40, headerHeight: 56}" theme="dark" stripe="" :headers="[{width: 80, key: 'index',}, {width: 160, key: 'name', title: '省市排名'}, {width: 140, key: 'value', title: '人才指标'}]" :data="sortTableData">
         <template v-slot="{ cell: cell, columnKey: columnKey }">
           <span :class="columnKey === 'index' ? 'row-index-cell' : ''">
             {{cell}}
@@ -110,8 +116,8 @@
         </template>
       </vis-table>
     </data-loader>
-    <data-loader ref="force-value" v-slot="{ results: results }" :url="`/v1/components/38b74ddd-39de-493f-84ab-9d87fcf23fee/data?city=${craneStates.city ? craneStates.city.label : ''}&type='${this.craneStates.indicator}'`" method="get" :data="[[0]]" :style="{position: 'absolute', top: '66px', left: '1614px'}">
-      <digital-roll ref="force-value-content" v-if="results" data-content="根据选择的对应十大指标体系结合「区域」统计分析该区域的综合竞争力指数" titlePosition="left" :content="{title: '竞争力指数', digital: results[0][0]}" :options="{separator: ',', decimalPlaces: 1}" :titleStyle="{color: '#ffffff', fontSize: '16px', fontWeight: '400'}" :prefixStyle="{color: '#00fff2', fontSize: '16px', fontWeight: '400'}" :suffixStyle="{color: '#00fff2', fontSize: '16px', fontWeight: '400'}" :digitalStyle="{fontSize: '32px', color: '#00fff2', fontWeight: '400', fontFamily: 'Oswald-Regular', format: '11', lineHeight: '38px', letterSpacing: '2.4px'}" />
+    <data-loader ref="force-value" v-slot="{ results: results }" :url="`/custom/daas/api/9f5c2cc6-f4cc-4757-8a01-7d79cbb06125?tableName=${dataTableName}&filter=city=${ craneStates.city && craneStates.city.label || '福州市'}&fields=value&orderBy=&pageSize=100&pageNumber=1&apiID=9a7c1d5e-2380-49ab-940b-56b70fc69b3e&apiKey=54fc233d9f2b4aa3a7f7b3bf04f4d158`" method="get" :data="[[0]]" :style="{position: 'absolute', top: '66px', left: '1614px'}">
+      <digital-roll ref="force-value-content" v-if="results" data-content="根据选择的对应十大指标体系结合「区域」统计分析该区域的综合竞争力指数" titlePosition="left" :content="{title: '竞争力指数', digital: digitalData}" :options="{separator: ',', decimalPlaces: 1}" :titleStyle="{color: '#ffffff', fontSize: '16px', fontWeight: '400'}" :prefixStyle="{color: '#00fff2', fontSize: '16px', fontWeight: '400'}" :suffixStyle="{color: '#00fff2', fontSize: '16px', fontWeight: '400'}" :digitalStyle="{fontSize: '32px', color: '#00fff2', fontWeight: '400', fontFamily: 'Oswald-Regular', format: '11', lineHeight: '38px', letterSpacing: '2.4px'}" />
     </data-loader>
   </div>
 </template>
@@ -165,11 +171,12 @@ export const talents_competitiveness = {
     return {
       provinceOptions: PROVINCE_OPTIONS,
       Echarts: Echarts,
+      dataTableName: 'fj_index_1',
       craneStates: {
         province: PROVINCE_OPTIONS[0],
         city: null,
-        indicators: [{name: '人才数量指标'}, {name: '人才质量指标'}, {name: '人才结构指标'}, {name: '人才投入指标'}, {name: '人才平台指标'}, {name: '人才生活指标'}, {name: '人才环境指标'}, {name: '人才效能指标'}, {name: '人才效益指标'}, {name: '人才发展指标'}],
-        indicator: '人才数量指标',
+        indicators: [],
+        indicator: '',
         types: [{index: 1, name: '四川省'}, {index: 2, name: '重庆市'}, {index: 3, name: '青海省'}, {index: 4, name: '浙江省'}, {index: 5, name: '湖南省'}, {index: 6, name: '湖北省'}, {index: 7, name: '甘肃省'}, {index: 8, name: '山东省'}, {index: 9, name: '江苏省'}, {index: 10, name: '江西省'}, {index: 11, name: '福建省'}, {index: 12, name: '贵州省'}, {index: 13, name: '陕西省'}, {index: 14, name: '山西省'}],
         currentProvince: [],
         selectedArea: {},
@@ -209,44 +216,51 @@ export const talents_competitiveness = {
         })
       }
     },
+    'craneStates.indicators'(value) {
+      this.craneStates.indicator = value[0] ? value[0].name : ''
+    }
   },
 
   computed: {
     tableRequestUrl () {
-      if(this.craneStates.city) {
-        return `/v1/components/35b74ddd-39de-493f-84ab-9d87fcf23fee/data?type='${this.craneStates.indicator}'&city=${this.craneStates.city.label}`
-      }
-      return `/v1/components/34b74ddd-39de-493f-84ab-9d87fcf23fee/data?type='${this.craneStates.indicator}'&province=福建省`
+      return `/custom/daas/api/9f5c2cc6-f4cc-4757-8a01-7d79cbb06125?tableName=${this.dataTableName}&filter=index_2=${ this.craneStates.indicator || ''}&fields=&orderBy=&pageSize=100&pageNumber=1&apiID=9a7c1d5e-2380-49ab-940b-56b70fc69b3e&apiKey=54fc233d9f2b4aa3a7f7b3bf04f4d158`
     },
     radarRequestUrl () {
-      const { currentProvince } = this.craneStates
-      const areas = currentProvince.reduce((acc, item, index) => {
-        if(index === currentProvince.length - 1) {
-          return `${acc}'${item}'`
-        }
-        return `${acc}'${item}',`
-      }, '')
-      // 请求市级数据
-      if(!this.craneStates.city && this.craneStates.currentProvince.length > 0) {
-        return `/v1/components/40b74ddd-39de-493f-84ab-9d87fcf23fee/data?city=${areas}`
-      }
-      // 请求县级数据
-      if(this.craneStates.city && this.craneStates.currentProvince.length > 0) {
-        return `/v1/components/41b74ddd-39de-493f-84ab-9d87fcf23fee/data?area=${areas}`
-      }
-      // 请求省级数据
-      return '/v1/components/39b74ddd-39de-493f-84ab-9d87fcf23fee/data'
+      return `/custom/daas/api/9f5c2cc6-f4cc-4757-8a01-7d79cbb06125?tableName=${this.dataTableName}&filter=&fields=&orderBy=&pageSize=100&pageNumber=1&apiID=9a7c1d5e-2380-49ab-940b-56b70fc69b3e&apiKey=54fc233d9f2b4aa3a7f7b3bf04f4d158`
     },
     areaSelectRequestUrl () {
-      // 请求区县列表
-      if(this.craneStates.city) {
-        return `/v1/components/37b74ddd-39de-493f-84ab-9d87fcf23fee/data?city=${this.craneStates.city.label}`
-      }
       // 请求市区列表
-      return `/v1/components/36b74ddd-39de-493f-84ab-9d87fcf23fee/data?province=福建省`
+      return `/custom/daas/api/9f5c2cc6-f4cc-4757-8a01-7d79cbb06125?tableName=${this.dataTableName}&filter=&fields=city&orderBy=&pageSize=100&pageNumber=1&apiID=9a7c1d5e-2380-49ab-940b-56b70fc69b3e&apiKey=54fc233d9f2b4aa3a7f7b3bf04f4d158`
     },
     sortTableData () {
-      return this.craneStates.tableData.sort(this.compare())
+      const sorted_data = this.craneStates.tableData.sort(this.compare())
+      return sorted_data.map((item, index) => ({...item, index: index+1}))
+    },
+    radarData() {
+      return  _.chain(this.craneStates.radarData)
+      .groupBy('city')
+      .reduce((acc, item, key) => {
+        acc.push({
+          name: key,
+          value: this.craneStates.indicators.map(indicator => {
+            const value = _.find(item, indicator_value => {
+              return indicator_value.index_2 === indicator.name
+            })
+            return value ? Number(value.value) : 0
+          })
+        })
+        return acc
+      }, [])
+      .value()
+    },
+    digitalData() {
+      var data
+      if(this.craneStates.city) {
+        data = _.find(this.craneStates.tableData, item => (item.name === this.craneStates.city.label))
+      } else {
+        data = this.craneStates.tableData[0]
+      }
+      return data ? Number(data.value) : 0
     }
   },
 
@@ -260,38 +274,29 @@ export const talents_competitiveness = {
       })
     },
     generateRadarData () {
-      const indicators = {}
-      this.craneStates.radarData.forEach(item => {
-        const a = {}
-        a[item[0]] = item [1]
-        if(!indicators[item[2]]) {
-          indicators[item[2]] = []
+      const { currentProvince } = this.craneStates
+      const areas = currentProvince.reduce((acc, item, index) => {
+        if(index === currentProvince.length - 1) {
+          return `${acc}'${item}'`
         }
-        indicators[item[2]].push(a)
-      })
-      return _.reduce(indicators, (acc, value, key) => {
-        acc.push({
-          name: key,
-          value: this.craneStates.indicators.map(item => {
-            const c =  value.find((exponent) => {
-              return exponent[item.name]
-            }, [])
-            return c[item.name].toFixed(2)
-          })
-        })
-        return acc
-      }, [])
+        return `${acc}'${item}',`
+      }, '')
+      return _.filter(this.radarData, item => (areas.includes(item.name)))
     },
     compare() {
       return function (value1, value2) {
-        let v1 = value1.value;
-        let v2 = value2.value;
+        let v1 = Number(value1.value);
+        let v2 = Number(value2.value);
         return v2 - v1
       }
     },
     areaSelectRequest() {
-      this.axios.get(this.areaSelectRequestUrl).then((data) => {
-        this.craneStates.multipleSelectData = data.data.data
+      this.axios.get(this.areaSelectRequestUrl).then(({data: {data}}) => {
+        const citys = data.reduce((acc, item) => {
+          acc[item.city] = [item.city]
+          return acc
+        }, {})
+        this.craneStates.multipleSelectData = _.values(citys)
         this.craneStates.currentProvince = ['厦门市', '福州市']
       })
     }

@@ -45,7 +45,7 @@ module.exports = [
     component: '@byzanteam/vis-components/data-loader',
     position: [106, 94],
     props: {
-      $url: "`/v1/components/24b74ddd-39de-493f-84ab-9d87fcf23fee/data?type=${digitalKeyword || ''}`",
+      $url: "`/v1/components/55b74ddd-39de-493f-84ab-9d87fcf23fee/data?type=${digitalKeyword || ''}&tag=${craneStates.supplyInputWord}&area=${currentArea}`",
       method: 'get',
       $data: "[[0]]",
     },
@@ -61,7 +61,7 @@ module.exports = [
           titlePosition: 'left',
           $content: {
             title: '中高端人才总数',
-            $digital: "results ? results[0][0] : 0",
+            $digital: "results[0][0] ? results[0][0] : 0",
             suffix: '人',
           },
           $options: {
@@ -100,7 +100,7 @@ module.exports = [
       {
         component: '@byzanteam/vis-components/data-loader',
         props: {
-          $url: "`/v1/components/24b74ddd-39de-493f-84ab-9d87fcf23fee/data?type=${digitalKeyword || ''}`",
+          $url: "`/v1/components/56b74ddd-39de-493f-84ab-9d87fcf23fee/data?type=${digitalKeyword || ''}&tag=${craneStates.supplyInputWord}&area=${currentArea}`",
           method: 'get',
           $data: "[[0]]",
         },
@@ -112,7 +112,7 @@ module.exports = [
             component: '@byzanteam/vis-components/digital-roll',
             props: {
               $content: {
-                $digital: "results ? results[0][0] : 0",
+                $digital: "results[0][0] ? results[0][0] : 0",
                 suffix: '人',
               },
               $options: {
@@ -136,7 +136,7 @@ module.exports = [
       {
         component: '@byzanteam/vis-components/data-loader',
         props: {
-          $url: "`/v1/components/24b74ddd-39de-493f-84ab-9d87fcf23fee/data?type=${digitalKeyword || ''}`",
+          $url: "`/v1/components/57b74ddd-39de-493f-84ab-9d87fcf23fee/data?type=${digitalKeyword || ''}&tag=${craneStates.supplyInputWord}&area=${currentArea}`",
           method: 'get',
           $data: "[[0]]",
         },
@@ -148,7 +148,7 @@ module.exports = [
             component: '@byzanteam/vis-components/digital-roll',
             props: {
               $content: {
-                $digital: "results ? results[0][0] : 0",
+                $digital: "results[0][0] ? results[0][0] : 0",
                 suffix: '人',
               },
               $options: {
@@ -172,7 +172,7 @@ module.exports = [
       {
         component: '@byzanteam/vis-components/data-loader',
         props: {
-          $url: "`/v1/components/24b74ddd-39de-493f-84ab-9d87fcf23fee/data?type=${digitalKeyword || ''}`",
+          $url: "`/v1/components/58b74ddd-39de-493f-84ab-9d87fcf23fee/data?type=${digitalKeyword || ''}&tag=${craneStates.supplyInputWord}&area=${currentArea}`",
           method: 'get',
           $data: "[[0]]",
         },
@@ -184,7 +184,7 @@ module.exports = [
             component: '@byzanteam/vis-components/digital-roll',
             props: {
               $content: {
-                $digital: "results ? results[0][0] : 0",
+                $digital: "results[0][0] ? results[0][0] : 0",
                 suffix: '人',
               },
               $options: {
@@ -212,7 +212,7 @@ module.exports = [
     component: '@byzanteam/vis-components/data-loader',
     position: [156, 249],
     props: {
-      $url: "`/v1/components/45b74ddd-39de-493f-84ab-9d87fcf23fee/data?job=${craneStates.currentShortageType|| ''}&year=${this.craneStates.year ? this.craneStates.year.getFullYear() : new Date(Date.now()).getFullYear()}`",
+      $url: "`/v1/components/45b74ddd-39de-493f-84ab-9d87fcf23fee/data?area=${currentArea}&year=${craneStates.year ? craneStates.year.getFullYear() : new Date(Date.now()).getFullYear()}`",
       method: 'get',
       $data: "[[0]]",
     },
@@ -228,7 +228,7 @@ module.exports = [
           titlePosition: 'left',
           $content: {
             title: '人才引进统计',
-            $digital: "results ? results[0][0] : 0",
+            $digital: "results[0][0] ? results[0][0] : 0",
             suffix: '次',
           },
           $options: {
@@ -258,7 +258,7 @@ module.exports = [
     component: '@byzanteam/vis-components/data-loader',
     position: [1614, 134],
     props: {
-      $url: "`/v1/components/29b74ddd-39de-493f-84ab-9d87fcf23fee/data?job=${craneStates.currentShortageType|| ''}&year=${craneStates.year ? craneStates.year.getFullYear() : new Date(Date.now()).getFullYear()}`",
+      $url: "`/v1/components/58b74ddd-39de-493f-84ab-9d87fcf23fee/data?type=${digitalKeyword || ''}&tag=${craneStates.supplyInputWord}&area=${currentArea}`",
       method: 'get',
       $data: "[[0]]",
     },
@@ -274,7 +274,7 @@ module.exports = [
           titlePosition: 'left',
           $content: {
             title: '紧缺人才数量',
-            $digital: "results ? results[0][0] : 0",
+            $digital: "results[0][0] ? results[0][0] : 0",
             suffix: '人',
           },
           $options: {

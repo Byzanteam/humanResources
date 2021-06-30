@@ -21,9 +21,19 @@ module.exports = [
     position: [74, 720],
     props: {
       ...subtitle_text.props,
-      'data-content': '默认为所有岗位的平均薪资，可根据「岗位名」进行筛选统计查阅对应行位当年平均薪资与历年的平均薪资',
     },
-    content: '人才薪酬分析',
+    children: [
+      {
+        component: 'div',
+        props: {
+          'data-content': '默认为所有岗位的平均薪资，可根据「岗位名」进行筛选统计查阅对应行位当年平均薪资与历年的平均薪资',
+          $style: {
+            position: 'relative'
+          }
+        },
+        content: '人才薪酬分析',
+      }
+    ]
   },
   {
     id: 'salary-count',
@@ -139,7 +149,7 @@ module.exports = [
               },
               $axisLabel: {
                 ...axisLabelStyle,
-                align: 'center'
+                align: 'right'
               },
               $splitLine: {
                 $show: false

@@ -15,6 +15,7 @@
   border-radius: 4px;
   padding-top: 12px;
   padding-bottom: 12px;
+  text-align: center;
 }
 
 .ivu-radio-group-button .ivu-radio-wrapper.ivu-radio-group-item:hover {

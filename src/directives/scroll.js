@@ -1,7 +1,8 @@
 class Scroll {
-  constructor({el, value: {itemHeight}}) {
+  constructor({el, value: {itemHeight, headerHeight}}) {
     this.el = el
     this.itemHeight = itemHeight
+    this.headerHeight = headerHeight
     this.timr = null
     this.limit = 0
     this.distance = 0
@@ -41,13 +42,17 @@ class Scroll {
   setTimr () {
     clearInterval(this.timr)
     this.timr = setInterval(() => {
-      if(this.distance >= this.limit) {
+      if (this.distance >= this.limit) {
         this.scrollTop(this.el)
       } else {
         if(this.duration === '0s') {
           this.duration = '1.2s'
         }
-        this.distance += this.itemHeight
+        if (this.distance === 0 && this.headerHeight) {
+          this.distance = this.headerHeight
+        } else {
+          this.distance += this.itemHeight
+        }
         this.setStyle()
       }
     }, 5000);

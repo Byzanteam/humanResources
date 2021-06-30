@@ -117,16 +117,16 @@ input::placeholder {
 @font-face {
   font-family: 'Oswald-Regular';
   src:
-    url('/hxrc/fonts/Oswald-Regular.woff') format('woff'),
-    url('/hxrc/fonts/Oswald-Regular.woff2') format('woff');
+    url('../../public/hxrc/fonts/Oswald-Regular.woff') format('woff'),
+    url('../../public/hxrc/fonts/Oswald-Regular.woff2') format('woff');
   font-weight: normal;
 }
 
 @font-face {
   font-family: 'Oswald-Light';
   src:
-    url('/hxrc/fonts/Oswald-Light.woff') format('woff'),
-    url('/hxrc/fonts/Oswald-Light.woff2') format('woff');
+    url('../../public/hxrc/fonts/Oswald-Light.woff') format('woff'),
+    url('../../public/hxrc/fonts/Oswald-Light.woff2') format('woff');
   font-weight: normal;
 }
 
@@ -187,13 +187,13 @@ input::placeholder {
 }
 
 [data-content]:after {
-  display: inline-flex;
+  display: none;
   width: auto;
   max-width: 192px;
-  position: relative;
+  position: absolute;
   opacity: 0;
-  top: 15px;
-  right: 10px;
+  top: 30px;
+  right: -40%;
   transition: all .25s linear;
   border-radius: 4px;
   padding: 6px;
@@ -203,12 +203,26 @@ input::placeholder {
   font-weight: 400;
   content: attr(data-content);
   cursor: pointer;
-  z-index: 0;
+  z-index: 999;
+}
+
+[data-content]:hover::after {
+  opacity: 1;
+  display: inline-flex;
+  transition: all .5s linear;
 }
 
 .line-break-talent-demand::after {
   width: 560px;
   max-width: none;
+}
+
+.ranking-tooltip {
+  height: 22px;
+}
+
+.ranking-tooltip [data-content]:after {
+  z-index: 0;
 }
 
 .line-break-degree::after {
@@ -217,9 +231,8 @@ input::placeholder {
   right: 210px;
 }
 
-[data-content]:hover:after {
-  opacity: 1;
-  transition: opacity .5s linear;
+.ranking-tooltip:hover [data-content]:after{
+  z-index: 1;
 }
 
 .center-select {

@@ -11,8 +11,7 @@ module.exports = [
     component: 'div',
     position: [74, 286],
     props: {
-      class: 'line-break-talent-demand',
-      'data-content': '岗位排名：根据「区域」「时间」进行筛选统计查阅对应的企业人才需求岗位排名岗位薪资排名：根据「区域」「时间」进行筛选统计查阅岗位的薪资排名情况',
+      class: 'line-break-talent-demand ranking-tooltip',
       $style: {
         color: '#fff',
         fontSize: '18px',
@@ -22,7 +21,28 @@ module.exports = [
         cursor: 'pointer',
       },
     },
-    content: '需求岗位排名',
+    children: [
+      {
+        component: 'div',
+        props: {
+          $style: {
+            position: 'relative'
+          }
+        },
+        children: [
+          {
+            component: 'div',
+            props: {
+              'data-content': '岗位排名：根据「区域」「时间」进行筛选统计查阅对应的企业人才需求岗位排名岗位薪资排名：根据「区域」「时间」进行筛选统计查阅岗位的薪资排名情况',
+              $style: {
+                position: 'relative'
+              }
+            },
+            content: '需求岗位排名',
+          }
+        ]
+      }
+    ],
   },
   {
     component: '@byzanteam/vis-components/brick-tabs',
@@ -42,7 +62,7 @@ module.exports = [
       results: 'results',
     },
     props: {
-      'v-show': 'craneStates.tabCurrent === craneStates.tabNavs[0]',
+      'v-if': 'craneStates.tabCurrent === craneStates.tabNavs[0]',
       $url: "`/v1/components/04b74ddd-39de-493f-84ab-9d87fcf23fee/data?year=${generateYear}&job=${craneStates.currentJob || ''}&area=${currentRegion}`",
       method: 'get',
       $data: "null",
@@ -91,7 +111,7 @@ module.exports = [
       results: 'results',
     },
     props: {
-      'v-show': 'craneStates.tabCurrent === craneStates.tabNavs[1]',
+      'v-if': 'craneStates.tabCurrent === craneStates.tabNavs[1]',
       $url: "`/v1/components/05b74ddd-39de-493f-84ab-9d87fcf23fee/data?year=${generateYear}&job=${craneStates.currentJob || ''}&area=${currentRegion}`",
       method: 'get',
       $data: "null",

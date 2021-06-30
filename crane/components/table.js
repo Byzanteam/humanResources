@@ -5,7 +5,7 @@ module.exports = {
     results: 'results',
   },
   props: {
-    $url: "`/v1/components/21b74ddd-39de-493f-84ab-9d87fcf23fee/data?area=${craneStates.department ? craneStates.department.label : ''}`",
+    $url: "`/v1/components/21b74ddd-39de-493f-84ab-9d87fcf23fee/data?area=${currentArea ? currentArea : ''}&year=${craneStates.year ? craneStates.year.getFullYear() : new Date().getFullYear()}`",
     method: 'get',
     $data: "[['暂无数据']]",
     $style: {

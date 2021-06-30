@@ -33,6 +33,7 @@ module.exports = [
         component: 'iview/Select',
         position: [43, 391],
         props: {
+          $clearable: 'true',
           placeholder: '全部类型',
           class: 'map-select',
           $style: {
@@ -106,6 +107,7 @@ module.exports = [
         component: 'iview/Select',
         position: [43, 391],
         props: {
+          $clearable: 'true',
           placeholder: '全部类型',
           class: 'map-select',
           $style: {
@@ -197,7 +199,7 @@ module.exports = [
         events: {
           requestDone: {
             params: ['exports'],
-            actions: ["setState('dateRange', exports.results.map((item) => (Number(item[0]))))"],
+            actions: ["setState('dateRange', exports.results ? exports.results.map((item) => (Number(item[0]))) : [])"],
           },
         },
         children: [
@@ -235,6 +237,7 @@ module.exports = [
           {
             component: 'iview/Select',
             props: {
+              $clearable: 'true',
               placeholder: '所有行业',
               class: 'map-select',
               $style: {
@@ -246,7 +249,7 @@ module.exports = [
               {
                 component: 'iview/Option',
                 vfor: {
-                  data: "results.map((item, index) => ({index: item[0], name: item[0]}))",
+                  data: "results ? results.map((item, index) => ({index: item[0], name: item[0]})) : []",
                   exports: {item: 'item', index: 'key'}
                 },
                 props: {

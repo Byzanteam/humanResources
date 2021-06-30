@@ -17,7 +17,7 @@ module.exports = {
     {
       component: '@byzanteam/vis-components/vis-table',
       props: {
-        'v-scroll': "{itemHeight: 40}",
+        'v-scroll': "{itemHeight: 40, headerHeight: 56}",
         theme: 'dark',
         stripe: '',
         $headers: "[{width: 88, key: 'index',}, {width: 226, key: 'name', title: '单位名称'}, {width: 114, key: 'value', title: '申报人数'}]",

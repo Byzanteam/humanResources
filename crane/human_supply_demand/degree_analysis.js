@@ -11,8 +11,7 @@ module.exports = [
     component: 'div',
     position: [1532, 720],
     props: {
-      class: 'line-break-degree',
-      'data-content': '人才学历： 根据「区域」「时间」进行筛选统计对应的人才学历分布情况人才职称：根据「区域」「时间」进行筛选统计对应的人才职称分布情况',
+      class: 'line-break-degree ranking-tooltip',
       $style: {
         color: '#fff',
         fontSize: '18px',
@@ -22,7 +21,18 @@ module.exports = [
         cursor: 'pointer',
       },
     },
-    content: '学历职称分析',
+    children: [
+      {
+        component: 'div',
+        props: {
+          'data-content': '人才学历： 根据「区域」「时间」进行筛选统计对应的人才学历分布情况人才职称：根据「区域」「时间」进行筛选统计对应的人才职称分布情况',
+          $style: {
+            position: 'relative'
+          }
+        },
+        content: '学历职称分析',
+      }
+    ],
   },
   {
     component: '@byzanteam/vis-components/brick-tabs',

@@ -1,30 +1,30 @@
 module.exports = {
   component: '@byzanteam/vis-components/data-loader',
-  position: [40, 360],
+  position: [40, 446],
   props: {
     $url: "tableRequestUrl",
     method: 'get',
     $data: "[[0, '暂无数据']]",
     $style: {
       width: '380px',
-      height: '680px',
+      height: '594px',
       overflow: 'scroll'
     }
   },
   events: {
     requestDone: {
       params: ['param'],
-      actions: ["setState('mapData', param.results.map((item) => ({name: item[1], value: craneStates.areaCoordMap[item[1]].concat(item[0].toFixed(2))})))", "setState('tableData', param.results.map((item, index) => ({index: index + 1, name: item[1], value: item[0].toFixed(2)})))"],
+      actions: ["setState('mapData', param.results.map((item) => ({name: item.city, value: craneStates.areaCoordMap[item.city].concat(Number(item.value).toFixed(2))})))", "setState('tableData', param.results.map((item, index) => ({name: item.city, value: Number(item.value).toFixed(2)})))"],
     },
   },
   children: [
     {
       component: '@byzanteam/vis-components/vis-table',
       props: {
-        'v-scroll': "{itemHeight: 40}",
+        'v-scroll': "{itemHeight: 40, headerHeight: 56}",
         theme: 'dark',
         stripe: '',
-        $headers: "[{width: 80, key: 'index',}, {width: 160, key: 'name', title: '省市排名'}, {width: 160, key: 'value', title: '人才指标'}]",
+        $headers: "[{width: 80, key: 'index',}, {width: 160, key: 'name', title: '省市排名'}, {width: 140, key: 'value', title: '人才指标'}]",
         $data: "sortTableData"
       },
       children: [
