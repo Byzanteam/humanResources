@@ -187,11 +187,10 @@ input::placeholder {
 }
 
 [data-content]:after {
-  display: none;
   width: auto;
   max-width: 192px;
   position: absolute;
-  opacity: 0;
+  display: none;
   top: 30px;
   right: -40%;
   transition: all .25s linear;
@@ -207,7 +206,6 @@ input::placeholder {
 }
 
 [data-content]:hover::after {
-  opacity: 1;
   display: inline-flex;
   transition: all .5s linear;
 }
@@ -229,11 +227,6 @@ input::placeholder {
   width: 500px;
   max-width: none;
   right: 210px;
-}
-
-[data-content]:hover:after {
-  opacity: 1;
-  transition: opacity .5s linear;
 }
 
 .ranking-tooltip:hover [data-content]:after{
