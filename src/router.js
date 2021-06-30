@@ -5,7 +5,7 @@ import * as pages from './views/index'
 Vue.use(Router)
 
 export default new Router({
-  mode: 'hash',
+  mode: 'history',
   base: '/',
   routes: [
     {
