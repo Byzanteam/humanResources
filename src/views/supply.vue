@@ -16,10 +16,6 @@
     </div>
     <data-loader ref="job_select" v-slot="{ results: results }" :url="`/v1/components/01b74ddd-39de-493f-84ab-9d87fcf23fee/data?job=${craneStates.inputQuery}`" method="get" :data="[['']]" :style="{position: 'absolute', top: '48px', left: '40px'}">
       <Select class="departments-select" placeholder="全部" :clearable="true" :filterable="true" :style="{width: '380px'}" v-model="craneStates.currentJob">
-<!--        <template v-slot:input class="ivu-select-selection">-->
-<!--          <input v-model="craneStates.inputQuery" type="text" placeholder="全部" class="ivu-select-input" />-->
-<!--          <i class="ivu-icon ivu-icon-ios-arrow-down ivu-select-arrow" />-->
-<!--        </template>-->
         <Option v-for="(item, key) in results.map((item, index) => ({index: item[0], name: item[0]}))" :key="key" :value="item.index" :label="item.name">
           {{item.name}}
         </Option>
