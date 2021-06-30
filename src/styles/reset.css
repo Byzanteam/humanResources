@@ -188,11 +188,12 @@ input::placeholder {
 
 [data-content]:after {
   width: auto;
-  max-width: 192px;
-  position: absolute;
+  max-width: 250px;
+  min-width: 192px;
+  position: relative;
   display: none;
   top: 30px;
-  right: -40%;
+  right: 10px;
   transition: all .25s linear;
   border-radius: 4px;
   padding: 6px;
