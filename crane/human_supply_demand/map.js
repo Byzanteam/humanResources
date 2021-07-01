@@ -25,14 +25,6 @@ module.exports = [
     },
     children: [
       {
-        component: '@byzanteam/vis-components/brick-radio-button-select',
-        props: {
-          $options: "provinceOptions",
-          'v-model': 'craneStates.province',
-          placeholder: '全省',
-        }
-      },
-      {
         id: 'departments-select',
         component: '@byzanteam/vis-components/brick-radio-button-select',
         props: {

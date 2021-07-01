@@ -129,7 +129,7 @@
       >>
     </div>
     <div :style="{color: '#fff', fontSize: '20px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', cursor: 'pointer', position: 'absolute', top: '806px', left: '74px'}">
-      <div data-content="统计人才库中职称类型分布情况" :style="{position: 'relative'}">
+      <div data-content="统计人才库中高层次人才类型分布情况" :style="{position: 'relative'}">
         高层次人才类型分布
       </div>
     </div>
@@ -266,8 +266,8 @@ export const key_talents = {
         geo: {
           map: this.craneStates.department ? this.craneStates.department.uuid : 'fujian',
           label: {
-            normal: {show: false},
-            emphasis: {show: false}
+            normal: {show: true, color:'#fff'},
+            emphasis: {show: false, color:'#fff'}
           },
           itemStyle: {
             normal: {
@@ -294,7 +294,7 @@ export const key_talents = {
         visualMap: {
           type: 'piecewise',
           inverse: true,
-          pieces: [{gt: 1500, label: '1500人及以上'}, {gt: 1000, lte: 1500, label: '1000-1500人'}, {gt: 100, lte: 999, label: '100-999人'}, {gt: 10, lte: 99, label: '10-99人'}, {gt: 1, lt: 9, label: '1-9人'}],
+          pieces: [{gt: 1500, label: '1500人及以上'}, {gte: 1000, lte: 1500, label: '1000-1500人'}, {gte: 100, lte: 999, label: '100-999人'}, {gte: 10, lte: 99, label: '10-99人'}, {gte: 1, lte: 9, label: '1-9人'}],
           orient: 'horizontal',
           bottom: '6%',
           left: '26%',

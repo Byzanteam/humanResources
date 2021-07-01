@@ -39,14 +39,14 @@ class Scroll {
     const clientHeight = this.el.parentNode.clientHeight,
           scrollHeight = this.el.parentNode.scrollHeight
     if (scrollHeight <= clientHeight) return
-    this.limit = scrollHeight * this.elScale
+    this.limit = scrollHeight
     this.setTimr()
   }
 
   setTimr () {
     clearInterval(this.timr)
     this.timr = setInterval(() => {
-      if(this.distance >= this.limit/this.elScale) {
+      if(this.distance >= this.limit) {
         this.scrollTop(this.el)
       } else {
         if(this.duration === '0s') {
