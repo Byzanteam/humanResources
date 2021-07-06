@@ -76,7 +76,10 @@ class scrollUpdate {
     this.timr = setInterval(() => {
       // 偏移距离大于内容尺寸，归0
       if(this.distance >= this.limit) {
-        this.scrollTopDir(this.el)
+        this.distance = 0
+        this.duration = '0s'
+        window.sessionStorage.setItem('distance', '0')
+        this.setStyle()
       } else {
         // 时间归0后，重置duration
         if(this.duration === '0s') {
