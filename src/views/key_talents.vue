@@ -245,7 +245,7 @@ export const key_talents = {
       return `http://vis.cdyoue.com:35006/v1/components/26b74ddd-39de-493f-84ab-9d87fcf23fee/data?job=${this.craneStates.demandInputWord}&area=${this.craneStates.department ? this.craneStates.department.label : ''}`
     },
     shortageUrl() {
-      return `http://vis.cdyoue.com:35006/v1/components/31b74ddd-39de-493f-84ab-9d87fcf23fee/data?industry=${this.craneStates.currentShortageType}&area=${this.craneStates.department ? this.craneStates.department.label : ''}&year=${this.craneStates.year ? this.craneStates.year.getFullYear() : new Date(Date.now()).getFullYear()}`
+      return `http://vis.cdyoue.com:35006/v1/components/31b74ddd-39de-493f-84ab-9d87fcf23fee/data?industry=${this.craneStates.currentShortageType?this.craneStates.currentShortageType: ''}&area=${this.craneStates.department ? this.craneStates.department.label : ''}&year=${this.craneStates.year ? this.craneStates.year.getFullYear() : new Date(Date.now()).getFullYear()}`
     },
     digitalKeyword() {
       switch (this.craneStates.mapType) {
