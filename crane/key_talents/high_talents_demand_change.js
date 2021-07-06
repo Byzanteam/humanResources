@@ -6,7 +6,7 @@ module.exports = [
       results: 'supplyResults',
     },
     props: {
-      $url: "`/v1/components/5ab74ddd-39de-493f-84ab-9d87fcf23fee/data?area=${currentArea}&type=${digitalKeyword || ''}&job=${craneStates.supplyInputWord}`",
+      $url: "`/v1/components/5ab74ddd-39de-493f-84ab-9d87fcf23fee/data?area=${currentArea ? currentArea : ''}&type=${digitalKeyword || ''}&job=${craneStates.supplyInputWord}`",
       method: 'get',
       $data: "[[0, '暂无数据']]",
     },
@@ -19,7 +19,7 @@ module.exports = [
           results: 'demandResults',
         },
         props: {
-          $url: "`/v1/components/5bb74ddd-39de-493f-84ab-9d87fcf23fee/data?area=${currentArea}&type=${digitalKeyword || ''}&job=${craneStates.supplyInputWord}`",
+          $url: "`/v1/components/5bb74ddd-39de-493f-84ab-9d87fcf23fee/data?area=${currentArea ? currentArea : ''}&type=${digitalKeyword || ''}&job=${craneStates.supplyInputWord}`",
           method: 'get',
           $data: "[[0, '暂无数据']]",
           $style: {
