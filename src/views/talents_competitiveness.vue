@@ -226,7 +226,7 @@ export const talents_competitiveness = {
       return `/custom/daas/api/9f5c2cc6-f4cc-4757-8a01-7d79cbb06125?tableName=${this.dataTableName}&filter=index_2=${ this.craneStates.indicator || ''}&fields=&orderBy=&pageSize=100&pageNumber=1&apiID=9a7c1d5e-2380-49ab-940b-56b70fc69b3e&apiKey=54fc233d9f2b4aa3a7f7b3bf04f4d158`
     },
     radarRequestUrl () {
-      return `/custom/daas/api/9f5c2cc6-f4cc-4757-8a01-7d79cbb06125?tableName=${this.dataTableName}&filter=&fields=&orderBy=&pageSize=100&pageNumber=1&apiID=9a7c1d5e-2380-49ab-940b-56b70fc69b3e&apiKey=54fc233d9f2b4aa3a7f7b3bf04f4d158`
+      return `/custom/daas/api/9f5c2cc6-f4cc-4757-8a01-7d79cbb06125?tableName=${this.dataTableName}&filter=index_2=${ this.craneStates.indicator || ''}&fields=&orderBy=&pageSize=100&pageNumber=1&apiID=9a7c1d5e-2380-49ab-940b-56b70fc69b3e&apiKey=54fc233d9f2b4aa3a7f7b3bf04f4d158`
     },
     areaSelectRequestUrl () {
       // 请求市区列表
@@ -270,7 +270,7 @@ export const talents_competitiveness = {
       chart.on('dblclick', (params) => {
         const { name } = params
         const area = _.find(this.craneStates.selectOptions, (option) => (option.label === name))
-        this.craneStates.department = area ? area : this.craneStates.department
+        this.craneStates.city = area ? area : this.craneStates.city
       })
     },
     generateRadarData () {
