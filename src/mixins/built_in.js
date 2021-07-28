@@ -133,8 +133,6 @@ export default {
         let isShowNumber = sessionStorage.getItem('isShow') ? Number(sessionStorage.getItem('isShow')) : 1
         this.isShow = isShowNumber === 0;
       }
-      this.accessToken = token
-      this.accountId = id
       this.axios.defaults.headers ['accessToken'] = token
       // this.axios.defaults.headers ['accessToken'] = '1f11ea14e5ae4552b7ea4a9aff22af73000000'
       this.axios.defaults.headers ['accountId'] = id
