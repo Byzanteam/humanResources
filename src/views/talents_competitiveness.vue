@@ -1,5 +1,5 @@
 <template>
-  <div class="talents_competitiveness">
+  <div class="talents_competitiveness" v-if="isShow">
     <navigator ref="navigator"/>
     <img ref="title-bg" :style="{width: '701px', height: '123px', position: 'absolute', top: '0px', left: '607px'}" src="../../public/hxrc/images/Title-Bg.png" />
     <div @click="()=>[openNavigator()]" :style="{cursor: 'pointer', width: '460px', color: '#fff', fontSize: '42px', fontWeight: 600, textAlign: 'center', lineHeight: 1, position: 'absolute', top: '36px', left: '730px'}">
@@ -67,7 +67,7 @@
     <img ref="box-bg" :style="{width: '440px', height: '1059px', position: 'absolute', top: '10px', left: '10px'}" src="../../public/hxrc/images/Box-Bg.png" />
     <img ref="right-box-bg" :style="{width: '440px', height: '1059px', position: 'absolute', top: '10px', left: '1471px'}" src="../../public/hxrc/images/Box-Bg.png" />
     <div ref="force-digital-bg" :style="{width: '380px', height: '50px', backgroundColor: 'rgba(13, 45, 120, .45)', borderRadius: '5px', position: 'absolute', top: '60px', left: '1500px'}" />
-    <data-loader @requestDone="(param)=>[setState('indicators', param.results.map(item => ({name: item.index_2})))]" :url="`/custom/daas/api/9f5c2cc6-f4cc-4757-8a01-7d79cbb06125?tableName=${dataTableName}&filter=city=${ craneStates.city && craneStates.city.label || '福州市'}&fields=index_2&orderBy=&pageSize=100&pageNumber=1&apiID=9a7c1d5e-2380-49ab-940b-56b70fc69b3e&apiKey=54fc233d9f2b4aa3a7f7b3bf04f4d158`" method="get" :data="[]">
+    <data-loader @requestDone="(param)=>[setState('indicators', param.results.map(item => ({name: item.index_2})))]" :url="RadioRequestUrl" method="get" :data="[]">
       <RadioGroup v-model="craneStates.indicator" type="button" :style="{width: '388px', height: '184px', position: 'absolute', top: '92px', left: '37px'}">
         <Radio v-for="(item, key) in craneStates.indicators" v-if="item.name !== '综合指标'" :key="key" :label="item.name" />
       </RadioGroup>
@@ -116,7 +116,7 @@
         </template>
       </vis-table>
     </data-loader>
-    <data-loader ref="force-value" v-slot="{ results: results }" :url="`/custom/daas/api/9f5c2cc6-f4cc-4757-8a01-7d79cbb06125?tableName=${dataTableName}&filter=city=${ craneStates.city && craneStates.city.label || '福州市'}&fields=value&orderBy=&pageSize=100&pageNumber=1&apiID=9a7c1d5e-2380-49ab-940b-56b70fc69b3e&apiKey=54fc233d9f2b4aa3a7f7b3bf04f4d158`" method="get" :data="[[0]]" :style="{position: 'absolute', top: '66px', left: '1614px'}">
+    <data-loader ref="force-value" v-slot="{ results: results }" :url="digitalRequestUrl" method="get" :data="[[0]]" :style="{position: 'absolute', top: '66px', left: '1614px'}">
       <digital-roll ref="force-value-content" v-if="results" data-content="根据选择的对应十大指标体系结合「区域」统计分析该区域的综合竞争力指数" titlePosition="left" :content="{title: '竞争力指数', digital: digitalData}" :options="{separator: ',', decimalPlaces: 1}" :titleStyle="{color: '#ffffff', fontSize: '16px', fontWeight: '400'}" :prefixStyle="{color: '#00fff2', fontSize: '16px', fontWeight: '400'}" :suffixStyle="{color: '#00fff2', fontSize: '16px', fontWeight: '400'}" :digitalStyle="{fontSize: '32px', color: '#00fff2', fontWeight: '400', fontFamily: 'Oswald-Regular', format: '11', lineHeight: '38px', letterSpacing: '2.4px'}" />
     </data-loader>
   </div>
@@ -222,15 +222,21 @@ export const talents_competitiveness = {
   },
 
   computed: {
+    digitalRequestUrl() {
+      return `/custom/daas/api/${window.appRequestId}?tableName=${this.dataTableName}&filter=city=${ this.craneStates.city && this.craneStates.city.label || '福州市'}&fields=value&orderBy=&pageSize=100&pageNumber=1&apiID=${window.appId}&apiKey=${window.appKey}`
+    },
+    RadioRequestUrl() {
+      return `/custom/daas/api/${window.appRequestId}?tableName=${this.dataTableName}&filter=city=${ this.craneStates.city && this.craneStates.city.label || '福州市'}&fields=index_2&orderBy=&pageSize=100&pageNumber=1&apiID=${window.appId}&apiKey=${window.appKey}`
+    },
     tableRequestUrl () {
-      return `/custom/daas/api/9f5c2cc6-f4cc-4757-8a01-7d79cbb06125?tableName=${this.dataTableName}&filter=index_2=${ this.craneStates.indicator || ''}&fields=&orderBy=&pageSize=100&pageNumber=1&apiID=9a7c1d5e-2380-49ab-940b-56b70fc69b3e&apiKey=54fc233d9f2b4aa3a7f7b3bf04f4d158`
+      return `/custom/daas/api/${window.appRequestId}?tableName=${this.dataTableName}&filter=index_2=${ this.craneStates.indicator || ''}&fields=&orderBy=&pageSize=100&pageNumber=1&apiID=${window.appId}&apiKey=${window.appKey}`
     },
     radarRequestUrl () {
-      return `/custom/daas/api/9f5c2cc6-f4cc-4757-8a01-7d79cbb06125?tableName=${this.dataTableName}&filter=index_2=${ this.craneStates.indicator || ''}&fields=&orderBy=&pageSize=100&pageNumber=1&apiID=9a7c1d5e-2380-49ab-940b-56b70fc69b3e&apiKey=54fc233d9f2b4aa3a7f7b3bf04f4d158`
+      return `/custom/daas/api/${window.appRequestId}?tableName=${this.dataTableName}&filter=index_2=${ this.craneStates.indicator || ''}&fields=&orderBy=&pageSize=100&pageNumber=1&apiID=${window.appId}&apiKey=${window.appKey}`
     },
     areaSelectRequestUrl () {
       // 请求市区列表
-      return `/custom/daas/api/9f5c2cc6-f4cc-4757-8a01-7d79cbb06125?tableName=${this.dataTableName}&filter=&fields=city&orderBy=&pageSize=100&pageNumber=1&apiID=9a7c1d5e-2380-49ab-940b-56b70fc69b3e&apiKey=54fc233d9f2b4aa3a7f7b3bf04f4d158`
+      return `/custom/daas/api/${window.appRequestId}?tableName=${this.dataTableName}&filter=&fields=city&orderBy=&pageSize=100&pageNumber=1&apiID=${window.appId}&apiKey=${window.appKey}`
     },
     sortTableData () {
       const sorted_data = this.craneStates.tableData.sort(this.compare())
