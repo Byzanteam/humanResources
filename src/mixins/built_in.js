@@ -130,8 +130,8 @@ export default {
       if(!accessToken) {
         token = sessionStorage.getItem('token')
         id = sessionStorage.getItem('id')
-        let isShowNumber = Number(sessionStorage.getItem('isShow'))
-        this.isShow = isShowNumber === 1;
+        let isShowNumber = sessionStorage.getItem('isShow') ? Number(sessionStorage.getItem('isShow')) : 1
+        this.isShow = isShowNumber === 0;
       }
       this.accessToken = token
       this.accountId = id
