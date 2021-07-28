@@ -124,7 +124,6 @@ export default {
       // 获取前半段
       const host = window.location.host;
       const protocol = window.location.protocol;
-      console.log(host, protocol);
       const {query: {accountToken: accessToken, accountId}} = this.$route
       let token = accessToken,
         id = accountId
@@ -136,10 +135,10 @@ export default {
       }
       this.accessToken = token
       this.accountId = id
-      // this.axios.defaults.headers ['accessToken'] = token
-      this.axios.defaults.headers ['accessToken'] = '1f11ea14e5ae4552b7ea4a9aff22af73000000'
+      this.axios.defaults.headers ['accessToken'] = token
+      // this.axios.defaults.headers ['accessToken'] = '1f11ea14e5ae4552b7ea4a9aff22af73000000'
       this.axios.defaults.headers ['accountId'] = id
-      sessionStorage.setItem('token', '1f11ea14e5ae4552b7ea4a9aff22af73000000')
+      // sessionStorage.setItem('token', '1f11ea14e5ae4552b7ea4a9aff22af73000000')
       sessionStorage.setItem('token',token)
       sessionStorage.setItem('id', id)
       this.axios.get(`${protocol}//${host}/auth-userapi/yyzhzx/api/v1/session`).then((data) => {
