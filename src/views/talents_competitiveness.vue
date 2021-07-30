@@ -232,7 +232,7 @@ export const talents_competitiveness = {
       return `/custom/daas/api/${window.appRequestId}?tableName=${this.dataTableName}&filter=index_2=${ this.craneStates.indicator || ''}&fields=&orderBy=&pageSize=100&pageNumber=1&apiID=${window.apiID}&apiKey=${window.apiKey}`
     },
     radarRequestUrl () {
-      return `/custom/daas/api/${window.appRequestId}?tableName=${this.dataTableName}&filter=index_1=${ this.craneStates.indicator || ''}&fields=&orderBy=&pageSize=200&pageNumber=1&apiID=${window.apiID}&apiKey=${window.apiKey}`
+      return `/custom/daas/api/${window.appRequestId}?tableName=${this.dataTableName}&fields=&orderBy=&pageSize=200&pageNumber=1&apiID=${window.apiID}&apiKey=${window.apiKey}`
     },
     areaSelectRequestUrl () {
       // 请求市区列表
