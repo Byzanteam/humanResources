@@ -16,33 +16,46 @@ module.exports = {
   },
   children: [
     {
-      component: '@byzanteam/vis-components/vis-table',
+      component: 'div',
       props: {
-        'v-scroll': "{itemHeight: 40}",
-        $withHeader: false,
-        theme: 'dark',
-        stripe: '',
-        $headers: "[{width: 80, key: 'index'}, {width: 200, key: 'name'}, {width: 100, key: 'count'}]",
-        $data: "results ? results.map((item, index) => ({index: index + 1, name: item[0], count: item[1] || 0})) : [{index: 0, name: '暂无数据', count: 0}]"
+        $style: {
+          overflow: 'scroll',
+          height: '100%',
+        }
       },
       children: [
         {
-          component: 'template',
-          exports: {
-            cell: 'cell',
-            columnKey: 'columnKey',
+          component: '@byzanteam/vis-components/vis-table',
+          props: {
+            'v-scrollUpdate': "{itemHeight: 40, scrollRadio: scrollRadio}",
+            '@mouseover.native': 'closeScrollRadio',
+            '@mouseleave.native': 'openScrollRadio',
+            $withHeader: false,
+            theme: 'dark',
+            stripe: '',
+            $headers: "[{width: 80, key: 'index'}, {width: 200, key: 'name'}, {width: 100, key: 'count'}]",
+            $data: "results ? results.map((item, index) => ({index: index + 1, name: item[0], count: item[1] || 0})) : [{index: 0, name: '暂无数据', count: 0}]"
           },
           children: [
             {
-              component: 'span',
-              content: '{{cell}}',
-              props: {
-                $class: "columnKey === 'index' ? 'row-index-cell' : ''",
+              component: 'template',
+              exports: {
+                cell: 'cell',
+                columnKey: 'columnKey',
               },
+              children: [
+                {
+                  component: 'span',
+                  content: '{{cell}}',
+                  props: {
+                    $class: "columnKey === 'index' ? 'row-index-cell' : ''",
+                  },
+                },
+              ],
             },
-          ],
-        },
+          ]
+        }
       ]
-    }
+    },
   ]
 }

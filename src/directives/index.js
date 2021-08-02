@@ -1,7 +1,9 @@
 import scroll from './scroll'
+import scrollUpdate from './scroll_update'
 
 const directives = {
   scroll,
+  scrollUpdate
 }
 
 const install = Vue => {

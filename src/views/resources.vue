@@ -1,5 +1,5 @@
 <template>
-  <div class="resources">
+  <div class="resources" v-if="isShow">
     <navigator ref="navigator"/>
     <img ref="box-bg" :style="{width: '440px', height: '1059px', position: 'absolute', top: '10px', left: '10px'}" src="../../public/hxrc/images/Box-Bg.png" />
     <img ref="right-box-bg" :style="{width: '440px', height: '1059px', position: 'absolute', top: '10px', left: '1471px'}" src="../../public/hxrc/images/Box-Bg.png" />
@@ -8,13 +8,15 @@
       <v-chart ref="map" v-if="results" class="map-chart" :options="mapOptions" />
     </data-loader>
     <data-loader v-slot="{ results: results }" :url="`/v1/components/21b74ddd-39de-493f-84ab-9d87fcf23fee/data?area=${currentArea ? currentArea : ''}&year=${craneStates.year ? craneStates.year.getFullYear() : new Date().getFullYear()}`" method="get" :data="[['暂无数据']]" :style="{width: '380px', height: '280px', overflow: 'scroll', position: 'absolute', top: '400px', left: '1500px'}">
-      <vis-table v-scroll="{itemHeight: 40}" :withHeader="false" theme="dark" stripe="" :headers="[{width: 80, key: 'index'}, {width: 200, key: 'name'}, {width: 100, key: 'count'}]" :data="results ? results.map((item, index) => ({index: index + 1, name: item[0], count: item[1] || 0})) : [{index: 0, name: '暂无数据', count: 0}]">
-        <template v-slot="{ cell: cell, columnKey: columnKey }">
+      <div :style="{overflow: 'scroll', height: '100%'}">
+        <vis-table v-scrollUpdate="{itemHeight: 40, scrollRadio: scrollRadio}" @mouseover.native="closeScrollRadio" @mouseleave.native="openScrollRadio" :withHeader="false" theme="dark" stripe="" :headers="[{width: 80, key: 'index'}, {width: 200, key: 'name'}, {width: 100, key: 'count'}]" :data="results ? results.map((item, index) => ({index: index + 1, name: item[0], count: item[1] || 0})) : [{index: 0, name: '暂无数据', count: 0}]">
+          <template v-slot="{ cell: cell, columnKey: columnKey }">
           <span :class="columnKey === 'index' ? 'row-index-cell' : ''">
             {{cell}}
           </span>
-        </template>
-      </vis-table>
+          </template>
+        </vis-table>
+      </div>
     </data-loader>
     <img ref="title-bg" :style="{width: '700px', height: '124px', position: 'absolute', top: '0px', left: '610px'}" src="../../public/hxrc/images/Title-Bg.png" />
     <div @click="()=>[openNavigator()]" :style="{cursor: 'pointer', width: '460px', color: '#fff', fontSize: '42px', fontWeight: 600, textAlign: 'center', lineHeight: 1, position: 'absolute', top: '36px', left: '730px'}">
@@ -186,6 +188,7 @@ export const resources = {
     return {
       Echarts: Echarts,
       currentArea: '',
+      scrollRadio: true,
       craneStates: {
         department: null,
         mapData: [],
@@ -203,6 +206,7 @@ export const resources = {
 
   created() {
     document.title = '人才资源综合驾驶舱'
+    window.sessionStorage.setItem('distance', '0')
   },
 
   computed: {
@@ -280,6 +284,12 @@ export const resources = {
   },
 
   methods: {
+    closeScrollRadio() {
+      this.scrollRadio = false
+    },
+    openScrollRadio() {
+      this.scrollRadio = true
+    },
     bindMapEvents() {
       const { chart } = this.$refs.map
       this.mapClickedFunc(chart)
@@ -359,7 +369,7 @@ export const resources = {
         i -= 1
       }
       return range
-    }
+    },
   }
 }
 export default resources

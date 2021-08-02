@@ -129,8 +129,8 @@ module.exports = [
           $withHeader: false,
           theme: 'dark',
           stripe: '',
-          $headers: "[{width: 80, key: 'index'}, {width: 200, key: 'name'}, {width: 100, key: 'salary'}]",
-          $data: "results ? results.map((item, index) => ({index: index + 1, salary: item[0], name: item[1]})) : [{index: 0, name: '暂无数据', salary: 0}]"
+          $headers: "[{width: 80, key: 'index'}, {width: 200, key: 'name'}, {width: 100, key: 'count'}]",
+          $data: "results ? results.map((item, index) => ({index: index + 1, count: item[0], name: item[1]})) : [{index: 0, name: '暂无数据', count: 0}]"
         },
         children: [
           {

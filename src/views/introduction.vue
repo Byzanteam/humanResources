@@ -1,5 +1,5 @@
 <template>
-  <div class="introduction">
+  <div class="introduction" v-if="isShow">
     <navigator ref="navigator"/>
     <data-loader :style="{width: '960px', height: '884px', position: 'absolute', top: '176px', left: '480px'}">
       <v-chart ref="map" :options="mapOptions" />
