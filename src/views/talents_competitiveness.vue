@@ -223,20 +223,20 @@ export const talents_competitiveness = {
 
   computed: {
     digitalRequestUrl() {
-      return `/custom/daas/api/${window.appRequestId}?tableName=${this.dataTableName}&filter=city=${ this.craneStates.city && this.craneStates.city.label || '福州市'}&fields=value&orderBy=&pageSize=100&pageNumber=1&apiID=${window.apiID}&apiKey=${window.apiKey}`
+      return `/custom/daas/api/${window.appRequestId}?tableName=${this.dataTableName}&filter=city=${ this.craneStates.city && this.craneStates.city.label || '福州市'}&fields=value&orderBy=&pageSize=200&pageNumber=1&apiID=${window.apiID}&apiKey=${window.apiKey}`
     },
     RadioRequestUrl() {
-      return `/custom/daas/api/${window.appRequestId}?tableName=${this.dataTableName}&filter=city=${ this.craneStates.city && this.craneStates.city.label || '福州市'}&fields=index_2&orderBy=&pageSize=100&pageNumber=1&apiID=${window.apiID}&apiKey=${window.apiKey}`
+      return `/custom/daas/api/${window.appRequestId}?tableName=${this.dataTableName}&filter=city=${ this.craneStates.city && this.craneStates.city.label || '福州市'}&fields=index_2&orderBy=&pageSize=200&pageNumber=1&apiID=${window.apiID}&apiKey=${window.apiKey}`
     },
     tableRequestUrl () {
-      return `/custom/daas/api/${window.appRequestId}?tableName=${this.dataTableName}&filter=index_2=${ this.craneStates.indicator || ''}&fields=&orderBy=&pageSize=100&pageNumber=1&apiID=${window.apiID}&apiKey=${window.apiKey}`
+      return `/custom/daas/api/${window.appRequestId}?tableName=${this.dataTableName}&filter=index_2=${ this.craneStates.indicator || ''}&fields=&orderBy=&pageSize=200&pageNumber=1&apiID=${window.apiID}&apiKey=${window.apiKey}`
     },
     radarRequestUrl () {
       return `/custom/daas/api/${window.appRequestId}?tableName=${this.dataTableName}&fields=&orderBy=&pageSize=200&pageNumber=1&apiID=${window.apiID}&apiKey=${window.apiKey}`
     },
     areaSelectRequestUrl () {
       // 请求市区列表
-      return `/custom/daas/api/${window.appRequestId}?tableName=${this.dataTableName}&filter=&fields=city&orderBy=&pageSize=100&pageNumber=1&apiID=${window.apiID}&apiKey=${window.apiKey}`
+      return `/custom/daas/api/${window.appRequestId}?tableName=${this.dataTableName}&filter=&fields=city&orderBy=&pageSize=200&pageNumber=1&apiID=${window.apiID}&apiKey=${window.apiKey}`
     },
     sortTableData () {
       const sorted_data = this.craneStates.tableData.sort(this.compare())
