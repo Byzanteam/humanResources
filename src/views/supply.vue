@@ -274,20 +274,20 @@ export const supply = {
   mounted() {
     const { chart } = this.$refs.map
     this.mapClickedFunc(chart)
-    this.mapDbclickedFunc(chart)
+    // this.mapDbclickedFunc(chart)
   },
 
   methods: {
     salaryTooltipFormatterFunc(params) {
       return `${params[0].name}<br/><span style="display:inline-block;margin-right:5px;border-radius:10px;width:10px;height:10px;background-color: #6ad6ff;"></span>${params[0].seriesName}：${params[0].data}元`
     },
-    mapDbclickedFunc(chart) {
-      chart.on('dblclick', (params) => {
-        const { name } = params
-        const area = _.find(this.craneStates.selectOptions, (option) => (option.label === name))
-        this.craneStates.department = area ? area : this.craneStates.department
-      })
-    },
+    // mapDbclickedFunc(chart) {
+    //   chart.on('dblclick', (params) => {
+    //     const { name } = params
+    //     const area = _.find(this.craneStates.selectOptions, (option) => (option.label === name))
+    //     this.craneStates.department = area ? area : this.craneStates.department
+    //   })
+    // },
     mapClickedFunc(chart) {
       chart.on('click', (params) => {
         chart.dispatchAction({
@@ -305,9 +305,10 @@ export const supply = {
         } else {
           this.craneStates.selectedArea = params
         }
-        const { name } = params
-        const area = _.find(this.craneStates.selectOptions, (option) => (option.label === name))
-        this.craneStates.department = area ? area : this.craneStates.department
+        // 判断这段代码是否会导致出错
+        // const { name } = params
+        // const area = _.find(this.craneStates.selectOptions, (option) => (option.label === name))
+        // this.craneStates.department = area ? area : this.craneStates.department
       })
     },
     demandTooltipFormatterFunc(params) {
