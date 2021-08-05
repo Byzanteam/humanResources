@@ -5,7 +5,7 @@
     <img ref="right-box-bg" :style="{width: '440px', height: '1059px', position: 'absolute', top: '10px', left: '1471px'}" src="../../public/hxrc/images/Box-Bg.png" />
     <date-picker format="yyyy年" v-model="craneStates.year" :style="{width: '380px', height: '50px', position: 'absolute', top: '48px', left: '40px'}" :options="{disabledDate: (time) => {return !generateDateRange().includes(time.getFullYear())}}" type="year" class="supply-datepicker" placeholder="选择时间" />
     <data-loader v-slot="{ results: results }" @requestDone="(param)=>[setState('mapData', param.results.map((item) => ({name: item[1], value: item[0]})))]" :url="`/v1/components/20b74ddd-39de-493f-84ab-9d87fcf23fee/data?area=${craneStates.department ? craneStates.department.label : ''}&year=${craneStates.year ? craneStates.year.getFullYear() : new Date().getFullYear()}`" method="get" :data="[[0, '暂无数据']]" :style="{width: '1100px', height: '900px', position: 'absolute', top: '176px', left: '480px', zIndex:-1}">
-      <v-chart ref="map" v-if="results" class="map-chart" :options="mapOptions" />
+      <v-chart ref="map" @finished="bindMapEvents" v-if="results" class="map-chart" :options="mapOptions" />
     </data-loader>
     <data-loader v-slot="{ results: results }" :url="`/v1/components/21b74ddd-39de-493f-84ab-9d87fcf23fee/data?area=${currentArea ? currentArea : ''}&year=${craneStates.year ? craneStates.year.getFullYear() : new Date().getFullYear()}`" method="get" :data="[['暂无数据']]" :style="{width: '380px', height: '280px', overflow: 'scroll', position: 'absolute', top: '400px', left: '1500px'}">
       <div :style="{overflow: 'scroll', height: '100%'}">
@@ -201,7 +201,7 @@ export const resources = {
 
   mounted() {
     this.requestMapGeojson(Echarts)
-    this.bindMapEvents()
+    // this.bindMapEvents()
   },
 
   created() {
