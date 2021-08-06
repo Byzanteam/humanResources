@@ -271,14 +271,15 @@ export const talents_competitiveness = {
   },
 
   methods: {
-    mapDbclickedFunc () {
-      const {chart} = this.$refs.map
-      chart.on('dblclick', (params) => {
-        const { name } = params
-        const area = _.find(this.craneStates.selectOptions, (option) => (option.label === name))
-        this.craneStates.city = area ? area : this.craneStates.city
-      })
-    },
+    // 取消双击地图下钻
+    // mapDbclickedFunc () {
+    //   const {chart} = this.$refs.map
+    //   chart.on('dblclick', (params) => {
+    //     const { name } = params
+    //     const area = _.find(this.craneStates.selectOptions, (option) => (option.label === name))
+    //     this.craneStates.city = area ? area : this.craneStates.city
+    //   })
+    // },
     generateRadarData () {
       const { currentProvince } = this.craneStates
       const areas = currentProvince.reduce((acc, item, index) => {
