@@ -77,7 +77,7 @@
       >>
     </div>
     <div ref="talent-demand" :style="{color: '#fff', fontSize: '18px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', cursor: 'pointer', position: 'absolute', top: '48px', left: '1533px'}">
-      <div data-content="根据「区域」「时间」进行筛选统计企业需求量显示 Top10 排名，以企业所属行业类型进行统计排名" :style="{position: 'relative'}">
+      <div :style="{position: 'relative'}">
         6大重点行业的人才需求排名
       </div>
     </div>
