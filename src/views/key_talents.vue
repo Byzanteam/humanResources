@@ -51,7 +51,7 @@
     <brick-tabs :tabNavs="craneStates.mapTabNavs" :activeTab="craneStates.mapTabCurrent" :style="{position: 'absolute', top: '325px', left: '126px'}" v-model="craneStates.mapTabCurrent" />
     <div v-if="craneStates.mapTabCurrent === craneStates.mapTabNavs[0]">
       <Select :clearable="true" placeholder="全部类型" class="map-select" :style="{width: '180px', position: 'absolute', top: '391px', left: '43px'}" v-model="craneStates.currentTalentType">
-        <Option v-for="(item, key) in craneStates.types" :key="key" :value="item.index" :label="item.name">
+        <Option v-for="(item, key) in craneStates.types" :key="key" :value="item.name" :label="item.name">
           {{item.name}}
         </Option>
       </Select>
@@ -62,7 +62,7 @@
     </div>
     <div v-if="craneStates.mapTabCurrent === craneStates.mapTabNavs[1]">
       <Select :clearable="true" placeholder="全部类型" class="map-select" :style="{width: '180px', position: 'absolute', top: '391px', left: '43px'}" v-model="craneStates.currentDemandType">
-        <Option v-for="(item, key) in craneStates.types" :key="key" :value="item.index" :label="item.name">
+        <Option v-for="(item, key) in craneStates.types" :key="key" :value="item.name" :label="item.name">
           {{item.name}}
         </Option>
       </Select>
@@ -248,11 +248,11 @@ export const key_talents = {
       return `/v1/components/31b74ddd-39de-493f-84ab-9d87fcf23fee/data?industry=${this.craneStates.currentShortageType?this.craneStates.currentShortageType: ''}&area=${this.craneStates.department ? this.craneStates.department.label : ''}&year=${this.craneStates.year ? this.craneStates.year.getFullYear() : new Date(Date.now()).getFullYear()}`
     },
     digitalKeyword() {
-      switch (this.craneStates.mapType) {
-        case "supply":
-          return this.craneStates.supplyInputWord;
-        case "demand":
-          return  this.craneStates.demandInputWord;
+      switch (this.craneStates.mapTabCurrent.uuid) {
+        case 1:
+          return this.craneStates.currentTalentType;
+        case 2:
+          return  this.craneStates.currentDemandType;
       }
     },
     mapOptions() {
