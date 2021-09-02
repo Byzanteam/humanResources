@@ -116,6 +116,10 @@
 }
 
 .ivu-select-dropdown .ivu-select-dropdown-list .ivu-select-item {
+  max-width: 378px;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
   color: #ffffff;
   font-size: 14px !important;
   line-height: 40px;
