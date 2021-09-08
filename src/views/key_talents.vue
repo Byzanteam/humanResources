@@ -101,7 +101,24 @@
     <data-loader ref="high-talents-demand-change-line-chart" v-slot="{ results: results }" :url="`/v1/components/32b74ddd-39de-493f-84ab-9d87fcf23fee/data?industry=${craneStates.currentShortageType|| ''}&area=${currentArea ? currentArea : ''}`" method="get" :data="[['暂无数据', 0]]" :style="{width: '380px', height: '214px', position: 'absolute', top: '518px', left: '1500px'}">
       <v-chart :options="{grid: {top: '24%', left: 0, bottom: '10%', containLabel: true}, backgroundColor: 'transparent', color: ['#00fff2', '#7b43ff'], tooltip: {trigger: 'axis', formatter: shortageTooltipFormatterFunc, backgroundColor: '#566374f0', axisPointer: {lineStyle: {color: '#ffffff', type: 'dotted'}}}, xAxis: {type: 'category', data: results ? results.map(item => (item[0])) : ['暂无数据'], axisLine: {show: false}, axisTick: {show: false}, axisLabel: {color: '#ffffff', fontSize: 12, fontWeight: 400}, splitLine: {show: false}}, yAxis: {type: 'value', name: '人', axisLine: {show: false}, axisTick: {show: false}, nameTextStyle: {color: '#ffffff', fontSize: 12, fontWeight: 400, align: 'right', padding: [0, 5, 0, 0]}, axisLabel: {color: '#ffffff', fontSize: 12, fontWeight: 400, align: 'right'}, splitLine: {show: false}, splitNumber: 4}, series: [{type: 'line', name: '紧缺人才', data: results ? results.map(item => (item[1])) : [0], showSymbol: false, lineStyle: {width: 4}}]}" />
     </data-loader>
-    <brick-radio-button-select :options="craneStates.selectOptions" v-model="craneStates.department" placeholder="全省" :style="{position: 'absolute', top: '125px', left: '929px'}" />
+    <!--    省市选择-->
+    <brick-radio-button-select :options="craneStates.selectOptions" v-model="craneStates.department" placeholder="全省" :style="{position: 'absolute', top: '125px', left: '652px'}" />
+    <!--    企业性质选择-->
+    <data-loader ref="job_select" v-slot="{ results: results }" :url="`/v1/components/63b74ddd-39de-493f-84ab-9d87fcf23fee/data`" method="get" :data="[['']]" :style="{position: 'absolute', top: '125px', left: '751px'}">
+      <brick-radio-button-select :options="results.map(i=>({label:i[0]}))" v-model="craneStates.companyType" placeholder="企业性质" />
+    </data-loader>
+    <!--    企业名称筛选-->
+    <data-loader ref="job_select" v-slot="{ results: results }" :url="`/v1/components/64b74ddd-39de-493f-84ab-9d87fcf23fee/data`" method="get" :data="[['']]" :style="{position: 'absolute', top: '125px', left: '890px'}">
+      <Select class="departments-select" placeholder="请输入关键词" :clearable="true" :filterable="true" :style="{width: '180px'}" v-model="craneStates.currentCompany">
+        <Option v-for="(item, key) in results.map((itemC, indexC) => ({index: itemC[0], name: itemC[0]}))" :key="key" :value="item.index" :label="item.name">
+          {{item.name}}
+        </Option>
+      </Select>
+    </data-loader>
+    <!--    查看企业坐标点按钮-->
+    <brick-button @click="()=>[setState('mapType', 'distribution')]" type="gradient" color="primary" :style="{width: '148px', height: '28px', position: 'absolute', top: '131px', left: '1100px'}">
+      查看企业分布地图
+    </brick-button>
     <data-loader @requestDone="(param)=>[setState('mapData', param.results.map((item) => ({name: item[1], value: item[0]})))]" :url="`${requestUrl}`" method="get" :data="[[0, '暂无数据']]" :style="{width: '1100px', height: '900px', position: 'absolute', top: '160px', left: '410px'}">
       <v-chart ref="map" :options="mapOptions" />
     </data-loader>
@@ -223,6 +240,10 @@ export const key_talents = {
         dateRange: [],
         currentShortageType: '',
         department: null,
+        companyType: {label: '联营经济'},
+        companyList: null,
+        currentCompany: '',
+        companyLocation: null,
       },
     }
   },
@@ -260,7 +281,7 @@ export const key_talents = {
         backgroundColor: 'transparent',
         tooltip: {
           trigger: 'item',
-          formatter: (params) => {return params.name + '<br />人才数量（人）：' + (isNaN(params.value) ? 0 : params.value)},
+          formatter: (params) => {return params.name},
           backgroundColor: '#566374f0'
         },
         geo: {
@@ -342,34 +363,13 @@ export const key_talents = {
             },
           },
           {
-            symbolSize: 0.1,
-            label: {
-              normal: {
-                formatter: '{b}',
-                position: 'bottom',
-                show: true
-              },
-              emphasis: {
-                show: true
-              }
-            },
-            itemStyle: {
-              normal: {
-                color: '#fff'
-              }
-            },
             type: 'scatter',
             coordinateSystem: 'geo',
-            data: [],
-          },
-          {
-            type: 'scatter',
-            coordinateSystem: 'geo',
-            symbol: 'pin',
-            symbolSize: [48, 54],
+            symbol: 'circle',
+            symbolSize: [4, 4],
             label: {
               normal: {
-                show: true,
+                show: false,
                 color: '#fff',
                 fontSize: 12,
                 fontWeight: 500,
@@ -380,11 +380,11 @@ export const key_talents = {
             },
             itemStyle: {
               normal: {
-                color: '#41bcff',
+                color: '#fff',
                 opacity: 1
               }
             },
-            data: [],
+            data: this.craneStates.companyLocation,
             showEffectOn: 'render',
             rippleEffect: {
               brushType: 'stroke'
@@ -407,9 +407,28 @@ export const key_talents = {
   },
 
   watch: {
+    'craneStates.currentCompany'() {
+      if(this.craneStates.mapType==='distribution') {
+        this.getCompanyDistributionApi()
+      }
+    },
+    'craneStates.companyType'(value) {
+      if(this.craneStates.mapType==='distribution') {
+        this.getCompanyDistributionApi()
+      }
+    },
+    'craneStates.mapType'(value) {
+      if(value==='distribution') {
+        this.getCompanyDistributionApi()
+      }
+    },
     'craneStates.department'(value) {
       this.currentArea = value ? value.label : ''
       this.setState('mapData', [])
+
+      if(this.craneStates.mapType==='distribution') {
+        this.getCompanyDistributionApi()
+      }
     },
     'craneStates.selectedArea'(value) {
       if(value) {
@@ -503,7 +522,19 @@ export const key_talents = {
         }
       })
       return result
-    }
+    },
+
+    async getCompanyDistributionApi() {
+      const { data: { data } }= await this.axios.get(`/v1/components/65b74ddd-39de-493f-84ab-9d87fcf23fee/data?oecotype=${this.craneStates.companyType ? this.craneStates.companyType.label : ''}&area=${this.craneStates.department ? this.craneStates.department.label : ''}&name=${this.craneStates.currentCompany ? this.craneStates.currentCompany : ''}`)
+      let list = data.map(i => {
+        return {
+          name: i[0],
+          value: i[1].split(',').map(i => Number(i)),
+          visualMap: false
+        }
+      })
+      this.setState('companyLocation', list)
+    },
   }
 }
 export default key_talents
