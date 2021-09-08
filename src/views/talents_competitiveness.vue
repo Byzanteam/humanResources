@@ -62,8 +62,7 @@
     </data-loader>
     <div class="center-select">
       <brick-radio-button-select :options="provinceOptions" v-model="craneStates.province" placeholder="全省" />
-<!--      <brick-radio-button-select v-if="craneStates.province" :options="craneStates.selectOptions" v-model="craneStates.city" placeholder="全省" :style="{marginLeft: '12px'}" />-->
-    </div>
+      <brick-radio-button-select :options="yearOptions" v-model="craneStates.currentYear" placeholder="全部年份" :style="{marginLeft: '12px'}" />    </div>
     <img ref="box-bg" :style="{width: '440px', height: '1059px', position: 'absolute', top: '10px', left: '10px'}" src="../../public/hxrc/images/Box-Bg.png" />
     <img ref="right-box-bg" :style="{width: '440px', height: '1059px', position: 'absolute', top: '10px', left: '1471px'}" src="../../public/hxrc/images/Box-Bg.png" />
     <div ref="force-digital-bg" :style="{width: '380px', height: '50px', backgroundColor: 'rgba(13, 45, 120, .45)', borderRadius: '5px', position: 'absolute', top: '60px', left: '1500px'}" />
@@ -150,6 +149,7 @@ import {
 import Navigator from '../components/navigator'
 
 const PROVINCE_OPTIONS = [{label: '福建', uuid: 1}]
+const YEAR_OPTIONS = [{label: '2019', uuid: 0}, {label: '2020', uuid: 1}, {label: '2021', uuid: 2}]
 
 export const talents_competitiveness = {
   mixins: [BuiltInMixin],
@@ -170,8 +170,9 @@ export const talents_competitiveness = {
   data () {
     return {
       provinceOptions: PROVINCE_OPTIONS,
+      yearOptions: YEAR_OPTIONS,
       Echarts: Echarts,
-      dataTableName: 'fj_index_1',
+      dataTableName: 'fj_index_2',
       craneStates: {
         province: PROVINCE_OPTIONS[0],
         city: null,
@@ -179,6 +180,7 @@ export const talents_competitiveness = {
         indicator: '',
         types: [{index: 1, name: '四川省'}, {index: 2, name: '重庆市'}, {index: 3, name: '青海省'}, {index: 4, name: '浙江省'}, {index: 5, name: '湖南省'}, {index: 6, name: '湖北省'}, {index: 7, name: '甘肃省'}, {index: 8, name: '山东省'}, {index: 9, name: '江苏省'}, {index: 10, name: '江西省'}, {index: 11, name: '福建省'}, {index: 12, name: '贵州省'}, {index: 13, name: '陕西省'}, {index: 14, name: '山西省'}],
         currentProvince: [],
+        currentYear: null,
         selectedArea: {},
         radarData: [],
         mapData: [],
@@ -223,20 +225,20 @@ export const talents_competitiveness = {
 
   computed: {
     digitalRequestUrl() {
-      return `/custom/daas/api/${window.appRequestId}?tableName=${this.dataTableName}&filter=city=${ this.craneStates.city && this.craneStates.city.label || '福州市'}&fields=value&orderBy=&pageSize=200&pageNumber=1&apiID=${window.apiID}&apiKey=${window.apiKey}`
+      return `/custom/daas/api/${window.appRequestId}?tableName=${this.dataTableName}&filter=city=${ this.craneStates.city && this.craneStates.city.label || '福州市'}andtime=${this.craneStates.currentYear ? this.craneStates.currentYear : ''}&fields=value&orderBy=&pageSize=200&pageNumber=1&apiID=${window.apiID}&apiKey=${window.apiKey}`
     },
     RadioRequestUrl() {
-      return `/custom/daas/api/${window.appRequestId}?tableName=${this.dataTableName}&filter=city=${ this.craneStates.city && this.craneStates.city.label || '福州市'}&fields=index_2&orderBy=&pageSize=200&pageNumber=1&apiID=${window.apiID}&apiKey=${window.apiKey}`
+      return `/custom/daas/api/${window.appRequestId}?tableName=${this.dataTableName}&filter=city=${ this.craneStates.city && this.craneStates.city.label || '福州市'}andtime=${this.craneStates.currentYear ? this.craneStates.currentYear : ''}&fields=index_2&orderBy=&pageSize=200&pageNumber=1&apiID=${window.apiID}&apiKey=${window.apiKey}`
     },
     tableRequestUrl () {
-      return `/custom/daas/api/${window.appRequestId}?tableName=${this.dataTableName}&filter=index_2=${ this.craneStates.indicator || ''}&fields=&orderBy=&pageSize=200&pageNumber=1&apiID=${window.apiID}&apiKey=${window.apiKey}`
+      return `/custom/daas/api/${window.appRequestId}?tableName=${this.dataTableName}&filter=index_2=${ this.craneStates.indicator || ''}andtime=${this.craneStates.currentYear ? this.craneStates.currentYear : ''}&fields=&orderBy=&pageSize=200&pageNumber=1&apiID=${window.apiID}&apiKey=${window.apiKey}`
     },
     radarRequestUrl () {
-      return `/custom/daas/api/${window.appRequestId}?tableName=${this.dataTableName}&fields=&orderBy=&pageSize=200&pageNumber=1&apiID=${window.apiID}&apiKey=${window.apiKey}`
+      return `/custom/daas/api/${window.appRequestId}?tableName=${this.dataTableName}&filter=time=${this.craneStates.currentYear ? this.craneStates.currentYear : ''}&fields=&orderBy=&pageSize=200&pageNumber=1&apiID=${window.apiID}&apiKey=${window.apiKey}`
     },
     areaSelectRequestUrl () {
       // 请求市区列表
-      return `/custom/daas/api/${window.appRequestId}?tableName=${this.dataTableName}&filter=&fields=city&orderBy=&pageSize=200&pageNumber=1&apiID=${window.apiID}&apiKey=${window.apiKey}`
+      return `/custom/daas/api/${window.appRequestId}?tableName=${this.dataTableName}&filter=time=${this.craneStates.currentYear ? this.craneStates.currentYear : ''}&fields=city&orderBy=&pageSize=200&pageNumber=1&apiID=${window.apiID}&apiKey=${window.apiKey}`
     },
     sortTableData () {
       const sorted_data = this.craneStates.tableData.sort(this.compare())
