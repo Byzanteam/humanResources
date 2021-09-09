@@ -420,6 +420,8 @@ export const key_talents = {
     'craneStates.mapType'(value) {
       if(value==='distribution') {
         this.getCompanyDistributionApi()
+      } else {
+        this.craneStates.companyLocation = null
       }
     },
     'craneStates.department'(value) {
