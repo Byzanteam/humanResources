@@ -240,7 +240,7 @@ export const key_talents = {
         dateRange: [],
         currentShortageType: '',
         department: null,
-        companyType: {label: '联营经济'},
+        companyType: null,
         companyList: null,
         currentCompany: '',
         companyLocation: null,

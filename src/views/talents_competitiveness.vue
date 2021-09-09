@@ -225,20 +225,20 @@ export const talents_competitiveness = {
 
   computed: {
     digitalRequestUrl() {
-      return `/custom/daas/api/${window.appRequestId}?tableName=${this.dataTableName}&filter=city=${ this.craneStates.city && this.craneStates.city.label || '福州市'}andtime=${this.craneStates.currentYear ? this.craneStates.currentYear : ''}&fields=value&orderBy=&pageSize=200&pageNumber=1&apiID=${window.apiID}&apiKey=${window.apiKey}`
+      return `/custom/daas/api/${window.appRequestId}?tableName=${this.dataTableName}&filter=city=${ this.craneStates.city && this.craneStates.city.label || '福州市'}andtime=${this.craneStates.currentYear ? this.craneStates.currentYear.label : '2021'}&fields=value&orderBy=&pageSize=200&pageNumber=1&apiID=${window.apiID}&apiKey=${window.apiKey}`
     },
     RadioRequestUrl() {
-      return `/custom/daas/api/${window.appRequestId}?tableName=${this.dataTableName}&filter=city=${ this.craneStates.city && this.craneStates.city.label || '福州市'}andtime=${this.craneStates.currentYear ? this.craneStates.currentYear : ''}&fields=index_2&orderBy=&pageSize=200&pageNumber=1&apiID=${window.apiID}&apiKey=${window.apiKey}`
+      return `/custom/daas/api/${window.appRequestId}?tableName=${this.dataTableName}&filter=city=${ this.craneStates.city && this.craneStates.city.label || '福州市'}andtime=${this.craneStates.currentYear ? this.craneStates.currentYear.label : '2021'}&fields=index_2&orderBy=&pageSize=200&pageNumber=1&apiID=${window.apiID}&apiKey=${window.apiKey}`
     },
     tableRequestUrl () {
-      return `/custom/daas/api/${window.appRequestId}?tableName=${this.dataTableName}&filter=index_2=${ this.craneStates.indicator || ''}andtime=${this.craneStates.currentYear ? this.craneStates.currentYear : ''}&fields=&orderBy=&pageSize=200&pageNumber=1&apiID=${window.apiID}&apiKey=${window.apiKey}`
+      return `/custom/daas/api/${window.appRequestId}?tableName=${this.dataTableName}&filter=index_2=${ this.craneStates.indicator || ''}andtime=${this.craneStates.currentYear ? this.craneStates.currentYear.label : '2021'}&fields=&orderBy=&pageSize=200&pageNumber=1&apiID=${window.apiID}&apiKey=${window.apiKey}`
     },
     radarRequestUrl () {
-      return `/custom/daas/api/${window.appRequestId}?tableName=${this.dataTableName}&filter=time=${this.craneStates.currentYear ? this.craneStates.currentYear : ''}&fields=&orderBy=&pageSize=200&pageNumber=1&apiID=${window.apiID}&apiKey=${window.apiKey}`
+      return `/custom/daas/api/${window.appRequestId}?tableName=${this.dataTableName}&filter=time=${this.craneStates.currentYear ? this.craneStates.currentYear.label : '2021'}&fields=&orderBy=&pageSize=200&pageNumber=1&apiID=${window.apiID}&apiKey=${window.apiKey}`
     },
     areaSelectRequestUrl () {
       // 请求市区列表
-      return `/custom/daas/api/${window.appRequestId}?tableName=${this.dataTableName}&filter=time=${this.craneStates.currentYear ? this.craneStates.currentYear : ''}&fields=city&orderBy=&pageSize=200&pageNumber=1&apiID=${window.apiID}&apiKey=${window.apiKey}`
+      return `/custom/daas/api/${window.appRequestId}?tableName=${this.dataTableName}&filter=time=${this.craneStates.currentYear ? this.craneStates.currentYear.label : '2021'}&fields=city&orderBy=&pageSize=200&pageNumber=1&apiID=${window.apiID}&apiKey=${window.apiKey}`
     },
     sortTableData () {
       const sorted_data = this.craneStates.tableData.sort(this.compare())
