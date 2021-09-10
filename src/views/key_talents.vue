@@ -363,27 +363,6 @@ export const key_talents = {
                 }
               },
             },
-            // {
-            //   symbolSize: 0.1,
-            //   label: {
-            //     normal: {
-            //       formatter: '{b}',
-            //       position: 'bottom',
-            //       show: true
-            //     },
-            //     emphasis: {
-            //       show: true
-            //     }
-            //   },
-            //   itemStyle: {
-            //     normal: {
-            //       color: '#fff'
-            //     }
-            //   },
-            //   type: 'scatter',
-            //   coordinateSystem: 'geo',
-            //   data: [],
-            // },
             {
               type: 'scatter',
               coordinateSystem: 'geo',
@@ -484,27 +463,6 @@ export const key_talents = {
                 }
               },
             },
-            // {
-            //   symbolSize: 0.1,
-            //   label: {
-            //     normal: {
-            //       formatter: '{b}',
-            //       position: 'bottom',
-            //       show: true
-            //     },
-            //     emphasis: {
-            //       show: true
-            //     }
-            //   },
-            //   itemStyle: {
-            //     normal: {
-            //       color: '#fff'
-            //     }
-            //   },
-            //   type: 'scatter',
-            //   coordinateSystem: 'geo',
-            //   data: [],
-            // },
             {
               type: 'scatter',
               coordinateSystem: 'geo',
