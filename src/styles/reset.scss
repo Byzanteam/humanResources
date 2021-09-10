@@ -242,3 +242,14 @@ input::placeholder {
   transform: translateX(-50%);
   display: flex;
 }
+
+.company-type-select {
+  .ivu-select-dropdown {
+    top: 18px !important;
+    left: 270px !important;
+  }
+
+  .ivu-select-input, .ivu-select-selection {
+    height: 30px !important;
+  }
+}

@@ -62,7 +62,8 @@
     </data-loader>
     <div class="center-select">
       <brick-radio-button-select :options="provinceOptions" v-model="craneStates.province" placeholder="全省" />
-      <brick-radio-button-select :options="yearOptions" v-model="craneStates.currentYear" placeholder="全部年份" :style="{marginLeft: '12px'}" />    </div>
+      <brick-radio-button-select :options="yearOptions" v-model="craneStates.currentYear" :placeholder="yearOptions[0].label" :style="{marginLeft: '12px'}" />
+    </div>
     <img ref="box-bg" :style="{width: '440px', height: '1059px', position: 'absolute', top: '10px', left: '10px'}" src="../../public/hxrc/images/Box-Bg.png" />
     <img ref="right-box-bg" :style="{width: '440px', height: '1059px', position: 'absolute', top: '10px', left: '1471px'}" src="../../public/hxrc/images/Box-Bg.png" />
     <div ref="force-digital-bg" :style="{width: '380px', height: '50px', backgroundColor: 'rgba(13, 45, 120, .45)', borderRadius: '5px', position: 'absolute', top: '60px', left: '1500px'}" />
@@ -149,7 +150,7 @@ import {
 import Navigator from '../components/navigator'
 
 const PROVINCE_OPTIONS = [{label: '福建', uuid: 1}]
-const YEAR_OPTIONS = [{label: '2019', uuid: 0}, {label: '2020', uuid: 1}, {label: '2021', uuid: 2}]
+const YEAR_OPTIONS = [ {label: '2021', uuid: 2},  {label: '2020', uuid: 1}, {label: '2019', uuid: 0}]
 
 export const talents_competitiveness = {
   mixins: [BuiltInMixin],
@@ -205,6 +206,11 @@ export const talents_competitiveness = {
   },
 
   watch: {
+    'craneStates.currentYear'(value) {
+      if(value===null) {
+        this.setState('currentYear', this.yearOptions[0])
+      }
+    },
     'craneStates.city' (value) {
       if(!value) {
         this.craneStates.city = null

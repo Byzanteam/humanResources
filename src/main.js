@@ -9,7 +9,7 @@ import '@byzanteam/vis-components/dist/index.css'
 import '@byzanteam/carbonium/dist/carbonium.css'
 import 'element-ui/lib/theme-chalk/index.css'
 import 'iview/dist/styles/iview.css'
-import './styles/reset.css'
+import './styles/reset.scss'
 
 plugins.install()
 Vue.use(directives)
