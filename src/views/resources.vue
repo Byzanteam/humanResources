@@ -27,9 +27,9 @@
         人才学历层次
       </div>
     </div>
-    <div ref="talent-industry" :style="{color: '#fff', fontSize: '18px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', cursor: 'pointer', position: 'absolute', top: '360px', left: '1533px'}">
+    <div ref="talent-industry" :style="{width: '360px',color: '#fff', fontSize: '18px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', cursor: 'pointer', position: 'absolute', top: '360px', left: '1533px'}">
       <div data-content="以「区域」作为筛选条件，统计分析历史简历数据判断岗位平均的流动时间并进行排名" :style="{position: 'relative'}">
-        人才流动岗位排名
+        人才需求岗位排名TOP20（按招聘岗位需求人数来排名）
       </div>
     </div>
     <div ref="industry-talent" :style="{color: '#fff', fontSize: '18px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', cursor: 'pointer', position: 'absolute', top: '740px', left: '73px'}">
@@ -47,7 +47,7 @@
       >>
     </div>
     <div ref="value-circle" :style="{height: '10px', width: '10px', borderRadius: '10px', borderWidth: '1px', borderColor: '#00fff2', borderStyle: 'solid', position: 'absolute', top: '157px', left: '104px'}" />
-    <div ref="number-circle" :style="{height: '10px', width: '10px', borderRadius: '10px', borderWidth: '1px', borderColor: '#00fff2', borderStyle: 'solid', position: 'absolute', top: '237px', left: '104px'}" />
+    <div ref="number-circle" :style="{height: '10px', width: '10px', borderRadius: '10px', borderWidth: '1px', borderColor: '#00fff2', borderStyle: 'solid', position: 'absolute', top: '237px', left: '48px'}" />
     <div ref="production-bg" :style="{width: '380px', height: '50px', backgroundColor: 'rgba(13, 45, 120, .45)', borderRadius: '5px', position: 'absolute', top: '128px', left: '40px'}" />
     <div ref="production-bg" :style="{width: '380px', height: '50px', backgroundColor: 'rgba(13, 45, 120, .45)', borderRadius: '5px', position: 'absolute', top: '208px', left: '40px'}" />
     <div ref="departments-loader" class="center-select">
@@ -70,8 +70,8 @@
     <data-loader ref="part-production-value" v-slot="{ results: results }" :url="`/v1/components/12b74ddd-39de-493f-84ab-9d87fcf23fee/data?city=${areaSelect}&year=${craneStates.year ? craneStates.year.getFullYear() : new Date().getFullYear()}`" method="get" :data="[[0]]" :style="{position: 'absolute', top: '134px', left: '130px'}">
       <digital-roll ref="deal-number-total" v-if="results" data-content="根据「区域」选择统计该区域地区生产总值" titlePosition="left" :content="{title: '地区生产总值', suffix: '亿元', digital: results[0][0] || 0}" :options="{separator: ',', decimalPlaces: 2}" :titleStyle="{color: '#ffffff', fontSize: '16px', fontWeight: '400'}" :prefixStyle="{color: '#00fff2', fontSize: '16px', fontWeight: '400'}" :suffixStyle="{color: '#00fff2', fontSize: '16px', fontWeight: '400'}" :digitalStyle="{fontSize: '32px', color: '#00fff2', fontWeight: '400', fontFamily: 'Oswald-Regular', format: '11', lineHeight: '38px', letterSpacing: '2.4px'}" />
     </data-loader>
-    <data-loader ref="talent-number" v-slot="{ results: results }" :url="`/v1/components/13b74ddd-39de-493f-84ab-9d87fcf23fee/data?area=${areaSelect}&year=${craneStates.year ? craneStates.year.getFullYear() : new Date().getFullYear()}`" method="get" :data="[[0]]" :style="{position: 'absolute', top: '214px', left: '130px'}">
-      <digital-roll ref="talent-number-content" v-if="results" data-content="根据「区域」选择统计该地区人才库中学历为「本科」「硕士」「博士」的人才数量" titlePosition="left" :content="{title: '中高端人才数量', digital: results[0][0] || 0, suffix: '人'}" :options="{separator: ','}" :titleStyle="{color: '#ffffff', fontSize: '16px', fontWeight: '400'}" :prefixStyle="{color: '#00fff2', fontSize: '16px', fontWeight: '400'}" :suffixStyle="{color: '#00fff2', fontSize: '16px', fontWeight: '400'}" :digitalStyle="{fontSize: '32px', color: '#00fff2', fontWeight: '400', fontFamily: 'Oswald-Regular', format: '11', lineHeight: '38px', letterSpacing: '2.4px'}" />
+    <data-loader ref="talent-number" v-slot="{ results: results }" :url="`/v1/components/13b74ddd-39de-493f-84ab-9d87fcf23fee/data?area=${areaSelect}&year=${craneStates.year ? craneStates.year.getFullYear() : new Date().getFullYear()}`" method="get" :data="[[0]]" :style="{position: 'absolute', top: '214px', left: '72px'}">
+      <digital-roll ref="talent-number-content" v-if="results" data-content="根据「区域」选择统计该地区人才库中学历为「本科」「硕士」「博士」的人才数量" titlePosition="left" :content="{title: '人才数量(统计：专科，本科、硕士、博士)', digital: results[0][0] || 0, suffix: '人'}" :options="{separator: ','}" :titleStyle="{color: '#ffffff', fontSize: '16px', fontWeight: '400'}" :prefixStyle="{color: '#00fff2', fontSize: '16px', fontWeight: '400'}" :suffixStyle="{color: '#00fff2', fontSize: '16px', fontWeight: '400'}" :digitalStyle="{fontSize: '32px', color: '#00fff2', fontWeight: '400', fontFamily: 'Oswald-Regular', format: '11', lineHeight: '38px', letterSpacing: '2.4px'}" />
     </data-loader>
     <data-loader ref="ranking_rank" v-slot="{ results: results }" :url="`/v1/components/19b74ddd-39de-493f-84ab-9d87fcf23fee/data?area=${areaSelect}&year=${craneStates.year ? craneStates.year.getFullYear() : new Date().getFullYear()}`" method="get" :data="[[20, '暂无数据']]" :style="{width: '296px', height: '290px', overflow: 'scroll', position: 'absolute', top: '412px', left: '90px'}">
       <ranking ref="department-ranking-content" v-if="results" :data="results.map(item => ({label: item[1], amount: item[0]}))" :keys="{label: 'label', value: 'amount', tooltip: 'name'}" v-scroll="{itemHeight: 47}" :labelStyle="{color: '#ffffff', fontSize: '16px', lineHeight: '24px'}" :valueStyle="{color: '#00fff2', fontSize: '16px', fontFamily: 'Oswald-Regular', lineHeight: '1.5', fontWeight: '400'}" :lineStyle="{background: '#ffffff1a', lineColor: ['#7d40ff', '#00fff2'], height: '8px', borderRadius: '2.5px', marginTop: '3px'}" :tooltip="{text: {align: 'center', baseline: 'middle', fill: '#FFFFFF', size: 14, weight: 400}, notation: {fill: '#367391', name: 'circle-small', size: 14}}" :tooltipOptions="{background: '#566374f0', text: {align: 'center', baseline: 'middle', fill: '#FFFFFF', size: 14, weight: 400}, title: {align: 'center', baseline: 'middle', fill: '#FFFFFF', size: 14, weight: 400}}" />
@@ -80,7 +80,7 @@
       >>
     </div>
     <div ref="talents-demand-change-title·" :style="{color: '#fff', fontSize: '18px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', cursor: 'pointer', position: 'absolute', top: '740px', left: '1533px'}">
-      全国人才区域分布
+      20220225用户同意手动增加数值显示
     </div>
     <div>
       <v-chart ref="map-thumbnail-chart" :style="{width: '270px', height: '250px', position: 'absolute', top: '792px', left: '1500px'}" :options="craneStates.mapThumbnailOptions" />

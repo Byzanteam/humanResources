@@ -165,7 +165,7 @@
     </div>
     <div :style="{color: '#fff', fontSize: '20px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', cursor: 'pointer', position: 'absolute', top: '806px', left: '1536px'}">
       <div data-content="根据「区域」「时间」「行业类型」统计紧缺人才企业的行业分布情况" :style="{position: 'relative'}">
-        紧缺人才专业分布
+        紧缺人才TOP5专业
       </div>
     </div>
   </div>
