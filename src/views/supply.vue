@@ -21,7 +21,24 @@
       </Select>
     </data-loader>
     <data-loader ref="job_select" @requestDone="(param)=>[setState('dateRange', param.results.map((item) => (Number(item[0]))))]" url="/v1/components/02b74ddd-39de-493f-84ab-9d87fcf23fee/data" method="get" :data="[['']]" :style="{position: 'absolute', top: '114px', left: '40px'}">
-      <date-picker format="yyyy年" v-model="craneStates.year" :style="{width: '380px', height: '50px'}" :options="{disabledDate: (time) => {return !craneStates.dateRange.includes(time.getFullYear())}}" type="year" class="supply-datepicker" placeholder="选择时间" />
+      <date-picker
+        type="year"
+        format="yyyy年"
+        v-model="craneStates.year"
+        :style="{width: '180px', height: '50px',marginRight:'20px'}"
+        :options="{disabledDate: (time) => {return !craneStates.dateRange.includes(time.getFullYear())}}"
+        class="supply-datepicker"
+        placeholder="按年选择"
+      />
+      <date-picker
+        type="month"
+        format="yyyy-MM"
+        v-model="craneStates.month"
+        :style="{width: '180px', height: '50px'}"
+        :options="{disabledDate: (time) => {return !craneStates.dateRange.includes(time.getFullYear())}}"
+        class="supply-datepicker month-datepicker"
+        placeholder="按月选择"
+      />
     </data-loader>
     <div ref="supply-demand-count" :style="{width: '380px', height: '50px', backgroundColor: 'rgba(13, 45, 120, .45)', borderRadius: '5px', position: 'absolute', top: '194px', left: '40px'}" />
     <div ref="value-circle" :style="{height: '10px', width: '10px', borderRadius: '10px', borderWidth: '1px', borderColor: '#00fff2', borderStyle: 'solid', position: 'absolute', top: '223px', left: '100px'}" />
@@ -162,7 +179,7 @@ import {
   Select,
   Option,
   DatePicker,
-} from 'iview'
+} from 'view-design'
 import {
 } from 'element-ui'
 import Navigator from '../components/navigator'
@@ -199,6 +216,7 @@ export const supply = {
         currentJob: '',
         inputQuery: '',
         year: new Date('2020'),
+        month: null,
         department: null,
         dateRange: [],
         tabNavs: TAB_NAVS,
@@ -221,15 +239,33 @@ export const supply = {
     },
     'craneStates.department' (value) {
       this.craneStates.selectedArea = {}
-    }
+    },
+    'craneStates.year'(value) {
+      if(value) {
+        this.craneStates.month = null
+      }
+    },
+    'craneStates.month'(value) {
+      if(value) {
+        this.craneStates.year = null
+      }
+    },
   },
 
   computed: {
     generateYear () {
-      if(!this.craneStates.year) {
+      if(this.craneStates.year) {
+        return this.craneStates.year.getFullYear()
+      } else if (this.craneStates.month) {
+        let month = this.craneStates.month.getMonth() + 1
+        if (month > 9) {
+          return this.craneStates.month.getFullYear() + '-' + month
+        } else {
+          return this.craneStates.month.getFullYear() + '-0' + month
+        }
+      } else {
         return '2020'
       }
-      return this.craneStates.year.getFullYear()
     },
     mapOptions () {
       return {

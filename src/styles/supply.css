@@ -63,6 +63,7 @@
   color: #ffffff;
 }
 
+/*iview-时间选择器*/
 .ivu-date-picker-cells  .ivu-date-picker-cells-cell {
   margin: 12px 24px;
 }
@@ -111,35 +112,6 @@
   background: transparent;
 }
 
-.ivu-select-dropdown-list {
-  background-color: #152d47;
-}
-
-.ivu-select-dropdown .ivu-select-dropdown-list .ivu-select-item {
-  max-width: 378px;
-  overflow: hidden;
-  text-overflow:ellipsis;
-  white-space: nowrap;
-  color: #ffffff;
-  font-size: 14px !important;
-  line-height: 40px;
-  height: 40px;
-  padding-top: 0;
-  padding-bottom: 0;
-  background-color: #093773;
-}
-
-.ivu-select-dropdown .ivu-select-dropdown-list .ivu-select-item:hover {
-  color: #00fff2;
-  background-color: rgba(0, 255, 242, .2);
-}
-
-.ivu-select-dropdown .ivu-select-dropdown-list .ivu-select-item.ivu-select-item-focus,
-.ivu-select-dropdown .ivu-select-dropdown-list .ivu-select-item.ivu-select-item-selected {
-  color: #00fff2;
-  background-color: #093773;
-}
-
 .ivu-date-picker .ivu-date-picker-rel .ivu-input {
   height: 50px;
   background-color: #09205b;
@@ -174,6 +146,45 @@
 
 .supply-datepicker.ivu-date-picker .ivu-date-picker-cells.ivu-date-picker-cells-year {
   width: 360px;
+}
+
+.month-datepicker .ivu-date-picker-cells  .ivu-date-picker-cells-cell {
+  margin: 12px
+}
+
+.month-datepicker.ivu-date-picker .ivu-select-dropdown {
+  width: auto;
+  left: unset !important;
+}
+
+.ivu-select-dropdown-list {
+  background-color: #152d47;
+}
+
+.ivu-select-dropdown .ivu-select-dropdown-list .ivu-select-item {
+  max-width: 378px;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+  color: #ffffff;
+  font-size: 14px !important;
+  line-height: 40px;
+  height: 40px;
+  padding-top: 0;
+  padding-bottom: 0;
+  background-color: #093773;
+
+}
+
+.ivu-select-dropdown .ivu-select-dropdown-list .ivu-select-item:hover {
+  color: #00fff2;
+  background-color: rgba(0, 255, 242, .2);
+}
+
+.ivu-select-dropdown .ivu-select-dropdown-list .ivu-select-item.ivu-select-item-focus,
+.ivu-select-dropdown .ivu-select-dropdown-list .ivu-select-item.ivu-select-item-selected {
+  color: #00fff2;
+  background-color: #093773;
 }
 
 .tabs .tab-navs-container {
