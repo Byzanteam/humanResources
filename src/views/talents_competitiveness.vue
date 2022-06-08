@@ -93,7 +93,7 @@
     </div>
     <div ref="ten-number" :style="{color: '#fff', fontSize: '20px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', cursor: 'pointer', position: 'absolute', top: '214px', left: '1533px'}">
       <div data-content="区域为省级可横向对比市级的指标指数对比，区域为市级可横向对应区级的指标指数对比" :style="{position: 'relative'}">
-        15大指标汇总
+        18大指标汇总
       </div>
     </div>
     <div ref="ten-number-icon" :style="{color: '#41bcff', fontSize: '14px', fontWeight: '400', textAlign: 'left', position: 'absolute', top: '217px', left: '1500px'}">
