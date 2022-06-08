@@ -215,7 +215,7 @@ export const resources = {
         backgroundColor: 'transparent',
         tooltip: {
           trigger: 'item',
-          formatter: (params) => {return params.name + '<br />人才数量（人）：' + (isNaN(params.value) ? 0 : params.value)},
+          formatter: (params) => {return params.name + '<br />人才数量（人）：' + (isNaN(params.value) ? 0 : params.value) + '<br />全省人才数量排名：' + params.data.rank},
           backgroundColor: '#566374f0'
         },
         visualMap: {
@@ -239,7 +239,7 @@ export const resources = {
         series: {
           type: 'map',
           mapType: this.craneStates.department ? this.craneStates.department.uuid : 'fujian',
-          data: this.craneStates.mapData,
+          data: this.cityRank,
           label: {
             show: true,
             fontSize: 15,
@@ -278,6 +278,17 @@ export const resources = {
       } else  {
         return ''
       }
+    },
+
+    cityRank() {
+      let rank = this.craneStates.mapData.sort((a,b) => (b.value-a.value))
+      rank = rank.map((item,index) => {
+        return {
+          ...item,
+          rank: index+1
+        }
+      })
+      return rank
     }
   },
 
