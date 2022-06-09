@@ -148,15 +148,6 @@
   width: 360px;
 }
 
-.month-datepicker .ivu-date-picker-cells  .ivu-date-picker-cells-cell {
-  margin: 12px
-}
-
-.month-datepicker.ivu-date-picker .ivu-select-dropdown {
-  width: auto;
-  left: unset !important;
-}
-
 .ivu-select-dropdown-list {
   background-color: #152d47;
 }
@@ -186,6 +177,15 @@
   color: #00fff2;
   background-color: #093773;
 }
+
+.month-select {
+  position: relative;
+}
+.month-select .ivu-select-dropdown{
+  left: 0 !important;
+  top: 32px !important;
+}
+
 
 .tabs .tab-navs-container {
   border: none !important;

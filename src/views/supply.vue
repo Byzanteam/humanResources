@@ -30,15 +30,11 @@
         class="supply-datepicker"
         placeholder="按年选择"
       />
-      <date-picker
-        type="month"
-        format="yyyy-MM"
-        v-model="craneStates.month"
-        :style="{width: '180px', height: '50px'}"
-        :options="{disabledDate: (time) => {return !craneStates.dateRange.includes(time.getFullYear())}}"
-        class="supply-datepicker month-datepicker"
-        placeholder="按月选择"
-      />
+      <Select class="month-select" placeholder="选择月份" :clearable="true" :style="{width: '180px'}" v-model="craneStates.month">
+        <Option v-for="(item, key) in months" :key="key+item.name" :value="item.value" :label="item.name">
+          {{item.name}}
+        </Option>
+      </Select>
     </data-loader>
     <div ref="supply-demand-count" :style="{width: '380px', height: '50px', backgroundColor: 'rgba(13, 45, 120, .45)', borderRadius: '5px', position: 'absolute', top: '194px', left: '40px'}" />
     <div ref="value-circle" :style="{height: '10px', width: '10px', borderRadius: '10px', borderWidth: '1px', borderColor: '#00fff2', borderStyle: 'solid', position: 'absolute', top: '223px', left: '100px'}" />
@@ -211,6 +207,10 @@ export const supply = {
     return {
       provinceOptions: PROVINCE_OPTIONS,
       Echarts: Echarts,
+      months: [
+        {name:'一月',value:1},{name:'二月',value:2},{name:'三月',value:3},{name:'四月',value:4},{name:'五月',value:5},
+        {name:'六月',value:6},{name:'七月',value:7},{name:'八月',value:8},{name:'九月',value:9},{name:'十月',value:10},
+        {name:'十一月',value:11},{name:'十二月',value:12}],
       craneStates: {
         province: PROVINCE_OPTIONS[0],
         currentJob: '',
@@ -240,36 +240,19 @@ export const supply = {
     'craneStates.department' (value) {
       this.craneStates.selectedArea = {}
     },
-    'craneStates.year'(value) {
-      if(value) {
-        this.craneStates.month = null
-      }
-    },
-    'craneStates.month'(value) {
-      if(value) {
-        this.craneStates.year = null
-      }
-    },
   },
 
   computed: {
     generateYear () {
       if(this.craneStates.year) {
         return this.craneStates.year.getFullYear()
-      } else if (this.craneStates.month) {
-        return ''
       } else {
-        return  '2020'
+        return  ''
       }
     },
     generateMonth() {
-      if (this.craneStates.month) {
-        let month = this.craneStates.month.getMonth() + 1
-        if (month > 9) {
-          return this.craneStates.month.getFullYear() + '-' + month
-        } else {
-          return this.craneStates.month.getFullYear() + '-0' + month
-        }
+      if (this.craneStates.year && this.craneStates.month) {
+        return this.craneStates.month
       } else return ''
     },
     mapOptions () {
