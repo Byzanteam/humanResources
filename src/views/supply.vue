@@ -309,7 +309,7 @@ export const supply = {
 
   methods: {
     salaryTooltipFormatterFunc(params) {
-      return `${params[0].name}<br/><span style="display:inline-block;margin-right:5px;border-radius:10px;width:10px;height:10px;background-color: #6ad6ff;"></span>${params[0].seriesName}：${params[0].data}元`
+      return `<span style="display:inline-block;margin-right:5px;border-radius:10px;width:10px;height:10px;background-color: #6ad6ff;"></span>${params[0].name+'月'}：${params[0].data}元`
     },
     // mapDbclickedFunc(chart) {
     //   chart.on('dblclick', (params) => {
