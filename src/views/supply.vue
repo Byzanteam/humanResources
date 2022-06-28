@@ -13,9 +13,9 @@
     <div class="center-select">
       <brick-radio-button-select ref="departments-select" :options="craneStates.selectOptions" v-model="craneStates.department" placeholder="全省" :style="{marginLeft: '12px'}" />
     </div>
-    <data-loader ref="job_select" v-slot="{ results: results }" :url="`/v1/components/01b74ddd-39de-493f-84ab-9d87fcf23fee/data?job=${craneStates.inputQuery}`" method="get" :data="[['']]" :style="{position: 'absolute', top: '48px', left: '40px'}">
-      <Select class="departments-select" placeholder="全部" :clearable="true" :filterable="true" :style="{width: '380px'}" v-model="craneStates.currentJob">
-        <Option v-for="(item, key) in results.map((item, index) => ({index: item[0], name: item[0]}))" :key="key" :value="item.index" :label="item.name">
+    <data-loader ref="job_select" :style="{position: 'absolute', top: '48px', left: '40px'}">
+      <Select class="departments-select" placeholder="全部" :clearable="true" :filterable="true" :remote-method="selectOptionsRequest" :loading="selectRemoteLoading" :style="{width: '380px'}" v-model="craneStates.currentJob">
+        <Option v-for="(item, key) in jobOptions" :key="key+item.name" :value="item.index" :label="item.name">
           {{item.name}}
         </Option>
       </Select>
@@ -211,6 +211,8 @@ export const supply = {
         {name:'一月',value:1},{name:'二月',value:2},{name:'三月',value:3},{name:'四月',value:4},{name:'五月',value:5},
         {name:'六月',value:6},{name:'七月',value:7},{name:'八月',value:8},{name:'九月',value:9},{name:'十月',value:10},
         {name:'十一月',value:11},{name:'十二月',value:12}],
+      selectRemoteLoading: false,
+      jobOptions: [],
       craneStates: {
         province: PROVINCE_OPTIONS[0],
         currentJob: '',
@@ -295,6 +297,7 @@ export const supply = {
 
   beforeMount() {
     this.requestMapGeojson(Echarts)
+    this.selectOptionsRequest()
   },
 
   created() {
@@ -376,6 +379,10 @@ export const supply = {
       })
       return result
     },
+    async selectOptionsRequest(query='') {
+      const {data:{data}} = await this.axios.get(`/v1/components/01b74ddd-39de-493f-84ab-9d87fcf23fee/data?job=${query}`)
+      this.jobOptions = data.map((item) => ({index: item[0], name: item[0]}))
+    }
   }
 }
 export default supply
