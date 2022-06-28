@@ -63,6 +63,7 @@
   color: #ffffff;
 }
 
+/*iview-时间选择器*/
 .ivu-date-picker-cells  .ivu-date-picker-cells-cell {
   margin: 12px 24px;
 }
@@ -111,31 +112,6 @@
   background: transparent;
 }
 
-.ivu-select-dropdown-list {
-  background-color: #152d47;
-}
-
-.ivu-select-dropdown .ivu-select-dropdown-list .ivu-select-item {
-  color: #ffffff;
-  font-size: 14px !important;
-  line-height: 40px;
-  height: 40px;
-  padding-top: 0;
-  padding-bottom: 0;
-  background-color: #093773;
-}
-
-.ivu-select-dropdown .ivu-select-dropdown-list .ivu-select-item:hover {
-  color: #00fff2;
-  background-color: rgba(0, 255, 242, .2);
-}
-
-.ivu-select-dropdown .ivu-select-dropdown-list .ivu-select-item.ivu-select-item-focus,
-.ivu-select-dropdown .ivu-select-dropdown-list .ivu-select-item.ivu-select-item-selected {
-  color: #00fff2;
-  background-color: #093773;
-}
-
 .ivu-date-picker .ivu-date-picker-rel .ivu-input {
   height: 50px;
   background-color: #09205b;
@@ -172,12 +148,52 @@
   width: 360px;
 }
 
+.ivu-select-dropdown-list {
+  background-color: #152d47;
+}
+
+.ivu-select-dropdown .ivu-select-dropdown-list .ivu-select-item {
+  max-width: 378px;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+  color: #ffffff;
+  font-size: 14px !important;
+  line-height: 40px;
+  height: 40px;
+  padding-top: 0;
+  padding-bottom: 0;
+  background-color: #093773;
+
+}
+
+.ivu-select-dropdown .ivu-select-dropdown-list .ivu-select-item:hover {
+  color: #00fff2;
+  background-color: rgba(0, 255, 242, .2);
+}
+
+.ivu-select-dropdown .ivu-select-dropdown-list .ivu-select-item.ivu-select-item-focus,
+.ivu-select-dropdown .ivu-select-dropdown-list .ivu-select-item.ivu-select-item-selected {
+  color: #00fff2;
+  background-color: #093773;
+}
+
+.month-select {
+  position: relative;
+}
+.month-select .ivu-select-dropdown{
+  left: 0 !important;
+  top: 32px !important;
+}
+
+
 .tabs .tab-navs-container {
   border: none !important;
 }
 
 .tabs .tab-navs .tab-nav {
   padding: 8px 16px 10px;
+  margin-left: 0;
 }
 
 .tabs .tab-nav::before {

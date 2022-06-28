@@ -119,8 +119,8 @@ module.exports = [
           $options: {
             backgroundColor: 'transparent',
             $legend: {
-              pageIconColor: '#aaa',
-              pageIconInactiveColor: '#2f4554',
+              pageIconColor: '#2f4554',
+              pageIconInactiveColor: '#aaa',
               $formatter: "legendText",
               type: 'scroll',
               icon: 'circle',

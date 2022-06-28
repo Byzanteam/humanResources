@@ -3,9 +3,10 @@ import _ from 'lodash'
 export default {
   data () {
     return {
-      isShow: false,
+      isShow: true,
+      refresh: true, // 用来控制图表刷新动画
       craneStates: {
-        selectOptions: [{label: '福州市', uuid: 'fuzhou'}, {label: '宁德市', uuid: 'ningde'}, {label: '龙岩市', uuid: 'longyan'}, {label: '莆田市', uuid: 'putian'}, {label: '南平市', uuid: 'nanping'}, {label: '三明市', uuid: 'sanming'}, {label: '厦门市', uuid: 'xiamen'}, {label: '漳州市', uuid: 'zhangzhou'}, {label: '泉州市', uuid: 'quanzhou'}]
+        selectOptions: [{label: '福州市', uuid: 'fuzhou', value: '福州'}, {label: '宁德市', uuid: 'ningde', value: '宁德'}, {label: '龙岩市', uuid: 'longyan', value: '龙岩'}, {label: '莆田市', uuid: 'putian', value: '莆田'}, {label: '南平市', uuid: 'nanping', value: '南平'}, {label: '三明市', uuid: 'sanming', value: '三明'}, {label: '厦门市', uuid: 'xiamen', value: '厦门'}, {label: '漳州市', uuid: 'zhangzhou', value: '漳州'}, {label: '泉州市', uuid: 'quanzhou', value: '泉州'}]
       },
     }
   },
@@ -14,6 +15,15 @@ export default {
     routeParams () {
       return this.$route.params
     }
+  },
+
+  watch: {
+    'craneStates.year'() {
+      this.refresh = false
+      setTimeout(() => {
+        this.refresh = true
+      }, 100)
+    },
   },
 
   created() {
