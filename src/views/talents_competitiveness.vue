@@ -150,7 +150,7 @@ import {
 import Navigator from '../components/navigator'
 
 const PROVINCE_OPTIONS = [{label: '福建', uuid: 1}]
-const YEAR_OPTIONS = [ {label: '2021', uuid: 2},  {label: '2020', uuid: 1}, {label: '2019', uuid: 0}]
+const YEAR_OPTIONS = [{label: '2022', uuid: 3}, {label: '2021', uuid: 2},  {label: '2020', uuid: 1}, {label: '2019', uuid: 0}]
 
 export const talents_competitiveness = {
   mixins: [BuiltInMixin],
