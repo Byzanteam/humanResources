@@ -1,5 +1,5 @@
 <template>
-  <div class="supply">
+  <div class="supply" v-if="isShow">
     <navigator ref="navigator"/>
     <img ref="title-bg" :style="{width: '700px', height: '124px', position: 'absolute', top: '0px', left: '610px'}" src="../../public/hxrc/images/Title-Bg.png" />
     <div @click="()=>[openNavigator()]" :style="{cursor: 'pointer', width: '460px', color: '#fff', fontSize: '42px', fontWeight: 600, textAlign: 'center', lineHeight: 1, position: 'absolute', top: '36px', left: '730px'}">
@@ -11,7 +11,8 @@
       <v-chart ref="map" :options="mapOptions" />
     </data-loader>
     <div class="center-select">
-      <brick-radio-button-select ref="departments-select" :options="craneStates.selectOptions" v-model="craneStates.department" placeholder="全省" :style="{marginLeft: '12px'}" />
+      <div v-if="currentArea" class="center-select__label">{{ currentArea }}</div>
+      <brick-radio-button-select v-else ref="departments-select" :options="craneStates.selectOptions" v-model="craneStates.department" placeholder="全省" :style="{marginLeft: '12px'}" />
     </div>
     <data-loader ref="job_select" :style="{position: 'absolute', top: '48px', left: '40px'}">
       <Select class="departments-select" placeholder="全部" :clearable="true" :filterable="true" :remote-method="selectOptionsRequest" :loading="selectRemoteLoading" :style="{width: '380px'}" v-model="craneStates.currentJob">
@@ -241,14 +242,29 @@ export const supply = {
         this.craneStates.inputQuery = ''
       }
     },
-    'craneStates.department' (value) {
+    'craneStates.department'(value) {
       this.currentArea = value ? value.value : ''
+      const query = value ? { city: value.value } : {}
+
+      this.$router.push({
+        path: this.$route.path,
+        query,
+      })
     },
     'craneStates.selectedArea'(value) {
       if(value) {
         const area = _.find(this.craneStates.selectOptions, (option) => (option.label === value.name))
         this.currentArea = area!==undefined ? area.value : value.name
       }
+    },
+    '$route.query': {
+      handler(value) {
+        if(value.city) {
+          const area = _.find(this.craneStates.selectOptions, (option) => (option.value === value.city))
+          this.craneStates.department = area ? area : this.craneStates.department
+        }
+      },
+      immediate: true
     }
   },
 
