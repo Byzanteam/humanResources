@@ -128,13 +128,13 @@
       >>
     </div>
     <div data-content="对ABC类人才，特别是：杰出、领军、紧缺人才进行展示" :style="{color: '#fff', fontSize: '20px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', cursor: 'pointer', position: 'absolute', top: '46px', left: '74px'}">
-      高层次人才概览
+      高层次人才供需地图
     </div>
     <div :style="{color: '#41bcff', fontSize: '14px', fontWeight: '400', textAlign: 'left', position: 'absolute', top: '49px', left: '1504px'}">
       >>
     </div>
     <div :style="{color: '#fff', fontSize: '20px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', cursor: 'pointer', position: 'absolute', top: '46px', left: '1536px'}">
-      区域紧缺人才地图
+      全省紧缺人才地图
     </div>
     <div :style="{color: '#41bcff', fontSize: '14px', fontWeight: '400', textAlign: 'left', position: 'absolute', top: '561px', left: '40px'}">
       >>

@@ -62,7 +62,7 @@ const LIST = [
       },
       {
         path: '/talents-competitiveness',
-        label: '省域人才综合竞争力'
+        label: '省域人才综合竞争力评估'
       },
       {
         path: '/highTalents',

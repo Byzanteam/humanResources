@@ -3,7 +3,7 @@
     <navigator ref="navigator"/>
     <img ref="title-bg" :style="{width: '701px', height: '123px', position: 'absolute', top: '0px', left: '607px'}" src="../../public/hxrc/images/Title-Bg.png" />
     <div @click="()=>[openNavigator()]" :style="{cursor: 'pointer', width: '460px', color: '#fff', fontSize: '42px', fontWeight: 600, textAlign: 'center', lineHeight: 1, position: 'absolute', top: '36px', left: '730px'}">
-      省域人才综合竞争力
+      省域人才综合竞争力评估
     </div>
     <data-loader :style="{width: '960px', height: '884px', position: 'absolute', top: '176px', left: '480px'}">
       <v-chart ref="map" :options="{backgroundColor: 'transparent', geo: {map: craneStates.city ? craneStates.city.uuid : 'fujian', label: {normal: {show: false}, emphasis: {show: false}}, itemStyle: {normal: {areaColor: '#0e3e7d', borderColor: '#68a4f0', borderType: 'solid', borderWidth: 2}, emphasis: {areaColor: '#29e8de'}}, regions: [{name: '南海诸岛', value: 0, itemStyle: { normal: { opacity: 0, label: { show: false}}}}]}, series: [
@@ -193,7 +193,7 @@ export const talents_competitiveness = {
   },
 
   created() {
-    document.title = '省域人才综合竞争力'
+    document.title = '省域人才综合竞争力评估'
     this.areaSelectRequest()
   },
 
