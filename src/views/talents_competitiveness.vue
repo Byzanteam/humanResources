@@ -1,5 +1,5 @@
 <template>
-  <div class="talents_competitiveness">
+  <div class="talents_competitiveness" v-if="isShow">
     <navigator ref="navigator"/>
     <img ref="title-bg" :style="{width: '701px', height: '123px', position: 'absolute', top: '0px', left: '607px'}" src="../../public/hxrc/images/Title-Bg.png" />
     <div @click="()=>[openNavigator()]" :style="{cursor: 'pointer', width: '465px', color: '#fff', fontSize: '42px', fontWeight: 600, textAlign: 'center', lineHeight: 1, position: 'absolute', top: '36px', left: '730px'}">
@@ -201,10 +201,6 @@ export const talents_competitiveness = {
     this.requestMapGeojson(Echarts)
   },
 
-  mounted() {
-    this.mapDbclickedFunc()
-  },
-
   watch: {
     'craneStates.currentYear'(value) {
       if(value===null) {
@@ -279,15 +275,6 @@ export const talents_competitiveness = {
   },
 
   methods: {
-    // 取消双击地图下钻
-    // mapDbclickedFunc () {
-    //   const {chart} = this.$refs.map
-    //   chart.on('dblclick', (params) => {
-    //     const { name } = params
-    //     const area = _.find(this.craneStates.selectOptions, (option) => (option.label === name))
-    //     this.craneStates.city = area ? area : this.craneStates.city
-    //   })
-    // },
     generateRadarData () {
       const { currentProvince } = this.craneStates
       const areas = currentProvince.reduce((acc, item, index) => {

@@ -103,7 +103,7 @@
     </data-loader>
     <div :style="{position: 'absolute', top: '125px', left: '652px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', minWidth: '600px'}">
       <!--    省市选择-->
-      <div v-if="currentArea" class="center-select__label">{{ currentArea }}</div>
+      <div v-if="city" class="center-select__label">{{ city }}</div>
       <brick-radio-button-select v-else :options="craneStates.selectOptions" v-model="craneStates.department" placeholder="全省"/>
       <!--    企业性质选择-->
       <data-loader ref="job_select" v-slot="{ results: results }" :url="`/v1/components/63b74ddd-39de-493f-84ab-9d87fcf23fee/data`" method="get" :data="[['']]">
@@ -227,6 +227,7 @@ export const key_talents = {
     return {
       Echarts: Echarts,
       currentArea: '',
+      city: '',
       craneStates: {
         selectedArea: {},
         mapData: [],
@@ -536,13 +537,6 @@ export const key_talents = {
       if(this.craneStates.mapType==='distribution') {
         this.getCompanyDistributionApi()
       }
-
-      const query = value ? { city: value.value } : {}
-
-      this.$router.push({
-        path: this.$route.path,
-        query,
-      })
     },
     'craneStates.selectedArea'(value) {
       if(value) {
@@ -552,6 +546,7 @@ export const key_talents = {
     '$route.query': {
       handler(value) {
         if(value.city) {
+          this.city = value.city
           const area = _.find(this.craneStates.selectOptions, (option) => (option.value === value.city))
           this.craneStates.department = area ? area : this.craneStates.department
         }

@@ -20,7 +20,7 @@
     </data-loader>
     <img ref="title-bg" :style="{width: '700px', height: '124px', position: 'absolute', top: '0px', left: '610px'}" src="../../public/hxrc/images/Title-Bg.png" />
     <div @click="()=>[openNavigator()]" :style="{cursor: 'pointer', width: '460px', color: '#fff', fontSize: '42px', fontWeight: 600, textAlign: 'center', lineHeight: 1, position: 'absolute', top: '36px', left: '730px'}">
-      人才资源综合驾驶舱
+      全省人才资源态势总览
     </div>
     <div ref="talent-education" :style="{color: '#fff', fontSize: '18px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', cursor: 'pointer', position: 'absolute', top: '360px', left: '73px'}">
       <div data-content="根据「区域」选择统计该区域人才学历分布情况" :style="{position: 'relative'}">
@@ -51,7 +51,7 @@
     <div ref="production-bg" :style="{width: '380px', height: '50px', backgroundColor: 'rgba(13, 45, 120, .45)', borderRadius: '5px', position: 'absolute', top: '128px', left: '40px'}" />
     <div ref="production-bg" :style="{width: '380px', height: '50px', backgroundColor: 'rgba(13, 45, 120, .45)', borderRadius: '5px', position: 'absolute', top: '208px', left: '40px'}" />
     <div ref="departments-loader" class="center-select">
-      <div v-if="currentArea" class="center-select__label">{{ currentArea }}</div>
+      <div v-if="city" class="center-select__label">{{ city }}</div>
       <brick-radio-button-select v-else ref="departments-select" :options="craneStates.selectOptions" v-model="craneStates.department" placeholder="全省" />
     </div>
     <div ref="talents-demand-change-icon" :style="{color: '#6ad6ff', fontSize: '14px', fontWeight: '400', textAlign: 'left', position: 'absolute', top: '51px', left: '1500px'}">
@@ -189,6 +189,7 @@ export const resources = {
     return {
       Echarts: Echarts,
       currentArea: '',
+      city: '',
       scrollRadio: true,
       craneStates: {
         department: null,
@@ -297,13 +298,6 @@ export const resources = {
     'craneStates.department'(value) {
       this.currentArea = value ? value.label : ''
       this.setState('mapData', [])
-
-      const query = value ? { city: value.value } : {}
-
-      this.$router.push({
-        path: this.$route.path,
-        query,
-      })
     },
 
     'craneStates.selectedArea'(value) {
@@ -314,6 +308,7 @@ export const resources = {
     '$route.query': {
       handler(value) {
         if(value.city) {
+          this.city = value.city
           const area = _.find(this.craneStates.selectOptions, (option) => (option.value === value.city))
           this.craneStates.department = area ? area : this.craneStates.department
         }

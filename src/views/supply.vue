@@ -11,7 +11,7 @@
       <v-chart ref="map" :options="mapOptions" />
     </data-loader>
     <div class="center-select">
-      <div v-if="currentArea" class="center-select__label">{{ currentArea }}</div>
+      <div v-if="city" class="center-select__label">{{ city }}</div>
       <brick-radio-button-select v-else ref="departments-select" :options="craneStates.selectOptions" v-model="craneStates.department" placeholder="全省" :style="{marginLeft: '12px'}" />
     </div>
     <data-loader ref="job_select" :style="{position: 'absolute', top: '48px', left: '40px'}">
@@ -209,6 +209,7 @@ export const supply = {
       provinceOptions: PROVINCE_OPTIONS,
       Echarts: Echarts,
       currentArea: '',
+      city: '',
       clickType: false,
       months: [
         {name:'一月',value:1},{name:'二月',value:2},{name:'三月',value:3},{name:'四月',value:4},{name:'五月',value:5},
@@ -244,12 +245,6 @@ export const supply = {
     },
     'craneStates.department'(value) {
       this.currentArea = value ? value.value : ''
-      const query = value ? { city: value.value } : {}
-
-      this.$router.push({
-        path: this.$route.path,
-        query,
-      })
     },
     'craneStates.selectedArea'(value) {
       if(value) {
@@ -260,6 +255,7 @@ export const supply = {
     '$route.query': {
       handler(value) {
         if(value.city) {
+          this.city = value.city
           const area = _.find(this.craneStates.selectOptions, (option) => (option.value === value.city))
           this.craneStates.department = area ? area : this.craneStates.department
         }
