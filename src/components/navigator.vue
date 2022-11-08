@@ -72,9 +72,15 @@ const LIST = [
   },
 ]
 export default {
+  props: {
+    city: {
+      type: String,
+      default: ''
+    }
+  },
   data() {
     return {
-      listData: LIST,
+      list: LIST,
       show: false
     }
   },
@@ -92,6 +98,14 @@ export default {
   computed: {
     query() {
       return this.$route.query
+    },
+    listData() {
+      if (this.city) {
+        this.list[0].items = this.list[0].items.slice(0,4)
+        return this.list
+      } else {
+        return this.list
+      }
     }
   },
 

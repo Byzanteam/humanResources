@@ -1,6 +1,6 @@
 <template>
   <div class="resources" v-if="isShow">
-    <navigator ref="navigator"/>
+    <navigator ref="navigator" :city="city"/>
     <img ref="box-bg" :style="{width: '440px', height: '1059px', position: 'absolute', top: '10px', left: '10px'}" src="../../public/hxrc/images/Box-Bg.png" />
     <img ref="right-box-bg" :style="{width: '440px', height: '1059px', position: 'absolute', top: '10px', left: '1471px'}" src="../../public/hxrc/images/Box-Bg.png" />
     <date-picker format="yyyy年" v-model="craneStates.year" :style="{width: '380px', height: '50px', position: 'absolute', top: '48px', left: '40px'}" :options="{disabledDate: (time) => {return !generateDateRange().includes(time.getFullYear())}}" type="year" class="supply-datepicker" placeholder="选择时间" />

@@ -1,6 +1,6 @@
 <template>
   <div class="introduction" v-if="isShow">
-    <navigator ref="navigator"/>
+    <navigator ref="navigator" :city="city" />
     <data-loader :style="{width: '960px', height: '884px', position: 'absolute', top: '176px', left: '480px'}">
       <v-chart ref="map" :options="mapOptions" />
     </data-loader>
