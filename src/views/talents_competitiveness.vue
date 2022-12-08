@@ -117,7 +117,7 @@
       </vis-table>
     </data-loader>
     <data-loader ref="force-value" v-slot="{ results: results }" :url="digitalRequestUrl" method="get" :data="[[0]]" :style="{position: 'absolute', top: '66px', left: '1614px'}">
-      <digital-roll ref="force-value-content" v-if="results" data-content="根据选择的对应十大指标体系结合「区域」统计分析该区域的综合竞争力指数" titlePosition="left" :content="{title: '综合指标', digital: digitalData}" :options="{separator: ',', decimalPlaces: 1}" :titleStyle="{color: '#ffffff', fontSize: '16px', fontWeight: '400'}" :prefixStyle="{color: '#00fff2', fontSize: '16px', fontWeight: '400'}" :suffixStyle="{color: '#00fff2', fontSize: '16px', fontWeight: '400'}" :digitalStyle="{fontSize: '32px', color: '#00fff2', fontWeight: '400', fontFamily: 'Oswald-Regular', format: '11', lineHeight: '38px', letterSpacing: '2.4px'}" />
+      <digital-roll ref="force-value-content" v-if="results" data-content="根据选择的对应十大指标体系结合「区域」统计分析该区域的综合竞争力指数" titlePosition="left" :content="{title: '福建省综合指标', digital: digitalData}" :options="{separator: ',', decimalPlaces: 1}" :titleStyle="{color: '#ffffff', fontSize: '16px', fontWeight: '400'}" :prefixStyle="{color: '#00fff2', fontSize: '16px', fontWeight: '400'}" :suffixStyle="{color: '#00fff2', fontSize: '16px', fontWeight: '400'}" :digitalStyle="{fontSize: '32px', color: '#00fff2', fontWeight: '400', fontFamily: 'Oswald-Regular', format: '11', lineHeight: '38px', letterSpacing: '2.4px'}" />
     </data-loader>
   </div>
 </template>
