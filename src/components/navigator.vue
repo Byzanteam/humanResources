@@ -23,7 +23,7 @@
         <div class="navigation__list__content">
           <router-link
             v-for="item in list.items"
-            :to="item.path"
+            :to="{path: item.path, query: query}"
             :key="item.label"
             class="navigation__list__item"
           >
@@ -46,7 +46,7 @@ const LIST = [
     items: [
       {
         path: '/resources',
-        label: '人才资源综合驾驶舱'
+        label: '全省人才资源态势总览'
       },
       {
         path: '/supply',
@@ -62,7 +62,7 @@ const LIST = [
       },
       {
         path: '/talents-competitiveness',
-        label: '省域人才综合竞争力'
+        label: '省域人才综合竞争力评估'
       },
       {
         path: '/highTalents',
@@ -87,6 +87,12 @@ export default {
       })
     }, 500);
 
+  },
+
+  computed: {
+    query() {
+      return this.$route.query
+    }
   },
 
   methods: {

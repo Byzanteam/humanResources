@@ -53,7 +53,8 @@
     <div ref="activity-bg" :style="{height: '50px', width: '380px', backgroundColor: 'rgba(13,45,120,.45)', borderRadius: '5px', position: 'absolute', top: '252px', left: '40px'}" />
     <div ref="high-level-bg" :style="{height: '50px', width: '380px', backgroundColor: 'rgba(13,45,120,.45)', borderRadius: '5px', position: 'absolute', top: '712px', left: '40px'}" />
     <div ref="departments-loader" class="center-select">
-      <brick-radio-button-select ref="departments-select" :options="craneStates.selectOptions" v-model="craneStates.department" placeholder="全省" :style="{marginLeft: '12px'}" />
+      <div v-if="city" class="center-select__label">{{ city }}</div>
+      <brick-radio-button-select v-else ref="departments-select" :options="craneStates.selectOptions" v-model="craneStates.department" placeholder="全省" :style="{marginLeft: '12px'}" />
     </div>
     <data-loader ref="activity-number-line" v-slot="{ results: results }" :url="`/v1/components/44b74ddd-39de-493f-84ab-9d87fcf23fee/data?area=${selectedArea}`" method="get" :data="[[0, '暂无数据']]" :style="{width: '380px', height: '240px', position: 'absolute', top: '334px', left: '40px'}">
       <v-chart ref="activity-number-line-content" :options="{grid: {left: 50, right: 0}, xAxis: {axisLabel: {color: 'rgba(255, 255, 255, .8)', fontSize: 14, fontWeight: 400, rotate: 0}, axisLine: {show: false}, data: results ? results.map(item => (item[1])) : ['暂无数据']}, yAxis: {axisLabel: {color: 'rgba(255, 255, 255, .8)', fontSize: 14, fontWeight: 400, rotate: 0, align: 'right'}, axisTick: {show: false}, axisLine: {show: false}, splitLine: {show: false}, splitNumber: 5, name: '次', nameTextStyle: {align: 'right', padding: [0, 5, 0, 0], color: 'rgba(255, 255, 255, .8)', fontSize: 14, fontWeight: 400}}, series: {type: 'line', smooth: false, showSymbol: false, color: ['#00fff2'], lineStyle: {width: 4}, areaStyle: {color: new Echarts.graphic.LinearGradient(0, 0, 0, 1, [{
@@ -143,6 +144,7 @@ export const introduction = {
   data () {
     return {
       Echarts: Echarts,
+      city: '',
       provinceOptions: PROVINCE_OPTIONS,
       craneStates: {
         province: PROVINCE_OPTIONS[0],
@@ -199,6 +201,16 @@ export const introduction = {
   watch: {
     'craneStates.department' () {
       this.craneStates.selectedArea = {}
+    },
+    '$route.query': {
+      handler(value) {
+        if(value.city) {
+          this.city = value.city
+          const area = _.find(this.craneStates.selectOptions, (option) => (option.value === value.city))
+          this.craneStates.department = area ? area : this.craneStates.department
+        }
+      },
+      immediate: true
     }
   },
 

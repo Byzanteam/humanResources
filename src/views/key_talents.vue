@@ -103,7 +103,8 @@
     </data-loader>
     <div :style="{position: 'absolute', top: '125px', left: '652px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', minWidth: '600px'}">
       <!--    省市选择-->
-      <brick-radio-button-select :options="craneStates.selectOptions" v-model="craneStates.department" placeholder="全省"/>
+      <div v-if="city" class="center-select__label">{{ city }}</div>
+      <brick-radio-button-select v-else :options="craneStates.selectOptions" v-model="craneStates.department" placeholder="全省"/>
       <!--    企业性质选择-->
       <data-loader ref="job_select" v-slot="{ results: results }" :url="`/v1/components/63b74ddd-39de-493f-84ab-9d87fcf23fee/data`" method="get" :data="[['']]">
         <brick-radio-button-select :options="results.map(i=>({label:i[0]}))" v-model="craneStates.companyType" placeholder="所有企业性质" />
@@ -128,13 +129,13 @@
       >>
     </div>
     <div data-content="对ABC类人才，特别是：杰出、领军、紧缺人才进行展示" :style="{color: '#fff', fontSize: '20px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', cursor: 'pointer', position: 'absolute', top: '46px', left: '74px'}">
-      高层次人才概览
+      高层次人才供需地图
     </div>
     <div :style="{color: '#41bcff', fontSize: '14px', fontWeight: '400', textAlign: 'left', position: 'absolute', top: '49px', left: '1504px'}">
       >>
     </div>
     <div :style="{color: '#fff', fontSize: '20px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', cursor: 'pointer', position: 'absolute', top: '46px', left: '1536px'}">
-      区域紧缺人才地图
+      全省紧缺人才地图
     </div>
     <div :style="{color: '#41bcff', fontSize: '14px', fontWeight: '400', textAlign: 'left', position: 'absolute', top: '561px', left: '40px'}">
       >>
@@ -226,6 +227,7 @@ export const key_talents = {
     return {
       Echarts: Echarts,
       currentArea: '',
+      city: '',
       craneStates: {
         selectedArea: {},
         mapData: [],
@@ -540,6 +542,16 @@ export const key_talents = {
       if(value) {
         this.currentArea = value.name
       }
+    },
+    '$route.query': {
+      handler(value) {
+        if(value.city) {
+          this.city = value.city
+          const area = _.find(this.craneStates.selectOptions, (option) => (option.value === value.city))
+          this.craneStates.department = area ? area : this.craneStates.department
+        }
+      },
+      immediate: true
     }
   },
 

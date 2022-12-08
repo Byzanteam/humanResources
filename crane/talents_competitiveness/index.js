@@ -16,7 +16,7 @@ module.exports = {
     name: 'talents_competitiveness',
     path: 'talents-competitiveness'
   },
-  title:'省域人才综合竞争力',
+  title:'省域人才综合竞争力评估',
   states: [
     {
       id: 'province',
@@ -192,7 +192,7 @@ module.exports = {
     },
     {
       ...page_title_content,
-      content: '省域人才综合竞争力',
+      content: '省域人才综合竞争力评估',
     },
     ...map,
     {

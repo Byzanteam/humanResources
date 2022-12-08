@@ -2,8 +2,8 @@
   <div class="talents_competitiveness" v-if="isShow">
     <navigator ref="navigator"/>
     <img ref="title-bg" :style="{width: '701px', height: '123px', position: 'absolute', top: '0px', left: '607px'}" src="../../public/hxrc/images/Title-Bg.png" />
-    <div @click="()=>[openNavigator()]" :style="{cursor: 'pointer', width: '460px', color: '#fff', fontSize: '42px', fontWeight: 600, textAlign: 'center', lineHeight: 1, position: 'absolute', top: '36px', left: '730px'}">
-      省域人才综合竞争力
+    <div @click="()=>[openNavigator()]" :style="{cursor: 'pointer', width: '465px', color: '#fff', fontSize: '42px', fontWeight: 600, textAlign: 'center', lineHeight: 1, position: 'absolute', top: '36px', left: '730px'}">
+      省域人才综合竞争力评估
     </div>
     <data-loader :style="{width: '960px', height: '884px', position: 'absolute', top: '176px', left: '480px'}">
       <v-chart ref="map" :options="{backgroundColor: 'transparent', geo: {map: craneStates.city ? craneStates.city.uuid : 'fujian', label: {normal: {show: false}, emphasis: {show: false}}, itemStyle: {normal: {areaColor: '#0e3e7d', borderColor: '#68a4f0', borderType: 'solid', borderWidth: 2}, emphasis: {areaColor: '#29e8de'}}, regions: [{name: '南海诸岛', value: 0, itemStyle: { normal: { opacity: 0, label: { show: false}}}}]}, series: [
@@ -150,7 +150,7 @@ import {
 import Navigator from '../components/navigator'
 
 const PROVINCE_OPTIONS = [{label: '福建', uuid: 1}]
-const YEAR_OPTIONS = [ {label: '2021', uuid: 2},  {label: '2020', uuid: 1}, {label: '2019', uuid: 0}]
+const YEAR_OPTIONS = [{label: '2022', uuid: 3}, {label: '2021', uuid: 2},  {label: '2020', uuid: 1}, {label: '2019', uuid: 0}]
 
 export const talents_competitiveness = {
   mixins: [BuiltInMixin],
@@ -193,16 +193,12 @@ export const talents_competitiveness = {
   },
 
   created() {
-    document.title = '省域人才综合竞争力'
+    document.title = '省域人才综合竞争力评估'
     this.areaSelectRequest()
   },
 
   beforeMount() {
     this.requestMapGeojson(Echarts)
-  },
-
-  mounted() {
-    this.mapDbclickedFunc()
   },
 
   watch: {
@@ -279,15 +275,6 @@ export const talents_competitiveness = {
   },
 
   methods: {
-    // 取消双击地图下钻
-    // mapDbclickedFunc () {
-    //   const {chart} = this.$refs.map
-    //   chart.on('dblclick', (params) => {
-    //     const { name } = params
-    //     const area = _.find(this.craneStates.selectOptions, (option) => (option.label === name))
-    //     this.craneStates.city = area ? area : this.craneStates.city
-    //   })
-    // },
     generateRadarData () {
       const { currentProvince } = this.craneStates
       const areas = currentProvince.reduce((acc, item, index) => {

@@ -11,7 +11,8 @@
       <v-chart ref="map" :options="mapOptions" />
     </data-loader>
     <div class="center-select">
-      <brick-radio-button-select ref="departments-select" :options="craneStates.selectOptions" v-model="craneStates.department" placeholder="全省" :style="{marginLeft: '12px'}" />
+      <div v-if="city" class="center-select__label">{{ city }}</div>
+      <brick-radio-button-select v-else ref="departments-select" :options="craneStates.selectOptions" v-model="craneStates.department" placeholder="全省" :style="{marginLeft: '12px'}" />
     </div>
     <data-loader ref="job_select" :style="{position: 'absolute', top: '48px', left: '40px'}">
       <Select class="departments-select" placeholder="全部" :clearable="true" :filterable="true" :remote-method="selectOptionsRequest" :loading="selectRemoteLoading" :style="{width: '380px'}" v-model="craneStates.currentJob">
@@ -53,7 +54,7 @@
     </div>
     <brick-tabs :tabNavs="craneStates.tabNavs" :activeTab="craneStates.tabCurrent" :style="{position: 'absolute', top: '330px', left: '110px'}" v-model="craneStates.tabCurrent" />
     <data-loader v-slot="{ results: results }" v-if="craneStates.tabCurrent === craneStates.tabNavs[0]" :url="`/v1/components/04b74ddd-39de-493f-84ab-9d87fcf23fee/data?year=${generateYear}&month=${generateMonth}&job=${craneStates.currentJob || ''}&area=${areaSelect}`" method="get" :data="null" :style="{width: '380px', height: '280px', overflow: 'scroll', position: 'absolute', top: '392px', left: '40px'}">
-      <vis-table v-scroll="{itemHeight: 40}" :withHeader="false" theme="dark" stripe="" :headers="[{width: 80, key: 'index'}, {width: 200, key: 'name'}, {width: 100, key: 'count'}]" :data="results ? results.map((item, index) => ({index: index + 1, name: item[0], count: item[1]})) : [{index: 0, name: '暂无数据', count: 0}]">
+      <vis-table v-scroll="{itemHeight: 40}" key="04b74ddd-39de-493f-84ab-9d87fcf23fee" :withHeader="false" theme="dark" stripe="" :headers="[{width: 80, key: 'index'}, {width: 200, key: 'name'}, {width: 100, key: 'count'}]" :data="results ? results.map((item, index) => ({index: index + 1, name: item[0], count: item[1]})) : [{index: 0, name: '暂无数据', count: 0}]">
         <template v-slot="{ cell: cell, columnKey: columnKey }">
           <span :class="columnKey === 'index' ? 'row-index-cell' : ''">
             {{cell}}
@@ -62,7 +63,7 @@
       </vis-table>
     </data-loader>
     <data-loader v-slot="{ results: results }" v-if="craneStates.tabCurrent === craneStates.tabNavs[1]" :url="`/v1/components/05b74ddd-39de-493f-84ab-9d87fcf23fee/data?year=${generateYear}&month=${generateMonth}&job=${craneStates.currentJob || ''}&area=${areaSelect}`" method="get" :data="null" :style="{width: '380px', height: '280px', overflow: 'scroll', position: 'absolute', top: '392px', left: '40px'}">
-      <vis-table v-scroll="{itemHeight: 40}" :withHeader="false" theme="dark" stripe="" :headers="[{width: 80, key: 'index'}, {width: 200, key: 'name'}, {width: 100, key: 'count'}]" :data="results ? results.map((item, index) => ({index: index + 1, count: item[0], name: item[1]})) : [{index: 0, name: '暂无数据', count: 0}]">
+      <vis-table v-scroll="{itemHeight: 40}" key="05b74ddd-39de-493f-84ab-9d87fcf23fee" :withHeader="false" theme="dark" stripe="" :headers="[{width: 80, key: 'index'}, {width: 200, key: 'name'}, {width: 100, key: 'count'}]" :data="results ? results.map((item, index) => ({index: index + 1, count: item[0], name: item[1]})) : [{index: 0, name: '暂无数据', count: 0}]">
         <template v-slot="{ cell: cell, columnKey: columnKey }">
           <span :class="columnKey === 'index' ? 'row-index-cell' : ''">
             {{cell}}
@@ -91,7 +92,7 @@
     </div>
     <div ref="talent-demand" :style="{color: '#fff', fontSize: '18px', fontWeight: '600', textAlign: 'left', letterSpacing: '1px', cursor: 'pointer', position: 'absolute', top: '48px', left: '1533px'}">
       <div :style="{position: 'relative'}">
-        6大重点行业的人才需求排名
+        重点行业分析
       </div>
     </div>
     <div class="rank" :style="{display: 'flex', position: 'absolute', top: '100px', left: '1500px'}">
@@ -107,7 +108,7 @@
       </div>
     </div>
     <data-loader v-slot="{ results: results }" url="/v1/components/08b74ddd-39de-493f-84ab-9d87fcf23fee/data" method="get" :data="null" :style="{width: '380px', height: '198px', overflow: 'scroll', position: 'absolute', top: '142px', left: '1500px'}">
-      <vis-table v-scroll="{itemHeight: 40}" theme="dark" stripe="" :withHeader="false" :headers="[{width: 60, key: 'index'}, {width: 140, key: 'name', title: '行业名称'}, {width: 100, key: 'count', title: '需求人数'}, {width: 100, key: 'ratio', title: '供求比'}]" :data="results ? results.map((item, index) => ({index: index + 1, name: item[0], count: item[1] || 0, ratio: item[2] || 0})) : [{index: 0, name: '暂无数据', count: 0, ratio: 0}]">
+      <vis-table v-scroll="{itemHeight: 40}" key="08b74ddd-39de-493f-84ab-9d87fcf23fee" theme="dark" stripe="" :withHeader="false" :headers="[{width: 60, key: 'index'}, {width: 140, key: 'name', title: '行业名称'}, {width: 100, key: 'count', title: '需求人数'}, {width: 100, key: 'ratio', title: '供求比'}]" :data="results ? results.map((item, index) => ({index: index + 1, name: item[0], count: item[1] || 0, ratio: item[2] || 0})) : [{index: 0, name: '暂无数据', count: 0, ratio: 0}]">
         <template v-slot="{ cell: cell, columnKey: columnKey }">
           <span :class="columnKey === 'index' ? 'row-index-cell' : ''">
             {{cell}}
@@ -208,6 +209,7 @@ export const supply = {
       provinceOptions: PROVINCE_OPTIONS,
       Echarts: Echarts,
       currentArea: '',
+      city: '',
       clickType: false,
       months: [
         {name:'一月',value:1},{name:'二月',value:2},{name:'三月',value:3},{name:'四月',value:4},{name:'五月',value:5},
@@ -241,7 +243,7 @@ export const supply = {
         this.craneStates.inputQuery = ''
       }
     },
-    'craneStates.department' (value) {
+    'craneStates.department'(value) {
       this.currentArea = value ? value.value : ''
     },
     'craneStates.selectedArea'(value) {
@@ -249,6 +251,16 @@ export const supply = {
         const area = _.find(this.craneStates.selectOptions, (option) => (option.label === value.name))
         this.currentArea = area!==undefined ? area.value : value.name
       }
+    },
+    '$route.query': {
+      handler(value) {
+        if(value.city) {
+          this.city = value.city
+          const area = _.find(this.craneStates.selectOptions, (option) => (option.value === value.city))
+          this.craneStates.department = area ? area : this.craneStates.department
+        }
+      },
+      immediate: true
     }
   },
 

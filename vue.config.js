@@ -19,4 +19,12 @@ module.exports = {
       },
     },
   },
+  devServer: {
+    proxy: {
+      '/v1': {
+        target: 'http://bigdata.hxrc.com/rczytsgzpt/rczytsgzpt-server',
+        changOrigin: false,
+      },
+    },
+  },
 }
