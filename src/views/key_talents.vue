@@ -203,6 +203,7 @@ import {
   Input,
 } from 'element-ui'
 import Navigator from '../components/navigator'
+import {PROVINCE_PIECES,CITY_PIECES} from './constants'
 
 const MAP_TAB_NAVS = [{uuid: 1, label: '人才供应'}, {uuid: 2, label: '人才需求'}]
 
@@ -253,6 +254,9 @@ export const key_talents = {
   },
 
   computed: {
+    piecesArr(){
+      return this.craneStates.department ? CITY_PIECES : PROVINCE_PIECES
+    },
     requestUrl() {
       switch (this.craneStates.mapType) {
         case "supply":
@@ -320,7 +324,7 @@ export const key_talents = {
           visualMap: {
             type: 'piecewise',
             inverse: true,
-            pieces: [{gt: 1500, label: '1500人及以上'}, {gte: 1000, lte: 1500, label: '1000-1500人'}, {gte: 100, lte: 999, label: '100-999人'}, {gte: 10, lte: 99, label: '10-99人'}, {gte: 1, lte: 9, label: '1-9人'}],
+            pieces: this.piecesArr,
             orient: 'horizontal',
             bottom: '6%',
             left: '26%',
@@ -560,9 +564,13 @@ export const key_talents = {
   },
 
   mounted() {
-    const { chart } = this.$refs.map
-    this.mapClickedFunc(chart)
-    this.mapDbclickedFunc(chart)
+    this.$watch('isShow',val => {
+      if(val){
+        const { chart } = this.$refs.map
+        this.mapClickedFunc(chart)
+        this.mapDbclickedFunc(chart)
+      }
+    })
   },
 
   beforeMount() {

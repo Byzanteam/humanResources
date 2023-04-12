@@ -330,9 +330,13 @@ export const supply = {
   },
 
   mounted() {
-    const { chart } = this.$refs.map
-    this.mapClickedFunc(chart)
-    this.mapDbclickedFunc(chart)
+    this.$watch('isShow',val => {
+      if(val){
+        const { chart } = this.$refs.map
+        this.mapClickedFunc(chart)
+        this.mapDbclickedFunc(chart)
+      }
+    })
   },
 
   methods: {

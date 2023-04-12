@@ -168,6 +168,7 @@ import {
   VerticalBar,
 } from '@byzanteam/graphite'
 import Navigator from '../components/navigator'
+import {PROVINCE_PIECES,CITY_PIECES} from './constants'
 
 export const resources = {
   mixins: [BuiltInMixin],
@@ -212,6 +213,9 @@ export const resources = {
   },
 
   computed: {
+    piecesArr(){
+      return this.craneStates.department ? CITY_PIECES : PROVINCE_PIECES
+    },
     mapOptions() {
       return {
         backgroundColor: 'transparent',
@@ -223,7 +227,7 @@ export const resources = {
         visualMap: {
           type: 'piecewise',
           inverse: true,
-          pieces: [{gt: 1500, label: '1500人及以上'}, {gte: 1000, lte: 1500, label: '1000-1500人'}, {gte: 100, lte: 999, label: '100-999人'}, {gte: 10, lte: 99, label: '10-99人'}, {gte: 1, lte: 9, label: '1-9人'}],
+          pieces: this.piecesArr,
           orient: 'horizontal',
           bottom: '6%',
           left: '26%',
