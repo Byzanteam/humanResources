@@ -1,0 +1,2 @@
+export const PROVINCE_PIECES = [{gte:0, lte: 49999, label: '5万以下'},{gte: 50000, lte: 69999, label: '5万-7万'},{gte: 70000, lte: 99999, label: '7万-10万'},{gte: 100000, lte: 199999, label: '10万-20万'},{gt: 200000, label: '20万以上'}]
+export const CITY_PIECES = [{gte:0, lte: 4999, label: '5千以下'},{gte: 5000, lte: 9999, label: '5千-1万'},{gte: 10000, lte: 19999, label: '1万-2万'},{gte: 20000, lte: 99999, label: '2万-10万'},{gt: 100000, label: '10万以上'}]
